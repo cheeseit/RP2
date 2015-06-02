@@ -1,0 +1,6 @@
+Requirements:
+1 Multiple edges, self-loops, and isolated vertices may be ignored in the subsequent kernels but must be included in the edge list provided to the first kernel.
+2 The data generator and retrieval operations need not be timed.
+3 The graph may not be changed between functions
+4 breadth first search no restrictions on the algorithm which is used to create the breadth first graph.
+

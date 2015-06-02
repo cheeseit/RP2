@@ -1,0 +1,28 @@
+====================================================
+http://cs.stanford.edu/people/jure/pubs/kronecker-jmlr10.pdf
+
+A very indepth look into kronecker generator. Gives a good introduction and also explains the basic concepts of the model.
+It also states some things which are not true anymore, but also shows to what properties a network should have. It also
+compare the kronecker graph to other types of graphs. Lik bipartite graphs and edos renyi.
+
+Some results about how the graph relates to real graphs. Find out how the stachastical graph is build up. 
+
+Sudo code for kronfit.
+
+Statistical kronecker graphs, tell you how they should be produced and keep the same degree of the graph. Probablity that each specified edge might appear.
+
+Good visual reprensentation of the kronecker graphs which can be produced.
+
+synomyns for kronecker product Kronecker product are tensor product, categorical product, direct product, cardinal product, 
+relational product, conjunction, weak direct product or just product, and even Cartesian produc
+
+
+
+====================================================
+http://www.graphanalysis.org/SIAM-PP08/Leskovic.pdf
+
+This is related to http://cs.stanford.edu/people/jure/pubs/kronecker-jmlr10.pdf
+
+This presentation gives an introduction into kronecker graphs and gives some example calculation.
+It also states some things which are not true anymore, but also shows to what properties a network should adhere. 
+
