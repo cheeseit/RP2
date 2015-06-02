@@ -32,10 +32,10 @@
 
 \section*{Introduction}
 \label{sec:introduction}
-Modern HPC applications are optimized to process 3D physics simulation, but are not well suited for analyzing graphs. The Graph500 \cite{murphy2010introducing} is an initiative to improve the state of the algorithm, hardware architectures and software systems to better suit graph analysis.
+Modern HPC applications are optimized to process 3D physics simulation, but are not well suited for analyzing graphs. The Graph500 \cite{murphy2010introducing} is an initiative to improve the state of the algorithm, hardware architectures and software systems to better suit graph analysis. They do this by having a list of the computers which are the best at calculating these graph/
 
 The benchmark needs to comply to some specifications which can be found on this website. The benchmark consist of two kernels, the first being the graph construction, the second is the Breadth-First Search. The way these are done is not important, but the results needs to validate 
-The benchmark should include a Kronecker.
+The benchmark should include a Kronecker graph, which has a lot of properties which are also seen in a ``real'' graphs.
 
 This project will try putting the running a graph500 benchmark on the public cloud and see how well it can perform. The focus will be on finding a model to fit the results in and make a prediction on how well the benchmark works when put on multiple machines.    
 
@@ -58,10 +58,10 @@ A paper by Beamer et al.\cite{beamer2011searching} shows an improved of doing a 
 
 
 \section*{Scope}
-The research will focus on the Graph500 implementation which are sequential or uses MPI and OpenMP. The other benchmarks will not be used. 
+The research will focus on the Graph500 implementation which are sequential or uses MPI and OpenMP. The other benchmarks will not be used. No new algorithm will be made, but small optimization will be made to make it run faster on the public machine.
 
 \section*{Research Question}
-During this project the following questions need to answered.
+During this project the following questions will be answered.
 \begin{itemize}
 \item Is it possible to run the Graph500 benchmark on the public cloud?
 \item Which values are important to include for Graph500 a benchmark in the public cloud?

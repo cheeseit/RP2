@@ -81,11 +81,12 @@ Focused on power consumption and virtual shared memory with their own programmin
 
 Focused on saving power, looks at the speed the cpus are working and see how that effect the performance of the algorithm.
 
-=================================================
+==================================================
 Exploring the Performance Impact of Virtualization on an HPC Cloud.
 
 Comparing virtual machine vs a physical machine. Uses graph500 algorithm to tet the difference. Shows no significant difference between physical and virtual machine. Does use a private cloud. Reports what code they used en which parameters were used to get the performe they wanted and the problem they had with the OPEnMPI library they used.
 
-Clear graphs, nice explanation of the work done and what code they used and hardware. 
+Clear graphs, nice explanation of the work done and what code they used and hardware.
 
-
+==================================================
+Scalable Graph Exploration on Multicore Processors
