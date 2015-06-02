@@ -1,3 +1,11 @@
+http://www.ncsu.edu/hpc/Courses/6sparse.html Good example spare matrix multiplication
+http://www.mathcs.emory.edu/~cheung/Courses/561/Syllabus/3-C/sparse.html Nice visual way of showing how sparse matrix works and how it is best stores.
+https://wiki.debian.org/Hugepages
+https://wiki.archlinux.org/index.php/KVM#Enabling_huge_pages
+
+OPENMP The programmer decides what part of the code should be done in paralel and openMP decides itself how this is implemented and how many cores will be used.
+
+
 ====================================================
 http://cs.stanford.edu/people/jure/pubs/kronecker-jmlr10.pdf
 
@@ -25,4 +33,59 @@ This is related to http://cs.stanford.edu/people/jure/pubs/kronecker-jmlr10.pdf
 
 This presentation gives an introduction into kronecker graphs and gives some example calculation.
 It also states some things which are not true anymore, but also shows to what properties a network should adhere. 
+
+
+===================================================
+Introducing the Graph 500
+https://cug.org/5-publications/proceedings_attendee_lists/CUG10CD/pages/1-program/final_program/CUG10_Proceedings/pages/authors/11-15Wednesday/14C-Murphy-paper.pdf
+
+A good Introduction on what graph500 is, what it is used for, and why it is important. This paper also talks about the challenges that come with doing graph calculations
+
+Easy to understand, mentions the different ways supercomputer do graph computation e.g. XTM.
+
+No details about the algorithms used.
+
+==================================================
+Searching for a Parent Instead of Fighting Over Children: A Fast Breadth-First Search Implementation for Graph500
+http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.221.220&rep=rep1&type=pdf
+
+Gives a new way of do a breadth first search in a hybrid way top down and bottom up. The point is that the top down needs to atleast walk through everything, but the bottom up
+works from low to high which means that it look for parents. The bottom up approach works better if the graph has a lot of edge nodes. This is why they made a hybrid solution.
+
+Gives so pseudo code and explains both concepts of bottom up and top down. Also present their new solution and gives some metrics. Gives an argument against the way graph500 is done. 
+
+Some what confusing pseudo code. Does not say anything about the validation.
+
+==================================================
+Highly Scalable Graph Search for the Graph500 Benchmark
+
+This paper has a good introduction of graph500 and intially uses the reference code that has been provided by graph500. They use MPI en OPENMP to optimize and divide the graph in two to speed up the processs. They also mention the validation step which is very important, because this is part of the benchmark and this is where you could a lot of the time. They show and fast way of creating the graph and optimize the creation and validation of the graph. Visual representation of the algorithms. Explain all the reference implementations.
+
+
+A lot of detail, each step is discussed and each optimization is explained and it is explained exactly what it is optimizing. There is some sudo code which is also briefly explained. The Related work give a look at other project which did the same.
+
+
+==================================================
+Characterizing the Communication Demands of the Graph500 Benchmark on a Commodity Cluster
+
+Small explanation about how the benchmark works and how the values are calculated. Talks about the how the benchmark works and what is needed from the hardware for commodity hardware. The related work show some other work done on commodity hardware which show some acceleration on normal multicore machines. 
+
+Gives a detailed explanation of the algorithm used and shows how much of an affect the message passing has on the overal performance of the algorithm. Algorithm might be useful and message passing.
+
+Very small letters in the graphs. Graphs are unclear. 
+
+==================================================
+Power and Performance Analysis of the Graph 500 Benchmark on the Single-chip Cloud Computer
+
+Focused on power consumption and virtual shared memory with their own programming language. Interesting ways to present data. Single multicore processor with share memory. Godo explanation about why they used which language. It use openMP.
+
+Focused on saving power, looks at the speed the cpus are working and see how that effect the performance of the algorithm.
+
+=================================================
+Exploring the Performance Impact of Virtualization on an HPC Cloud.
+
+Comparing virtual machine vs a physical machine. Uses graph500 algorithm to tet the difference. Shows no significant difference between physical and virtual machine. Does use a private cloud. Reports what code they used en which parameters were used to get the performe they wanted and the problem they had with the OPEnMPI library they used.
+
+Clear graphs, nice explanation of the work done and what code they used and hardware. 
+
 

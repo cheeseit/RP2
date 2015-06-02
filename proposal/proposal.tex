@@ -1,0 +1,81 @@
+\documentclass[A4]{scrartcl}
+\usepackage[english]{babel}
+\usepackage{hyperref}
+\usepackage{mathtools}
+%\usepackage[ddmmyyyyy]{datetime}
+
+\usepackage[%
+  backend=bibtex      % biber or bibtex
+%,style=authoryear    % Alphabeticalsch
+ ,style=numeric-comp  % numerical-compressed
+ ,sorting=none        % no sorting
+ ,sortcites=true      % some other example options ...
+ ,block=none
+ ,indexing=false
+ ,citereset=none
+ ,isbn=true
+ ,url=true
+ ,doi=true            % prints doi
+ ,natbib=true         % if you need natbib functions
+]{biblatex}
+\bibliography{bib}
+
+
+
+\begin{document}
+\title{Feasibility of Graph500 in the public cloud.}
+\subtitle{Research Project 2 - Proposal}
+\date{\today}
+\author{Harm Dermois \\ harm.dermois@os3.nl}
+
+\maketitle
+
+\section*{Introduction}
+\label{sec:introduction}
+Modern HPC applications are optimized to process 3D physics simulation, but are not well suited for analyzing graphs. The Graph500 \cite{murphy2010introducing} is an initiative to improve the state of the algorithm, hardware architectures and software systems to better suit graph analysis.
+
+The benchmark needs to comply to some specifications which can be found on this website. The benchmark consist of two kernels, the first being the graph construction, the second is the Breadth-First Search. The way these are done is not important, but the results needs to validate 
+The benchmark should include a Kronecker.
+
+This project will try putting the running a graph500 benchmark on the public cloud and see how well it can perform. The focus will be on finding a model to fit the results in and make a prediction on how well the benchmark works when put on multiple machines.    
+
+
+%Data intensive supercomputer applications are increasingly important for HPC workloads, but are ill-suited for platforms designed for 3D physics simulations. Current benchmarks and performance metrics do not provide useful information on the suitability of supercomputing systems for data intensive applications. A new set of benchmarks is needed in order to guide the design of hardware architectures and software systems intended to support such applications and to help procurements. Graph algorithms are a core part of many analytics workloads.
+
+%Backed by a steering committee of over 50 international HPC experts from academia, industry, and national laboratories, Graph 500 will establish a set of large-scale benchmarks for these applications. The Graph 500 steering committee is in the process of developing comprehensive benchmarks to address three application kernels: concurrent search, optimization (single source shortest path), and edge-oriented (maximal independent set). Further, we are in the process of addressing five graph-related business areas: Cybersecurity, Medical Informatics, Data Enrichment, Social Networks, and Symbolic Networks.
+
+%This is the first serious approach to complement the Top 500 with data intensive applications. Additionally, we are working with the SPEC committee to include our benchmark in their CPU benchmark suite. We also maintain a list of the most energy efficient systems for data intensive computing. The Green Graph 500 will be released together with the Graph500 list. We anticipate the list will rotate between ISC and SC in future years.
+
+
+
+\section*{Related Work}
+There is lots of related work on trying to improve the reference code of the graph500, or the implementation of the breadth-first search. 
+
+This paper, by Chaktranont et al.\cite{chakthranont2014exploring}, shows the difference between graph500 benchmark on virtual private cluster and on a physical cluster. The MPI code variant of the benchmark were used for these measurements.
+
+A paper by Beamer et al.\cite{beamer2011searching} shows an improved of doing a breadth-first which is a hybrid of a top down and the bottom up approach and choses which one is best in an heuristic way. 
+
+
+
+\section*{Scope}
+The research will focus on the Graph500 implementation which are sequential or uses MPI and OpenMP. The other benchmarks will not be used. 
+
+\section*{Research Question}
+During this project the following questions need to answered.
+\begin{itemize}
+\item Is it possible to run the Graph500 benchmark on the public cloud?
+\item Which values are important to include for Graph500 a benchmark in the public cloud?
+\item What is size of graph is reasonable to benchmark?
+\item Is it possible to make predictions about how many resources are needed to get a certain performance of the system?
+\end{itemize}
+
+\section*{Methodology}
+The first step is running the reference code on my own server and see how well it performs for different problem scales. The second step is running the same code on the DAS. After this we can see how it runs on one of the public cloud services. First one machine will be taken en then the  performance test will be
+
+
+\section*{Ethical Considerations}
+There are no ethical considerations.
+
+\printbibliography
+
+\end{document}
