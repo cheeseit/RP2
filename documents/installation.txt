@@ -1,0 +1,14 @@
+=================================
+MPI installation
+sudo apt-get install libcr-dev mpich2 mpich2-doc
+
+=================================
+gcloud install
+sudo apt-get install libcr-dev mpich2 mpich2-doc
+sudo apt-get install build-essential
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install bzip2
+bzip2 -d graph_thing.bzip2
+tar xf graph_thing.tar
+

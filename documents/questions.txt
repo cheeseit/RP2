@@ -1,3 +1,5 @@
 What is erdos renyi ?
 What is R-MAT model?
 
+
+What is a C macro. Is used for overload. Is used if you want to use a function sometimes.

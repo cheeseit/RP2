@@ -23,7 +23,7 @@
 
 
 \begin{document}
-\title{Feasibility of Graph500 in the public cloud.}
+\title{Graph500 in the public cloud.}
 \subtitle{Research Project 2 - Proposal}
 \date{\today}
 \author{Harm Dermois \\ harm.dermois@os3.nl}
@@ -32,45 +32,47 @@
 
 \section*{Introduction}
 \label{sec:introduction}
-Modern HPC applications are optimized to process 3D physics simulation, but are not well suited for analyzing graphs. The Graph500 \cite{murphy2010introducing} is an initiative to improve the state of the algorithm, hardware architectures and software systems to better suit graph analysis. They do this by having a list of the computers which are the best at calculating these graph/
+Modern HPC applications are optimized to process 3D physics simulation, but are not well suited for analyzing graphs. The Graph500 \cite{murphy2010introducing} is an initiative to improve the state of the algorithm, hardware architectures and software systems to better suit graph analysis/processing. Graph500 does this by having a top 500 list where different institutes can compete and find out who has the best graph processor.
 
-The benchmark needs to comply to some specifications which can be found on this website. The benchmark consist of two kernels, the first being the graph construction, the second is the Breadth-First Search. The way these are done is not important, but the results needs to validate 
-The benchmark should include a Kronecker graph, which has a lot of properties which are also seen in a ``real'' graphs.
+To get on the list, a benchmark should be run. This benchmark needs to comply to some specifications which can be found on this website\cite{graph500-specs}, but beyond these specifications anything goes. This means that the benchmark can be optimized for the hardware it running on. 
 
-This project will try putting the running a graph500 benchmark on the public cloud and see how well it can perform. The focus will be on finding a model to fit the results in and make a prediction on how well the benchmark works when put on multiple machines.    
+The benchmark consist of two kernels, the first being the graph construction, the second is the Breadth-First Search. Both of these kernels will be timed. The kernels are preceded by the creation of an edge-list using a Kronecker Generator\cite{leskovec2010kronecker}. The results of both kernels are validated and the performance information is output. 
 
-
-%Data intensive supercomputer applications are increasingly important for HPC workloads, but are ill-suited for platforms designed for 3D physics simulations. Current benchmarks and performance metrics do not provide useful information on the suitability of supercomputing systems for data intensive applications. A new set of benchmarks is needed in order to guide the design of hardware architectures and software systems intended to support such applications and to help procurements. Graph algorithms are a core part of many analytics workloads.
-
-%Backed by a steering committee of over 50 international HPC experts from academia, industry, and national laboratories, Graph 500 will establish a set of large-scale benchmarks for these applications. The Graph 500 steering committee is in the process of developing comprehensive benchmarks to address three application kernels: concurrent search, optimization (single source shortest path), and edge-oriented (maximal independent set). Further, we are in the process of addressing five graph-related business areas: Cybersecurity, Medical Informatics, Data Enrichment, Social Networks, and Symbolic Networks.
-
-%This is the first serious approach to complement the Top 500 with data intensive applications. Additionally, we are working with the SPEC committee to include our benchmark in their CPU benchmark suite. We also maintain a list of the most energy efficient systems for data intensive computing. The Green Graph 500 will be released together with the Graph500 list. We anticipate the list will rotate between ISC and SC in future years.
-
-
-
-\section*{Related Work}
-There is lots of related work on trying to improve the reference code of the graph500, or the implementation of the breadth-first search. 
-
-This paper, by Chaktranont et al.\cite{chakthranont2014exploring}, shows the difference between graph500 benchmark on virtual private cluster and on a physical cluster. The MPI code variant of the benchmark were used for these measurements.
-
-A paper by Beamer et al.\cite{beamer2011searching} shows an improved of doing a breadth-first which is a hybrid of a top down and the bottom up approach and choses which one is best in an heuristic way. 
-
-
-
-\section*{Scope}
-The research will focus on the Graph500 implementation which are sequential or uses MPI and OpenMP. The other benchmarks will not be used. No new algorithm will be made, but small optimization will be made to make it run faster on the public machine.
+The list, at the moment, consists mostly of super computers. The aim  of this project try and put an entry on the list using the public cloud. The focus will be on finding a model to make a prediction of how many machines will be needed to get a certain performance.
 
 \section*{Research Question}
-During this project the following questions will be answered.
+During this project the following questions will be answered:
 \begin{itemize}
-\item Is it possible to run the Graph500 benchmark on the public cloud?
-\item Which values are important to include for Graph500 a benchmark in the public cloud?
-\item What is size of graph is reasonable to benchmark?
-\item Is it possible to make predictions about how many resources are needed to get a certain performance of the system?
+\item How well does the reference implementation\cite{graph500-code} run on the public cloud?
+\item How can this implementation be improved to get a better performance while running it in the cloud?
+\item What size of graph is reasonable to benchmark while working in the cloud?
+\item Is it possible to make a model that can predict the performance depending on the amount of resources?
 \end{itemize}
 
+\section*{Related Work}
+There is a lot of related work on the Graph500 benchmark and implementation of the breadth-first search algorithms. 
+
+This paper, by Chaktranont et al.\cite{chakthranont2014exploring}, shows the difference between Graph500 benchmark on a virtual private cluster and on a physical cluster. The MPI implementation variant of the benchmark were used for these benchmarks.
+
+A paper by Beamer et al.\cite{beamer2011searching} shows an improved algorithm for doing a breadth-first search. This algorithm is a hybrid, combining the top down approach with the bottom up approach.
+
+Koji Ueno and Toyotaro Suzumura\cite{ueno2012highly} investigated the reference Graph500 implementation. They point out the flaws of the MPI-based implementations which all do 1D partitioning and propose a 2D solution and show the results of this implementation.
+
+\section*{Scope}
+The research will focus on running the MPI Graph500 reference. The other benchmarks will not be considered. Optimization will only be done for running the implementation on the cloud.
+
+
 \section*{Methodology}
-The first step is running the reference code on my own server and see how well it performs for different problem scales. The second step is running the same code on the DAS. After this we can see how it runs on one of the public cloud services. First one machine will be taken en then the  performance test will be
+The project will be consist of the following steps:
+\begin{itemize}
+\item Run the reference implementation locally.
+\item Run the reference implementation on the DAS-4 from the Vrije Universiteit.
+\item Run the reference on the cloud.
+\item Compare the results and find the difference possibly change the measurements.
+\item Make a model from the results.
+\item Optimize the reference implementation for running in the cloud.
+\item Adjust the model.
+\end{itemize}
 
 
 \section*{Ethical Considerations}

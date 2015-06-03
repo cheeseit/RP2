@@ -2,6 +2,8 @@ http://www.ncsu.edu/hpc/Courses/6sparse.html Good example spare matrix multiplic
 http://www.mathcs.emory.edu/~cheung/Courses/561/Syllabus/3-C/sparse.html Nice visual way of showing how sparse matrix works and how it is best stores.
 https://wiki.debian.org/Hugepages
 https://wiki.archlinux.org/index.php/KVM#Enabling_huge_pages
+http://mpitutorial.com/tutorials/mpi-reduce-and-allreduce/
+mpitutorial.com/beginner-mpi-tutorial/
 
 OPENMP The programmer decides what part of the code should be done in paralel and openMP decides itself how this is implemented and how many cores will be used.
 
