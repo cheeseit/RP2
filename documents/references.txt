@@ -92,3 +92,16 @@ Clear graphs, nice explanation of the work done and what code they used and hard
 
 ==================================================
 Scalable Graph Exploration on Multicore Processors
+
+
+
+==================================================
+Performance Characteristics of Graph500 on Large-Scale Distributed Environment
+
+This paper gives a detailed desciption of all the MPI reference implementations. The paper also gives estimations of the amount of messages that will be sent and it also gives an comparison between the different implementation. Also a conclusion is made about which version is best in which case. 
+
+Nice graphs and pictures of how CSR and the code use. 
+
+Very nice explanation and gooe gives a good comparison of the 
+
+

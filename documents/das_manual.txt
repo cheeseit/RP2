@@ -1,0 +1,18 @@
+Das specs UvA
+hdermois@fs0.das4.cs.vu.nl is the vu node
+hdermois@fs4.das4.cs.vu.nl is the uva node
+
+Cluster 	Nodes Type 	Speed 	  Memory 	Storage 	Node HDDs 	Network 	Accelerators
+UvA-MN 	36 	dual quad-core 	2.4 GHz   24 GB 	30 TB 		2*1TB 		IB and GbE 	8*GTX480 + 7*C2050 + 2 x GTX480 
+
+
+========================================================
+MPI on DAS
+
+$ module load openmpi/gcc
+$ which mpicc
+/cm/shared/apps/openmpi/gcc/64/1.4.2/bin/mpicc
+$ mpicc -O2 -o cpi cpi.c
+
+$ module load prun
+$ prun -v -np 2 -sge-script $PRUN_ETC/prun-openmpi `pwd`/cpi
