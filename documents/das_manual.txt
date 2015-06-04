@@ -1,6 +1,6 @@
 Das specs UvA
-hdermois@fs0.das4.cs.vu.nl is the vu node
-hdermois@fs4.das4.cs.vu.nl is the uva node
+fs0.das4.cs.vu.nl is the vu node
+fs4.das4.cs.vu.nl is the uva node
 
 Cluster 	Nodes Type 	Speed 	  Memory 	Storage 	Node HDDs 	Network 	Accelerators
 UvA-MN 	36 	dual quad-core 	2.4 GHz   24 GB 	30 TB 		2*1TB 		IB and GbE 	8*GTX480 + 7*C2050 + 2 x GTX480 
