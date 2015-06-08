@@ -16,3 +16,5 @@ $ mpicc -O2 -o cpi cpi.c
 
 $ module load prun
 $ prun -v -np 2 -sge-script $PRUN_ETC/prun-openmpi `pwd`/cpi
+
+ prun -v -np 2 -sge-script $PRUN_ETC/prun-openmpi ./graph500_mpi_simple 10 16 

@@ -1,0 +1,94 @@
+The things that should be measured.
+
+
+
+\subsection{Problem scale}
+The predefined problem scales can be seen here:
+\begin{table}
+\begin{tabular}{|l|l|l|l|}
+\hline
+Problem class & Scale & Edge Factor & Approx. Storage size in TB\\ \hline
+Toy (level 10) &	26 &	16 &	0.0172\\ \hline
+Mini (level 11) &	29 &	16 &	0.1374\\ \hline
+Small (level 12) &	32 &	16 &	1.0995\\ \hline
+Medium (level 13)& 	36 &	16 &	17.5922\\ \hline
+Large (level 14) &	39 &	16 &	140.7375\\ \hline
+Huge (level 15) &	42 &	16 &	1125.8999\\ \hline
+\end{tabular}
+\label{tab:problem_scales}
+\caption{The lists of problem classes as defined by the graph500}
+\end{table}
+
+
+
+The edge factor will always be 16. In each of the problem sizes this is always kept constant.
+The scale of the problem depends on the amount of memory that is available. Because this project deals with commodity hardware we have more freedom in the virtual hardware that will be used. The baseline needs to be adjusted to the variety which is available. For this the amount of experiments will be very varied, but the problem scale should not be to large. Therefore the project will focus on the TOY and mini problem classes. This means a scale of 26 and 29. If the resources allow the small problem scale will also be considered.
+
+Toy, mini and small maybe, do not know which algorithm yet probably simple, because no need to replicate the whole graph less intensive.
+
+\subsection{Ram vs Reading from a file.}
+%TODO this is all speculation. Need to figure out if this is true. Do not know if I want to test this.
+It is easier to store and write to a file but this will cause the program to be slower and less edges will be able to be traversed at in the same time frame. By using file storage larger problem classes will be able to (I think). The data the tmpfile needs to accessible by all the files.
+
+\textbf{abstract not used.}
+
+\subsection{The algorithms}
+The reference implementation comes with 4 reference implementations which all use the same level wise parallelization. The programs are  called simple, one sided, replicated and replicated csc. All graphs use some form of storing the sparse graph in a compressed form explained in the background[REF graph compression.]. The one sided algorithm will not be considered. This is because one sided communication expect high performance remote memory access. This is a technique which can not be relied on in the public cloud, because you have no control over the environment and no idea what actual hardware is used. This is why it is better to stick to the basics. Which will be the other 3 algorithms.
+All these algorithms will be tested with the Toy and Mini scale with 16 cores. In the paper by Suzumura et al. \cite{suzumura2011performance} it was shown that after 32 cores the problem might become to small to properly divide the work. This is why the chosen amount of nodes used will be 16. No changes will be made to the algorithm and OpenMP can decide itself how many cores will be used. Toy and miniscale will be used because the working of the algorithm might change when the problem scale grows.
+
+\textbf{abstract}
+Tiny Small 16 nodes openmp simple replicated replicated csc. replicated does not scale that well or needs a way to efficiently store the graph. 
+
+
+\subsection{Hardware}
+Because we are using commodity hardware we are  bound to the VMs that are provided to us. This means that the amount of cores and measurements of the baseline needs to be in line with the amount of resources that is available in the public cloud.
+In the comparison between the baseline and the public cloud the amount of cores will be considered. First for the baseline we will inspect what the optimal amount of cores is for these kind of experiments. This will be done by fixing the OpenMP.
+The amount of cores that will be tested is 1,2,4 and 8. This is maximum amount of cores that are available on the DAS-4 which has a dual quadcore on each of the nodes. This will be test with the Tiny scale or smaller on one node. Only parts of the program is parallelized locally with OpenMP the other part is done with MPI. 
+The speed of the cores will mentioned, but expect this not to be a huge factor and this is a fixed number and cannot be changed. 
+
+\textbf{abstract}
+Toy or smaller scale, depends on the time it takes 1 node 1,2,4, 8 cores.
+
+\subsection{Output}
+The output should at least contain these measurements.
+%TODO needs to be edited taken from graph500
+\textbf{Timing} \\
+Start the time for a search immediately prior to visiting the search root. Stop the time for that search when the output has been written to memory. Do not time any I/O outside of the search routine. If your algorithm relies on problem-specific data structures (by our definition, these are informed by vertex degree), you must include the setup time for such structures in each search. The spirit of the benchmark is to gauge the performance of a single search. We run many searches in order to compute means and variances, not to amortize data structure setup time.
+
+\textbf{Performance Metric} \\
+In order to compare the performance of Graph 500 "Search" implementations across a variety of architectures, programming models, and productivity languages and frameworks, we adopt a new performance metric described in this section. In the spirit of well-known computing rates floating-point operations per second (flops) measured by the LINPACK benchmark and global updates per second (GUPs) measured by the HPCC RandomAccess benchmark, we define a new rate called traversed edges per second (TEPS). We measure TEPS through the benchmarking of kernel 2 as follows. Let timeK2(n) be the measured execution time for kernel 2. Let m be the number of input edge tuples within the component traversed by the search, counting any multiple edges and self-loops. We define the normalized performance rate (number of edge traversals per second) as:
+\\
+$TEPS(n) = m / timeK2(n)$
+\begin{description}
+\item[SCALE] Graph generation parameter
+\item[edgefactor] Graph generation parameter
+\item[NBFS] Number of BFS searches run, 64 for non-trivial graphs
+\item[construction time] The single kernel 1 time
+\item[min time, firstquartile time, median time, thirdquartile time, max time] Quartiles for the kernel 2 times
+\item[mean time, stddev time] Mean and standard deviation of the kernel 2 times
+\item[min nedge, firstquartile nedge, median nedge, thirdquartile nedge, max nedge] Quartiles for the number of input edges visited by kernel 2, see TEPS section above.
+\item[mean nedge, stddev nedge] Mean and standard deviation of the number of input edges visited by kernel 2, see TEPS section above.
+\item[min TEPS, firstquartile TEPS, median TEPS, thirdquartile TEPS, max TEPS]  Quartiles for the kernel 2 TEPS
+\item[harmonic mean TEPS, harmonic stddev TEPS] Mean and standard deviation of the kernel 2 TEPS. Note: Because TEPS is a rate, the rates are compared using harmonic means.
+
+\end{description}
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+   
+
+     

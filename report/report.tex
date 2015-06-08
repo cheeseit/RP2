@@ -29,8 +29,11 @@
 \author{Harm Dermois \\ harm.dermois@os3.nl}
 
 \maketitle
+\newpage
+\tableofcontents
+\newpage
 
-\section*{Introduction}
+\section{Introduction}
 \label{sec:introduction}
 Modern HPC applications are optimized to process 3D physics simulation, but are not well suited for analyzing graphs. The Graph500 \cite{murphy2010introducing} is an initiative to improve the state of algorithms, hardware architectures and software systems to better suit graph analysis/processing. Graph500 does this by having a top 500 list where different institutes can compete and find out who has the best graph processor.
 
@@ -40,7 +43,7 @@ The benchmark consist of two kernels, the first being the graph construction, th
 
 The list, at the moment, consists mostly of super computers. The aim of this project try and put an entry on the list using the public cloud. The focus will be on finding a model to make a prediction of how many machines will be needed to get a certain performance.
 
-\section*{Research Question}
+\section{Research Question}
 During this project the following questions will be answered:
 \begin{itemize}
 \item How well does the reference implementation\cite{graph500-code} run on the public cloud?
@@ -49,7 +52,7 @@ During this project the following questions will be answered:
 \item Is it possible to make a model that can predict the performance depending on the amount of resources?
 \end{itemize}
 
-\section*{Related Work}
+\section{Related Work}
 There is a lot of related work on the Graph500 benchmark and implementation of the breadth-first search algorithms. 
 
 This paper, by Chaktranont et al.\cite{chakthranont2014exploring}, shows the difference between Graph500 benchmark on a virtual private cluster and on a physical cluster. The MPI implementation variant of the benchmark were used for these benchmarks.
@@ -58,15 +61,15 @@ A paper by Beamer et al.\cite{beamer2011searching} shows an improved algorithm f
 
 Koji Ueno and Toyotaro Suzumura\cite{ueno2012highly} investigated the reference Graph500 implementation. They point out the flaws of the MPI-based implementations which all do 1D partitioning and propose a 2D solution. The paper shows the results of this implementation which performs better for larger scale problems.
 
-\section*{Scope}
+\section{Scope}
 The research will focus on running the MPI Graph500 reference implementation. The other benchmarks will not be considered. Optimization will only be done for running the implementation on the cloud.
 
 
-\section*{Methodology}
+\section{Methodology}
 \input{sections/method/experiments.tex}
 
 
-\section*{Ethical Considerations}
+\section{Ethical Considerations}
 There are no ethical considerations.
 
 \printbibliography
