@@ -124,3 +124,6 @@ sympy-plots-for-*.tex/
 # WinEdt
 *.bak
 *.sav
+
+# Dont add the executables to the repo
+code/graph500/mpi/graph500*
