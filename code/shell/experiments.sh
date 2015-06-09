@@ -7,19 +7,25 @@ REPO=$HOME/project
 RESULTS=results/experiment
 # Default value if OpenMP is on or not.
 OMP=1
+# BY default only use one node
+NODES=1
+RES=""
 #get options still needs to be filled in
-while getopts ":o:s:e:r:a:" opt; do
+while getopts ":r:n:o:s:e:r:a:" opt; do
     case $opt in
         a)
             echo "-a was triggered, Parameter: $OPTARG" >&2
             ;;
         r)
             # The reservation number for the calculations
-            RES=$OPTARG
+            RES="-reserve $OPTARG"
             ;;
         e)
             # The executable that should be used.
             EXE=$OPTARG
+            ;;
+        n)  
+            NODES=$OPTARG
             ;;
         s)
             # The scale that will be for the project.
@@ -45,7 +51,7 @@ done
 # Experiments with different amount of nodes.
 
 #Array of the nodes that will be used.
-NODES="1 2 4 8 16"
+# NODES="1 2 4 8 16"
 #NODES="1 2 4 8 16 32"
 
 if [[ ! -d $REPO/$RESULTS ]]
@@ -55,7 +61,5 @@ fi
 
 for i in $NODES
 do
-    echo "prun -reserve $RES -v -np $i -sge-script $PRUN_ETC/prun-openmpi `pwd`/$EXE $SCALE $EDGEFACTOR > $REPO/$RESULTS/"$i"nodes_"$SCALE"scale_"$EDGEFACTOR"edge_"$OMP"omp_"$EXE".txt"
-
-    prun -reserve $RES -v -np $i -sge-script $PRUN_ETC/prun-openmpi `pwd`/$EXE $SCALE $EDGEFACTOR > $REPO/$RESULTS/"$i"nodes_"$SCALE"scale_"$EDGEFACTOR"edge_"$OMP"omp_"$EXE".txt
+  { time prun $RES -v -np $i -sge-script $PRUN_ETC/prun-openmpi `pwd`/$EXE $SCALE $EDGEFACTOR > $REPO/$RESULTS/"$i"nodes_"$SCALE"scale_"$EDGEFACTOR"edge_"$OMP"omp_"$EXE".txt ; } 2>> $REPO/$RESULTS/1nodes_"$SCALE"scale_"$EDGEFACTOR"edge_"$OMP"omp_"$EXE".time 
 done
