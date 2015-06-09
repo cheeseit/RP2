@@ -59,6 +59,6 @@ for c in $CPU
 do
   for i in {1..3}
   do
-      prun -v -np 1 -sge-script mpi_host_script $MPI/$EXE $SCALE $EDGEFACTOR $c &> $REPO/$RESULTS/1nodes_"$SCALE"scale_"$EDGEFACTOR"edge_"$OMP"omp_"$c"cpu_"$EXE"$i.txt
+    { time prun -v -np 1 -sge-script mpi_host_script $MPI/$EXE $SCALE $EDGEFACTOR $c &> $REPO/$RESULTS/1nodes_"$SCALE"scale_"$EDGEFACTOR"edge_"$OMP"omp_"$c"cpu_"$EXE"$i.txt ; } 2>> 1nodes_"$SCALE"scale_"$EDGEFACTOR"edge_"$OMP"omp_"$c"cpu_"$EXE".txt 
   done
 done
