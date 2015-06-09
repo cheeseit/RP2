@@ -63,5 +63,5 @@ fi
 for i in $NODES
 do
   echo "Running this command:\n prun $RES -v -np $i -sge-script mpi_host_script $MPI/$EXE $SCALE $EDGEFACTOR > $REPO/$RESULTS/"$i"nodes_"$SCALE"scale_"$EDGEFACTOR"edge_"$OMP"omp_"$EXE".txt"
-  { time prun $RES -v -np $i -sge-script mpi_host_script $MPI/$EXE $SCALE $EDGEFACTOR > $REPO/$RESULTS/"$i"nodes_"$SCALE"scale_"$EDGEFACTOR"edge_"$OMP"omp_"$EXE".txt ; } 2>> $REPO/$RESULTS/"$i"nodes_"$SCALE"scale_"$EDGEFACTOR"edge_"$OMP"omp_"$EXE".time 
+  { time prun $RES -v -np $i -sge-script mpi_host_script $MPI/$EXE $SCALE $EDGEFACTOR &> $REPO/$RESULTS/"$i"nodes_"$SCALE"scale_"$EDGEFACTOR"edge_"$OMP"omp_"$EXE".txt ; } 2>> $REPO/$RESULTS/"$i"nodes_"$SCALE"scale_"$EDGEFACTOR"edge_"$OMP"omp_"$EXE".time 
 done

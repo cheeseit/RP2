@@ -18,3 +18,7 @@ $ module load prun
 $ prun -v -np 2 -sge-script $PRUN_ETC/prun-openmpi `pwd`/cpi
 
  prun -v -np 2 -sge-script $PRUN_ETC/prun-openmpi ./graph500_mpi_simple 10 16 
+
+
+./experiments.sh -r 79280 -e graph500_mpi_simple -s 20 -n 2
+
