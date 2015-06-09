@@ -5,6 +5,7 @@
 EDGEFACTOR=16
 REPO=$HOME/project
 RESULTS=results/experiment
+MPI=$HOME/project/code/graph500/mpi
 # Default value if OpenMP is on or not.
 OMP=1
 # BY default only use one node
@@ -61,5 +62,6 @@ fi
 
 for i in $NODES
 do
-  { time prun $RES -v -np $i -sge-script $PRUN_ETC/prun-openmpi `pwd`/$EXE $SCALE $EDGEFACTOR > $REPO/$RESULTS/"$i"nodes_"$SCALE"scale_"$EDGEFACTOR"edge_"$OMP"omp_"$EXE".txt ; } 2>> $REPO/$RESULTS/1nodes_"$SCALE"scale_"$EDGEFACTOR"edge_"$OMP"omp_"$EXE".time 
+  echo "Running this command:\n prun $RES -v -np $i -sge-script mpi_host_script $MPI/$EXE $SCALE $EDGEFACTOR > $REPO/$RESULTS/"$i"nodes_"$SCALE"scale_"$EDGEFACTOR"edge_"$OMP"omp_"$EXE".txt"
+  { time prun $RES -v -np $i -sge-script mpi_host_script $MPI/$EXE $SCALE $EDGEFACTOR > $REPO/$RESULTS/"$i"nodes_"$SCALE"scale_"$EDGEFACTOR"edge_"$OMP"omp_"$EXE".txt ; } 2>> $REPO/$RESULTS/"$i"nodes_"$SCALE"scale_"$EDGEFACTOR"edge_"$OMP"omp_"$EXE".time 
 done
