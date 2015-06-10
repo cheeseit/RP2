@@ -1,0 +1,7 @@
+failed ./experiments.sh -r 79280 -e graph500_mpi_simple -s 20 -n 2
+failed ./experiments.sh -r 79282 -e graph500_mpi_simple -s 20 -n 4
+
+failed ./different_cores.sh -r 79267 -e graph500_mpi_simple -s 20
+./different_cores.sh -r 79267 -e graph500_mpi_simple -s 10 -t 3
+
+

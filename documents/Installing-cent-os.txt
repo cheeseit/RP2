@@ -1,0 +1,24 @@
+http://na-inet.jp/na/pccluster/centos_x86_64-en.html for installing mpi    
+
+1  ll
+    2  git atus
+    3  git status
+    4  yum install git
+    5  yum update
+    6  yum install git
+    7  git
+    8  yum -y install zlib-devel openssl-devel cpio expat-devel gettext-devel
+    9  wget http://git-core.googlecode.com/files/git-1.7.9.tar.gz
+   10  ll
+   11  tar xvzf git-1.7.9.tar.gz 
+   12  ls
+   13  cd git-1.7.9
+   14  ll
+   15  ./configure
+   16  yum groupinstall "Development Tools"
+
+To run mpi everything needs to be in the same place. So you need absolute paths for
+each of the variables you are giving. The hosts files need to be in the same place
+the executables need to be in the same place all. It also needs to be able connect 
+to the other instances via ssh. So i created a key on the machine and add it's own 
+public key to the authorized keys. So every clone of the machine will get the same stuff.
