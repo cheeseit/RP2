@@ -1,0 +1,12 @@
+Run on 2 hosts for 360000 seconds from Tue Jun  9 16:25:15 2015
+: node111/0 node112/0 
+graph_generation:               0.753208 s
+construction_time:              1.306364 s
+Running BFS 0
+Time for BFS 0 is 0.464704
+Validating BFS 0
+bash: line 1:  2069 Killed                  /cm/shared/package/reserve.sge-6.2u5p2/bin/watchit -f .PRUN_ENVIRONMENT.3807.fs1 -start /cm/shared/package/reserve.sge-6.2u5p2/bin/kill_not_owned 359940 1 -cpu 0 mpi_host_script
+
+real	957m47.962s
+user	0m2.202s
+sys	0m2.335s

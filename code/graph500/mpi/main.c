@@ -72,14 +72,21 @@ int main(int argc, char** argv) {
   /* Parse arguments. */
   int SCALE = 16;
   int edgefactor = 16; /* nedges / nvertices, i.e., 2*avg. degree */
+  int cores = -1;
   if (argc >= 2) SCALE = atoi(argv[1]);
   if (argc >= 3) edgefactor = atoi(argv[2]);
-  if (argc <= 1 || argc >= 4 || SCALE == 0 || edgefactor == 0) {
+  if (argc >= 4) cores = atoi(argv[2]);
+  if (argc <= 1 || argc >= 5 || SCALE == 0 || edgefactor == 0) {
     if (rank == 0) {
       fprintf(stderr, "Usage: %s SCALE edgefactor\n  SCALE = log_2(# vertices) [integer, required]\n  edgefactor = (# edges) / (# vertices) = .5 * (average vertex degree) [integer, defaults to 16]\n(Random number seed and Kronecker initiator are in main.c)\n", argv[0]);
     }
     MPI_Abort(MPI_COMM_WORLD, 1);
   }
+  if (cores !=-1){
+    omp_set_dynamic(0);     // Explicitly disable dynamic teams
+    omp_set_num_threads(cores); // Use 4 threads for all consecutive parallel regions
+  }
+
   uint64_t seed1 = 2, seed2 = 3;
 
   const char* filename = getenv("TMPFILE");

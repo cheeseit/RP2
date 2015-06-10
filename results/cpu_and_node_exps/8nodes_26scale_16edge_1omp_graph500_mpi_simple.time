@@ -1,0 +1,31 @@
+Run on 8 hosts for 360000 seconds from Tue Jun  9 14:12:48 2015
+: node101/0 node102/0 node103/0 node104/0 node106/0 node113/0 node115/0 node116/0 
+
+real	1m55.704s
+user	0m0.031s
+sys	0m0.019s
+Run on 8 hosts for 360000 seconds from Tue Jun  9 14:17:56 2015
+: node101/0 node102/0 node103/0 node104/0 node106/0 node113/0 node115/0 node116/0 
+
+real	0m32.512s
+user	0m0.029s
+sys	0m0.013s
+Run on 8 hosts for 360000 seconds from Tue Jun  9 14:19:41 2015
+: node101/0 node102/0 node103/0 node104/0 node106/0 node113/0 node115/0 node116/0 
+
+real	3m52.399s
+user	0m0.035s
+sys	0m0.020s
+Run on 8 hosts for 360000 seconds from Tue Jun  9 14:23:37 2015
+: node101/0 node102/0 node103/0 node104/0 node106/0 node113/0 node115/0 node116/0 
+Warning: Permanently added 'node113,10.141.1.13' (RSA) to the list of known hosts.
+Warning: Permanently added 'node116,10.141.1.16' (RSA) to the list of known hosts.
+Warning: Permanently added 'node104,10.141.1.4' (RSA) to the list of known hosts.
+Warning: Permanently added 'node115,10.141.1.15' (RSA) to the list of known hosts.
+Warning: Permanently added 'node106,10.141.1.6' (RSA) to the list of known hosts.
+Warning: Permanently added 'node103,10.141.1.3' (RSA) to the list of known hosts.
+graph_generation:               14.708629 s
+construction_time:              33.445306 s
+Running BFS 0
+Time for BFS 0 is 10.316167
+Validating BFS 0
