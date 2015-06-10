@@ -9,8 +9,9 @@ MPI=$HOME/project/code/graph500/mpi
 # Default value if OpenMP is on or not.
 OMP=1
 RES=""
+ITERATIONS=1
 #get options still needs to be filled in
-while getopts ":c:o:s:e:r:a:" opt; do
+while getopts ":t:c:o:s:e:r:a:" opt; do
     case $opt in
         a)
             echo "-a was triggered, Parameter: $OPTARG" >&2
@@ -29,6 +30,9 @@ while getopts ":c:o:s:e:r:a:" opt; do
             ;;
         o)
             OMP=$OPTARG
+            ;;
+        t) 
+            ITERATIONS=$OPTARG
             ;;
         \?)
             echo "Invalid option: -$OPTARG" >&2
@@ -57,7 +61,7 @@ then
 fi
 for c in $CPU
 do
-  for i in {1..3}
+    for i in $(seq 1 $ITERATIONS)
   do
     { time prun -v -np 1 -sge-script mpi_host_script $MPI/$EXE $SCALE $EDGEFACTOR $c &> $REPO/$RESULTS/1nodes_"$SCALE"scale_"$EDGEFACTOR"edge_"$OMP"omp_"$c"cpu_"$EXE"$i.txt ; } 2>> $REPO/$RESULTS/1nodes_"$SCALE"scale_"$EDGEFACTOR"edge_"$OMP"omp_"$c"cpu_"$EXE".time 
   done
