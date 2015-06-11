@@ -64,6 +64,6 @@ do
     for i in $(seq 1 $ITERATIONS)
   do
       echo prun $RES -v -np 1 -sge-script mpi_host_script $MPI/$EXE $SCALE $EDGEFACTOR $c
-    { time prun $RES -v -np 1 -sge-script mpi_host_script $MPI/$EXE $SCALE $EDGEFACTOR $c &> $REPO/$RESULTS/1nodes_"$SCALE"scale_"$EDGEFACTOR"edge_"$OMP"omp_"$c"cpu_"$EXE"$i.txt ; } 2>> $REPO/$RESULTS/1nodes_"$SCALE"scale_"$EDGEFACTOR"edge_"$OMP"omp_"$c"cpu_"$EXE".time 
+    { time prun $RES -v -np 1 -sge-script mpi_host_script $MPI/$EXE $SCALE $EDGEFACTOR $c > $REPO/$RESULTS/1nodes_"$SCALE"scale_"$EDGEFACTOR"edge_"$OMP"omp_"$c"cpu_"$EXE"$i.txt ; } 2>> $REPO/$RESULTS/1nodes_"$SCALE"scale_"$EDGEFACTOR"edge_"$OMP"omp_"$c"cpu_"$EXE".time 
   done
 done
