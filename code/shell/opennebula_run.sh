@@ -8,7 +8,10 @@
 
 MACHINES=""
 
-rm hosts
+if [[ -f hosts ]]
+then
+  rm hosts
+fi
 
 #get options still needs to be filled in
 while getopts "m:f:" opt; do
@@ -37,20 +40,20 @@ FLAG=0
 while [ $FLAG -lt $LEN ]
 do
 sleep 1
-        for j in `onevm list -l STAT| tail -n +2`
-        do
-                if [[ $j  ==  "runn" ]]
-                then
-                        let FLAG=FLAG+1
-                else
-                        FLAG=0
-                fi
-        done
+  for j in `onevm list -l STAT| tail -n +2`
+    do
+      if [[ $j  ==  "runn" ]]
+      then
+        let FLAG=FLAG+1
+      else
+        FLAG=0
+      fi
+    done
 done
 #
-while read p
-do
-	scp hosts root@$p:/root
-done < hosts
+#while read p
+#do
+#	scp hosts root@$p:/root
+#done < hosts
 
 
