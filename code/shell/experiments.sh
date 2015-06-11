@@ -11,8 +11,9 @@ OMP=1
 # BY default only use one node
 NODES=1
 RES=""
+VAL=""
 #get options still needs to be filled in
-while getopts ":g:r:n:o:s:e:r:a:" opt; do
+while getopts ":g:r:n:o:s:e:r:a:v" opt; do
     case $opt in
         a)
             echo "-a was triggered, Parameter: $OPTARG" >&2
@@ -35,6 +36,8 @@ while getopts ":g:r:n:o:s:e:r:a:" opt; do
         o)
             OMP=$OPTARG
             ;;
+        v) #extra field in 
+            VAL="no_val"      
         
         \?)
             echo "Invalid option: -$OPTARG" >&2
@@ -63,5 +66,5 @@ DATE=`date +%d%H%M%S`
 for i in $NODES
 do
   echo "Running this command:\n prun $RES -v -np $i -sge-script mpi_host_script $MPI/$EXE $SCALE $EDGEFACTOR > $REPO/$RESULTS/"$i"nodes_"$SCALE"scale_"$EDGEFACTOR"edge_"$OMP"omp_"$EXE".txt"
-  { time prun $RES -v -np $i -sge-script mpi_host_script $MPI/$EXE $SCALE $EDGEFACTOR > $REPO/$RESULTS/"$i"nodes_"$SCALE"scale_"$EDGEFACTOR"edge_"$OMP"omp_"$EXE"id_"$DATE".txt ; } 2>> $REPO/$RESULTS/"$i"nodes_"$SCALE"scale_"$EDGEFACTOR"edge_"$OMP"omp_"$EXE".time 
+  { time prun $RES -v -np $i -sge-script mpi_host_script $MPI/$EXE $SCALE $EDGEFACTOR > $REPO/$RESULTS/"$i"nodes_"$SCALE"scale_"$EDGEFACTOR"edge_"$OMP"omp_"$VAL$EXE"id_"$DATE".txt ; } 2>> $REPO/$RESULTS/"$i"nodes_"$SCALE"scale_"$EDGEFACTOR"edge_"$OMP"omp_"$EXE".time 
 done
