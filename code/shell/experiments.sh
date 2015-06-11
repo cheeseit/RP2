@@ -38,7 +38,7 @@ while getopts ":g:r:n:o:s:e:r:a:v" opt; do
             ;;
         v) #extra field in 
             VAL="no_val"      
-        
+            ;;       
         \?)
             echo "Invalid option: -$OPTARG" >&2
             exit 1
