@@ -1,0 +1,36 @@
+edge factor is always 16
+Toy (level 10) 		26 	16 	0.0172
+Mini (level 11) 	29 	16 	0.1374 <--------- this might even be to much.
+Small (level 12) 	32 	16 	1.0995 <--------- do not know if this is possible.
+Output will be the output of the implementation code which is the minimal required. No other output is needed until the optimizations start.
+
+Need to calculate how much rams is needed for each of the problem sizes.
+
+1. Toy or smaller scale 15-20 one of these, depending on the time it takes, 1 node 1,2,4, 8 cores simple algorithm. Metric will be looking at the TEPS how much they differ.
+
+2. Toy or mini scale. 16 nodes. openmp on. Simple, replicated and replicated csc algorithms. 
+	Want to see how much of a difference there is between the reference implementations. Will most likely continue with the simple implementation, because the other 		implementations need to copy more and use more ram. So Chosen algorithm will probably be simple.
+
+3. Toy with 2,4,8,16,32 nodes. openmp. Chosen algorithm. DAS-4 To see the trend of adding nodes. Point 4 and 5 to see how it changes at larger scale.
+
+4. Mini with 2,4,8,16,32 nodes. open mp. Chosen algorithm. DAS-4
+
+5. Small with 3,4,8,16,32 nodes. open mp. Chosen algorithm. DAS-4 Depends on how long it takes
+
+6. Toy with 2,4,8,16,32 nodes. openmp. Chosen algorithm. Open nebula To see the trend of adding nodes. Point 6 and 7 to see how it changes at larger scale.
+
+7. Mini with 2,4,8,16,32 nodes. open mp. Chosen algorithm. Open nebula
+
+8. Small with 3,4,8,16,32 nodes. open mp. Chosen algorithm. Open nebula Depends on how long it takes. 
+
+
+
+Do 11 june
+2,4,8,16 nodes 9 scale
+2,4,8,16 nodes 12 scale
+2,4,8,16 nodes 15 scale
+
+
+What do I have.
+
+for i in 2 4 8 16 ; do ./experiments.sh -e graph500_mpi_simple -s 9 -n $i ; done 
