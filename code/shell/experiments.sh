@@ -12,7 +12,7 @@ OMP=1
 NODES=1
 RES=""
 #get options still needs to be filled in
-while getopts ":r:n:o:s:e:r:a:" opt; do
+while getopts ":g:r:n:o:s:e:r:a:" opt; do
     case $opt in
         a)
             echo "-a was triggered, Parameter: $OPTARG" >&2
@@ -59,9 +59,9 @@ if [[ ! -d $REPO/$RESULTS ]]
 then
     mkdir $REPO/$RESULTS
 fi
-
+DATE=`date +%d%H%M`
 for i in $NODES
 do
   echo "Running this command:\n prun $RES -v -np $i -sge-script mpi_host_script $MPI/$EXE $SCALE $EDGEFACTOR > $REPO/$RESULTS/"$i"nodes_"$SCALE"scale_"$EDGEFACTOR"edge_"$OMP"omp_"$EXE".txt"
-  { time prun $RES -v -np $i -sge-script mpi_host_script $MPI/$EXE $SCALE $EDGEFACTOR &> $REPO/$RESULTS/"$i"nodes_"$SCALE"scale_"$EDGEFACTOR"edge_"$OMP"omp_"$EXE".txt ; } 2>> $REPO/$RESULTS/"$i"nodes_"$SCALE"scale_"$EDGEFACTOR"edge_"$OMP"omp_"$EXE".time 
+  { time prun $RES -v -np $i -sge-script mpi_host_script $MPI/$EXE $SCALE $EDGEFACTOR &> $REPO/$RESULTS/"$i"nodes_"$SCALE"scale_"$EDGEFACTOR"edge_"$OMP"omp_"$EXE".txt ; } 2>> $REPO/$RESULTS/"$i"nodes_"$SCALE"scale_"$EDGEFACTOR"edge_"$OMP"omp_"$EXE"id_$DATE.time 
 done
