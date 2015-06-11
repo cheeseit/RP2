@@ -34,22 +34,21 @@ do
 done
 
 # wait till all the vms are running
-LEN=$(echo $ID | wc -w)
-EN=${#ID[@]}
-FLAG=0
-while [ $FLAG -lt $LEN ]
-do
-sleep 1
-  for j in `onevm list -l STAT| tail -n +2`
-    do
-      if [[ $j  ==  "runn" ]]
-      then
-        let FLAG=FLAG+1
-      else
-        FLAG=0
-      fi
-    done
-done
+#LEN=$(echo $ID | wc -w)
+#FLAG=0
+#while [ $FLAG -lt $LEN ]
+#do
+#sleep 1
+#  for j in `onevm list -l STAT| tail -n +2`
+#    do
+#      if [[ $j  ==  "runn" ]]
+#      then
+#        let FLAG=FLAG+1
+#      else
+#        FLAG=0
+#      fi
+#    done
+#done
 #
 #while read p
 #do
