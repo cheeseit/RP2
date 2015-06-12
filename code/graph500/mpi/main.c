@@ -323,7 +323,7 @@ int main(int argc, char** argv) {
     if (rank == 0) fprintf(stderr, "Time for BFS %d is %f\n", bfs_root_idx, bfs_times[bfs_root_idx]);
 
     /*Print the time elapsed  by the number of edges*/
-    if(rank ==0) fprintf(stderr, "TEPS tranversed all edges BFS %d is %g\n",bfs_root_idx, edge_count / bfs_times[bfs_root_idx]);
+    if(rank ==0) fprintf(stderr, "TEPS tranversed all edges BFS %d is %g\n",bfs_root_idx, tg.nglobaledges / bfs_times[bfs_root_idx]);
     
     /* Validate result. */
     //if (rank == 0) fprintf(stderr, "Validating BFS %d\n", bfs_root_idx);
