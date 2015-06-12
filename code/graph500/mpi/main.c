@@ -375,7 +375,7 @@ int main(int argc, char** argv) {
       fprintf(stdout, "max_time:                       %g\n", stats[s_maximum]);
       fprintf(stdout, "mean_time:                      %g\n", stats[s_mean]);
       fprintf(stdout, "stddev_time:                    %g\n", stats[s_std]);
-      get_statistics(tg.nglobaledges, num_bfs_roots, stats);
+      get_statistics((double)tg.nglobaledges, num_bfs_roots, stats);
       fprintf(stdout, "min_nedge:                      %.11g\n", stats[s_minimum]);
       fprintf(stdout, "firstquartile_nedge:            %.11g\n", stats[s_firstquartile]);
       fprintf(stdout, "median_nedge:                   %.11g\n", stats[s_median]);
@@ -384,7 +384,7 @@ int main(int argc, char** argv) {
       fprintf(stdout, "mean_nedge:                     %.11g\n", stats[s_mean]);
       fprintf(stdout, "stddev_nedge:                   %.11g\n", stats[s_std]);
       double* secs_per_edge = (double*)xmalloc(num_bfs_roots * sizeof(double));
-      for (i = 0; i < num_bfs_roots; ++i) secs_per_edge[i] = bfs_times[i] / tg.nglobaledges;
+      for (i = 0; i < num_bfs_roots; ++i) secs_per_edge[i] = bfs_times[i] / (double)tg.nglobaledges;
       get_statistics(secs_per_edge, num_bfs_roots, stats);
       fprintf(stdout, "min_TEPS:                       %g\n", 1. / stats[s_maximum]);
       fprintf(stdout, "firstquartile_TEPS:             %g\n", 1. / stats[s_thirdquartile]);
