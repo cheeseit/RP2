@@ -322,23 +322,26 @@ int main(int argc, char** argv) {
     bfs_times[bfs_root_idx] = bfs_stop - bfs_start;
     if (rank == 0) fprintf(stderr, "Time for BFS %d is %f\n", bfs_root_idx, bfs_times[bfs_root_idx]);
 
+    /*Print the time elapsed  by the number of edges*/
+    if(rank ==0) fprintf(stderr, "TEPS tranversed all edges BFS %d is %g\n",bfs_root_idx, edge_count / bfs_times[bfs_root_idx]);
+    
     /* Validate result. */
-    if (rank == 0) fprintf(stderr, "Validating BFS %d\n", bfs_root_idx);
+    //if (rank == 0) fprintf(stderr, "Validating BFS %d\n", bfs_root_idx);
+      
 
-    double validate_start = MPI_Wtime();
-    int64_t edge_visit_count;
-    int validation_passed_one = validate_bfs_result(&tg, max_used_vertex + 1, nlocalverts, root, pred, &edge_visit_count);
-    double validate_stop = MPI_Wtime();
-    validate_times[bfs_root_idx] = validate_stop - validate_start;
-    if (rank == 0) fprintf(stderr, "Validate time for BFS %d is %f\n", bfs_root_idx, validate_times[bfs_root_idx]);
-    edge_counts[bfs_root_idx] = (double)edge_visit_count;
-    if (rank == 0) fprintf(stderr, "TEPS for BFS %d is %g\n", bfs_root_idx, edge_visit_count / bfs_times[bfs_root_idx]);
+    //double validate_start = MPI_Wtime();
+    //int validation_passed_one = validate_bfs_result(&tg, max_used_vertex + 1, nlocalverts, root, pred, &edge_visit_count);
+    //double validate_stop = MPI_Wtime();
+    //validate_times[bfs_root_idx] = validate_stop - validate_start;
+    //if (rank == 0) fprintf(stderr, "Validate time for BFS %d is %f\n", bfs_root_idx, validate_times[bfs_root_idx]);
+    //edge_counts[bfs_root_idx] = (double)edge_visit_count;
+    //if (rank == 0) fprintf(stderr, "TEPS for BFS %d is %g\n", bfs_root_idx, edge_visit_count / bfs_times[bfs_root_idx]);
 
-    if (!validation_passed_one) {
-      validation_passed = 0;
-      if (rank == 0) fprintf(stderr, "Validation failed for this BFS root; skipping rest.\n");
-      break;
-    }
+    //if (!validation_passed_one) {
+    //  validation_passed = 0;
+    //  if (rank == 0) fprintf(stderr, "Validation failed for this BFS root; skipping rest.\n");
+    //  break;
+    //}
   }
 
   MPI_Free_mem(pred);
