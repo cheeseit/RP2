@@ -402,7 +402,7 @@ int main(int argc, char** argv) {
        * (same source as in specification). */
       fprintf(stdout, "harmonic_stddev_TEPS:           %g\n", stats[s_std] / (stats[s_mean] * stats[s_mean] * sqrt(num_bfs_roots - 1)));
       free(secs_per_edge); secs_per_edge = NULL;
-      free(edge_counts); edge_counts = NULL;
+      //free(edge_counts); edge_counts = NULL;
       //get_statistics(validate_times, num_bfs_roots, stats);
       //fprintf(stdout, "min_validate:                   %g\n", stats[s_minimum]);
       //fprintf(stdout, "firstquartile_validate:         %g\n", stats[s_firstquartile]);
