@@ -1,0 +1,16 @@
+With running the program there were some problems. The frist problem was
+that the mpi version on the DAS-4 is a very old version, mpi version 1.4. This
+was not compatible with the reference code. Because of this the workaround.h
+needed to be adjusted. This worked out the problems which were created during compile time.
+It was said that this would help out with the validation and would cause it not to hang. This
+was the case for a scale till 15. At a scale of 18 or higher the problem would get stuck while
+validating the first BFS. To remedy this the validation was left out, because this is the reference
+code the validation of the BFS is less of a concern and the program does not run with it. The method
+of removing the validation was taken from this technical paper written by Angel et al.\cite{angel2012graph}.
+In this paper it is proposed that instead of dividing the time the BFS took to run by the actual visited edges,
+the total number of edges is taken. This is a good proximation of the problem because of the properties
+of the Kronecker graph and the edge factor which is 16(16 edges per node). This makes the graph fully connected
+and the assumption that all nodes have been visited true. In the graph [GRAPJH no validation] you can see that
+the graphs with and without validation differ slightly. The difference with larger scales also become smaller
+because of the property of the Kronecker graph that the larger the scale the more connected the graph becomes.
+%TODO need to write down the terms of kronecker and check everything.
