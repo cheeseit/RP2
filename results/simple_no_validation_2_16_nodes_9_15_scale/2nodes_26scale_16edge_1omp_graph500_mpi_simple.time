@@ -1,0 +1,42 @@
+Reservation number 79661: Reserved 2 hosts for 900 seconds 
+Run on 2 hosts for 960 seconds from Fri Jun 12 13:20:17 2015
+: node102/0 node109/0 
+graph_generation:               58.487404 s
+construction_time:              239.216471 s
+Running BFS 0
+Time for BFS 0 is 30.821319
+TEPS tranversed all edges BFS 0 is 3.48376e+07
+Running BFS 1
+Time for BFS 1 is 30.799079
+TEPS tranversed all edges BFS 1 is 3.48628e+07
+Running BFS 2
+Time for BFS 2 is 30.791849
+TEPS tranversed all edges BFS 2 is 3.4871e+07
+Running BFS 3
+Time for BFS 3 is 30.770360
+TEPS tranversed all edges BFS 3 is 3.48953e+07
+Running BFS 4
+Time for BFS 4 is 30.771750
+TEPS tranversed all edges BFS 4 is 3.48938e+07
+Running BFS 5
+Time for BFS 5 is 30.759441
+TEPS tranversed all edges BFS 5 is 3.49077e+07
+Running BFS 6
+Time for BFS 6 is 30.746399
+TEPS tranversed all edges BFS 6 is 3.49225e+07
+Running BFS 7
+Time for BFS 7 is 30.770708
+TEPS tranversed all edges BFS 7 is 3.48949e+07
+Running BFS 8
+Time for BFS 8 is 30.770914
+TEPS tranversed all edges BFS 8 is 3.48947e+07
+Running BFS 9
+Time for BFS 9 is 30.719369
+TEPS tranversed all edges BFS 9 is 3.49533e+07
+Running BFS 10
+Time for BFS 10 is 30.714461
+TEPS tranversed all edges BFS 10 is 3.49588e+07
+Running BFS 11
+Time for BFS 11 is 30.687920
+TEPS tranversed all edges BFS 11 is 3.49891e+07
+Running BFS 12

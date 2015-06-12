@@ -1,0 +1,1124 @@
+SCALE:                          10
+edgefactor:                     16
+NBFS:                           64
+graph_generation:               0.010999
+num_mpi_processes:              1
+construction_time:              0.0028131
+min_time:                       0.00029397
+firstquartile_time:             0.000348449
+median_time:                    0.000353456
+thirdquartile_time:             0.000357985
+max_time:                       0.000393867
+mean_time:                      0.000352673
+stddev_time:                    1.09395e-05
+min_nedge:                      16383
+firstquartile_nedge:            16383
+median_nedge:                   16383
+thirdquartile_nedge:            16383
+max_nedge:                      16383
+mean_nedge:                     16383
+stddev_nedge:                   0
+min_TEPS:                       4.15952e+07
+firstquartile_TEPS:             4.57644e+07
+median_TEPS:                    4.63509e+07
+thirdquartile_TEPS:             4.7017e+07
+max_TEPS:                       5.57302e+07
+harmonic_mean_TEPS:             4.64538e+07
+harmonic_stddev_TEPS:           181541
+min_validate:                   0.0800059
+firstquartile_validate:         0.115112
+median_validate:                0.168332
+thirdquartile_validate:         0.235955
+max_validate:                   0.327255
+mean_validate:                  0.178841
+stddev_validate:                0.0713182
+SCALE:                          10
+edgefactor:                     16
+NBFS:                           64
+graph_generation:               0.0108039
+num_mpi_processes:              1
+construction_time:              0.00257897
+min_time:                       0.000265121
+firstquartile_time:             0.000337601
+median_time:                    0.000346899
+thirdquartile_time:             0.000353098
+max_time:                       0.000383139
+mean_time:                      0.000343993
+stddev_time:                    1.69539e-05
+min_nedge:                      16383
+firstquartile_nedge:            16383
+median_nedge:                   16383
+thirdquartile_nedge:            16383
+max_nedge:                      16383
+mean_nedge:                     16383
+stddev_nedge:                   0
+min_TEPS:                       4.276e+07
+firstquartile_TEPS:             4.63979e+07
+median_TEPS:                    4.7227e+07
+thirdquartile_TEPS:             4.85277e+07
+max_TEPS:                       6.17943e+07
+harmonic_mean_TEPS:             4.76259e+07
+harmonic_stddev_TEPS:           295729
+min_validate:                   0.0799279
+firstquartile_validate:         0.114889
+median_validate:                0.16727
+thirdquartile_validate:         0.235543
+max_validate:                   0.329633
+mean_validate:                  0.179131
+stddev_validate:                0.0720635
+SCALE:                          10
+edgefactor:                     16
+NBFS:                           64
+graph_generation:               0.010932
+num_mpi_processes:              1
+construction_time:              0.00257993
+min_time:                       0.000231028
+firstquartile_time:             0.000247002
+median_time:                    0.000248909
+thirdquartile_time:             0.000252008
+max_time:                       0.000263929
+mean_time:                      0.000249531
+stddev_time:                    4.99418e-06
+min_nedge:                      16383
+firstquartile_nedge:            16383
+median_nedge:                   16383
+thirdquartile_nedge:            16383
+max_nedge:                      16383
+mean_nedge:                     16383
+stddev_nedge:                   0
+min_TEPS:                       6.20734e+07
+firstquartile_TEPS:             6.50097e+07
+median_TEPS:                    6.58192e+07
+thirdquartile_TEPS:             6.63275e+07
+max_TEPS:                       7.09136e+07
+harmonic_mean_TEPS:             6.56551e+07
+harmonic_stddev_TEPS:           165553
+min_validate:                   0.0799041
+firstquartile_validate:         0.115055
+median_validate:                0.166432
+thirdquartile_validate:         0.236109
+max_validate:                   0.329012
+mean_validate:                  0.178591
+stddev_validate:                0.0715408
+SCALE:                          10
+edgefactor:                     16
+NBFS:                           64
+graph_generation:               0.00802279
+num_mpi_processes:              1
+construction_time:              0.00565219
+min_time:                       0.00022912
+firstquartile_time:             0.000247002
+median_time:                    0.000247955
+thirdquartile_time:             0.000251055
+max_time:                       0.000307798
+mean_time:                      0.000250578
+stddev_time:                    1.06639e-05
+min_nedge:                      16383
+firstquartile_nedge:            16383
+median_nedge:                   16383
+thirdquartile_nedge:            16383
+max_nedge:                      16383
+mean_nedge:                     16383
+stddev_nedge:                   0
+min_TEPS:                       5.32264e+07
+firstquartile_TEPS:             6.52567e+07
+median_TEPS:                    6.60724e+07
+thirdquartile_TEPS:             6.63275e+07
+max_TEPS:                       7.15039e+07
+harmonic_mean_TEPS:             6.53809e+07
+harmonic_stddev_TEPS:           350554
+min_validate:                   0.107634
+firstquartile_validate:         0.142573
+median_validate:                0.196689
+thirdquartile_validate:         0.272655
+max_validate:                   0.361699
+mean_validate:                  0.210594
+stddev_validate:                0.0764627
+SCALE:                          10
+edgefactor:                     16
+NBFS:                           64
+graph_generation:               0.00759101
+num_mpi_processes:              1
+construction_time:              0.00560999
+min_time:                       0.000233889
+firstquartile_time:             0.000247955
+median_time:                    0.000250816
+thirdquartile_time:             0.000257015
+max_time:                       0.000307083
+mean_time:                      0.000258259
+stddev_time:                    1.86878e-05
+min_nedge:                      16383
+firstquartile_nedge:            16383
+median_nedge:                   16383
+thirdquartile_nedge:            16383
+max_nedge:                      16383
+mean_nedge:                     16383
+stddev_nedge:                   0
+min_TEPS:                       5.33504e+07
+firstquartile_TEPS:             6.37433e+07
+median_TEPS:                    6.53187e+07
+thirdquartile_TEPS:             6.60724e+07
+max_TEPS:                       7.00462e+07
+harmonic_mean_TEPS:             6.34362e+07
+harmonic_stddev_TEPS:           578320
+min_validate:                   0.107156
+firstquartile_validate:         0.14171
+median_validate:                0.197212
+thirdquartile_validate:         0.26361
+max_validate:                   0.349075
+mean_validate:                  0.20759
+stddev_validate:                0.072565
+SCALE:                          10
+edgefactor:                     16
+NBFS:                           64
+graph_generation:               0.00767398
+num_mpi_processes:              1
+construction_time:              0.00592494
+min_time:                       0.00022912
+firstquartile_time:             0.000247955
+median_time:                    0.000250101
+thirdquartile_time:             0.000252962
+max_time:                       0.000314951
+mean_time:                      0.000253081
+stddev_time:                    1.24988e-05
+min_nedge:                      16383
+firstquartile_nedge:            16383
+median_nedge:                   16383
+thirdquartile_nedge:            16383
+max_nedge:                      16383
+mean_nedge:                     16383
+stddev_nedge:                   0
+min_TEPS:                       5.20176e+07
+firstquartile_TEPS:             6.47646e+07
+median_TEPS:                    6.55055e+07
+thirdquartile_TEPS:             6.60724e+07
+max_TEPS:                       7.15039e+07
+harmonic_mean_TEPS:             6.47341e+07
+harmonic_stddev_TEPS:           402783
+min_validate:                   0.107479
+firstquartile_validate:         0.144356
+median_validate:                0.207227
+thirdquartile_validate:         0.276266
+max_validate:                   0.364227
+mean_validate:                  0.214658
+stddev_validate:                0.0775027
+SCALE:                          10
+edgefactor:                     16
+NBFS:                           64
+graph_generation:               0.00546694
+num_mpi_processes:              1
+construction_time:              0.0048821
+min_time:                       0.000250101
+firstquartile_time:             0.000298977
+median_time:                    0.000301123
+thirdquartile_time:             0.00030303
+max_time:                       0.000309944
+mean_time:                      0.000300374
+stddev_time:                    7.18124e-06
+min_nedge:                      16383
+firstquartile_nedge:            16383
+median_nedge:                   16383
+thirdquartile_nedge:            16383
+max_nedge:                      16383
+mean_nedge:                     16383
+stddev_nedge:                   0
+min_TEPS:                       5.28579e+07
+firstquartile_TEPS:             5.4064e+07
+median_TEPS:                    5.44064e+07
+thirdquartile_TEPS:             5.47969e+07
+max_TEPS:                       6.55055e+07
+harmonic_mean_TEPS:             5.4542e+07
+harmonic_stddev_TEPS:           164285
+min_validate:                   0.107029
+firstquartile_validate:         0.14538
+median_validate:                0.19812
+thirdquartile_validate:         0.27946
+max_validate:                   0.362762
+mean_validate:                  0.212873
+stddev_validate:                0.0765965
+SCALE:                          10
+edgefactor:                     16
+NBFS:                           64
+graph_generation:               0.00530005
+num_mpi_processes:              1
+construction_time:              0.00488591
+min_time:                       0.000247955
+firstquartile_time:             0.000264406
+median_time:                    0.000276446
+thirdquartile_time:             0.000301957
+max_time:                       0.000309229
+mean_time:                      0.000281997
+stddev_time:                    1.97322e-05
+min_nedge:                      16383
+firstquartile_nedge:            16383
+median_nedge:                   16383
+thirdquartile_nedge:            16383
+max_nedge:                      16383
+mean_nedge:                     16383
+stddev_nedge:                   0
+min_TEPS:                       5.29802e+07
+firstquartile_TEPS:             5.4256e+07
+median_TEPS:                    5.92629e+07
+thirdquartile_TEPS:             6.19615e+07
+max_TEPS:                       6.60724e+07
+harmonic_mean_TEPS:             5.80964e+07
+harmonic_stddev_TEPS:           512165
+min_validate:                   0.107392
+firstquartile_validate:         0.145914
+median_validate:                0.202837
+thirdquartile_validate:         0.26901
+max_validate:                   0.360131
+mean_validate:                  0.212535
+stddev_validate:                0.0734314
+SCALE:                          10
+edgefactor:                     16
+NBFS:                           64
+graph_generation:               0.00559092
+num_mpi_processes:              1
+construction_time:              0.0048821
+min_time:                       0.000249147
+firstquartile_time:             0.000301123
+median_time:                    0.000303984
+thirdquartile_time:             0.000306487
+max_time:                       0.000311136
+mean_time:                      0.000302982
+stddev_time:                    7.6821e-06
+min_nedge:                      16383
+firstquartile_nedge:            16383
+median_nedge:                   16383
+thirdquartile_nedge:            16383
+max_nedge:                      16383
+mean_nedge:                     16383
+stddev_nedge:                   0
+min_TEPS:                       5.26554e+07
+firstquartile_TEPS:             5.34541e+07
+median_TEPS:                    5.38943e+07
+thirdquartile_TEPS:             5.44064e+07
+max_TEPS:                       6.57563e+07
+harmonic_mean_TEPS:             5.40726e+07
+harmonic_stddev_TEPS:           172731
+min_validate:                   0.108915
+firstquartile_validate:         0.14554
+median_validate:                0.207414
+thirdquartile_validate:         0.292381
+max_validate:                   0.384331
+mean_validate:                  0.223058
+stddev_validate:                0.0840247
+SCALE:                          10
+edgefactor:                     16
+NBFS:                           64
+graph_generation:               0.00416112
+num_mpi_processes:              1
+construction_time:              0.00451899
+min_time:                       0.000246048
+firstquartile_time:             0.000298977
+median_time:                    0.000300884
+thirdquartile_time:             0.000303984
+max_time:                       0.000307798
+mean_time:                      0.000300393
+stddev_time:                    7.69192e-06
+min_nedge:                      16383
+firstquartile_nedge:            16383
+median_nedge:                   16383
+thirdquartile_nedge:            16383
+max_nedge:                      16383
+mean_nedge:                     16383
+stddev_nedge:                   0
+min_TEPS:                       5.32264e+07
+firstquartile_TEPS:             5.38943e+07
+median_TEPS:                    5.44495e+07
+thirdquartile_TEPS:             5.47969e+07
+max_TEPS:                       6.65846e+07
+harmonic_mean_TEPS:             5.45386e+07
+harmonic_stddev_TEPS:           175946
+min_validate:                   0.108905
+firstquartile_validate:         0.14799
+median_validate:                0.207098
+thirdquartile_validate:         0.278524
+max_validate:                   0.362672
+mean_validate:                  0.216639
+stddev_validate:                0.0752938
+SCALE:                          10
+edgefactor:                     16
+NBFS:                           64
+graph_generation:               0.00398493
+num_mpi_processes:              1
+construction_time:              0.0044229
+min_time:                       0.00024581
+firstquartile_time:             0.000301123
+median_time:                    0.00030303
+thirdquartile_time:             0.000305057
+max_time:                       0.000313044
+mean_time:                      0.000302643
+stddev_time:                    7.97092e-06
+min_nedge:                      16383
+firstquartile_nedge:            16383
+median_nedge:                   16383
+thirdquartile_nedge:            16383
+max_nedge:                      16383
+mean_nedge:                     16383
+stddev_nedge:                   0
+min_TEPS:                       5.23346e+07
+firstquartile_TEPS:             5.37048e+07
+median_TEPS:                    5.4064e+07
+thirdquartile_TEPS:             5.44064e+07
+max_TEPS:                       6.66492e+07
+harmonic_mean_TEPS:             5.41332e+07
+harmonic_stddev_TEPS:           179627
+min_validate:                   0.111646
+firstquartile_validate:         0.14744
+median_validate:                0.21057
+thirdquartile_validate:         0.278175
+max_validate:                   0.372102
+mean_validate:                  0.220973
+stddev_validate:                0.0791839
+SCALE:                          10
+edgefactor:                     16
+NBFS:                           64
+graph_generation:               0.00454092
+num_mpi_processes:              1
+construction_time:              0.00444698
+min_time:                       0.000288963
+firstquartile_time:             0.000335932
+median_time:                    0.000342369
+thirdquartile_time:             0.000347018
+max_time:                       0.000356913
+mean_time:                      0.000341494
+stddev_time:                    9.1809e-06
+min_nedge:                      16383
+firstquartile_nedge:            16383
+median_nedge:                   16383
+thirdquartile_nedge:            16383
+max_nedge:                      16383
+mean_nedge:                     16383
+stddev_nedge:                   0
+min_TEPS:                       4.5902e+07
+firstquartile_TEPS:             4.72108e+07
+median_TEPS:                    4.78519e+07
+thirdquartile_TEPS:             4.87688e+07
+max_TEPS:                       5.66958e+07
+harmonic_mean_TEPS:             4.79745e+07
+harmonic_stddev_TEPS:           162496
+min_validate:                   0.109347
+firstquartile_validate:         0.145233
+median_validate:                0.198594
+thirdquartile_validate:         0.276559
+max_validate:                   0.379032
+mean_validate:                  0.216001
+stddev_validate:                0.0788698
+SCALE:                          12
+edgefactor:                     16
+NBFS:                           64
+graph_generation:               0.0420649
+num_mpi_processes:              1
+construction_time:              0.00980401
+min_time:                       0.000921011
+firstquartile_time:             0.0010519
+median_time:                    0.001055
+thirdquartile_time:             0.00106001
+max_time:                       0.00106716
+mean_time:                      0.00105397
+stddev_time:                    1.77152e-05
+min_nedge:                      65535
+firstquartile_nedge:            65535
+median_nedge:                   65535
+thirdquartile_nedge:            65535
+max_nedge:                      65535
+mean_nedge:                     65535
+stddev_nedge:                   0
+min_TEPS:                       6.14106e+07
+firstquartile_TEPS:             6.18249e+07
+median_TEPS:                    6.21184e+07
+thirdquartile_TEPS:             6.23014e+07
+max_TEPS:                       7.11555e+07
+harmonic_mean_TEPS:             6.2179e+07
+harmonic_stddev_TEPS:           131671
+min_validate:                   0.286872
+firstquartile_validate:         0.429572
+median_validate:                0.66142
+thirdquartile_validate:         1.03274
+max_validate:                   1.40552
+mean_validate:                  0.737189
+stddev_validate:                0.34791
+SCALE:                          12
+edgefactor:                     16
+NBFS:                           64
+graph_generation:               0.042233
+num_mpi_processes:              1
+construction_time:              0.0100579
+min_time:                       0.000967026
+firstquartile_time:             0.00105405
+median_time:                    0.00105691
+thirdquartile_time:             0.00106049
+max_time:                       0.00110483
+mean_time:                      0.0010565
+stddev_time:                    1.36382e-05
+min_nedge:                      65535
+firstquartile_nedge:            65535
+median_nedge:                   65535
+thirdquartile_nedge:            65535
+max_nedge:                      65535
+mean_nedge:                     65535
+stddev_nedge:                   0
+min_TEPS:                       5.93167e+07
+firstquartile_TEPS:             6.17971e+07
+median_TEPS:                    6.20063e+07
+thirdquartile_TEPS:             6.21746e+07
+max_TEPS:                       6.77697e+07
+harmonic_mean_TEPS:             6.20303e+07
+harmonic_stddev_TEPS:           100884
+min_validate:                   0.285679
+firstquartile_validate:         0.430191
+median_validate:                0.66026
+thirdquartile_validate:         1.02973
+max_validate:                   1.39914
+mean_validate:                  0.735539
+stddev_validate:                0.345913
+SCALE:                          12
+edgefactor:                     16
+NBFS:                           64
+graph_generation:               0.041904
+num_mpi_processes:              1
+construction_time:              0.0098002
+min_time:                       0.000918865
+firstquartile_time:             0.00105405
+median_time:                    0.00105691
+thirdquartile_time:             0.00106049
+max_time:                       0.00116396
+mean_time:                      0.00105655
+stddev_time:                    2.25207e-05
+min_nedge:                      65535
+firstquartile_nedge:            65535
+median_nedge:                   65535
+thirdquartile_nedge:            65535
+max_nedge:                      65535
+mean_nedge:                     65535
+stddev_nedge:                   0
+min_TEPS:                       5.63035e+07
+firstquartile_TEPS:             6.17971e+07
+median_TEPS:                    6.20063e+07
+thirdquartile_TEPS:             6.21746e+07
+max_TEPS:                       7.13217e+07
+harmonic_mean_TEPS:             6.20275e+07
+harmonic_stddev_TEPS:           166574
+min_validate:                   0.285649
+firstquartile_validate:         0.430288
+median_validate:                0.659305
+thirdquartile_validate:         1.03006
+max_validate:                   1.3999
+mean_validate:                  0.735626
+stddev_validate:                0.345963
+SCALE:                          12
+edgefactor:                     16
+NBFS:                           64
+graph_generation:               0.0271258
+num_mpi_processes:              1
+construction_time:              0.0196469
+min_time:                       0.000937939
+firstquartile_time:             0.00105405
+median_time:                    0.00105834
+thirdquartile_time:             0.00106549
+max_time:                       0.00111198
+mean_time:                      0.00106285
+stddev_time:                    2.29749e-05
+min_nedge:                      65535
+firstquartile_nedge:            65535
+median_nedge:                   65535
+thirdquartile_nedge:            65535
+max_nedge:                      65535
+mean_nedge:                     65535
+stddev_nedge:                   0
+min_TEPS:                       5.89352e+07
+firstquartile_TEPS:             6.15068e+07
+median_TEPS:                    6.19224e+07
+thirdquartile_TEPS:             6.21746e+07
+max_TEPS:                       6.98713e+07
+harmonic_mean_TEPS:             6.16598e+07
+harmonic_stddev_TEPS:           167925
+min_validate:                   0.3857
+firstquartile_validate:         0.533483
+median_validate:                0.738136
+thirdquartile_validate:         0.946771
+max_validate:                   1.20378
+mean_validate:                  0.748839
+stddev_validate:                0.23918
+SCALE:                          12
+edgefactor:                     16
+NBFS:                           64
+graph_generation:               0.0265639
+num_mpi_processes:              1
+construction_time:              0.0197532
+min_time:                       0.000939131
+firstquartile_time:             0.00105047
+median_time:                    0.001055
+thirdquartile_time:             0.00106204
+max_time:                       0.001127
+mean_time:                      0.00106119
+stddev_time:                    2.5313e-05
+min_nedge:                      65535
+firstquartile_nedge:            65535
+median_nedge:                   65535
+thirdquartile_nedge:            65535
+max_nedge:                      65535
+mean_nedge:                     65535
+stddev_nedge:                   0
+min_TEPS:                       5.81497e+07
+firstquartile_TEPS:             6.1707e+07
+median_TEPS:                    6.21184e+07
+thirdquartile_TEPS:             6.23862e+07
+max_TEPS:                       6.97826e+07
+harmonic_mean_TEPS:             6.17559e+07
+harmonic_stddev_TEPS:           185591
+min_validate:                   0.41156
+firstquartile_validate:         0.559026
+median_validate:                0.794035
+thirdquartile_validate:         1.07295
+max_validate:                   1.29732
+mean_validate:                  0.812253
+stddev_validate:                0.27799
+SCALE:                          12
+edgefactor:                     16
+NBFS:                           64
+graph_generation:               0.0266311
+num_mpi_processes:              1
+construction_time:              0.0192511
+min_time:                       0.000938892
+firstquartile_time:             0.00105357
+median_time:                    0.00105906
+thirdquartile_time:             0.00106406
+max_time:                       0.00111294
+mean_time:                      0.00106196
+stddev_time:                    2.28807e-05
+min_nedge:                      65535
+firstquartile_nedge:            65535
+median_nedge:                   65535
+thirdquartile_nedge:            65535
+max_nedge:                      65535
+mean_nedge:                     65535
+stddev_nedge:                   0
+min_TEPS:                       5.88847e+07
+firstquartile_TEPS:             6.15894e+07
+median_TEPS:                    6.18806e+07
+thirdquartile_TEPS:             6.22027e+07
+max_TEPS:                       6.98003e+07
+harmonic_mean_TEPS:             6.17111e+07
+harmonic_stddev_TEPS:           167514
+min_validate:                   0.394731
+firstquartile_validate:         0.546231
+median_validate:                0.784018
+thirdquartile_validate:         1.09906
+max_validate:                   1.50194
+mean_validate:                  0.839696
+stddev_validate:                0.330716
+SCALE:                          12
+edgefactor:                     16
+NBFS:                           64
+graph_generation:               0.0147672
+num_mpi_processes:              1
+construction_time:              0.017195
+min_time:                       0.000938177
+firstquartile_time:             0.00105143
+median_time:                    0.00105596
+thirdquartile_time:             0.00105941
+max_time:                       0.00107503
+mean_time:                      0.00105394
+stddev_time:                    1.59424e-05
+min_nedge:                      65535
+firstquartile_nedge:            65535
+median_nedge:                   65535
+thirdquartile_nedge:            65535
+max_nedge:                      65535
+mean_nedge:                     65535
+stddev_nedge:                   0
+min_TEPS:                       6.09611e+07
+firstquartile_TEPS:             6.18597e+07
+median_TEPS:                    6.20623e+07
+thirdquartile_TEPS:             6.23296e+07
+max_TEPS:                       6.98535e+07
+harmonic_mean_TEPS:             6.21811e+07
+harmonic_stddev_TEPS:           118503
+min_validate:                   0.403365
+firstquartile_validate:         0.553076
+median_validate:                0.757443
+thirdquartile_validate:         1.13128
+max_validate:                   1.51527
+mean_validate:                  0.841194
+stddev_validate:                0.330272
+SCALE:                          12
+edgefactor:                     16
+NBFS:                           64
+graph_generation:               0.0149581
+num_mpi_processes:              1
+construction_time:              0.017297
+min_time:                       0.000959873
+firstquartile_time:             0.00109696
+median_time:                    0.00109994
+thirdquartile_time:             0.00110412
+max_time:                       0.00111198
+mean_time:                      0.00109834
+stddev_time:                    1.84236e-05
+min_nedge:                      65535
+firstquartile_nedge:            65535
+median_nedge:                   65535
+thirdquartile_nedge:            65535
+max_nedge:                      65535
+mean_nedge:                     65535
+stddev_nedge:                   0
+min_TEPS:                       5.89352e+07
+firstquartile_TEPS:             5.93552e+07
+median_TEPS:                    5.95803e+07
+thirdquartile_TEPS:             5.97422e+07
+max_TEPS:                       6.82746e+07
+harmonic_mean_TEPS:             5.96672e+07
+harmonic_stddev_TEPS:           126096
+min_validate:                   0.389971
+firstquartile_validate:         0.54721
+median_validate:                0.775192
+thirdquartile_validate:         1.08009
+max_validate:                   1.52014
+mean_validate:                  0.827021
+stddev_validate:                0.31803
+SCALE:                          12
+edgefactor:                     16
+NBFS:                           64
+graph_generation:               0.014955
+num_mpi_processes:              1
+construction_time:              0.017175
+min_time:                       0.000938892
+firstquartile_time:             0.00104702
+median_time:                    0.0010525
+thirdquartile_time:             0.00105655
+max_time:                       0.0010798
+mean_time:                      0.0010513
+stddev_time:                    1.5841e-05
+min_nedge:                      65535
+firstquartile_nedge:            65535
+median_nedge:                   65535
+thirdquartile_nedge:            65535
+max_nedge:                      65535
+mean_nedge:                     65535
+stddev_nedge:                   0
+min_TEPS:                       6.06919e+07
+firstquartile_TEPS:             6.20272e+07
+median_TEPS:                    6.22661e+07
+thirdquartile_TEPS:             6.25922e+07
+max_TEPS:                       6.98003e+07
+harmonic_mean_TEPS:             6.23369e+07
+harmonic_stddev_TEPS:           118339
+min_validate:                   0.389963
+firstquartile_validate:         0.568799
+median_validate:                0.774104
+thirdquartile_validate:         1.02574
+max_validate:                   1.38963
+mean_validate:                  0.811207
+stddev_validate:                0.284482
+SCALE:                          12
+edgefactor:                     16
+NBFS:                           64
+graph_generation:               0.00908494
+num_mpi_processes:              1
+construction_time:              0.0159712
+min_time:                       0.000975132
+firstquartile_time:             0.00109386
+median_time:                    0.00109804
+thirdquartile_time:             0.00110197
+max_time:                       0.00110912
+mean_time:                      0.00109616
+stddev_time:                    1.6291e-05
+min_nedge:                      65535
+firstquartile_nedge:            65535
+median_nedge:                   65535
+thirdquartile_nedge:            65535
+max_nedge:                      65535
+mean_nedge:                     65535
+stddev_nedge:                   0
+min_TEPS:                       5.90872e+07
+firstquartile_TEPS:             5.94707e+07
+median_TEPS:                    5.96838e+07
+thirdquartile_TEPS:             5.99114e+07
+max_TEPS:                       6.72063e+07
+harmonic_mean_TEPS:             5.97858e+07
+harmonic_stddev_TEPS:           111944
+min_validate:                   0.409878
+firstquartile_validate:         0.567389
+median_validate:                0.777989
+thirdquartile_validate:         1.06547
+max_validate:                   1.37294
+mean_validate:                  0.832071
+stddev_validate:                0.296588
+SCALE:                          12
+edgefactor:                     16
+NBFS:                           64
+graph_generation:               0.00887489
+num_mpi_processes:              1
+construction_time:              0.015949
+min_time:                       0.000962019
+firstquartile_time:             0.00109386
+median_time:                    0.00109708
+thirdquartile_time:             0.00110292
+max_time:                       0.00111389
+mean_time:                      0.00109633
+stddev_time:                    1.80054e-05
+min_nedge:                      65535
+firstquartile_nedge:            65535
+median_nedge:                   65535
+thirdquartile_nedge:            65535
+max_nedge:                      65535
+mean_nedge:                     65535
+stddev_nedge:                   0
+min_TEPS:                       5.88343e+07
+firstquartile_TEPS:             5.94193e+07
+median_TEPS:                    5.97357e+07
+thirdquartile_TEPS:             5.99114e+07
+max_TEPS:                       6.81224e+07
+harmonic_mean_TEPS:             5.97765e+07
+harmonic_stddev_TEPS:           123686
+min_validate:                   0.413926
+firstquartile_validate:         0.548424
+median_validate:                0.752101
+thirdquartile_validate:         1.04058
+max_validate:                   1.27027
+mean_validate:                  0.788435
+stddev_validate:                0.263335
+SCALE:                          12
+edgefactor:                     16
+NBFS:                           64
+graph_generation:               0.00903797
+num_mpi_processes:              1
+construction_time:              0.0159421
+min_time:                       0.000960827
+firstquartile_time:             0.00109386
+median_time:                    0.00109792
+thirdquartile_time:             0.00110257
+max_time:                       0.00111103
+mean_time:                      0.001096
+stddev_time:                    1.82674e-05
+min_nedge:                      65535
+firstquartile_nedge:            65535
+median_nedge:                   65535
+thirdquartile_nedge:            65535
+max_nedge:                      65535
+mean_nedge:                     65535
+stddev_nedge:                   0
+min_TEPS:                       5.89858e+07
+firstquartile_TEPS:             5.94386e+07
+median_TEPS:                    5.96903e+07
+thirdquartile_TEPS:             5.99114e+07
+max_TEPS:                       6.82069e+07
+harmonic_mean_TEPS:             5.9795e+07
+harmonic_stddev_TEPS:           125563
+min_validate:                   0.405267
+firstquartile_validate:         0.549821
+median_validate:                0.79197
+thirdquartile_validate:         1.1697
+max_validate:                   1.52556
+mean_validate:                  0.868066
+stddev_validate:                0.340441
+SCALE:                          15
+edgefactor:                     16
+NBFS:                           64
+graph_generation:               0.401828
+num_mpi_processes:              1
+construction_time:              0.0782759
+min_time:                       0.00811911
+firstquartile_time:             0.00862861
+median_time:                    0.00863302
+thirdquartile_time:             0.00863886
+max_time:                       0.00865984
+mean_time:                      0.0086255
+stddev_time:                    6.47715e-05
+min_nedge:                      524285
+firstquartile_nedge:            524285
+median_nedge:                   524285
+thirdquartile_nedge:            524285
+max_nedge:                      524285
+mean_nedge:                     524285
+stddev_nedge:                   0
+min_TEPS:                       6.05421e+07
+firstquartile_TEPS:             6.06892e+07
+median_TEPS:                    6.07302e+07
+thirdquartile_TEPS:             6.07613e+07
+max_TEPS:                       6.45742e+07
+harmonic_mean_TEPS:             6.07832e+07
+harmonic_stddev_TEPS:           57506
+min_validate:                   2.33735
+firstquartile_validate:         3.62522
+median_validate:                4.94966
+thirdquartile_validate:         6.97087
+max_validate:                   9.46329
+mean_validate:                  5.35534
+stddev_validate:                2.08812
+Reservation number 79269: Reserved 1 hosts for 900 seconds 
+Run on 1 hosts for 960 seconds from Tue Jun  9 16:06:32 2015
+: node110/0 
+Warning: Permanently added 'node110,10.141.1.10' (RSA) to the list of known hosts.
+Usage: /home/hdermois/project/code/graph500/mpi/graph500_mpi_simple SCALE edgefactor
+  SCALE = log_2(# vertices) [integer, required]
+  edgefactor = (# edges) / (# vertices) = .5 * (average vertex degree) [integer, defaults to 16]
+(Random number seed and Kronecker initiator are in main.c)
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 0 in communicator MPI_COMM_WORLD 
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun has exited due to process rank 0 with PID 25827 on
+node node110 exiting without calling "finalize". This may
+have caused other processes in the application to be
+terminated by signals sent by mpirun (as reported here).
+--------------------------------------------------------------------------
+Reservation number 79270: Reserved 1 hosts for 900 seconds 
+Run on 1 hosts for 960 seconds from Tue Jun  9 16:06:47 2015
+: node105/0 
+Warning: Permanently added 'node105,10.141.1.5' (RSA) to the list of known hosts.
+Usage: /home/hdermois/project/code/graph500/mpi/graph500_mpi_simple SCALE edgefactor
+  SCALE = log_2(# vertices) [integer, required]
+  edgefactor = (# edges) / (# vertices) = .5 * (average vertex degree) [integer, defaults to 16]
+(Random number seed and Kronecker initiator are in main.c)
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 0 in communicator MPI_COMM_WORLD 
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun has exited due to process rank 0 with PID 20404 on
+node node105 exiting without calling "finalize". This may
+have caused other processes in the application to be
+terminated by signals sent by mpirun (as reported here).
+--------------------------------------------------------------------------
+SCALE:                          15
+edgefactor:                     16
+NBFS:                           64
+graph_generation:               0.233926
+num_mpi_processes:              1
+construction_time:              0.149531
+min_time:                       0.00828791
+firstquartile_time:             0.00871539
+median_time:                    0.0087235
+thirdquartile_time:             0.00880039
+max_time:                       0.00890708
+mean_time:                      0.00874859
+stddev_time:                    8.04176e-05
+min_nedge:                      524285
+firstquartile_nedge:            524285
+median_nedge:                   524285
+thirdquartile_nedge:            524285
+max_nedge:                      524285
+mean_nedge:                     524285
+stddev_nedge:                   0
+min_TEPS:                       5.88616e+07
+firstquartile_TEPS:             5.95752e+07
+median_TEPS:                    6.01003e+07
+thirdquartile_TEPS:             6.01562e+07
+max_TEPS:                       6.3259e+07
+harmonic_mean_TEPS:             5.99279e+07
+harmonic_stddev_TEPS:           69402
+min_validate:                   3.17234
+firstquartile_validate:         4.19255
+median_validate:                5.88635
+thirdquartile_validate:         7.78661
+max_validate:                   9.57296
+mean_validate:                  6.03142
+stddev_validate:                2.00526
+Reservation number 79272: Reserved 1 hosts for 900 seconds 
+Run on 1 hosts for 960 seconds from Tue Jun  9 16:07:17 2015
+: node108/0 
+Warning: Permanently added 'node108,10.141.1.8' (RSA) to the list of known hosts.
+Usage: /home/hdermois/project/code/graph500/mpi/graph500_mpi_simple SCALE edgefactor
+  SCALE = log_2(# vertices) [integer, required]
+  edgefactor = (# edges) / (# vertices) = .5 * (average vertex degree) [integer, defaults to 16]
+(Random number seed and Kronecker initiator are in main.c)
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 0 in communicator MPI_COMM_WORLD 
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun has exited due to process rank 0 with PID 17780 on
+node node108 exiting without calling "finalize". This may
+have caused other processes in the application to be
+terminated by signals sent by mpirun (as reported here).
+--------------------------------------------------------------------------
+Reservation number 79273: Reserved 1 hosts for 900 seconds 
+Run on 1 hosts for 960 seconds from Tue Jun  9 16:07:32 2015
+: node112/0 
+Warning: Permanently added 'node112,10.141.1.12' (RSA) to the list of known hosts.
+Usage: /home/hdermois/project/code/graph500/mpi/graph500_mpi_simple SCALE edgefactor
+  SCALE = log_2(# vertices) [integer, required]
+  edgefactor = (# edges) / (# vertices) = .5 * (average vertex degree) [integer, defaults to 16]
+(Random number seed and Kronecker initiator are in main.c)
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 0 in communicator MPI_COMM_WORLD 
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun has exited due to process rank 0 with PID 29729 on
+node node112 exiting without calling "finalize". This may
+have caused other processes in the application to be
+terminated by signals sent by mpirun (as reported here).
+--------------------------------------------------------------------------
+SCALE:                          15
+edgefactor:                     16
+NBFS:                           64
+graph_generation:               0.121639
+num_mpi_processes:              1
+construction_time:              0.123748
+min_time:                       0.00825906
+firstquartile_time:             0.00871158
+median_time:                    0.00871944
+thirdquartile_time:             0.008726
+max_time:                       0.0114779
+mean_time:                      0.00876078
+stddev_time:                    0.000351406
+min_nedge:                      524285
+firstquartile_nedge:            524285
+median_nedge:                   524285
+thirdquartile_nedge:            524285
+max_nedge:                      524285
+mean_nedge:                     524285
+stddev_nedge:                   0
+min_TEPS:                       4.56776e+07
+firstquartile_TEPS:             6.00831e+07
+median_TEPS:                    6.01283e+07
+thirdquartile_TEPS:             6.01826e+07
+max_TEPS:                       6.348e+07
+harmonic_mean_TEPS:             5.98446e+07
+harmonic_stddev_TEPS:           302428
+min_validate:                   3.23485
+firstquartile_validate:         4.35592
+median_validate:                5.7449
+thirdquartile_validate:         7.44915
+max_validate:                   9.54546
+mean_validate:                  5.94195
+stddev_validate:                1.86922
+Reservation number 79275: Reserved 1 hosts for 900 seconds 
+Run on 1 hosts for 960 seconds from Tue Jun  9 16:08:02 2015
+: node107/0 
+Usage: /home/hdermois/project/code/graph500/mpi/graph500_mpi_simple SCALE edgefactor
+  SCALE = log_2(# vertices) [integer, required]
+  edgefactor = (# edges) / (# vertices) = .5 * (average vertex degree) [integer, defaults to 16]
+(Random number seed and Kronecker initiator are in main.c)
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 0 in communicator MPI_COMM_WORLD 
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun has exited due to process rank 0 with PID 14710 on
+node node107 exiting without calling "finalize". This may
+have caused other processes in the application to be
+terminated by signals sent by mpirun (as reported here).
+--------------------------------------------------------------------------
+Reservation number 79276: Reserved 1 hosts for 900 seconds 
+Run on 1 hosts for 960 seconds from Tue Jun  9 16:08:17 2015
+: node110/0 
+Usage: /home/hdermois/project/code/graph500/mpi/graph500_mpi_simple SCALE edgefactor
+  SCALE = log_2(# vertices) [integer, required]
+  edgefactor = (# edges) / (# vertices) = .5 * (average vertex degree) [integer, defaults to 16]
+(Random number seed and Kronecker initiator are in main.c)
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 0 in communicator MPI_COMM_WORLD 
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun has exited due to process rank 0 with PID 25952 on
+node node110 exiting without calling "finalize". This may
+have caused other processes in the application to be
+terminated by signals sent by mpirun (as reported here).
+--------------------------------------------------------------------------
+SCALE:                          15
+edgefactor:                     16
+NBFS:                           64
+graph_generation:               0.064748
+num_mpi_processes:              1
+construction_time:              0.112965
+min_time:                       0.00826001
+firstquartile_time:             0.00870955
+median_time:                    0.00871694
+thirdquartile_time:             0.00872457
+max_time:                       0.00875998
+mean_time:                      0.00871102
+stddev_time:                    5.83635e-05
+min_nedge:                      524285
+firstquartile_nedge:            524285
+median_nedge:                   524285
+thirdquartile_nedge:            524285
+max_nedge:                      524285
+mean_nedge:                     524285
+stddev_nedge:                   0
+min_TEPS:                       5.98501e+07
+firstquartile_TEPS:             6.00929e+07
+median_TEPS:                    6.01455e+07
+thirdquartile_TEPS:             6.01966e+07
+max_TEPS:                       6.34727e+07
+harmonic_mean_TEPS:             6.01864e+07
+harmonic_stddev_TEPS:           50804.3
+min_validate:                   3.31684
+firstquartile_validate:         4.30688
+median_validate:                5.77104
+thirdquartile_validate:         7.67595
+max_validate:                   9.67836
+mean_validate:                  6.04244
+stddev_validate:                1.91972
+Reservation number 79278: Reserved 1 hosts for 900 seconds 
+Run on 1 hosts for 960 seconds from Tue Jun  9 16:08:47 2015
+: node114/0 
+Usage: /home/hdermois/project/code/graph500/mpi/graph500_mpi_simple SCALE edgefactor
+  SCALE = log_2(# vertices) [integer, required]
+  edgefactor = (# edges) / (# vertices) = .5 * (average vertex degree) [integer, defaults to 16]
+(Random number seed and Kronecker initiator are in main.c)
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 0 in communicator MPI_COMM_WORLD 
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun has exited due to process rank 0 with PID 15977 on
+node node114 exiting without calling "finalize". This may
+have caused other processes in the application to be
+terminated by signals sent by mpirun (as reported here).
+--------------------------------------------------------------------------
+Reservation number 79279: Reserved 1 hosts for 900 seconds 
+Run on 1 hosts for 960 seconds from Tue Jun  9 16:09:02 2015
+: node108/0 
+Usage: /home/hdermois/project/code/graph500/mpi/graph500_mpi_simple SCALE edgefactor
+  SCALE = log_2(# vertices) [integer, required]
+  edgefactor = (# edges) / (# vertices) = .5 * (average vertex degree) [integer, defaults to 16]
+(Random number seed and Kronecker initiator are in main.c)
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 0 in communicator MPI_COMM_WORLD 
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun has exited due to process rank 0 with PID 17897 on
+node node108 exiting without calling "finalize". This may
+have caused other processes in the application to be
+terminated by signals sent by mpirun (as reported here).
+--------------------------------------------------------------------------
