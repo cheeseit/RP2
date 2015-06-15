@@ -1,1 +1,4 @@
 http://docs.opennebula.org/4.4/user/virtual_machine_setup/bcont.html#bcont
+
+onevm saveas 110882 0 centos-5-mpi-noiptables
+

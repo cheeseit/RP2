@@ -1,0 +1,3488 @@
+Reservation number 79601: Reserved 4 hosts for 900 seconds 
+Run on 4 hosts for 960 seconds from Thu Jun 11 16:24:02 2015
+: node113/0 node102/0 node109/0 node111/0 
+graph_generation:               0.064161 s
+construction_time:              0.071119 s
+Running BFS 0
+Time for BFS 0 is 0.010117
+Validating BFS 0
+Validate time for BFS 0 is 48.335576
+TEPS for BFS 0 is 5.18231e+07
+Running BFS 1
+Time for BFS 1 is 0.009789
+Validating BFS 1
+Validate time for BFS 1 is 47.420729
+TEPS for BFS 1 is 5.35586e+07
+Running BFS 2
+Time for BFS 2 is 0.009721
+Validating BFS 2
+Validate time for BFS 2 is 50.037650
+TEPS for BFS 2 is 5.3933e+07
+Running BFS 3
+Time for BFS 3 is 0.010031
+Validating BFS 3
+Validate time for BFS 3 is 52.173335
+TEPS for BFS 3 is 5.22666e+07
+Running BFS 4
+Time for BFS 4 is 0.009801
+Validating BFS 4
+Validate time for BFS 4 is 53.882203
+TEPS for BFS 4 is 5.34922e+07
+Running BFS 5
+Time for BFS 5 is 0.009832
+Validating BFS 5
+Validate time for BFS 5 is 54.949729
+TEPS for BFS 5 is 5.33249e+07
+Running BFS 6
+Time for BFS 6 is 0.009765
+Validating BFS 6
+Validate time for BFS 6 is 55.847855
+TEPS for BFS 6 is 5.36907e+07
+Running BFS 7
+Time for BFS 7 is 0.009901
+Validating BFS 7
+Validate time for BFS 7 is 56.321348
+TEPS for BFS 7 is 5.29525e+07
+Running BFS 8
+Time for BFS 8 is 0.009751
+Validating BFS 8
+Validate time for BFS 8 is 56.781813
+TEPS for BFS 8 is 5.37669e+07
+Running BFS 9
+Time for BFS 9 is 0.009759
+Validating BFS 9
+Validate time for BFS 9 is 56.941620
+TEPS for BFS 9 is 5.37235e+07
+Running BFS 10
+Time for BFS 10 is 0.009791
+Validating BFS 10
+Validate time for BFS 10 is 57.303425
+TEPS for BFS 10 is 5.35469e+07
+Running BFS 11
+Time for BFS 11 is 0.009820
+Validating BFS 11
+Validate time for BFS 11 is 57.601311
+TEPS for BFS 11 is 5.33896e+07
+Running BFS 12
+Time for BFS 12 is 0.009829
+Validating BFS 12
+Validate time for BFS 12 is 57.617749
+TEPS for BFS 12 is 5.33404e+07
+Running BFS 13
+Time for BFS 13 is 0.010020
+Validating BFS 13
+Validate time for BFS 13 is 58.000985
+TEPS for BFS 13 is 5.23238e+07
+Running BFS 14
+Time for BFS 14 is 0.009803
+Validating BFS 14
+Validate time for BFS 14 is 58.252505
+TEPS for BFS 14 is 5.34818e+07
+Running BFS 15
+Time for BFS 15 is 0.009846
+Validating BFS 15
+node113: time left is 0.000 s: timeout expired; kill -SIGINT 0
+mpirun: killing job...
+
+--------------------------------------------------------------------------
+mpirun noticed that process rank 0 with PID 15827 on node node113 exited on signal 0 (Unknown signal 0).
+--------------------------------------------------------------------------
+mpirun: clean termination accomplished
+
+
+real	15m15.025s
+user	0m0.065s
+sys	0m0.046s
+Run on 4 hosts for 360000 seconds from Thu Jun 11 21:04:03 2015
+: node102/0 node105/0 node109/0 node110/0 
+graph_generation:               0.073108 s
+construction_time:              0.079882 s
+Running BFS 0
+Time for BFS 0 is 0.008650
+Validating BFS 0
+[[44138,1],0][btl_openib_component.c:3238:handle_wc] from node102 to: node105 error polling HP CQ with status WORK REQUEST FLUSHED ERROR status number 5 for wr_id 9514240 opcode 128  vendor error 244 qp_idx 0
+--------------------------------------------------------------------------
+mpirun has exited due to process rank 0 with PID 32378 on
+node node102 exiting without calling "finalize". This may
+have caused other processes in the application to be
+terminated by signals sent by mpirun (as reported here).
+--------------------------------------------------------------------------
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0] ORTE_ERROR_LOG: Unreachable in file orted/orted_comm.c at line 130
+[node102:32370] [[44138,0],0] ORTE_ERROR_LOG: Unreachable in file orted/orted_comm.c at line 130
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+--------------------------------------------------------------------------
+The InfiniBand retry count between two MPI processes has been
+exceeded.  "Retry count" is defined in the InfiniBand spec 1.2
+(section 12.7.38):
+
+    The total number of times that the sender wishes the receiver to
+    retry timeout, packet sequence, etc. errors before posting a
+    completion error.
+
+This error typically means that there is something awry within the
+InfiniBand fabric itself.  You should note the hosts on which this
+error has occurred; it has been observed that rebooting or removing a
+particular host from the job can sometimes resolve this issue.  
+
+Two MCA parameters can be used to control Open MPI's behavior with
+respect to the retry count:
+
+* btl_openib_ib_retry_count - The number of times the sender will
+  attempt to retry (defaulted to 7, the maximum value).
+* btl_openib_ib_timeout - The local ACK timeout parameter (defaulted
+  to 20).  The actual timeout value used is calculated as:
+
+     4.096 microseconds * (2^btl_openib_ib_timeout)
+
+  See the InfiniBand spec 1.2 (section 12.7.34) for more details.
+
+Below is some information about the host that raised the error and the
+peer to which it was connected:
+
+  Local host:   node109
+  Local device: mlx4_0
+  Peer host:    node114
+
+You may need to consult with your system administrator to get this
+problem fixed.
+--------------------------------------------------------------------------
+[[44138,1],2][btl_openib_component.c:3238:handle_wc] from node109 to: node114 error polling LP CQ with status RETRY EXCEEDED ERROR status number 12 for wr_id 31028736 opcode 0  vendor error 129 qp_idx 0
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+[node102:32370] [[44138,0],0]-[[44138,0],1] oob-tcp: Communication retries exceeded.  Can not communicate with peer
+Killed by signal 2.
+
+real	19m0.542s
+user	0m0.074s
+sys	0m0.065s
+Prun fatal error: non-existent reservation 79280
+
+real	0m0.030s
+user	0m0.007s
+sys	0m0.005s
+Prun fatal error: More cpus requested 4 than reserved 1 * 1
+
+real	0m0.050s
+user	0m0.026s
+sys	0m0.011s
+Run on 4 hosts for 360000 seconds from Sat Jun 13 18:35:19 2015
+: node101/0 node104/0 node106/0 node107/0 
+graph_generation:               0.068269 s
+construction_time:              0.073837 s
+Running BFS 0
+Time for BFS 0 is 0.006800
+Validating BFS 0
+Validate time for BFS 0 is 34.959755
+TEPS for BFS 0 is 7.70988e+07
+Running BFS 1
+Time for BFS 1 is 0.005406
+Validating BFS 1
+Validate time for BFS 1 is 32.749646
+TEPS for BFS 1 is 9.69838e+07
+Running BFS 2
+Time for BFS 2 is 0.005481
+Validating BFS 2
+Validate time for BFS 2 is 34.915620
+TEPS for BFS 2 is 9.56549e+07
+Running BFS 3
+Time for BFS 3 is 0.005678
+Validating BFS 3
+Validate time for BFS 3 is 35.784619
+TEPS for BFS 3 is 9.23333e+07
+Running BFS 4
+Time for BFS 4 is 0.005416
+Validating BFS 4
+Validate time for BFS 4 is 36.465568
+TEPS for BFS 4 is 9.68002e+07
+Running BFS 5
+Time for BFS 5 is 0.005468
+Validating BFS 5
+Validate time for BFS 5 is 36.682042
+TEPS for BFS 5 is 9.58801e+07
+Running BFS 6
+Time for BFS 6 is 0.005637
+Validating BFS 6
+Validate time for BFS 6 is 37.109461
+TEPS for BFS 6 is 9.3005e+07
+Running BFS 7
+Time for BFS 7 is 0.005538
+Validating BFS 7
+Validate time for BFS 7 is 37.167268
+TEPS for BFS 7 is 9.46707e+07
+Running BFS 8
+Time for BFS 8 is 0.005396
+Validating BFS 8
+Validate time for BFS 8 is 37.325612
+TEPS for BFS 8 is 9.71595e+07
+Running BFS 9
+Time for BFS 9 is 0.005523
+Validating BFS 9
+Validate time for BFS 9 is 37.470842
+TEPS for BFS 9 is 9.49282e+07
+Running BFS 10
+Time for BFS 10 is 0.005481
+Validating BFS 10
+Validate time for BFS 10 is 37.711211
+TEPS for BFS 10 is 9.56549e+07
+Running BFS 11
+Time for BFS 11 is 0.005585
+Validating BFS 11
+Validate time for BFS 11 is 37.686387
+TEPS for BFS 11 is 9.38745e+07
+Running BFS 12
+Time for BFS 12 is 0.005635
+Validating BFS 12
+Validate time for BFS 12 is 37.929448
+TEPS for BFS 12 is 9.30404e+07
+Running BFS 13
+Time for BFS 13 is 0.005646
+Validating BFS 13
+Validate time for BFS 13 is 37.948056
+TEPS for BFS 13 is 9.28597e+07
+Running BFS 14
+Time for BFS 14 is 0.005490
+Validating BFS 14
+Validate time for BFS 14 is 38.103697
+TEPS for BFS 14 is 9.55012e+07
+Running BFS 15
+Time for BFS 15 is 0.005503
+Validating BFS 15
+Validate time for BFS 15 is 38.136702
+TEPS for BFS 15 is 9.52736e+07
+Running BFS 16
+Time for BFS 16 is 0.005454
+Validating BFS 16
+Validate time for BFS 16 is 38.170453
+TEPS for BFS 16 is 9.61316e+07
+Running BFS 17
+Time for BFS 17 is 0.005465
+Validating BFS 17
+Validate time for BFS 17 is 38.090166
+TEPS for BFS 17 is 9.59345e+07
+Running BFS 18
+Time for BFS 18 is 0.005924
+Validating BFS 18
+Validate time for BFS 18 is 38.265809
+TEPS for BFS 18 is 8.85021e+07
+Running BFS 19
+Time for BFS 19 is 0.005552
+Validating BFS 19
+Validate time for BFS 19 is 38.186073
+TEPS for BFS 19 is 9.44349e+07
+Running BFS 20
+Time for BFS 20 is 0.005463
+Validating BFS 20
+Validate time for BFS 20 is 38.258134
+TEPS for BFS 20 is 9.5968e+07
+Running BFS 21
+Time for BFS 21 is 0.005475
+Validating BFS 21
+Validate time for BFS 21 is 38.268906
+TEPS for BFS 21 is 9.5759e+07
+Running BFS 22
+Time for BFS 22 is 0.005472
+Validating BFS 22
+Validate time for BFS 22 is 38.454218
+TEPS for BFS 22 is 9.58091e+07
+Running BFS 23
+Time for BFS 23 is 0.005512
+Validating BFS 23
+Validate time for BFS 23 is 38.395460
+TEPS for BFS 23 is 9.5117e+07
+Running BFS 24
+Time for BFS 24 is 0.005773
+Validating BFS 24
+Validate time for BFS 24 is 38.542728
+TEPS for BFS 24 is 9.08194e+07
+Running BFS 25
+Time for BFS 25 is 0.005552
+Validating BFS 25
+Validate time for BFS 25 is 38.400897
+TEPS for BFS 25 is 9.44308e+07
+Running BFS 26
+Time for BFS 26 is 0.005522
+Validating BFS 26
+Validate time for BFS 26 is 38.577942
+TEPS for BFS 26 is 9.49445e+07
+Running BFS 27
+Time for BFS 27 is 0.005436
+Validating BFS 27
+Validate time for BFS 27 is 38.657635
+TEPS for BFS 27 is 9.64478e+07
+Running BFS 28
+Time for BFS 28 is 0.005551
+Validating BFS 28
+Validate time for BFS 28 is 38.679184
+TEPS for BFS 28 is 9.44511e+07
+Running BFS 29
+Time for BFS 29 is 0.005609
+Validating BFS 29
+Validate time for BFS 29 is 38.609819
+TEPS for BFS 29 is 9.34715e+07
+Running BFS 30
+Time for BFS 30 is 0.005685
+Validating BFS 30
+Validate time for BFS 30 is 38.800216
+TEPS for BFS 30 is 9.2221e+07
+Running BFS 31
+Time for BFS 31 is 0.005520
+Validating BFS 31
+Validate time for BFS 31 is 38.854118
+TEPS for BFS 31 is 9.49774e+07
+Running BFS 32
+Time for BFS 32 is 0.005554
+Validating BFS 32
+Validate time for BFS 32 is 39.071759
+TEPS for BFS 32 is 9.43984e+07
+Running BFS 33
+Time for BFS 33 is 0.005463
+Validating BFS 33
+Validate time for BFS 33 is 39.209914
+TEPS for BFS 33 is 9.59722e+07
+Running BFS 34
+Time for BFS 34 is 0.005618
+Validating BFS 34
+Validate time for BFS 34 is 39.379200
+TEPS for BFS 34 is 9.33247e+07
+Running BFS 35
+Time for BFS 35 is 0.005512
+Validating BFS 35
+Validate time for BFS 35 is 39.291331
+TEPS for BFS 35 is 9.5117e+07
+Running BFS 36
+Time for BFS 36 is 0.005414
+Validating BFS 36
+Validate time for BFS 36 is 39.380106
+TEPS for BFS 36 is 9.68386e+07
+Running BFS 37
+Time for BFS 37 is 0.005655
+Validating BFS 37
+Validate time for BFS 37 is 39.821227
+TEPS for BFS 37 is 9.27109e+07
+Running BFS 38
+Time for BFS 38 is 0.005752
+Validating BFS 38
+Validate time for BFS 38 is 40.018982
+TEPS for BFS 38 is 9.11469e+07
+Running BFS 39
+Time for BFS 39 is 0.005470
+Validating BFS 39
+Validate time for BFS 39 is 40.012594
+TEPS for BFS 39 is 9.58467e+07
+Running BFS 40
+Time for BFS 40 is 0.005552
+Validating BFS 40
+Validate time for BFS 40 is 40.682549
+TEPS for BFS 40 is 9.44308e+07
+Running BFS 41
+Time for BFS 41 is 0.005439
+Validating BFS 41
+Validate time for BFS 41 is 39.998580
+TEPS for BFS 41 is 9.63929e+07
+Running BFS 42
+Time for BFS 42 is 0.005433
+Validating BFS 42
+Validate time for BFS 42 is 40.407678
+TEPS for BFS 42 is 9.64986e+07
+Running BFS 43
+Time for BFS 43 is 0.005518
+Validating BFS 43
+Validate time for BFS 43 is 40.165175
+TEPS for BFS 43 is 9.50143e+07
+Running BFS 44
+Time for BFS 44 is 0.005540
+Validating BFS 44
+Validate time for BFS 44 is 40.356881
+TEPS for BFS 44 is 9.46381e+07
+Running BFS 45
+Time for BFS 45 is 0.005553
+Validating BFS 45
+Validate time for BFS 45 is 40.257765
+TEPS for BFS 45 is 9.44146e+07
+Running BFS 46
+Time for BFS 46 is 0.005405
+Validating BFS 46
+Validate time for BFS 46 is 40.748681
+TEPS for BFS 46 is 9.70009e+07
+Running BFS 47
+Time for BFS 47 is 0.005464
+Validating BFS 47
+Validate time for BFS 47 is 40.564532
+TEPS for BFS 47 is 9.59554e+07
+Running BFS 48
+Time for BFS 48 is 0.005579
+Validating BFS 48
+Validate time for BFS 48 is 40.842891
+TEPS for BFS 48 is 9.39748e+07
+Running BFS 49
+Time for BFS 49 is 0.005489
+Validating BFS 49
+Validate time for BFS 49 is 40.820107
+TEPS for BFS 49 is 9.55136e+07
+Running BFS 50
+Time for BFS 50 is 0.005532
+Validating BFS 50
+Validate time for BFS 50 is 41.259729
+TEPS for BFS 50 is 9.47727e+07
+Running BFS 51
+Time for BFS 51 is 0.005566
+Validating BFS 51
+Validate time for BFS 51 is 41.414175
+TEPS for BFS 51 is 9.41962e+07
+Running BFS 52
+Time for BFS 52 is 0.005575
+Validating BFS 52
+Validate time for BFS 52 is 41.752576
+TEPS for BFS 52 is 9.40431e+07
+Running BFS 53
+Time for BFS 53 is 0.005470
+Validating BFS 53
+Validate time for BFS 53 is 41.390716
+TEPS for BFS 53 is 9.58467e+07
+Running BFS 54
+Time for BFS 54 is 0.005486
+Validating BFS 54
+Validate time for BFS 54 is 41.636413
+TEPS for BFS 54 is 9.55718e+07
+Running BFS 55
+Time for BFS 55 is 0.005512
+Validating BFS 55
+Validate time for BFS 55 is 41.814243
+TEPS for BFS 55 is 9.5117e+07
+Running BFS 56
+Time for BFS 56 is 0.005659
+Validating BFS 56
+Validate time for BFS 56 is 42.016445
+TEPS for BFS 56 is 9.26445e+07
+Running BFS 57
+Time for BFS 57 is 0.005597
+Validating BFS 57
+Validate time for BFS 57 is 42.256909
+TEPS for BFS 57 is 9.36746e+07
+Running BFS 58
+Time for BFS 58 is 0.005738
+Validating BFS 58
+Validate time for BFS 58 is 42.342190
+TEPS for BFS 58 is 9.13704e+07
+Running BFS 59
+Time for BFS 59 is 0.005458
+Validating BFS 59
+Validate time for BFS 59 is 42.251594
+TEPS for BFS 59 is 9.60602e+07
+Running BFS 60
+Time for BFS 60 is 0.005455
+Validating BFS 60
+Validate time for BFS 60 is 43.137356
+TEPS for BFS 60 is 9.61106e+07
+Running BFS 61
+Time for BFS 61 is 0.005483
+Validating BFS 61
+Validate time for BFS 61 is 43.343991
+TEPS for BFS 61 is 9.56216e+07
+Running BFS 62
+Time for BFS 62 is 0.005532
+Validating BFS 62
+Validate time for BFS 62 is 43.219706
+TEPS for BFS 62 is 9.47727e+07
+Running BFS 63
+Time for BFS 63 is 0.005574
+Validating BFS 63
+Validate time for BFS 63 is 43.382080
+TEPS for BFS 63 is 9.40592e+07
+
+real	42m1.042s
+user	0m0.156s
+sys	0m0.119s
+Prun fatal error: non-existent reservation 79716
+
+real	0m0.017s
+user	0m0.011s
+sys	0m0.000s
+Run on 4 hosts for 360000 seconds from Sat Jun 13 20:50:37 2015
+: node102/0 node103/0 node105/0 node109/0 
+graph_generation:               0.066965 s
+construction_time:              0.073774 s
+Running BFS 0
+Time for BFS 0 is 0.006690
+Validating BFS 0
+Validate time for BFS 0 is 35.011347
+TEPS for BFS 0 is 7.83682e+07
+Running BFS 1
+Time for BFS 1 is 0.005398
+Validating BFS 1
+Validate time for BFS 1 is 33.206214
+TEPS for BFS 1 is 9.71252e+07
+Running BFS 2
+Time for BFS 2 is 0.005486
+Validating BFS 2
+Validate time for BFS 2 is 34.501576
+TEPS for BFS 2 is 9.55676e+07
+Running BFS 3
+Time for BFS 3 is 0.005681
+Validating BFS 3
+Validate time for BFS 3 is 35.797932
+TEPS for BFS 3 is 9.22868e+07
+Running BFS 4
+Time for BFS 4 is 0.005848
+Validating BFS 4
+Validate time for BFS 4 is 52.791082
+TEPS for BFS 4 is 8.96494e+07
+Running BFS 5
+Time for BFS 5 is 0.005565
+Validating BFS 5
+Validate time for BFS 5 is 52.985896
+TEPS for BFS 5 is 9.42124e+07
+Running BFS 6
+Time for BFS 6 is 0.005753
+Validating BFS 6
+Validate time for BFS 6 is 53.273667
+TEPS for BFS 6 is 9.11318e+07
+Running BFS 7
+Time for BFS 7 is 0.005627
+Validating BFS 7
+Validate time for BFS 7 is 53.641297
+TEPS for BFS 7 is 9.31745e+07
+Running BFS 8
+Time for BFS 8 is 0.005573
+Validating BFS 8
+Validate time for BFS 8 is 54.681233
+TEPS for BFS 8 is 9.40753e+07
+Running BFS 9
+Time for BFS 9 is 0.005617
+Validating BFS 9
+Validate time for BFS 9 is 54.288236
+TEPS for BFS 9 is 9.33366e+07
+Running BFS 10
+Time for BFS 10 is 0.005996
+Validating BFS 10
+Validate time for BFS 10 is 54.073325
+TEPS for BFS 10 is 8.74393e+07
+Running BFS 11
+Time for BFS 11 is 0.005733
+Validating BFS 11
+Validate time for BFS 11 is 37.658682
+TEPS for BFS 11 is 9.1454e+07
+Running BFS 12
+Time for BFS 12 is 0.005651
+Validating BFS 12
+Validate time for BFS 12 is 37.604740
+TEPS for BFS 12 is 9.27774e+07
+Running BFS 13
+Time for BFS 13 is 0.005701
+Validating BFS 13
+Validate time for BFS 13 is 37.609315
+TEPS for BFS 13 is 9.19626e+07
+Running BFS 14
+Time for BFS 14 is 0.005491
+Validating BFS 14
+Validate time for BFS 14 is 37.774552
+TEPS for BFS 14 is 9.54805e+07
+Running BFS 15
+Time for BFS 15 is 0.005463
+Validating BFS 15
+Validate time for BFS 15 is 37.708550
+TEPS for BFS 15 is 9.5968e+07
+Running BFS 16
+Time for BFS 16 is 0.005481
+Validating BFS 16
+Validate time for BFS 16 is 37.900178
+TEPS for BFS 16 is 9.56549e+07
+Running BFS 17
+Time for BFS 17 is 0.005462
+Validating BFS 17
+Validate time for BFS 17 is 37.804516
+TEPS for BFS 17 is 9.59848e+07
+Running BFS 18
+Time for BFS 18 is 0.005947
+Validating BFS 18
+Validate time for BFS 18 is 37.995305
+TEPS for BFS 18 is 8.81614e+07
+Running BFS 19
+Time for BFS 19 is 0.005593
+Validating BFS 19
+Validate time for BFS 19 is 37.834363
+TEPS for BFS 19 is 9.37425e+07
+Running BFS 20
+Time for BFS 20 is 0.005501
+Validating BFS 20
+Validate time for BFS 20 is 38.094400
+TEPS for BFS 20 is 9.53067e+07
+Running BFS 21
+Time for BFS 21 is 0.005483
+Validating BFS 21
+Validate time for BFS 21 is 37.940909
+TEPS for BFS 21 is 9.56216e+07
+Running BFS 22
+Time for BFS 22 is 0.005485
+Validating BFS 22
+Validate time for BFS 22 is 38.104503
+TEPS for BFS 22 is 9.55842e+07
+Running BFS 23
+Time for BFS 23 is 0.005514
+Validating BFS 23
+Validate time for BFS 23 is 38.017971
+TEPS for BFS 23 is 9.50841e+07
+Running BFS 24
+Time for BFS 24 is 0.005783
+Validating BFS 24
+Validate time for BFS 24 is 38.168612
+TEPS for BFS 24 is 9.06622e+07
+Running BFS 25
+Time for BFS 25 is 0.005541
+Validating BFS 25
+Validate time for BFS 25 is 38.129527
+TEPS for BFS 25 is 9.46177e+07
+Running BFS 26
+Time for BFS 26 is 0.005551
+Validating BFS 26
+Validate time for BFS 26 is 38.468659
+TEPS for BFS 26 is 9.44511e+07
+Running BFS 27
+Time for BFS 27 is 0.005458
+Validating BFS 27
+Validate time for BFS 27 is 38.241030
+TEPS for BFS 27 is 9.60602e+07
+Running BFS 28
+Time for BFS 28 is 0.005519
+Validating BFS 28
+Validate time for BFS 28 is 38.490912
+TEPS for BFS 28 is 9.49938e+07
+Running BFS 29
+Time for BFS 29 is 0.005626
+Validating BFS 29
+Validate time for BFS 29 is 38.413461
+TEPS for BFS 29 is 9.31903e+07
+Running BFS 30
+Time for BFS 30 is 0.005713
+Validating BFS 30
+Validate time for BFS 30 is 38.912877
+TEPS for BFS 30 is 9.17707e+07
+Running BFS 31
+Time for BFS 31 is 0.005510
+Validating BFS 31
+Validate time for BFS 31 is 39.183208
+TEPS for BFS 31 is 9.515e+07
+Running BFS 32
+Time for BFS 32 is 0.005586
+Validating BFS 32
+Validate time for BFS 32 is 39.136830
+TEPS for BFS 32 is 9.38585e+07
+Running BFS 33
+Time for BFS 33 is 0.005472
+Validating BFS 33
+Validate time for BFS 33 is 38.763969
+TEPS for BFS 33 is 9.58133e+07
+Running BFS 34
+Time for BFS 34 is 0.005618
+Validating BFS 34
+Validate time for BFS 34 is 39.290465
+TEPS for BFS 34 is 9.33247e+07
+Running BFS 35
+Time for BFS 35 is 0.005528
+Validating BFS 35
+Validate time for BFS 35 is 38.945181
+TEPS for BFS 35 is 9.48422e+07
+Running BFS 36
+Time for BFS 36 is 0.005398
+Validating BFS 36
+Validate time for BFS 36 is 39.233191
+TEPS for BFS 36 is 9.71252e+07
+Running BFS 37
+Time for BFS 37 is 0.005679
+Validating BFS 37
+Validate time for BFS 37 is 39.258781
+TEPS for BFS 37 is 9.23217e+07
+Running BFS 38
+Time for BFS 38 is 0.005576
+Validating BFS 38
+Validate time for BFS 38 is 39.441580
+TEPS for BFS 38 is 9.4023e+07
+Running BFS 39
+Time for BFS 39 is 0.005471
+Validating BFS 39
+Validate time for BFS 39 is 39.396375
+TEPS for BFS 39 is 9.583e+07
+Running BFS 40
+Time for BFS 40 is 0.005535
+Validating BFS 40
+Validate time for BFS 40 is 39.521996
+TEPS for BFS 40 is 9.47237e+07
+Running BFS 41
+Time for BFS 41 is 0.005474
+Validating BFS 41
+Validate time for BFS 41 is 39.644001
+TEPS for BFS 41 is 9.57799e+07
+Running BFS 42
+Time for BFS 42 is 0.005413
+Validating BFS 42
+Validate time for BFS 42 is 39.821108
+TEPS for BFS 42 is 9.68556e+07
+Running BFS 43
+Time for BFS 43 is 0.005509
+Validating BFS 43
+Validate time for BFS 43 is 39.953198
+TEPS for BFS 43 is 9.51705e+07
+Running BFS 44
+Time for BFS 44 is 0.005544
+Validating BFS 44
+Validate time for BFS 44 is 40.222265
+TEPS for BFS 44 is 9.45689e+07
+Running BFS 45
+Time for BFS 45 is 0.005553
+Validating BFS 45
+Validate time for BFS 45 is 40.169506
+TEPS for BFS 45 is 9.44146e+07
+Running BFS 46
+Time for BFS 46 is 0.005454
+Validating BFS 46
+Validate time for BFS 46 is 40.226681
+TEPS for BFS 46 is 9.61316e+07
+Running BFS 47
+Time for BFS 47 is 0.005466
+Validating BFS 47
+Validate time for BFS 47 is 40.513287
+TEPS for BFS 47 is 9.59178e+07
+Running BFS 48
+Time for BFS 48 is 0.005433
+Validating BFS 48
+Validate time for BFS 48 is 41.313150
+TEPS for BFS 48 is 9.64986e+07
+Running BFS 49
+Time for BFS 49 is 0.005485
+Validating BFS 49
+Validate time for BFS 49 is 40.580620
+TEPS for BFS 49 is 9.55842e+07
+Running BFS 50
+Time for BFS 50 is 0.005606
+Validating BFS 50
+Validate time for BFS 50 is 40.775405
+TEPS for BFS 50 is 9.35232e+07
+Running BFS 51
+Time for BFS 51 is 0.005581
+Validating BFS 51
+Validate time for BFS 51 is 40.834406
+TEPS for BFS 51 is 9.39427e+07
+Running BFS 52
+Time for BFS 52 is 0.005636
+Validating BFS 52
+Validate time for BFS 52 is 41.069772
+TEPS for BFS 52 is 9.30247e+07
+Running BFS 53
+Time for BFS 53 is 0.005502
+Validating BFS 53
+Validate time for BFS 53 is 41.188535
+TEPS for BFS 53 is 9.52901e+07
+Running BFS 54
+Time for BFS 54 is 0.005481
+Validating BFS 54
+Validate time for BFS 54 is 41.768968
+TEPS for BFS 54 is 9.56549e+07
+Running BFS 55
+Time for BFS 55 is 0.005523
+Validating BFS 55
+Validate time for BFS 55 is 58.381919
+TEPS for BFS 55 is 9.49282e+07
+Running BFS 56
+Time for BFS 56 is 0.005868
+Validating BFS 56
+Validate time for BFS 56 is 58.960088
+TEPS for BFS 56 is 8.93471e+07
+Running BFS 57
+Time for BFS 57 is 0.005653
+Validating BFS 57
+Validate time for BFS 57 is 59.746239
+TEPS for BFS 57 is 9.27461e+07
+Running BFS 58
+Time for BFS 58 is 0.005860
+Validating BFS 58
+Validate time for BFS 58 is 59.399187
+TEPS for BFS 58 is 8.94707e+07
+Running BFS 59
+Time for BFS 59 is 0.005563
+Validating BFS 59
+Validate time for BFS 59 is 58.688493
+TEPS for BFS 59 is 9.42447e+07
+Running BFS 60
+Time for BFS 60 is 0.005557
+Validating BFS 60
+Validate time for BFS 60 is 59.051657
+TEPS for BFS 60 is 9.43457e+07
+Running BFS 61
+Time for BFS 61 is 0.005581
+Validating BFS 61
+Validate time for BFS 61 is 59.344005
+TEPS for BFS 61 is 9.39427e+07
+Running BFS 62
+Time for BFS 62 is 0.005766
+Validating BFS 62
+Validate time for BFS 62 is 59.635163
+TEPS for BFS 62 is 9.09283e+07
+Running BFS 63
+Time for BFS 63 is 0.005641
+Validating BFS 63
+Validate time for BFS 63 is 59.975364
+TEPS for BFS 63 is 9.29421e+07
+
+real	46m14.118s
+user	0m0.156s
+sys	0m0.140s
+Run on 4 hosts for 360000 seconds from Sun Jun 14 00:08:46 2015
+: node101/0 node104/0 node106/0 node107/0 
+graph_generation:               0.067880 s
+construction_time:              0.073992 s
+Running BFS 0
+Time for BFS 0 is 0.006736
+Validating BFS 0
+Validate time for BFS 0 is 34.582739
+TEPS for BFS 0 is 7.78328e+07
+Running BFS 1
+Time for BFS 1 is 0.005403
+Validating BFS 1
+Validate time for BFS 1 is 32.634472
+TEPS for BFS 1 is 9.70352e+07
+Running BFS 2
+Time for BFS 2 is 0.005469
+Validating BFS 2
+Validate time for BFS 2 is 34.868262
+TEPS for BFS 2 is 9.58634e+07
+Running BFS 3
+Time for BFS 3 is 0.005656
+Validating BFS 3
+Validate time for BFS 3 is 35.786279
+TEPS for BFS 3 is 9.26953e+07
+Running BFS 4
+Time for BFS 4 is 0.005400
+Validating BFS 4
+Validate time for BFS 4 is 36.315333
+TEPS for BFS 4 is 9.70909e+07
+Running BFS 5
+Time for BFS 5 is 0.005480
+Validating BFS 5
+Validate time for BFS 5 is 36.570796
+TEPS for BFS 5 is 9.56716e+07
+Running BFS 6
+Time for BFS 6 is 0.005599
+Validating BFS 6
+Validate time for BFS 6 is 36.791870
+TEPS for BFS 6 is 9.36387e+07
+Running BFS 7
+Time for BFS 7 is 0.005532
+Validating BFS 7
+Validate time for BFS 7 is 36.960692
+TEPS for BFS 7 is 9.47727e+07
+Running BFS 8
+Time for BFS 8 is 0.005406
+Validating BFS 8
+Validate time for BFS 8 is 37.222688
+TEPS for BFS 8 is 9.69795e+07
+Running BFS 9
+Time for BFS 9 is 0.005522
+Validating BFS 9
+Validate time for BFS 9 is 37.269988
+TEPS for BFS 9 is 9.49445e+07
+Running BFS 10
+Time for BFS 10 is 0.005491
+Validating BFS 10
+Validate time for BFS 10 is 37.513552
+TEPS for BFS 10 is 9.54805e+07
+Running BFS 11
+Time for BFS 11 is 0.005596
+Validating BFS 11
+Validate time for BFS 11 is 37.730391
+TEPS for BFS 11 is 9.36905e+07
+Running BFS 12
+Time for BFS 12 is 0.005626
+Validating BFS 12
+Validate time for BFS 12 is 37.698841
+TEPS for BFS 12 is 9.31863e+07
+Running BFS 13
+Time for BFS 13 is 0.005692
+Validating BFS 13
+Validate time for BFS 13 is 37.670538
+TEPS for BFS 13 is 9.2109e+07
+Running BFS 14
+Time for BFS 14 is 0.005479
+Validating BFS 14
+Validate time for BFS 14 is 37.712126
+TEPS for BFS 14 is 9.56882e+07
+Running BFS 15
+Time for BFS 15 is 0.005474
+Validating BFS 15
+Validate time for BFS 15 is 37.764736
+TEPS for BFS 15 is 9.57757e+07
+Running BFS 16
+Time for BFS 16 is 0.005457
+Validating BFS 16
+Validate time for BFS 16 is 37.915104
+TEPS for BFS 16 is 9.6077e+07
+Running BFS 17
+Time for BFS 17 is 0.005452
+Validating BFS 17
+Validate time for BFS 17 is 37.968900
+TEPS for BFS 17 is 9.6161e+07
+Running BFS 18
+Time for BFS 18 is 0.006326
+Validating BFS 18
+Validate time for BFS 18 is 54.480930
+TEPS for BFS 18 is 8.28783e+07
+Running BFS 19
+Time for BFS 19 is 0.005719
+Validating BFS 19
+Validate time for BFS 19 is 54.451812
+TEPS for BFS 19 is 9.16751e+07
+Running BFS 20
+Time for BFS 20 is 0.005674
+Validating BFS 20
+Validate time for BFS 20 is 54.804020
+TEPS for BFS 20 is 9.24032e+07
+Running BFS 21
+Time for BFS 21 is 0.005663
+Validating BFS 21
+Validate time for BFS 21 is 55.284221
+TEPS for BFS 21 is 9.25782e+07
+Running BFS 22
+Time for BFS 22 is 0.005574
+Validating BFS 22
+Validate time for BFS 22 is 55.473088
+TEPS for BFS 22 is 9.40592e+07
+Running BFS 23
+Time for BFS 23 is 0.005615
+Validating BFS 23
+Validate time for BFS 23 is 55.222228
+TEPS for BFS 23 is 9.33723e+07
+Running BFS 24
+Time for BFS 24 is 0.005920
+Validating BFS 24
+Validate time for BFS 24 is 54.684547
+TEPS for BFS 24 is 8.85627e+07
+Running BFS 25
+Time for BFS 25 is 0.005606
+Validating BFS 25
+Validate time for BFS 25 is 54.968444
+TEPS for BFS 25 is 9.35232e+07
+Running BFS 26
+Time for BFS 26 is 0.005672
+Validating BFS 26
+Validate time for BFS 26 is 55.271973
+TEPS for BFS 26 is 9.24342e+07
+Running BFS 27
+Time for BFS 27 is 0.005599
+Validating BFS 27
+Validate time for BFS 27 is 55.101424
+TEPS for BFS 27 is 9.36387e+07
+Running BFS 28
+Time for BFS 28 is 0.005651
+Validating BFS 28
+Validate time for BFS 28 is 55.082863
+TEPS for BFS 28 is 9.27774e+07
+Running BFS 29
+Time for BFS 29 is 0.005713
+Validating BFS 29
+Validate time for BFS 29 is 55.074424
+TEPS for BFS 29 is 9.17707e+07
+Running BFS 30
+Time for BFS 30 is 0.005846
+Validating BFS 30
+Validate time for BFS 30 is 55.570101
+TEPS for BFS 30 is 8.96823e+07
+Running BFS 31
+Time for BFS 31 is 0.005607
+Validating BFS 31
+Validate time for BFS 31 is 56.025480
+TEPS for BFS 31 is 9.35033e+07
+Running BFS 32
+Time for BFS 32 is 0.005694
+Validating BFS 32
+Validate time for BFS 32 is 55.661781
+TEPS for BFS 32 is 9.20782e+07
+Running BFS 33
+Time for BFS 33 is 0.005623
+Validating BFS 33
+Validate time for BFS 33 is 55.597562
+TEPS for BFS 33 is 9.32377e+07
+Running BFS 34
+Time for BFS 34 is 0.005840
+Validating BFS 34
+Validate time for BFS 34 is 56.133729
+TEPS for BFS 34 is 8.97739e+07
+Running BFS 35
+Time for BFS 35 is 0.005619
+Validating BFS 35
+Validate time for BFS 35 is 55.730225
+TEPS for BFS 35 is 9.33049e+07
+Running BFS 36
+Time for BFS 36 is 0.005522
+Validating BFS 36
+Validate time for BFS 36 is 56.100278
+TEPS for BFS 36 is 9.49445e+07
+Running BFS 37
+Time for BFS 37 is 0.005884
+Validating BFS 37
+Validate time for BFS 37 is 56.108365
+TEPS for BFS 37 is 8.91045e+07
+Running BFS 38
+Time for BFS 38 is 0.005995
+Validating BFS 38
+Validate time for BFS 38 is 56.177112
+TEPS for BFS 38 is 8.74567e+07
+Running BFS 39
+Time for BFS 39 is 0.005560
+Validating BFS 39
+Validate time for BFS 39 is 56.611394
+TEPS for BFS 39 is 9.42972e+07
+Running BFS 40
+Time for BFS 40 is 0.005601
+Validating BFS 40
+Validate time for BFS 40 is 56.706482
+TEPS for BFS 40 is 9.36028e+07
+Running BFS 41
+Time for BFS 41 is 0.005667
+Validating BFS 41
+Validate time for BFS 41 is 56.786457
+TEPS for BFS 41 is 9.2512e+07
+Running BFS 42
+Time for BFS 42 is 0.005572
+Validating BFS 42
+Validate time for BFS 42 is 57.226210
+TEPS for BFS 42 is 9.40955e+07
+Running BFS 43
+Time for BFS 43 is 0.005588
+Validating BFS 43
+Validate time for BFS 43 is 56.603622
+TEPS for BFS 43 is 9.38225e+07
+Running BFS 44
+Time for BFS 44 is 0.005644
+Validating BFS 44
+Validate time for BFS 44 is 57.094705
+TEPS for BFS 44 is 9.28911e+07
+Running BFS 45
+Time for BFS 45 is 0.005721
+Validating BFS 45
+Validate time for BFS 45 is 57.075316
+TEPS for BFS 45 is 9.16445e+07
+Running BFS 46
+Time for BFS 46 is 0.005568
+Validating BFS 46
+Validate time for BFS 46 is 57.268278
+TEPS for BFS 46 is 9.41599e+07
+Running BFS 47
+Time for BFS 47 is 0.005558
+Validating BFS 47
+Validate time for BFS 47 is 57.236254
+TEPS for BFS 47 is 9.43296e+07
+Running BFS 48
+Time for BFS 48 is 0.005736
+Validating BFS 48
+Validate time for BFS 48 is 57.658233
+TEPS for BFS 48 is 9.14046e+07
+Running BFS 49
+Time for BFS 49 is 0.005631
+Validating BFS 49
+Validate time for BFS 49 is 57.814517
+TEPS for BFS 49 is 9.31074e+07
+Running BFS 50
+Time for BFS 50 is 0.005732
+Validating BFS 50
+Validate time for BFS 50 is 57.513632
+TEPS for BFS 50 is 9.14654e+07
+Running BFS 51
+Time for BFS 51 is 0.005721
+Validating BFS 51
+Validate time for BFS 51 is 57.651016
+TEPS for BFS 51 is 9.16407e+07
+Running BFS 52
+Time for BFS 52 is 0.005816
+Validating BFS 52
+Validate time for BFS 52 is 58.015171
+TEPS for BFS 52 is 9.01456e+07
+Running BFS 53
+Time for BFS 53 is 0.005621
+Validating BFS 53
+Validate time for BFS 53 is 57.910076
+TEPS for BFS 53 is 9.32733e+07
+Running BFS 54
+Time for BFS 54 is 0.005653
+Validating BFS 54
+Validate time for BFS 54 is 58.414376
+TEPS for BFS 54 is 9.27461e+07
+Running BFS 55
+Time for BFS 55 is 0.005733
+Validating BFS 55
+Validate time for BFS 55 is 58.336809
+TEPS for BFS 55 is 9.14502e+07
+Running BFS 56
+Time for BFS 56 is 0.005897
+Validating BFS 56
+Validate time for BFS 56 is 58.619962
+TEPS for BFS 56 is 8.891e+07
+Running BFS 57
+Time for BFS 57 is 0.005650
+Validating BFS 57
+Validate time for BFS 57 is 58.758517
+TEPS for BFS 57 is 9.27931e+07
+Running BFS 58
+Time for BFS 58 is 0.005830
+Validating BFS 58
+Validate time for BFS 58 is 58.962407
+TEPS for BFS 58 is 8.99281e+07
+Running BFS 59
+Time for BFS 59 is 0.005555
+Validating BFS 59
+Validate time for BFS 59 is 58.840133
+TEPS for BFS 59 is 9.43781e+07
+Running BFS 60
+Time for BFS 60 is 0.005579
+Validating BFS 60
+Validate time for BFS 60 is 59.054934
+TEPS for BFS 60 is 9.39748e+07
+Running BFS 61
+Time for BFS 61 is 0.005576
+Validating BFS 61
+Validate time for BFS 61 is 59.387448
+TEPS for BFS 61 is 9.4023e+07
+Running BFS 62
+Time for BFS 62 is 0.005771
+Validating BFS 62
+Validate time for BFS 62 is 59.386670
+TEPS for BFS 62 is 9.08494e+07
+Running BFS 63
+Time for BFS 63 is 0.005655
+Validating BFS 63
+Validate time for BFS 63 is 59.369543
+TEPS for BFS 63 is 9.27109e+07
+
+real	54m37.954s
+user	0m0.158s
+sys	0m0.183s
+Reserve lib error: reservation 79719 status: queued-active
+
+real	0m0.016s
+user	0m0.005s
+sys	0m0.006s
+Run on 4 hosts for 360000 seconds from Sun Jun 14 07:11:55 2015
+: node102/0 node103/0 node105/0 node109/0 
+graph_generation:               0.067339 s
+construction_time:              0.083354 s
+Running BFS 0
+Time for BFS 0 is 0.006679
+Validating BFS 0
+Validate time for BFS 0 is 34.723903
+TEPS for BFS 0 is 7.84968e+07
+Running BFS 1
+Time for BFS 1 is 0.005409
+Validating BFS 1
+Validate time for BFS 1 is 32.496794
+TEPS for BFS 1 is 9.69282e+07
+Running BFS 2
+Time for BFS 2 is 0.005499
+Validating BFS 2
+Validate time for BFS 2 is 34.809720
+TEPS for BFS 2 is 9.53397e+07
+Running BFS 3
+Time for BFS 3 is 0.005693
+Validating BFS 3
+Validate time for BFS 3 is 35.770357
+TEPS for BFS 3 is 9.20936e+07
+Running BFS 4
+Time for BFS 4 is 0.005431
+Validating BFS 4
+Validate time for BFS 4 is 36.478018
+TEPS for BFS 4 is 9.65325e+07
+Running BFS 5
+Time for BFS 5 is 0.005521
+Validating BFS 5
+Validate time for BFS 5 is 53.744803
+TEPS for BFS 5 is 9.49609e+07
+Running BFS 6
+Time for BFS 6 is 0.006021
+Validating BFS 6
+Validate time for BFS 6 is 53.668191
+TEPS for BFS 6 is 8.70757e+07
+Running BFS 7
+Time for BFS 7 is 0.005597
+Validating BFS 7
+Validate time for BFS 7 is 53.490975
+TEPS for BFS 7 is 9.36706e+07
+Running BFS 8
+Time for BFS 8 is 0.005589
+Validating BFS 8
+Validate time for BFS 8 is 54.184286
+TEPS for BFS 8 is 9.38064e+07
+Running BFS 9
+Time for BFS 9 is 0.005624
+Validating BFS 9
+Validate time for BFS 9 is 54.331820
+TEPS for BFS 9 is 9.32219e+07
+Running BFS 10
+Time for BFS 10 is 0.005728
+Validating BFS 10
+Validate time for BFS 10 is 54.121572
+TEPS for BFS 10 is 9.15301e+07
+Running BFS 11
+Time for BFS 11 is 0.005742
+Validating BFS 11
+Validate time for BFS 11 is 53.778325
+TEPS for BFS 11 is 9.13097e+07
+Running BFS 12
+Time for BFS 12 is 0.005726
+Validating BFS 12
+Validate time for BFS 12 is 54.091596
+TEPS for BFS 12 is 9.15606e+07
+Running BFS 13
+Time for BFS 13 is 0.005808
+Validating BFS 13
+Validate time for BFS 13 is 53.916557
+TEPS for BFS 13 is 9.02714e+07
+Running BFS 14
+Time for BFS 14 is 0.005632
+Validating BFS 14
+Validate time for BFS 14 is 54.249905
+TEPS for BFS 14 is 9.30877e+07
+Running BFS 15
+Time for BFS 15 is 0.005598
+Validating BFS 15
+Validate time for BFS 15 is 54.118106
+TEPS for BFS 15 is 9.36546e+07
+Running BFS 16
+Time for BFS 16 is 0.005575
+Validating BFS 16
+Validate time for BFS 16 is 54.220914
+TEPS for BFS 16 is 9.40431e+07
+Running BFS 17
+Time for BFS 17 is 0.005567
+Validating BFS 17
+Validate time for BFS 17 is 54.201048
+TEPS for BFS 17 is 9.4176e+07
+Running BFS 18
+Time for BFS 18 is 0.005945
+Validating BFS 18
+Validate time for BFS 18 is 55.109162
+TEPS for BFS 18 is 8.81897e+07
+Running BFS 19
+Time for BFS 19 is 0.005711
+Validating BFS 19
+Validate time for BFS 19 is 38.579204
+TEPS for BFS 19 is 9.18014e+07
+Running BFS 20
+Time for BFS 20 is 0.005457
+Validating BFS 20
+Validate time for BFS 20 is 37.747291
+TEPS for BFS 20 is 9.6077e+07
+Running BFS 21
+Time for BFS 21 is 0.005454
+Validating BFS 21
+Validate time for BFS 21 is 37.820254
+TEPS for BFS 21 is 9.61316e+07
+Running BFS 22
+Time for BFS 22 is 0.005492
+Validating BFS 22
+Validate time for BFS 22 is 38.144483
+TEPS for BFS 22 is 9.54639e+07
+Running BFS 23
+Time for BFS 23 is 0.005532
+Validating BFS 23
+Validate time for BFS 23 is 38.590158
+TEPS for BFS 23 is 9.47727e+07
+Running BFS 24
+Time for BFS 24 is 0.005758
+Validating BFS 24
+Validate time for BFS 24 is 38.619142
+TEPS for BFS 24 is 9.10563e+07
+Running BFS 25
+Time for BFS 25 is 0.005628
+Validating BFS 25
+Validate time for BFS 25 is 54.873311
+TEPS for BFS 25 is 9.31587e+07
+Running BFS 26
+Time for BFS 26 is 0.005676
+Validating BFS 26
+Validate time for BFS 26 is 55.171727
+TEPS for BFS 26 is 9.23682e+07
+Running BFS 27
+Time for BFS 27 is 0.005593
+Validating BFS 27
+Validate time for BFS 27 is 55.833540
+TEPS for BFS 27 is 9.37425e+07
+Running BFS 28
+Time for BFS 28 is 0.005668
+Validating BFS 28
+Validate time for BFS 28 is 56.501110
+TEPS for BFS 28 is 9.25003e+07
+Running BFS 29
+Time for BFS 29 is 0.005698
+Validating BFS 29
+Validate time for BFS 29 is 56.306556
+TEPS for BFS 29 is 9.20127e+07
+Running BFS 30
+Time for BFS 30 is 0.005838
+Validating BFS 30
+Validate time for BFS 30 is 55.581796
+TEPS for BFS 30 is 8.98032e+07
+Running BFS 31
+Time for BFS 31 is 0.005578
+Validating BFS 31
+Validate time for BFS 31 is 55.989996
+TEPS for BFS 31 is 9.39909e+07
+Running BFS 32
+Time for BFS 32 is 0.005771
+Validating BFS 32
+Validate time for BFS 32 is 56.872857
+TEPS for BFS 32 is 9.08494e+07
+Running BFS 33
+Time for BFS 33 is 0.005521
+Validating BFS 33
+Validate time for BFS 33 is 56.860479
+TEPS for BFS 33 is 9.49609e+07
+Running BFS 34
+Time for BFS 34 is 0.005783
+Validating BFS 34
+Validate time for BFS 34 is 57.010985
+TEPS for BFS 34 is 9.06622e+07
+Running BFS 35
+Time for BFS 35 is 0.005532
+Validating BFS 35
+Validate time for BFS 35 is 56.376456
+TEPS for BFS 35 is 9.47727e+07
+Running BFS 36
+Time for BFS 36 is 0.005560
+Validating BFS 36
+Validate time for BFS 36 is 56.515223
+TEPS for BFS 36 is 9.42932e+07
+Running BFS 37
+Time for BFS 37 is 0.005851
+Validating BFS 37
+Validate time for BFS 37 is 57.198167
+TEPS for BFS 37 is 8.96056e+07
+Running BFS 38
+Time for BFS 38 is 0.005443
+Validating BFS 38
+Validate time for BFS 38 is 57.865302
+TEPS for BFS 38 is 9.63253e+07
+Running BFS 39
+Time for BFS 39 is 0.005595
+Validating BFS 39
+Validate time for BFS 39 is 57.552451
+TEPS for BFS 39 is 9.37065e+07
+Running BFS 40
+Time for BFS 40 is 0.005563
+Validating BFS 40
+Validate time for BFS 40 is 57.965033
+TEPS for BFS 40 is 9.42447e+07
+Running BFS 41
+Time for BFS 41 is 0.005659
+Validating BFS 41
+Validate time for BFS 41 is 57.892151
+TEPS for BFS 41 is 9.26445e+07
+Running BFS 42
+Time for BFS 42 is 0.005437
+Validating BFS 42
+Validate time for BFS 42 is 57.745298
+TEPS for BFS 42 is 9.64267e+07
+Running BFS 43
+Time for BFS 43 is 0.005608
+Validating BFS 43
+Validate time for BFS 43 is 57.204787
+TEPS for BFS 43 is 9.34874e+07
+Running BFS 44
+Time for BFS 44 is 0.005635
+Validating BFS 44
+Validate time for BFS 44 is 57.223942
+TEPS for BFS 44 is 9.30404e+07
+Running BFS 45
+Time for BFS 45 is 0.005699
+Validating BFS 45
+Validate time for BFS 45 is 57.650172
+TEPS for BFS 45 is 9.19973e+07
+Running BFS 46
+Time for BFS 46 is 0.005564
+Validating BFS 46
+Validate time for BFS 46 is 57.693822
+TEPS for BFS 46 is 9.42285e+07
+Running BFS 47
+Time for BFS 47 is 0.005634
+Validating BFS 47
+Validate time for BFS 47 is 57.714847
+TEPS for BFS 47 is 9.30562e+07
+Running BFS 48
+Time for BFS 48 is 0.005755
+Validating BFS 48
+Validate time for BFS 48 is 58.107720
+TEPS for BFS 48 is 9.11016e+07
+Running BFS 49
+Time for BFS 49 is 0.005638
+Validating BFS 49
+Validate time for BFS 49 is 58.375108
+TEPS for BFS 49 is 9.29932e+07
+Running BFS 50
+Time for BFS 50 is 0.005780
+Validating BFS 50
+Validate time for BFS 50 is 59.287970
+TEPS for BFS 50 is 9.0707e+07
+Running BFS 51
+Time for BFS 51 is 0.005675
+Validating BFS 51
+Validate time for BFS 51 is 58.991151
+TEPS for BFS 51 is 9.23838e+07
+Running BFS 52
+Time for BFS 52 is 0.005502
+Validating BFS 52
+Validate time for BFS 52 is 59.364476
+TEPS for BFS 52 is 9.52901e+07
+Running BFS 53
+Time for BFS 53 is 0.005639
+Validating BFS 53
+Validate time for BFS 53 is 59.301169
+TEPS for BFS 53 is 9.29736e+07
+Running BFS 54
+Time for BFS 54 is 0.005479
+Validating BFS 54
+Validate time for BFS 54 is 59.683646
+TEPS for BFS 54 is 9.56924e+07
+Running BFS 55
+Time for BFS 55 is 0.005728
+Validating BFS 55
+Validate time for BFS 55 is 59.434124
+TEPS for BFS 55 is 9.15301e+07
+Running BFS 56
+Time for BFS 56 is 0.005898
+Validating BFS 56
+Validate time for BFS 56 is 59.663854
+TEPS for BFS 56 is 8.8892e+07
+Running BFS 57
+Time for BFS 57 is 0.005644
+Validating BFS 57
+Validate time for BFS 57 is 59.156007
+TEPS for BFS 57 is 9.28911e+07
+Running BFS 58
+Time for BFS 58 is 0.005844
+Validating BFS 58
+Validate time for BFS 58 is 59.815142
+TEPS for BFS 58 is 8.97153e+07
+Running BFS 59
+Time for BFS 59 is 0.005483
+Validating BFS 59
+Validate time for BFS 59 is 59.884517
+TEPS for BFS 59 is 9.56216e+07
+Running BFS 60
+Time for BFS 60 is 0.005582
+Validating BFS 60
+Validate time for BFS 60 is 60.152182
+TEPS for BFS 60 is 9.39226e+07
+Running BFS 61
+Time for BFS 61 is 0.005581
+Validating BFS 61
+Validate time for BFS 61 is 60.428251
+TEPS for BFS 61 is 9.39387e+07
+Running BFS 62
+Time for BFS 62 is 0.005543
+Validating BFS 62
+Validate time for BFS 62 is 61.004210
+TEPS for BFS 62 is 9.45852e+07
+Running BFS 63
+Time for BFS 63 is 0.005652
+Validating BFS 63
+Validate time for BFS 63 is 61.138405
+TEPS for BFS 63 is 9.27618e+07
+
+real	57m7.900s
+user	0m0.180s
+sys	0m0.172s
+Run on 4 hosts for 360000 seconds from Sun Jun 14 09:35:44 2015
+: node101/0 node104/0 node106/0 node107/0 
+graph_generation:               0.068285 s
+construction_time:              0.073995 s
+Running BFS 0
+Time for BFS 0 is 0.006721
+Validating BFS 0
+Validate time for BFS 0 is 34.643716
+TEPS for BFS 0 is 7.80068e+07
+Running BFS 1
+Time for BFS 1 is 0.005393
+Validating BFS 1
+Validate time for BFS 1 is 32.496445
+TEPS for BFS 1 is 9.72153e+07
+Running BFS 2
+Time for BFS 2 is 0.005476
+Validating BFS 2
+Validate time for BFS 2 is 34.694657
+TEPS for BFS 2 is 9.57382e+07
+Running BFS 3
+Time for BFS 3 is 0.005684
+Validating BFS 3
+Validate time for BFS 3 is 35.688356
+TEPS for BFS 3 is 9.22404e+07
+Running BFS 4
+Time for BFS 4 is 0.005416
+Validating BFS 4
+Validate time for BFS 4 is 36.235743
+TEPS for BFS 4 is 9.68045e+07
+Running BFS 5
+Time for BFS 5 is 0.005508
+Validating BFS 5
+Validate time for BFS 5 is 36.541816
+TEPS for BFS 5 is 9.51829e+07
+Running BFS 6
+Time for BFS 6 is 0.005614
+Validating BFS 6
+Validate time for BFS 6 is 36.953769
+TEPS for BFS 6 is 9.33881e+07
+Running BFS 7
+Time for BFS 7 is 0.005555
+Validating BFS 7
+Validate time for BFS 7 is 37.051218
+TEPS for BFS 7 is 9.43822e+07
+Running BFS 8
+Time for BFS 8 is 0.005417
+Validating BFS 8
+Validate time for BFS 8 is 37.181221
+TEPS for BFS 8 is 9.67874e+07
+Running BFS 9
+Time for BFS 9 is 0.005542
+Validating BFS 9
+Validate time for BFS 9 is 37.445812
+TEPS for BFS 9 is 9.46014e+07
+Running BFS 10
+Time for BFS 10 is 0.005480
+Validating BFS 10
+Validate time for BFS 10 is 37.540440
+TEPS for BFS 10 is 9.56716e+07
+Running BFS 11
+Time for BFS 11 is 0.005578
+Validating BFS 11
+Validate time for BFS 11 is 37.510839
+TEPS for BFS 11 is 9.39909e+07
+Running BFS 12
+Time for BFS 12 is 0.005630
+Validating BFS 12
+Validate time for BFS 12 is 37.703170
+TEPS for BFS 12 is 9.31232e+07
+Running BFS 13
+Time for BFS 13 is 0.005690
+Validating BFS 13
+Validate time for BFS 13 is 37.643900
+TEPS for BFS 13 is 9.21399e+07
+Running BFS 14
+Time for BFS 14 is 0.005545
+Validating BFS 14
+Validate time for BFS 14 is 37.758220
+TEPS for BFS 14 is 9.45526e+07
+Running BFS 15
+Time for BFS 15 is 0.005473
+Validating BFS 15
+Validate time for BFS 15 is 37.882809
+TEPS for BFS 15 is 9.57924e+07
+Running BFS 16
+Time for BFS 16 is 0.005510
+Validating BFS 16
+Validate time for BFS 16 is 38.012712
+TEPS for BFS 16 is 9.51541e+07
+Running BFS 17
+Time for BFS 17 is 0.005515
+Validating BFS 17
+Validate time for BFS 17 is 38.249916
+TEPS for BFS 17 is 9.50677e+07
+Running BFS 18
+Time for BFS 18 is 0.005907
+Validating BFS 18
+Validate time for BFS 18 is 37.994464
+TEPS for BFS 18 is 8.87557e+07
+Running BFS 19
+Time for BFS 19 is 0.005537
+Validating BFS 19
+Validate time for BFS 19 is 37.944729
+TEPS for BFS 19 is 9.4687e+07
+Running BFS 20
+Time for BFS 20 is 0.005450
+Validating BFS 20
+Validate time for BFS 20 is 38.047660
+TEPS for BFS 20 is 9.61989e+07
+Running BFS 21
+Time for BFS 21 is 0.005447
+Validating BFS 21
+Validate time for BFS 21 is 38.198797
+TEPS for BFS 21 is 9.62536e+07
+Running BFS 22
+Time for BFS 22 is 0.005512
+Validating BFS 22
+Validate time for BFS 22 is 38.294049
+TEPS for BFS 22 is 9.5117e+07
+Running BFS 23
+Time for BFS 23 is 0.005536
+Validating BFS 23
+Validate time for BFS 23 is 38.500690
+TEPS for BFS 23 is 9.47074e+07
+Running BFS 24
+Time for BFS 24 is 0.005763
+Validating BFS 24
+Validate time for BFS 24 is 38.549933
+TEPS for BFS 24 is 9.09735e+07
+Running BFS 25
+Time for BFS 25 is 0.005605
+Validating BFS 25
+Validate time for BFS 25 is 38.401437
+TEPS for BFS 25 is 9.35391e+07
+Running BFS 26
+Time for BFS 26 is 0.005515
+Validating BFS 26
+Validate time for BFS 26 is 38.774032
+TEPS for BFS 26 is 9.50677e+07
+Running BFS 27
+Time for BFS 27 is 0.005447
+Validating BFS 27
+Validate time for BFS 27 is 38.701145
+TEPS for BFS 27 is 9.62494e+07
+Running BFS 28
+Time for BFS 28 is 0.005529
+Validating BFS 28
+Validate time for BFS 28 is 38.680245
+TEPS for BFS 28 is 9.48217e+07
+Running BFS 29
+Time for BFS 29 is 0.005623
+Validating BFS 29
+Validate time for BFS 29 is 38.893867
+TEPS for BFS 29 is 9.32377e+07
+Running BFS 30
+Time for BFS 30 is 0.005677
+Validating BFS 30
+Validate time for BFS 30 is 39.050844
+TEPS for BFS 30 is 9.23527e+07
+Running BFS 31
+Time for BFS 31 is 0.005521
+Validating BFS 31
+Validate time for BFS 31 is 38.959301
+TEPS for BFS 31 is 9.4965e+07
+Running BFS 32
+Time for BFS 32 is 0.005652
+Validating BFS 32
+Validate time for BFS 32 is 39.307886
+TEPS for BFS 32 is 9.27618e+07
+Running BFS 33
+Time for BFS 33 is 0.005531
+Validating BFS 33
+Validate time for BFS 33 is 39.182731
+TEPS for BFS 33 is 9.47931e+07
+Running BFS 34
+Time for BFS 34 is 0.005600
+Validating BFS 34
+Validate time for BFS 34 is 39.321517
+TEPS for BFS 34 is 9.36227e+07
+Running BFS 35
+Time for BFS 35 is 0.005543
+Validating BFS 35
+Validate time for BFS 35 is 39.359575
+TEPS for BFS 35 is 9.45852e+07
+Running BFS 36
+Time for BFS 36 is 0.005434
+Validating BFS 36
+Validate time for BFS 36 is 39.497366
+TEPS for BFS 36 is 9.64817e+07
+Running BFS 37
+Time for BFS 37 is 0.005647
+Validating BFS 37
+Validate time for BFS 37 is 39.663391
+TEPS for BFS 37 is 9.2844e+07
+Running BFS 38
+Time for BFS 38 is 0.006783
+Validating BFS 38
+Validate time for BFS 38 is 39.922315
+TEPS for BFS 38 is 7.72939e+07
+Running BFS 39
+Time for BFS 39 is 0.005461
+Validating BFS 39
+Validate time for BFS 39 is 39.706153
+TEPS for BFS 39 is 9.60057e+07
+Running BFS 40
+Time for BFS 40 is 0.005533
+Validating BFS 40
+Validate time for BFS 40 is 39.894875
+TEPS for BFS 40 is 9.47564e+07
+Running BFS 41
+Time for BFS 41 is 0.005441
+Validating BFS 41
+Validate time for BFS 41 is 40.069693
+TEPS for BFS 41 is 9.63591e+07
+Running BFS 42
+Time for BFS 42 is 0.005409
+Validating BFS 42
+Validate time for BFS 42 is 40.610919
+TEPS for BFS 42 is 9.69282e+07
+Running BFS 43
+Time for BFS 43 is 0.005532
+Validating BFS 43
+Validate time for BFS 43 is 40.272541
+TEPS for BFS 43 is 9.47727e+07
+Running BFS 44
+Time for BFS 44 is 0.005553
+Validating BFS 44
+Validate time for BFS 44 is 40.534601
+TEPS for BFS 44 is 9.44146e+07
+Running BFS 45
+Time for BFS 45 is 0.005503
+Validating BFS 45
+Validate time for BFS 45 is 40.578058
+TEPS for BFS 45 is 9.52736e+07
+Running BFS 46
+Time for BFS 46 is 0.005411
+Validating BFS 46
+Validate time for BFS 46 is 40.676500
+TEPS for BFS 46 is 9.68898e+07
+Running BFS 47
+Time for BFS 47 is 0.005553
+Validating BFS 47
+Validate time for BFS 47 is 40.701161
+TEPS for BFS 47 is 9.44146e+07
+Running BFS 48
+Time for BFS 48 is 0.005595
+Validating BFS 48
+Validate time for BFS 48 is 40.993466
+TEPS for BFS 48 is 9.37065e+07
+Running BFS 49
+Time for BFS 49 is 0.005473
+Validating BFS 49
+Validate time for BFS 49 is 40.881314
+TEPS for BFS 49 is 9.57924e+07
+Running BFS 50
+Time for BFS 50 is 0.005608
+Validating BFS 50
+Validate time for BFS 50 is 41.233654
+TEPS for BFS 50 is 9.34874e+07
+Running BFS 51
+Time for BFS 51 is 0.005581
+Validating BFS 51
+Validate time for BFS 51 is 41.174904
+TEPS for BFS 51 is 9.39387e+07
+Running BFS 52
+Time for BFS 52 is 0.005571
+Validating BFS 52
+Validate time for BFS 52 is 41.334327
+TEPS for BFS 52 is 9.41116e+07
+Running BFS 53
+Time for BFS 53 is 0.005511
+Validating BFS 53
+Validate time for BFS 53 is 41.256209
+TEPS for BFS 53 is 9.51335e+07
+Running BFS 54
+Time for BFS 54 is 0.005469
+Validating BFS 54
+Validate time for BFS 54 is 41.744806
+TEPS for BFS 54 is 9.58634e+07
+Running BFS 55
+Time for BFS 55 is 0.005520
+Validating BFS 55
+Validate time for BFS 55 is 41.678610
+TEPS for BFS 55 is 9.49774e+07
+Running BFS 56
+Time for BFS 56 is 0.005655
+Validating BFS 56
+Validate time for BFS 56 is 41.781600
+TEPS for BFS 56 is 9.27109e+07
+Running BFS 57
+Time for BFS 57 is 0.005608
+Validating BFS 57
+Validate time for BFS 57 is 41.831519
+TEPS for BFS 57 is 9.34914e+07
+Running BFS 58
+Time for BFS 58 is 0.005833
+Validating BFS 58
+Validate time for BFS 58 is 42.084768
+TEPS for BFS 58 is 8.98803e+07
+Running BFS 59
+Time for BFS 59 is 0.005470
+Validating BFS 59
+Validate time for BFS 59 is 42.119906
+TEPS for BFS 59 is 9.58467e+07
+Running BFS 60
+Time for BFS 60 is 0.005455
+Validating BFS 60
+Validate time for BFS 60 is 42.475063
+TEPS for BFS 60 is 9.61106e+07
+Running BFS 61
+Time for BFS 61 is 0.005484
+Validating BFS 61
+Validate time for BFS 61 is 42.999153
+TEPS for BFS 61 is 9.56008e+07
+Running BFS 62
+Time for BFS 62 is 0.005544
+Validating BFS 62
+Validate time for BFS 62 is 42.503603
+TEPS for BFS 62 is 9.45689e+07
+Running BFS 63
+Time for BFS 63 is 0.005562
+Validating BFS 63
+Validate time for BFS 63 is 42.534476
+TEPS for BFS 63 is 9.42649e+07
+
+real	41m53.625s
+user	0m0.138s
+sys	0m0.118s
+Run on 4 hosts for 360000 seconds from Sun Jun 14 13:46:11 2015
+: node102/0 node103/0 node105/0 node109/0 
+graph_generation:               0.066784 s
+construction_time:              0.073435 s
+Running BFS 0
+Time for BFS 0 is 0.006666
+Validating BFS 0
+Validate time for BFS 0 is 34.837233
+TEPS for BFS 0 is 7.86513e+07
+Running BFS 1
+Time for BFS 1 is 0.005419
+Validating BFS 1
+Validate time for BFS 1 is 32.679752
+TEPS for BFS 1 is 9.67491e+07
+Running BFS 2
+Time for BFS 2 is 0.005451
+Validating BFS 2
+Validate time for BFS 2 is 34.694862
+TEPS for BFS 2 is 9.61821e+07
+Running BFS 3
+Time for BFS 3 is 0.005673
+Validating BFS 3
+Validate time for BFS 3 is 36.063208
+TEPS for BFS 3 is 9.24187e+07
+Running BFS 4
+Time for BFS 4 is 0.005406
+Validating BFS 4
+Validate time for BFS 4 is 37.172890
+TEPS for BFS 4 is 9.69838e+07
+Running BFS 5
+Time for BFS 5 is 0.005478
+Validating BFS 5
+Validate time for BFS 5 is 36.626722
+TEPS for BFS 5 is 9.57049e+07
+Running BFS 6
+Time for BFS 6 is 0.005609
+Validating BFS 6
+Validate time for BFS 6 is 37.018130
+TEPS for BFS 6 is 9.34715e+07
+Running BFS 7
+Time for BFS 7 is 0.005525
+Validating BFS 7
+Validate time for BFS 7 is 36.999388
+TEPS for BFS 7 is 9.48913e+07
+Running BFS 8
+Time for BFS 8 is 0.005395
+Validating BFS 8
+Validate time for BFS 8 is 37.382397
+TEPS for BFS 8 is 9.7181e+07
+Running BFS 9
+Time for BFS 9 is 0.005508
+Validating BFS 9
+Validate time for BFS 9 is 54.007760
+TEPS for BFS 9 is 9.5187e+07
+Running BFS 10
+Time for BFS 10 is 0.006276
+Validating BFS 10
+Validate time for BFS 10 is 54.484111
+TEPS for BFS 10 is 8.35363e+07
+Running BFS 11
+Time for BFS 11 is 0.005733
+Validating BFS 11
+Validate time for BFS 11 is 55.070873
+TEPS for BFS 11 is 9.1454e+07
+Running BFS 12
+Time for BFS 12 is 0.006099
+Validating BFS 12
+Validate time for BFS 12 is 54.953902
+TEPS for BFS 12 is 8.59593e+07
+Running BFS 13
+Time for BFS 13 is 0.005826
+Validating BFS 13
+Validate time for BFS 13 is 54.395458
+TEPS for BFS 13 is 8.99906e+07
+Running BFS 14
+Time for BFS 14 is 0.005578
+Validating BFS 14
+Validate time for BFS 14 is 54.554616
+TEPS for BFS 14 is 9.39909e+07
+Running BFS 15
+Time for BFS 15 is 0.005635
+Validating BFS 15
+Validate time for BFS 15 is 54.356325
+TEPS for BFS 15 is 9.30404e+07
+Running BFS 16
+Time for BFS 16 is 0.005520
+Validating BFS 16
+Validate time for BFS 16 is 54.461838
+TEPS for BFS 16 is 9.49815e+07
+Running BFS 17
+Time for BFS 17 is 0.005511
+Validating BFS 17
+Validate time for BFS 17 is 54.403094
+TEPS for BFS 17 is 9.51335e+07
+Running BFS 18
+Time for BFS 18 is 0.006045
+Validating BFS 18
+Validate time for BFS 18 is 54.482963
+TEPS for BFS 18 is 8.67289e+07
+Running BFS 19
+Time for BFS 19 is 0.005724
+Validating BFS 19
+Validate time for BFS 19 is 54.374204
+TEPS for BFS 19 is 9.15949e+07
+Running BFS 20
+Time for BFS 20 is 0.005665
+Validating BFS 20
+Validate time for BFS 20 is 54.702183
+TEPS for BFS 20 is 9.25471e+07
+Running BFS 21
+Time for BFS 21 is 0.005653
+Validating BFS 21
+Validate time for BFS 21 is 54.600189
+TEPS for BFS 21 is 9.27422e+07
+Running BFS 22
+Time for BFS 22 is 0.005557
+Validating BFS 22
+Validate time for BFS 22 is 54.664203
+TEPS for BFS 22 is 9.43457e+07
+Running BFS 23
+Time for BFS 23 is 0.005606
+Validating BFS 23
+Validate time for BFS 23 is 54.553309
+TEPS for BFS 23 is 9.35232e+07
+Running BFS 24
+Time for BFS 24 is 0.005729
+Validating BFS 24
+Validate time for BFS 24 is 54.712054
+TEPS for BFS 24 is 9.15149e+07
+Running BFS 25
+Time for BFS 25 is 0.005578
+Validating BFS 25
+Validate time for BFS 25 is 54.731449
+TEPS for BFS 25 is 9.39909e+07
+Running BFS 26
+Time for BFS 26 is 0.005670
+Validating BFS 26
+Validate time for BFS 26 is 55.195315
+TEPS for BFS 26 is 9.24692e+07
+Running BFS 27
+Time for BFS 27 is 0.005590
+Validating BFS 27
+Validate time for BFS 27 is 55.043314
+TEPS for BFS 27 is 9.37904e+07
+Running BFS 28
+Time for BFS 28 is 0.005632
+Validating BFS 28
+Validate time for BFS 28 is 55.268029
+TEPS for BFS 28 is 9.30916e+07
+Running BFS 29
+Time for BFS 29 is 0.005688
+Validating BFS 29
+Validate time for BFS 29 is 55.209906
+TEPS for BFS 29 is 9.21747e+07
+Running BFS 30
+Time for BFS 30 is 0.005834
+Validating BFS 30
+Validate time for BFS 30 is 55.366201
+TEPS for BFS 30 is 8.98656e+07
+Running BFS 31
+Time for BFS 31 is 0.005568
+Validating BFS 31
+Validate time for BFS 31 is 55.522750
+TEPS for BFS 31 is 9.41599e+07
+Running BFS 32
+Time for BFS 32 is 0.005696
+Validating BFS 32
+Validate time for BFS 32 is 56.122499
+TEPS for BFS 32 is 9.20435e+07
+Running BFS 33
+Time for BFS 33 is 0.005578
+Validating BFS 33
+Validate time for BFS 33 is 55.743435
+TEPS for BFS 33 is 9.39909e+07
+Running BFS 34
+Time for BFS 34 is 0.005765
+Validating BFS 34
+Validate time for BFS 34 is 55.917492
+TEPS for BFS 34 is 9.09396e+07
+Running BFS 35
+Time for BFS 35 is 0.005611
+Validating BFS 35
+Validate time for BFS 35 is 55.924175
+TEPS for BFS 35 is 9.34397e+07
+Running BFS 36
+Time for BFS 36 is 0.005507
+Validating BFS 36
+Validate time for BFS 36 is 56.235400
+TEPS for BFS 36 is 9.52035e+07
+Running BFS 37
+Time for BFS 37 is 0.005842
+Validating BFS 37
+Validate time for BFS 37 is 56.086128
+TEPS for BFS 37 is 8.97445e+07
+Running BFS 38
+Time for BFS 38 is 0.005736
+Validating BFS 38
+Validate time for BFS 38 is 56.474444
+TEPS for BFS 38 is 9.14008e+07
+Running BFS 39
+Time for BFS 39 is 0.005612
+Validating BFS 39
+Validate time for BFS 39 is 56.489374
+TEPS for BFS 39 is 9.34199e+07
+Running BFS 40
+Time for BFS 40 is 0.005572
+Validating BFS 40
+Validate time for BFS 40 is 56.773567
+TEPS for BFS 40 is 9.40914e+07
+Running BFS 41
+Time for BFS 41 is 0.005660
+Validating BFS 41
+Validate time for BFS 41 is 56.672826
+TEPS for BFS 41 is 9.26289e+07
+Running BFS 42
+Time for BFS 42 is 0.005572
+Validating BFS 42
+Validate time for BFS 42 is 57.158383
+TEPS for BFS 42 is 9.40914e+07
+Running BFS 43
+Time for BFS 43 is 0.005571
+Validating BFS 43
+Validate time for BFS 43 is 57.025414
+TEPS for BFS 43 is 9.41075e+07
+Running BFS 44
+Time for BFS 44 is 0.005639
+Validating BFS 44
+Validate time for BFS 44 is 57.304080
+TEPS for BFS 44 is 9.29736e+07
+Running BFS 45
+Time for BFS 45 is 0.005689
+Validating BFS 45
+Validate time for BFS 45 is 57.329276
+TEPS for BFS 45 is 9.21592e+07
+Running BFS 46
+Time for BFS 46 is 0.005561
+Validating BFS 46
+Validate time for BFS 46 is 57.322081
+TEPS for BFS 46 is 9.4277e+07
+Running BFS 47
+Time for BFS 47 is 0.005538
+Validating BFS 47
+Validate time for BFS 47 is 57.329066
+TEPS for BFS 47 is 9.46707e+07
+Running BFS 48
+Time for BFS 48 is 0.005737
+Validating BFS 48
+Validate time for BFS 48 is 57.793295
+TEPS for BFS 48 is 9.13894e+07
+Running BFS 49
+Time for BFS 49 is 0.005615
+Validating BFS 49
+Validate time for BFS 49 is 57.848419
+TEPS for BFS 49 is 9.33683e+07
+Running BFS 50
+Time for BFS 50 is 0.005707
+Validating BFS 50
+Validate time for BFS 50 is 57.894212
+TEPS for BFS 50 is 9.18666e+07
+Running BFS 51
+Time for BFS 51 is 0.005691
+Validating BFS 51
+Validate time for BFS 51 is 57.801286
+TEPS for BFS 51 is 9.21245e+07
+Running BFS 52
+Time for BFS 52 is 0.005802
+Validating BFS 52
+Validate time for BFS 52 is 58.434256
+TEPS for BFS 52 is 9.03641e+07
+Running BFS 53
+Time for BFS 53 is 0.005640
+Validating BFS 53
+Validate time for BFS 53 is 58.074509
+TEPS for BFS 53 is 9.29578e+07
+Running BFS 54
+Time for BFS 54 is 0.005594
+Validating BFS 54
+Validate time for BFS 54 is 58.252253
+TEPS for BFS 54 is 9.37225e+07
+Running BFS 55
+Time for BFS 55 is 0.005717
+Validating BFS 55
+Validate time for BFS 55 is 58.351310
+TEPS for BFS 55 is 9.17057e+07
+Running BFS 56
+Time for BFS 56 is 0.005862
+Validating BFS 56
+Validate time for BFS 56 is 58.468812
+TEPS for BFS 56 is 8.94379e+07
+Running BFS 57
+Time for BFS 57 is 0.005646
+Validating BFS 57
+Validate time for BFS 57 is 58.453381
+TEPS for BFS 57 is 9.28597e+07
+Running BFS 58
+Time for BFS 58 is 0.005842
+Validating BFS 58
+Validate time for BFS 58 is 59.035600
+TEPS for BFS 58 is 8.97445e+07
+Running BFS 59
+Time for BFS 59 is 0.005591
+Validating BFS 59
+Validate time for BFS 59 is 58.534714
+TEPS for BFS 59 is 9.37744e+07
+Running BFS 60
+Time for BFS 60 is 0.005543
+Validating BFS 60
+Validate time for BFS 60 is 58.678426
+TEPS for BFS 60 is 9.45852e+07
+Running BFS 61
+Time for BFS 61 is 0.005556
+Validating BFS 61
+Validate time for BFS 61 is 58.986454
+TEPS for BFS 61 is 9.43619e+07
+Running BFS 62
+Time for BFS 62 is 0.005766
+Validating BFS 62
+Validate time for BFS 62 is 59.281395
+TEPS for BFS 62 is 9.09283e+07
+Running BFS 63
+Time for BFS 63 is 0.005660
+Validating BFS 63
+Validate time for BFS 63 is 59.105067
+TEPS for BFS 63 is 9.26289e+07
+
+real	57m10.648s
+user	0m0.156s
+sys	0m0.182s
+Run on 4 hosts for 360000 seconds from Sun Jun 14 16:04:25 2015
+: node102/0 node103/0 node105/0 node109/0 
+graph_generation:               0.202580 s
+construction_time:              0.095829 s
+Running BFS 0
+Time for BFS 0 is 0.111737
+Validating BFS 0
+Killed by signal 2.
+
+real	0m2.065s
+user	0m0.022s
+sys	0m0.018s
+Run on 4 hosts for 360000 seconds from Sun Jun 14 16:46:47 2015
+: node101/0 node104/0 node106/0 node107/0 
+graph_generation:               0.067852 s
+construction_time:              0.082985 s
+Running BFS 0
+Time for BFS 0 is 0.006733
+Validating BFS 0
+Validate time for BFS 0 is 34.824666
+TEPS for BFS 0 is 7.78686e+07
+Running BFS 1
+Time for BFS 1 is 0.005406
+Validating BFS 1
+Validate time for BFS 1 is 32.543100
+TEPS for BFS 1 is 9.69795e+07
+Running BFS 2
+Time for BFS 2 is 0.005485
+Validating BFS 2
+Validate time for BFS 2 is 34.697618
+TEPS for BFS 2 is 9.55884e+07
+Running BFS 3
+Time for BFS 3 is 0.005701
+Validating BFS 3
+Validate time for BFS 3 is 35.642408
+TEPS for BFS 3 is 9.19626e+07
+Running BFS 4
+Time for BFS 4 is 0.005419
+Validating BFS 4
+Validate time for BFS 4 is 36.400934
+TEPS for BFS 4 is 9.67491e+07
+Running BFS 5
+Time for BFS 5 is 0.005476
+Validating BFS 5
+Validate time for BFS 5 is 36.672869
+TEPS for BFS 5 is 9.57424e+07
+Running BFS 6
+Time for BFS 6 is 0.005614
+Validating BFS 6
+Validate time for BFS 6 is 37.046656
+TEPS for BFS 6 is 9.33881e+07
+Running BFS 7
+Time for BFS 7 is 0.005527
+Validating BFS 7
+Validate time for BFS 7 is 37.087282
+TEPS for BFS 7 is 9.48585e+07
+Running BFS 8
+Time for BFS 8 is 0.005401
+Validating BFS 8
+Validate time for BFS 8 is 37.365795
+TEPS for BFS 8 is 9.70737e+07
+Running BFS 9
+Time for BFS 9 is 0.005532
+Validating BFS 9
+Validate time for BFS 9 is 37.380525
+TEPS for BFS 9 is 9.47727e+07
+Running BFS 10
+Time for BFS 10 is 0.005504
+Validating BFS 10
+Validate time for BFS 10 is 37.532755
+TEPS for BFS 10 is 9.5253e+07
+Running BFS 11
+Time for BFS 11 is 0.005611
+Validating BFS 11
+Validate time for BFS 11 is 37.651043
+TEPS for BFS 11 is 9.34358e+07
+Running BFS 12
+Time for BFS 12 is 0.005650
+Validating BFS 12
+Validate time for BFS 12 is 37.714945
+TEPS for BFS 12 is 9.27931e+07
+Running BFS 13
+Time for BFS 13 is 0.005650
+Validating BFS 13
+Validate time for BFS 13 is 37.669027
+TEPS for BFS 13 is 9.2797e+07
+Running BFS 14
+Time for BFS 14 is 0.005482
+Validating BFS 14
+Validate time for BFS 14 is 37.836931
+TEPS for BFS 14 is 9.56383e+07
+Running BFS 15
+Time for BFS 15 is 0.005482
+Validating BFS 15
+Validate time for BFS 15 is 37.869163
+TEPS for BFS 15 is 9.56383e+07
+Running BFS 16
+Time for BFS 16 is 0.005473
+Validating BFS 16
+Validate time for BFS 16 is 37.792125
+TEPS for BFS 16 is 9.57966e+07
+Running BFS 17
+Time for BFS 17 is 0.005441
+Validating BFS 17
+Validate time for BFS 17 is 38.016143
+TEPS for BFS 17 is 9.63549e+07
+Running BFS 18
+Time for BFS 18 is 0.005913
+Validating BFS 18
+Validate time for BFS 18 is 38.320844
+TEPS for BFS 18 is 8.86662e+07
+Running BFS 19
+Time for BFS 19 is 0.005526
+Validating BFS 19
+Validate time for BFS 19 is 38.133482
+TEPS for BFS 19 is 9.4879e+07
+Running BFS 20
+Time for BFS 20 is 0.005455
+Validating BFS 20
+Validate time for BFS 20 is 38.480171
+TEPS for BFS 20 is 9.61106e+07
+Running BFS 21
+Time for BFS 21 is 0.005947
+Validating BFS 21
+Validate time for BFS 21 is 54.847758
+TEPS for BFS 21 is 8.81579e+07
+Running BFS 22
+Time for BFS 22 is 0.005563
+Validating BFS 22
+Validate time for BFS 22 is 54.802462
+TEPS for BFS 22 is 9.42447e+07
+Running BFS 23
+Time for BFS 23 is 0.005585
+Validating BFS 23
+Validate time for BFS 23 is 54.975648
+TEPS for BFS 23 is 9.38705e+07
+Running BFS 24
+Time for BFS 24 is 0.005910
+Validating BFS 24
+Validate time for BFS 24 is 55.255092
+TEPS for BFS 24 is 8.87127e+07
+Running BFS 25
+Time for BFS 25 is 0.005624
+Validating BFS 25
+Validate time for BFS 25 is 55.236792
+TEPS for BFS 25 is 9.32219e+07
+Running BFS 26
+Time for BFS 26 is 0.005657
+Validating BFS 26
+Validate time for BFS 26 is 55.159390
+TEPS for BFS 26 is 9.26797e+07
+Running BFS 27
+Time for BFS 27 is 0.005601
+Validating BFS 27
+Validate time for BFS 27 is 55.204356
+TEPS for BFS 27 is 9.36068e+07
+Running BFS 28
+Time for BFS 28 is 0.005667
+Validating BFS 28
+Validate time for BFS 28 is 55.258188
+TEPS for BFS 28 is 9.25159e+07
+Running BFS 29
+Time for BFS 29 is 0.005699
+Validating BFS 29
+Validate time for BFS 29 is 55.462406
+TEPS for BFS 29 is 9.19973e+07
+Running BFS 30
+Time for BFS 30 is 0.005847
+Validating BFS 30
+Validate time for BFS 30 is 55.629438
+TEPS for BFS 30 is 8.96677e+07
+Running BFS 31
+Time for BFS 31 is 0.005568
+Validating BFS 31
+Validate time for BFS 31 is 55.518205
+TEPS for BFS 31 is 9.41599e+07
+Running BFS 32
+Time for BFS 32 is 0.005698
+Validating BFS 32
+Validate time for BFS 32 is 55.880845
+TEPS for BFS 32 is 9.20127e+07
+Running BFS 33
+Time for BFS 33 is 0.005579
+Validating BFS 33
+Validate time for BFS 33 is 55.879843
+TEPS for BFS 33 is 9.39748e+07
+Running BFS 34
+Time for BFS 34 is 0.005786
+Validating BFS 34
+Validate time for BFS 34 is 56.041640
+TEPS for BFS 34 is 9.06099e+07
+Running BFS 35
+Time for BFS 35 is 0.005632
+Validating BFS 35
+Validate time for BFS 35 is 56.338278
+TEPS for BFS 35 is 9.30877e+07
+Running BFS 36
+Time for BFS 36 is 0.005506
+Validating BFS 36
+Validate time for BFS 36 is 56.352620
+TEPS for BFS 36 is 9.522e+07
+Running BFS 37
+Time for BFS 37 is 0.005845
+Validating BFS 37
+Validate time for BFS 37 is 56.568653
+TEPS for BFS 37 is 8.9697e+07
+Running BFS 38
+Time for BFS 38 is 0.005982
+Validating BFS 38
+Validate time for BFS 38 is 56.509898
+TEPS for BFS 38 is 8.76449e+07
+Running BFS 39
+Time for BFS 39 is 0.005532
+Validating BFS 39
+Validate time for BFS 39 is 56.575567
+TEPS for BFS 39 is 9.47727e+07
+Running BFS 40
+Time for BFS 40 is 0.005589
+Validating BFS 40
+Validate time for BFS 40 is 56.780073
+TEPS for BFS 40 is 9.38064e+07
+Running BFS 41
+Time for BFS 41 is 0.005664
+Validating BFS 41
+Validate time for BFS 41 is 56.697822
+TEPS for BFS 41 is 9.25665e+07
+Running BFS 42
+Time for BFS 42 is 0.005551
+Validating BFS 42
+Validate time for BFS 42 is 56.948952
+TEPS for BFS 42 is 9.44471e+07
+Running BFS 43
+Time for BFS 43 is 0.005554
+Validating BFS 43
+Validate time for BFS 43 is 57.164175
+TEPS for BFS 43 is 9.43984e+07
+Running BFS 44
+Time for BFS 44 is 0.005628
+Validating BFS 44
+Validate time for BFS 44 is 57.372096
+TEPS for BFS 44 is 9.31547e+07
+Running BFS 45
+Time for BFS 45 is 0.005715
+Validating BFS 45
+Validate time for BFS 45 is 57.277211
+TEPS for BFS 45 is 9.17401e+07
+Running BFS 46
+Time for BFS 46 is 0.005578
+Validating BFS 46
+Validate time for BFS 46 is 57.744257
+TEPS for BFS 46 is 9.39909e+07
+Running BFS 47
+Time for BFS 47 is 0.005543
+Validating BFS 47
+Validate time for BFS 47 is 57.513309
+TEPS for BFS 47 is 9.45852e+07
+Running BFS 48
+Time for BFS 48 is 0.005695
+Validating BFS 48
+Validate time for BFS 48 is 57.804067
+TEPS for BFS 48 is 9.20589e+07
+Running BFS 49
+Time for BFS 49 is 0.005604
+Validating BFS 49
+Validate time for BFS 49 is 58.025968
+TEPS for BFS 49 is 9.3555e+07
+Running BFS 50
+Time for BFS 50 is 0.005721
+Validating BFS 50
+Validate time for BFS 50 is 57.656905
+TEPS for BFS 50 is 9.16445e+07
+Running BFS 51
+Time for BFS 51 is 0.005708
+Validating BFS 51
+Validate time for BFS 51 is 57.982286
+TEPS for BFS 51 is 9.18512e+07
+Running BFS 52
+Time for BFS 52 is 0.005801
+Validating BFS 52
+Validate time for BFS 52 is 58.098373
+TEPS for BFS 52 is 9.0379e+07
+Running BFS 53
+Time for BFS 53 is 0.005603
+Validating BFS 53
+Validate time for BFS 53 is 58.060875
+TEPS for BFS 53 is 9.35709e+07
+Running BFS 54
+Time for BFS 54 is 0.005580
+Validating BFS 54
+Validate time for BFS 54 is 58.456685
+TEPS for BFS 54 is 9.39547e+07
+Running BFS 55
+Time for BFS 55 is 0.005733
+Validating BFS 55
+Validate time for BFS 55 is 58.645649
+TEPS for BFS 55 is 9.14502e+07
+Running BFS 56
+Time for BFS 56 is 0.005863
+Validating BFS 56
+Validate time for BFS 56 is 58.807573
+TEPS for BFS 56 is 8.94234e+07
+Running BFS 57
+Time for BFS 57 is 0.005662
+Validating BFS 57
+Validate time for BFS 57 is 58.571253
+TEPS for BFS 57 is 9.25977e+07
+Running BFS 58
+Time for BFS 58 is 0.005867
+Validating BFS 58
+Validate time for BFS 58 is 59.110354
+TEPS for BFS 58 is 8.93616e+07
+Running BFS 59
+Time for BFS 59 is 0.005585
+Validating BFS 59
+Validate time for BFS 59 is 58.850041
+TEPS for BFS 59 is 9.38745e+07
+Running BFS 60
+Time for BFS 60 is 0.005554
+Validating BFS 60
+Validate time for BFS 60 is 59.087335
+TEPS for BFS 60 is 9.43984e+07
+Running BFS 61
+Time for BFS 61 is 0.005579
+Validating BFS 61
+Validate time for BFS 61 is 59.315050
+TEPS for BFS 61 is 9.39748e+07
+Running BFS 62
+Time for BFS 62 is 0.005780
+Validating BFS 62
+Validate time for BFS 62 is 59.440048
+TEPS for BFS 62 is 9.0707e+07
+Running BFS 63
+Time for BFS 63 is 0.005693
+Validating BFS 63
+Validate time for BFS 63 is 59.197233
+TEPS for BFS 63 is 9.20936e+07
+
+real	53m54.371s
+user	0m0.175s
+sys	0m0.142s

@@ -34,3 +34,8 @@ Do 11 june
 What do I have.
 
 for i in 2 4 8 16 ; do ./experiments.sh -e graph500_mpi_simple -s 9 -n $i ; done 
+
+
+Doing for these amount of nodes.
+scale 9 12 15 18 21 24
+12 20 24 28 32
