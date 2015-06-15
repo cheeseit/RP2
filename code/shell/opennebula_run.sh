@@ -31,6 +31,6 @@ echo $ID
 # get ipaddress of each machine
 for i in $ID
 do
-    $(onevm show $i | grep "IP" | grep -oP '\d.+\d'| awk'{print $1}' >> hosts)
+    $(onevm show $i | grep "IP" | grep -oP '\d.+\d' >> hosts)
 done
 
