@@ -394,7 +394,7 @@ int main(int argc, char** argv) {
       fprintf(stdout, "thirdquartile_TEPS:             %g\n", 1. / stats[s_firstquartile]);
       fprintf(stdout, "max_TEPS:                       %g\n", 1. / stats[s_minimum]);
       fprintf(stdout, "harmonic_mean_TEPS:             %g\n", 1. / stats[s_mean]);
-      fprintf(stdout, "Program time                    %g\n", stop_program - start_program;
+      fprintf(stdout, "Program time                    %g\n", stop_program - start_program);
       /* Formula from:
        * Title: The Standard Errors of the Geometric and Harmonic Means and
        *        Their Application to Index Numbers
