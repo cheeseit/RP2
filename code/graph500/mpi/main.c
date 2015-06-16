@@ -65,6 +65,7 @@ static void get_statistics(const double x[], int n, double r[s_LAST]) {
 }
 
 int main(int argc, char** argv) {
+  double start_program =  MPI_Wtime();
   MPI_Init(&argc, &argv);
 
   setup_globals();
@@ -354,6 +355,7 @@ int main(int argc, char** argv) {
     free(tg.edgememory); tg.edgememory = NULL;
   }
 
+  double stop_program =  MPI_Wtime();
   /* Print results. */
   if (rank == 0) {
     if (!validation_passed) {
@@ -392,6 +394,7 @@ int main(int argc, char** argv) {
       fprintf(stdout, "thirdquartile_TEPS:             %g\n", 1. / stats[s_firstquartile]);
       fprintf(stdout, "max_TEPS:                       %g\n", 1. / stats[s_minimum]);
       fprintf(stdout, "harmonic_mean_TEPS:             %g\n", 1. / stats[s_mean]);
+      fprintf(stdout, "Program time                    %d\n", stop_program - start_program;
       /* Formula from:
        * Title: The Standard Errors of the Geometric and Harmonic Means and
        *        Their Application to Index Numbers

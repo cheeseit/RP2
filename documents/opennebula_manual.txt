@@ -2,3 +2,6 @@ http://docs.opennebula.org/4.4/user/virtual_machine_setup/bcont.html#bcont
 
 onevm saveas 110882 0 centos-5-mpi-noiptables
 
+http://opennebula.org/installation-of-ha-opennebula-on-centos-7-with-ceph-as-a-datastore-and-ipoib-as-backend-network/
+
+for i in 9 12 15 18 21 24 ; do  mpirun -np 4 --mca btl ^openib -hostfile hosts /root/project/code/graph500/mpi/graph500_mpi_simple $i 16 >> 8_nodes_9to24scale_opennebula_8vcpu.txt ; done

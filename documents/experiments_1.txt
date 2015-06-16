@@ -25,6 +25,7 @@ Need to calculate how much rams is needed for each of the problem sizes.
 
 
 
+
 Do 11 june
 2,4,8,16 nodes 9 scale
 2,4,8,16 nodes 12 scale
@@ -35,7 +36,13 @@ What do I have.
 
 for i in 2 4 8 16 ; do ./experiments.sh -e graph500_mpi_simple -s 9 -n $i ; done 
 
+Cannot be done nodes need to be a powe of 2
 
 Doing for these amount of nodes.
 scale 9 12 15 18 21 24
 12 20 24 28 32
+
+
+OpenNebula
+mpirun -np 4 -hostfile `pwd`/../../shell/hosts /root/project/code/graph500/mpi/graph500_mpi_simple 10 1
+for i in 9 12 15 18 21 24 ; do  mpirun -np 4 --mca btl ^openib -hostfile hosts /root/project/code/graph500/mpi/graph500_mpi_simple $i 16 >> 8_nodes_9to24scale_opennebula_8vcpu.txt ; done

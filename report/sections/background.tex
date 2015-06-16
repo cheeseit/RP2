@@ -4,9 +4,28 @@ An introduction to the background.
 \subsection{Breadth-first Search}
 Breadth-first search(BFS) is that way the Graph500 specifies the traversal of the graph. Although they specify this given there are multiple ways of actually traversing the graph and still return the BFS Graph.
 
+
 \subsection{Kronecker graph}
 The graph that is used by the Graph500 is the Kronecker graph\cite{leskovec2010kronecker}. This is because a Kronecker graph has some nice properties which are also seen in graph that can be seen in the real world.
 %TODO list of properties which are important to the graph500.
+%TODO Say something about the properties of the graph. is a tree, so undirected.
 
 \subsection{Graph compression}
 Something about Sparse matrixes, because it is kroneck graph and ways of reducing the amount data needs to be stored while using such a graph.
+
+\subsection{Reference Implementations}
+As mentioned in the section \ref{related-work} the reference implementations have been studied in detail. The reference which will be used in this project is the 
+simple one. This has been chosen because it is the most simple to understand, has been thoroughly studied and requires the least amount of RAM on each of the nodes. The decision made to run everything on the RAM was done, because this is easier to implement no shared file system was needed. 
+
+A brief description of the algorithm a more detailed explanation can be found in the by Suzumara et al.\cite{suzumura2011performance}.
+In this paper also an estimate is given for the amount of communication in the simple algorithm. The formula is:\\
+\begin{math}
+C(n, M) = A * B * C * D (bytes)  where A = M*2, B = (n-1)/n, C=2, and D=8.  
+\end{math}
+
+\\
+For example, if s = 32 and n = 128 (128 MPI processes), 
+then the total communication 
+data volume C(128, M) is calculated as 2^32 * 16 * 2 * (127/128) * 2 * 8 = 2032 GB (2 TB). As previously noted, the entire graph for M(32) was 
+1.03 TB, so the amount of data was doubled.  
+
