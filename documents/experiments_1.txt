@@ -46,3 +46,7 @@ scale 9 12 15 18 21 24
 OpenNebula
 mpirun -np 4 -hostfile `pwd`/../../shell/hosts /root/project/code/graph500/mpi/graph500_mpi_simple 10 1
 for i in 9 12 15 18 21 24 ; do  mpirun -np 4 --mca btl ^openib -hostfile hosts /root/project/code/graph500/mpi/graph500_mpi_simple $i 16 >> 8_nodes_9to24scale_opennebula_8vcpu.txt ; done
+
+15 juni validation experiments scale 30 experiments
+
+16 juni no infiband experiments
