@@ -5,3 +5,4 @@ failed ./different_cores.sh -r 79267 -e graph500_mpi_simple -s 20
 ./different_cores.sh -r 79267 -e graph500_mpi_simple -s 10 -t 3
 
 
+for i in 2 4 8; do ./experiments.sh -r 79716 -e graph500_mpi_simple -s 15 -n $i ; done
