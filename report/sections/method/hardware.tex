@@ -1,0 +1,38 @@
+\subsubsection{Das-4}
+These are the specs for the sites that are associated with the DAS-4:
+
+\begin{itemize}
+\item VU
+\item LU
+\item UVA
+\item TUD
+\item UVA-MN
+\item ASTRON
+\end{itemize}
+Most work has been done on the machines from he VU and LU. These two were chosen because he DAS of the LU has little people using the machine and the VU DAS was used, because it has the most machine available.
+
+The specifications of the clusters can be found in table \ref{tab:das-clusters}. Each of the nodes in the clusters has a dual quad-core processor with a speed of 2.4 GHz. All the nodes all also connected with InfiniBand\cite{infiniband}.
+\begin{table}[H]
+\begin{tabular}{|l|l|l|}
+\hline
+Cluster & Number of nodes  & Memory(GB) \\ \hline
+VU 		& 74 (41) for all purposed	 & 24			\\ \hline
+LU		& 16 & 48 \\ \hline
+\end{tabular}
+\caption{The specifications of the clusters used in this project.}
+\label{tab:das-clusters}
+\end{table}
+
+
+\subsubsection{OpenNebula}
+For the experiments the following two templates were used seen in Appendix[Reference].
+%TODO Open nebula 3.8
+OpenNebula(ON) is hosted on the cluster of the VU. The cloud is running a few different cluster which are on dedicated nodes. The ON cluster used consisted of 8 nodes with the following specs. The nodes have the following specs. $400 / 2400 (16\%)  39.1G / 63G (61\%)$. 
+
+
+For the experiments using 2-16 nodes each of the VMs got a 24 GB of memory. This amount has been chosen because this is the same amount as the nodes on the VU cluster. For the experiment with 32 VMs the nodes have only 10 GB. 10GB was chosen because the 8 nodes could not handle 32 nodes with the same specification as used for experiments before. With this setup the experiments could still be run, because the graph is distributed between the nodes. 
+
+The VMs used for has Cent-OS is a VM compatible with ON 3.8. MPI version 1.4 was installed on machine, because this is the version available on the repository. On the VMs no InfiniBand has been installed which means that the communication between the machines will be much worse.
+
+
+\subsubsection{Commercial cloud}

@@ -48,7 +48,7 @@ turn off ib
 export OMPI_OPTS="--mca btl ^openib"
 
 mpirun -np 4 -hostfile `pwd`/../../shell/hosts /root/project/code/graph500/mpi/graph500_mpi_simple 10 1
-for i in 9 12 15 18 21 24 ; do  mpirun -np 4 --mca btl ^openib -hostfile hosts /root/project/code/graph500/mpi/graph500_mpi_simple $i 16 >> ~/project/results4_nodes_9to24scale_opennebula_8vcpu.txt ; done
+for i in 9 12 15 18 21 24 ; do  mpirun -np 4 --mca btl ^openib -hostfile hosts /root/project/code/graph500/mpi/graph500_mpi_simple $i 16 >> ~/project/results/experiment/32_nodes_9to24scale_opennebula_8vcpu.txt ; done
 
 for i in 9 12 15 18 21 24 ; do  mpirun -np 8 --mca btl ^openib -hostfile hosts /root/project/code/graph500/mpi/graph500_mpi_simple $i 16 >> ~/project/results/experiment/8_nodes_9to24scale_opennebula_8vcpu_2.txt ; done
 
@@ -59,3 +59,24 @@ for i in 9 12 15 18 24 ; do ./experiments.sh -e graph500_mpi_simple -s $i -n 2 -
 16 juni no infiband experiments
 
 http://www.csl.mtu.edu/cs4331/common/PPong.c ping pong program.
+https://software.intel.com/en-us/articles/intel-mpi-benchmarks/
+https://software.intel.com/en-us/node/516841
+
+compiling benchmark
+On server 
+make -f make_mpich MPI_HOME=/cm/shared/apps/openmpi/gcc/64/1.4.4/bin
+On VM
+make -f make_mpich MPI_HOME=/usr/lib64/openmpi/1.4-gcc
+
+http://na-inet.jp/na/pccluster/centos_x86_64-en.html
+
+
+
+
+
+OpenNebula done with 32 nodes is done with less memory than the rest. This is because there are only 8 machines available.
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+TODO BENCHMARK MESSAGES.
+

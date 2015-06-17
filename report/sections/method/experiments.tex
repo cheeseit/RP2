@@ -1,10 +1,8 @@
-The things that should be measured.
-
-
+This section contains an explanation about the parameters of the experiments and which experiments have been done and why.
 
 \subsection{Problem scale}
-The predefined problem scales can be seen here:
-\begin{table}
+The Graph500 has defined a few different problem cases these can be seen below in table \cite{tab:problem_scales}. These problem scales have been predefined, but do not have to followed. Other scales sizes are also allowed to be in the Graph500, but these are the sizes advertised by the Graph500.
+\begin{table}[H]
 \begin{tabular}{|l|l|l|l|}
 \hline
 Problem class & Scale & Edge Factor & Approx. Storage size in TB\\ \hline
@@ -19,10 +17,11 @@ Huge (level 15) &	42 &	16 &	1125.8999\\ \hline
 \caption{The lists of problem classes as defined by the graph500}
 \end{table}
 
+Because the edge factor is 16 in each of the problem sizes each of the experiments done will also be using an edge factor of 16. 
 
+The larger the scale of the problem the larger the size of the graph. This makes graph processing,if done from the ram, a memory intensive task. 
 
-The edge factor will always be 16. In each of the problem sizes this is always kept constant.
-The scale of the problem depends on the amount of memory that is available. Because this project deals with commodity hardware we have more freedom in the virtual hardware that will be used. The baseline needs to be adjusted to the variety which is available. For this the amount of experiments will be very varied, but the problem scale should not be to large. Therefore the project will focus on the TOY and mini problem classes. This means a scale of 26 and 29. If the resources allow the small problem scale will also be considered.
+Because this project deals with commodity hardware we have more freedom in the virtual hardware that will be used. The baseline needs to be adjusted to the variety which is available. For this the amount of experiments will be very varied, but the problem scale should not be to large. Therefore the project will focus on the TOY and mini problem classes. This means a scale of 26 and 29. If the resources allow the small problem scale will also be considered.
 
 Toy, mini and small maybe, do not know which algorithm yet probably simple, because no need to replicate the whole graph less intensive.
 \begin{lstlisting}
@@ -40,18 +39,15 @@ Toy, mini and small maybe, do not know which algorithm yet probably simple, beca
 \end{lstlisting}
 
 
-\subsection{Ram vs Reading from a file.}
+%\subsection{Ram vs Reading from a file.}
 %TODO this is all speculation. Need to figure out if this is true. Do not know if I want to test this.
-It is easier to store and write to a file but this will cause the program to be slower and less edges will be able to be traversed at in the same time frame. By using file storage larger problem classes will be able to (I think). The data the tmpfile needs to accessible by all the files.
+%It is easier to store and write to a file but this will cause the program to be slower and less edges will be able to be traversed at in the same time frame. By using file storage larger problem classes will be able to (I think). The data the tmpfile needs to accessible by all the files.
 
 \textbf{abstract not used.}
 
 \subsection{The algorithms}
 The reference implementation comes with 4 reference implementations which all use the same level wise parallelization. The programs are  called simple, one sided, replicated and replicated csc. All graphs use some form of storing the sparse graph in a compressed form explained in the background[REF graph compression.]. The one sided algorithm will not be considered. This is because one sided communication expect high performance remote memory access. This is a technique which can not be relied on in the public cloud, because you have no control over the environment and no idea what actual hardware is used. This is why it is better to stick to the basics. Which will be the other 3 algorithms.
 All these algorithms will be tested with the Toy and Mini scale with 16 cores. In the paper by Suzumura et al. \cite{suzumura2011performance} it was shown that after 32 cores the problem might become to small to properly divide the work. This is why the chosen amount of nodes used will be 16. No changes will be made to the algorithm and OpenMP can decide itself how many cores will be used. Toy and miniscale will be used because the working of the algorithm might change when the problem scale grows.
-
-\textbf{abstract}
-Tiny Small 16 nodes openmp simple replicated replicated csc. replicated does not scale that well or needs a way to efficiently store the graph. 
 
 
 \subsection{Hardware}
@@ -87,7 +83,11 @@ $TEPS(n) = m / timeK2(n)$
 
 \end{description}
 
-    
+\subsection{OpenMP}
+OpenMP experiments where done on one node with range of statically assigned CPU that can be used by the program. By default OpenMP will decide itself how many nodes will be the best to use for the problem at hand. By restricting this the influence of OpenMP on the results can be measured. The sizes chosen are 1, 2 ,4 and 8 cores. 
+
+\subsection{MPI}
+The MPi experiments will done on the multiple nodes and the number of cores used depends on the results of the OpenMP experiments. The experiments will be done on the DAS-4 and OpenNebula as a reference for the experiments on the commercial cloud. These experiments will also be used to see if any model can be made to predict the amount of lines that will be traversed given a scale an amount of nodes. Note that the simple algorithm only allows for node amounts which are a power of 2.
 
     
 
