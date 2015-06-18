@@ -52,7 +52,8 @@ for i in 9 12 15 18 21 24 ; do  mpirun -np 4 --mca btl ^openib -hostfile hosts /
 
 for i in 9 12 15 18 21 24 ; do  mpirun -np 8 --mca btl ^openib -hostfile hosts /root/project/code/graph500/mpi/graph500_mpi_simple $i 16 >> ~/project/results/experiment/8_nodes_9to24scale_opennebula_8vcpu_2.txt ; done
 
-for i in 9 12 15 18 24 ; do ./experiments.sh -e graph500_mpi_simple -s $i -n 2 -i ; done
+for i in 9 12 15 18 21 24 ; do ./experiments.sh -e graph500_mpi_simple -s $i -n 2 -i ; done
+for i in 2 4 8 16 ; do ./experiments.sh -e graph500_mpi_simple -s 21 -n $1 -i ; done
 
 15 juni validation experiments scale 30 experiments
 
