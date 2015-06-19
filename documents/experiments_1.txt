@@ -71,7 +71,8 @@ make -f make_mpich MPI_HOME=/usr/lib64/openmpi/1.4-gcc
 
 http://na-inet.jp/na/pccluster/centos_x86_64-en.html
 
-
+for the messages
+for i in 2 4 8 16; do prun -v -np $i -sge-script $PRUN_ETC/prun-openmpi `pwd`/graph500_mpi_simple 9 16 &> ~/scale9_"$i"_nodes.txt; done
 
 
 
