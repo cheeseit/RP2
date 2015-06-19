@@ -11,6 +11,7 @@
 #include "oned_csr.h"
 #include <mpi.h>
 #include <stdint.h>
+#include <stdio.h>
 #include <inttypes.h>
 #include <stdlib.h>
 #include <stddef.h>
