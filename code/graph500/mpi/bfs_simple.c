@@ -222,7 +222,7 @@ void run_bfs(int64_t root, int64_t* pred) {
       while (outgoing_reqs_active[dest]) CHECK_MPI_REQS;
       /* Tell the destination that we are done sending to them. */
       MPI_Isend(&outgoing[dest * coalescing_size * 2], 0, MPI_INT64_T, dest, 0, MPI_COMM_WORLD, &outgoing_reqs[dest]); /* Signal no more sends */
-      printf("Rank %d sends done Sending to %d dest\n",rank,owner);
+      printf("Rank %d sends done Sending to %d dest\n",rank,dest);
       outgoing_reqs_active[dest] = 1;
       while (outgoing_reqs_active[dest]) CHECK_MPI_REQS;
     }
