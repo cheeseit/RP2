@@ -199,7 +199,7 @@ void run_bfs(int64_t root, int64_t* pred) {
           outgoing[owner * coalescing_size * 2 + c + 1] = src;
           outgoing_counts[owner] += 2;
           if (outgoing_counts[owner] == coalescing_size * 2) {
-            printf("Rank %d sends to %d dest\n",rank,owner);
+            printf("Rank %d sends during to %d dest\n",rank,owner);
             MPI_Isend(&outgoing[owner * coalescing_size * 2], coalescing_size * 2, MPI_INT64_T, owner, 0, MPI_COMM_WORLD, &outgoing_reqs[owner]);
             outgoing_reqs_active[owner] = 1;
             outgoing_counts[owner] = 0;
@@ -213,7 +213,7 @@ void run_bfs(int64_t root, int64_t* pred) {
       int dest = MOD_SIZE(rank + offset);
       if (outgoing_counts[dest] != 0) {
         while (outgoing_reqs_active[dest]) CHECK_MPI_REQS;
-        printf("Rank %d sends to %d dest\n",rank,owner);
+        printf("Rank %d sends flush to %d dest\n",rank,owner);
         MPI_Isend(&outgoing[dest * coalescing_size * 2], outgoing_counts[dest], MPI_INT64_T, dest, 0, MPI_COMM_WORLD, &outgoing_reqs[dest]);
         outgoing_reqs_active[dest] = 1;
         outgoing_counts[dest] = 0;
@@ -221,7 +221,7 @@ void run_bfs(int64_t root, int64_t* pred) {
       /* Wait until all sends to this destination are done. */
       while (outgoing_reqs_active[dest]) CHECK_MPI_REQS;
       /* Tell the destination that we are done sending to them. */
-      printf("Rank %d sends to %d dest\n",rank,owner);
+      printf("Rank %d sends done Sending to %d dest\n",rank,owner);
       MPI_Isend(&outgoing[dest * coalescing_size * 2], 0, MPI_INT64_T, dest, 0, MPI_COMM_WORLD, &outgoing_reqs[dest]); /* Signal no more sends */
       outgoing_reqs_active[dest] = 1;
       while (outgoing_reqs_active[dest]) CHECK_MPI_REQS;
