@@ -11,6 +11,7 @@
 #include "oned_csr.h"
 #include <mpi.h>
 #include <stdint.h>
+#include <stdio.h>
 #include <inttypes.h>
 #include <stdlib.h>
 #include <stddef.h>
@@ -199,6 +200,7 @@ void run_bfs(int64_t root, int64_t* pred) {
           outgoing_counts[owner] += 2;
           if (outgoing_counts[owner] == coalescing_size * 2) {
             MPI_Isend(&outgoing[owner * coalescing_size * 2], coalescing_size * 2, MPI_INT64_T, owner, 0, MPI_COMM_WORLD, &outgoing_reqs[owner]);
+            printf("NORMAL Rank %d sends during to %d owner\n",rank,owner);
             outgoing_reqs_active[owner] = 1;
             outgoing_counts[owner] = 0;
           }
@@ -212,6 +214,7 @@ void run_bfs(int64_t root, int64_t* pred) {
       if (outgoing_counts[dest] != 0) {
         while (outgoing_reqs_active[dest]) CHECK_MPI_REQS;
         MPI_Isend(&outgoing[dest * coalescing_size * 2], outgoing_counts[dest], MPI_INT64_T, dest, 0, MPI_COMM_WORLD, &outgoing_reqs[dest]);
+        printf("FLUSH Rank %d sends Flush to %d dest\n",rank, dest);
         outgoing_reqs_active[dest] = 1;
         outgoing_counts[dest] = 0;
       }
@@ -219,6 +222,7 @@ void run_bfs(int64_t root, int64_t* pred) {
       while (outgoing_reqs_active[dest]) CHECK_MPI_REQS;
       /* Tell the destination that we are done sending to them. */
       MPI_Isend(&outgoing[dest * coalescing_size * 2], 0, MPI_INT64_T, dest, 0, MPI_COMM_WORLD, &outgoing_reqs[dest]); /* Signal no more sends */
+      printf("FINISH Rank %d sends done Sending to %d dest\n",rank,dest);
       outgoing_reqs_active[dest] = 1;
       while (outgoing_reqs_active[dest]) CHECK_MPI_REQS;
     }
