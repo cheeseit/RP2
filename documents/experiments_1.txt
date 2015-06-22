@@ -82,3 +82,6 @@ OpenNebula done with 32 nodes is done with less memory than the rest. This is be
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 TODO BENCHMARK MESSAGES.
 
+
+Amazon ssh root@52.17.169.75 "mpirun -np 1 -host 52.17.169.75 /root/project/code/graph500/mpi/graph500_mpi_simple 10 16"
+

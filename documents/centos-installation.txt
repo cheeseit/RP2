@@ -1,0 +1,146 @@
+1  ll
+    2  git atus
+    3  git status
+    4  yum install git
+    5  yum update
+    6  yum install git
+    7  git
+    8  yum -y install zlib-devel openssl-devel cpio expat-devel gettext-devel
+    9  wget http://git-core.googlecode.com/files/git-1.7.9.tar.gz
+   10  ll
+   11  tar xvzf git-1.7.9.tar.gz 
+   12  ls
+   13  cd git-1.7.9
+   14  ll
+   15  ./configure
+   16  yum groupinstall "Development Tools"
+   17  history
+   18  ./configure 
+   19  make
+   20  make install
+   21  git
+   22  yum install openmpi-devel
+   23  which mpicc
+   24  yum install mpich2
+   25  yum install mpich2-devel
+   26  mpicc
+   27  mpirun --version
+   28  mpi-selector --list
+   29  mpi-selector --set openmpi-1.4-gcc-x86_64 --system
+   30  mpi-selector --query
+   31  mpirun --version
+   32  mpicc --version
+   33  mkdir project
+   34  cd project/
+   35  ll
+   36  git clone https://github.com/cheeseit/RP2 .
+   37  git clone github.com/cheeseit/RP2 .
+   38  git clone  https://github.com/cheeseit/RP2.git .
+   39  yum install crul
+   40  yum install curl
+   41  curl
+   42  yum install curl-devel
+   43  cd ..
+   44  ll
+   45  cd git-1.7.9
+   46  ll
+   47  make clena
+   48  make clean
+   49  make
+   50  make clean
+   51  ./configure
+   52  make
+   53  make install
+   54  cd ~/project/
+   55  git clone https://github.com/cheeseit/RP2
+   56  ll
+   57  rm -rf RP
+   58  git clone https://github.com/cheeseit/RP2 .
+   59  ll
+   60  cd code/
+   61  ll
+   62  cd graph500/
+   63  l
+   64  cd mpi/
+   65  ll
+   66  make
+   67  ll
+   68  ./graph500_mpi_simple 10 16
+   69  passwd
+   70  passwd
+   71  passwd
+   72  top
+   73  ll
+   74  passwd
+   75  ll
+   76  cd .ssh/
+   77  vim authorized_keys 
+   78  ssh 10.100.0.7
+   79  ll
+   80  cd..
+   81  cd ..
+   82  ll
+   83  cd test/
+   84  ll
+   85  mpirun ./cpi
+   86  ./mpirun -np 2 --hostfile `pwd`/hosts `pwd`/cpi
+   87  mpirun -np 2 --hostfile `pwd`/hosts `pwd`/cpi
+   88  ll
+   89  service iptables stop
+   90  ll
+   91  ll
+   92  iptables -L
+   93  yum uninstall iptables
+   94  yu merase iptables
+   95  yum erase iptables
+   96  iptables -L
+   97  top
+   98  ll
+   99  tar xzf IMB_4.0.2.tgz 
+  100  ll
+  101  cd imb/
+  102  ll
+  103  cd src/
+  104  make
+  105  make all
+  106  sudo yum groupinstall 'Development Tools'
+  107  mpicc
+  108  mpiicc
+  109  mpiccc
+  110  mpicc
+  111  yum list intel
+  112  ping 8.8.8.8
+  113  yum update
+  114  yum search intel
+  115  yum install ifconfig
+  116  ifconfig
+  117  cd ..
+  118  cd ..
+  119  ll
+  120  mv imb test/
+  121  ll
+  122  ll
+  123  cd imb/
+  124  ll
+  125  cd src/
+  126  ll
+  127  ./IMB-EXT 
+  128  cd ..
+  129  cd ..
+  130  ll
+  131  rm imb/
+  132  rm -rf imb/
+  133  cd test/
+  134  ll
+  135  cd imb/
+  136  ll
+  137  cd src/
+  138  l
+  139  make
+  140  make -f make_mpich MPI_HOME=/usr/lib64/openmpi/1.4-gcc
+  141  ll
+  142  ./IMB-EXT 
+  143  ll
+  144  uname -a
+  145  history
+

@@ -1,0 +1,5 @@
+Need to make a security group to allow port 22 spefically otherwise it does not work.
+
+
+example of logging in
+ssh -i amazon_harm_dermois.pem ec2-user@54.154.219.176
