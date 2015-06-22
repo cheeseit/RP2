@@ -1,7 +1,7 @@
-This section contains an explanation about the parameters of the experiments and which experiments have been done and why.
+This section contains an explanation explains which experiments have done and which parameters were used.
 
-\subsection{Problem scale}
-The Graph500 has defined a few different problem cases these can be seen below in table \cite{tab:problem_scales}. These problem scales have been predefined, but do not have to followed. Other scales sizes are also allowed to be in the Graph500, but these are the sizes advertised by the Graph500.
+\subsubsection{Problem scale}
+The Graph500 has defined a few different problem scales these can be seen below in table \ref{tab:problem_scales}. 
 \begin{table}[H]
 \begin{tabular}{|l|l|l|l|}
 \hline
@@ -16,51 +16,23 @@ Huge (level 15) &	42 &	16 &	1125.8999\\ \hline
 \label{tab:problem_scales}
 \caption{The lists of problem classes as defined by the graph500}
 \end{table}
+These problem classes give a sense of the size of the problem and the amount of storage which is needed to run the experiment. The scale is defined as a combination of the amount of vertices and the edges connected to each of these vertices($2^{scale} * edgefactor = number of edges$). The number of vertices is given by the variable scale. In the case of the Toy  problem it is $2^26$ vertices in the graph. The other parameter is the edge factor is the amount of edges which is connected the graph. In each of the problem classes used by the Graph500 an edge factor of 16 is used. In this project the same number will be used for each of the experiments and the scale will be variable. 
 
-Because the edge factor is 16 in each of the problem sizes each of the experiments done will also be using an edge factor of 16. 
-
-The larger the scale of the problem the larger the size of the graph. This makes graph processing,if done from the ram, a memory intensive task. 
-
-Because this project deals with commodity hardware we have more freedom in the virtual hardware that will be used. The baseline needs to be adjusted to the variety which is available. For this the amount of experiments will be very varied, but the problem scale should not be to large. Therefore the project will focus on the TOY and mini problem classes. This means a scale of 26 and 29. If the resources allow the small problem scale will also be considered.
-
-Toy, mini and small maybe, do not know which algorithm yet probably simple, because no need to replicate the whole graph less intensive.
-\begin{lstlisting}
-3. Toy with 2,4,8,16,32 nodes. openmp. Chosen algorithm. DAS-4 To see the trend of adding nodes. Point 4 and 5 to see how it changes at larger scale.
-
-4. Mini with 2,4,8,16,32 nodes. open mp. Chosen algorithm. DAS-4
-
-5. Small with 3,4,8,16,32 nodes. open mp. Chosen algorithm. DAS-4
-
-6. Toy with 2,4,8,16,32 nodes. openmp. Chosen algorithm. Open nebula To see the trend of adding nodes. Point 6 and 7 to see how it changes at larger scale.
-
-7. Mini with 2,4,8,16,32 nodes. open mp. Chosen algorithm. Open nebula
-
-8. Small with 3,4,8,16,32 nodes. open mp. Chosen algorithm. Open nebula
-\end{lstlisting}
+%Because this project deals with commodity hardware we have more freedom in the virtual hardware that will be used. The baseline needs to be adjusted to the variety which is available. For this the amount of experiments will be very varied, but the problem scale should not be to large. Therefore the project will focus on the TOY and mini problem classes. This means a scale of 26 and 29. If the resources allow the small problem scale will also be considered.
 
 
-%\subsection{Ram vs Reading from a file.}
-%TODO this is all speculation. Need to figure out if this is true. Do not know if I want to test this.
-%It is easier to store and write to a file but this will cause the program to be slower and less edges will be able to be traversed at in the same time frame. By using file storage larger problem classes will be able to (I think). The data the tmpfile needs to accessible by all the files.
-
-\textbf{abstract not used.}
-
-\subsection{The algorithms}
-The reference implementation comes with 4 reference implementations which all use the same level wise parallelization. The programs are  called simple, one sided, replicated and replicated csc. All graphs use some form of storing the sparse graph in a compressed form explained in the background[REF graph compression.]. The one sided algorithm will not be considered. This is because one sided communication expect high performance remote memory access. This is a technique which can not be relied on in the public cloud, because you have no control over the environment and no idea what actual hardware is used. This is why it is better to stick to the basics. Which will be the other 3 algorithms.
-All these algorithms will be tested with the Toy and Mini scale with 16 cores. In the paper by Suzumura et al. \cite{suzumura2011performance} it was shown that after 32 cores the problem might become to small to properly divide the work. This is why the chosen amount of nodes used will be 16. No changes will be made to the algorithm and OpenMP can decide itself how many cores will be used. Toy and miniscale will be used because the working of the algorithm might change when the problem scale grows.
 
 
-\subsection{Hardware}
-Because we are using commodity hardware we are  bound to the VMs that are provided to us. This means that the amount of cores and measurements of the baseline needs to be in line with the amount of resources that is available in the public cloud.
-In the comparison between the baseline and the public cloud the amount of cores will be considered. First for the baseline we will inspect what the optimal amount of cores is for these kind of experiments. This will be done by fixing the OpenMP.
-The amount of cores that will be tested is 1,2,4 and 8. This is maximum amount of cores that are available on the DAS-4 which has a dual quadcore on each of the nodes. This will be test with the Tiny scale or smaller on one node. Only parts of the program is parallelized locally with OpenMP the other part is done with MPI. 
-The speed of the cores will mentioned, but expect this not to be a huge factor and this is a fixed number and cannot be changed. 
+\subsubsection{Reference implementation}
+\label{med:ref}
+%The reference implementation comes with 4 reference implementations which all use the same level wise parallelization. The programs are  called simple, one sided, replicated and replicated csc. All graphs use some form of storing the sparse graph in a compressed form explained in the background[REF graph compression.]. The one sided algorithm will not be considered. This is because one sided communication expect high performance remote memory access. This is a technique which can not be relied on in the public cloud, because you have no control over the environment and no idea what actual hardware is used. This is why it is better to stick to the basics. Which will be the other 3 algorithms.
+%All these algorithms will be tested with the Toy and Mini scale with 16 cores. In the paper by Suzumura et al. \cite{suzumura2011performance} it was shown that after 32 cores the problem might become to small to properly divide the work. This is why the chosen amount of nodes used will be 16. No changes will be made to the algorithm and OpenMP can decide itself how many cores will be used. Toy and miniscale will be used because the working of the algorithm might change when the problem scale grows.
 
-\textbf{abstract}
-Toy or smaller scale, depends on the time it takes 1 node 1,2,4, 8 cores.
+From the reference implementation mentioned in the section \ref{backgro}
+
 
 \subsection{Output}
-The output should at least contain these measurements.
+The output should at least contain these measurements. \\ 
 %TODO needs to be edited taken from graph500
 \textbf{Timing} \\
 Start the time for a search immediately prior to visiting the search root. Stop the time for that search when the output has been written to memory. Do not time any I/O outside of the search routine. If your algorithm relies on problem-specific data structures (by our definition, these are informed by vertex degree), you must include the setup time for such structures in each search. The spirit of the benchmark is to gauge the performance of a single search. We run many searches in order to compute means and variances, not to amortize data structure setup time.
@@ -83,19 +55,27 @@ $TEPS(n) = m / timeK2(n)$
 
 \end{description}
 
+
+\subsection{Measurements}
 \subsection{OpenMP}
-OpenMP experiments where done on one node with range of statically assigned CPU that can be used by the program. By default OpenMP will decide itself how many nodes will be the best to use for the problem at hand. By restricting this the influence of OpenMP on the results can be measured. The sizes chosen are 1, 2 ,4 and 8 cores. 
+To do the OpenMP experiments a small change needed to be made in the code to turn off the dynamic assignment and assign the number of CPUs that should be used. The experiments were done one node of the LU cluster. The experiments were only done for a limited number of scale, because at larger scale the experiment could not run on one node. Validation was still turned on for these experiments.
 
 \subsection{MPI}
-The MPi experiments will done on the multiple nodes and the number of cores used depends on the results of the OpenMP experiments. The experiments will be done on the DAS-4 and OpenNebula as a reference for the experiments on the commercial cloud. These experiments will also be used to see if any model can be made to predict the amount of lines that will be traversed given a scale an amount of nodes. Note that the simple algorithm only allows for node amounts which are a power of 2.
+The experiments will be done on the DAS-4 and OpenNebula as a reference for the experiments on the commercial cloud. These experiments will also be used to see if any model can be made to predict the amount of lines that will be traversed given a scale an amount of nodes. Note that the simple algorithm only allows for node amounts which are a power of 2. Multiple different experiments were done for the MPI. The following types experiments were done:
+\begin{itemize}
+	\item With validation, the simple implementation without any modifications.
+	\item Without validation, the simple implementation without validation.
+	\item Without Infiniband
+\end{itemize}
 
     
+\subsection{Do not know where to put this}
 
-    
+The experiments were tailored to the amount of hardware available. The Graph500 simple implementation can only run with a number of nodes which is a power of 2. This constraint limited the amount of experiments that could be done. the As seen in section \ref{hw:das4} and \ref{hw:opennebula} there can be experiments done with up to 16 nodes on the LU and up to 32 nodes on the VU. In principle experiments could be done with 62 nodes on the VU, but some of the nodes were out of service and there is always someone else using one of the nodes which makes it hard to run an experiment with 64 nodes.
 
+The experiments run are the scale 9 to 30 for 2 to 32 nodes for all three of the platforms namely: DAS-4, OpenNebula and the commercial cloud. As mentioned before the OpenNebuala did not have InifiBand installed. This is why on top of the normal experiment on the DAS, the experiment were also run without InfiniBand to see how much of a difference this makes. This will also make it easier to compare the DAS results to the ON ones.  
     
-
-    
+The reference  implementation has also implemented some loops using OpenMP. To find out what the effect is of OpenMP on the TEPS, only one node was used and assigning different amount of CPUs to be used. By default OpenMP will decide itself how many nodes will be the best to use for the problem at hand. By specifying the amount of CPUs the influence of OpenMP on the results can be measured.    
 
     
 

@@ -1,17 +1,18 @@
+The goal of the project to do a Graph500 benchmark on the cloud and find out a model to predict the performance of the benchmark. For this a experiments were done on the DAS-4 to create a baseline. In the following sections the hardware used will be shown.
 \subsubsection{Das-4}
-These are the specs for the sites that are associated with the DAS-4:
-
+\label{hw:das4}
+The Distributed ASCI Supercomputer 4 (DAS) is a six-cluster wide-area distributed system designed by the Advanced School for Computing and Imagining (ASCI)\cite{das-4}. The six-clusters are the following:
 \begin{itemize}
-\item VU
-\item LU
-\item UVA
-\item TUD
-\item UVA-MN
-\item ASTRON
+\item Vrije Univeristeit (VU)
+\item Leiden Univeristeit (LU)
+\item Univeristeit van Amsterdam (UvA) 
+\item Technische Universiteit Delft (TUD)
+\item Univeristeit van Amsterdam - The MultimediaN (UVA-MN) 
+\item Astronomy institute Netherlands Institute for Radio Astronomy (ASTRON)
 \end{itemize}
-Most work has been done on the machines from he VU and LU. These two were chosen because he DAS of the LU has little people using the machine and the VU DAS was used, because it has the most machine available.
+All computations have been done on the clusters from he VU and LU. These two clusters were chose because the cluster of LU is not actively in use and has the nodes with the most memory. The VU cluster was used, because it has the most machine available and has an OpenNebula cluster installed on it. The specifications of the clusters can be found in table \ref{tab:das-clusters}. 
 
-The specifications of the clusters can be found in table \ref{tab:das-clusters}. Each of the nodes in the clusters has a dual quad-core processor with a speed of 2.4 GHz. All the nodes all also connected with InfiniBand\cite{infiniband}.
+Each of the nodes in the clusters has a dual quad-core processor with a speed of 2.4 GHz. All the nodes all also connected with InfiniBand\cite{infiniband}.
 \begin{table}[H]
 \begin{tabular}{|l|l|l|}
 \hline
@@ -22,17 +23,17 @@ LU		& 16 & 48 \\ \hline
 \caption{The specifications of the clusters used in this project.}
 \label{tab:das-clusters}
 \end{table}
+All nodes on the cluster have CentOS release 6.6 (Final) installed on them.
 
 
 \subsubsection{OpenNebula}
-For the experiments the following two templates were used seen in Appendix[Reference].
-%TODO Open nebula 3.8
-OpenNebula(ON) is hosted on the cluster of the VU. The cloud is running a few different cluster which are on dedicated nodes. The ON cluster used consisted of 8 nodes with the following specs. The nodes have the following specs. $400 / 2400 (16\%)  39.1G / 63G (61\%)$. 
+\label{hw:opennebula}
+``OpenNebula  provides the most simple but feature-rich and flexible solution for the comprehensive management of virtualized data centers to enable private, public and hybrid IaaS clouds. OpenNebula interoperability makes cloud an evolution by leveraging existing IT assets, protecting your investments, and avoiding vendor lock-in.''\cite{opennebula}. The version of OpenNebula(ON) installed on the VU cluster is version 3.8. The ON cluster used consisted of 8 nodes with the following specs: $400 / 2400 (16\%)  39.1G / 63G (61\%)$. For the experiments the following two templates were used seen in Appendix[Reference].
 
+For the experiments using 2 to 16 nodes each of the VMs got a 24 GB of memory. This amount has been chosen because this is the same amount as the nodes on the VU cluster. For the experiment with 32 VMs the nodes have only 10 GB. 10GB was chosen because the 8 nodes could not handle 32 nodes with the same specification as used for experiments before. With this setup the experiments could still be run, because the graph is distributed between the nodes. 
 
-For the experiments using 2-16 nodes each of the VMs got a 24 GB of memory. This amount has been chosen because this is the same amount as the nodes on the VU cluster. For the experiment with 32 VMs the nodes have only 10 GB. 10GB was chosen because the 8 nodes could not handle 32 nodes with the same specification as used for experiments before. With this setup the experiments could still be run, because the graph is distributed between the nodes. 
-
-The VMs used for has Cent-OS is a VM compatible with ON 3.8. MPI version 1.4 was installed on machine, because this is the version available on the repository. On the VMs no InfiniBand has been installed which means that the communication between the machines will be much worse.
+The VMs used for the ON experiments have CentOS release 5.11 (Final) installed. The version of MPI was 1.4. On the VMs no InfiniBand has been installed. 
 
 
 \subsubsection{Commercial cloud}
+As commercial cloud the Amazon web services (AWS) were chosen.
