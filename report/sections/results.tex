@@ -1,30 +1,106 @@
 \subsection{OpenMP}
-As mentioned before the implementation used is the simple implementation. First the OpenMP was tested. Figure [Graph showing graph generation] shows a graph of the amount of time spent generating the graph as a function of the amount of cores that were assigned to the program. As can be seen in the graphs the time spent creating the graph linearly dependent on the amount of CPUs that can be used by the program. 
+\label{sec:openmp}
+As mentioned in [ref to tools] OpenMP can be used to parallelize loops and other easy functions that can be easy to make parallel. Figure \ref{fig:graph_generation} shows a graph of the amount of time spent generating the graph as a function of the amount of cores that were assigned to the program. The figure shows that the time spent is  dependent on the amount of CPUs. Each time the amount of CPUs doubles the time spent is halved. 
+ % These experiments have been on the DAS with validation on.
 
-In figure [OPENMP GTEPS] it can be seen that the amount of lines that can be traversed does not rely on the amount of CPUs that are available to the process.
+\begin{figure}[!h]
+\includegraphics[width=\textwidth]{images/openmp_graphgeneration.png}
+\caption{This graphs shows the graph generation time as a function of the number of CPUs used by the program}
+\label{fig:graph_generation}
+\end{figure}
 
-\subsection{MPI}
-In figure \ref{} you can how the amount of TEPS increases as the number with the number of nodes. These results are from the experiments on the DAS-4. As the scale of the increases the the TEPS also increase up until a certain point. After this point the amount of TEPS decreases again. This can be seen for any  amount of nodes. There is always a tipping point where increasing the scale will not increase the amount of edges that can be traversed. In figure[nodes same the same can be seen but this figure shows it as a function of nodes. The larger the amount of nodes the more edges can be traversed. The only point where this is not true is at smaller scales, but the difference between the different nodes is very small on this small scale.
 
-Comparing the results from the DAS-4 with the results from OpenNebula the same trends can seen. In figure [opennebula function of scale] it is shown that the amount of TEPS increases as the scale gets larger, up to a certain point, similar to the experiments on the DAS. The difference between the experiments is that the amount of TEPS is much smaller than the amount of TEPS that can be achieved on the DAS. On reason is that InfiniBand was not enabled on the OpenNebula. Im Figure[das as function scale without infi] the same experiments are shown as in  figure [das as function scale], but without the scale. On the DAS turning of  InfiniBand also has an effect on the performance, but it does not account for the still difference in the amount of edges that can be processed.
+In figure \ref{fig:openmp_scale_cpu} the TEPS can be see as a function of the CPUs used on the left and the scale on the right. Both graphs show that the amount of lines that can be traversed is almost constant.
 
-\begin{figure}
+\begin{figure}[!h]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{images/openmp_cpus.png}
+  %\caption{A subfigure}
+  %\label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{images/openmp_scale.png}
+  %\caption{}
+  %\label{fig:sub2}
+\end{subfigure}
+\caption{These figures show the effect of different of scale and the number of CPUs on the TEPS}
+\label{fig:openmp_scale_cpu}
+\end{figure}
+
+\subsection{DAS}
+In this section the results are shown of using the \texttt{graph500\_mpi\_simple} on the DAS-4. As mentioned in section[methodology], when the program is run for scales larger than 15 the program freezes. Only experiments done in next section and in section \ref{sec:openmp} have been done with validation, all other experiments have been done without.
+\subsubsection{Turning validation off}
+\label{sec:noval}
+ Figure \ref{fig:val_vs_noval} shows the results of the amount of TEPS against the scale and the number of nodes. The figures shows that there is a difference in the number of TEPS with and without the validation. The difference can be up to 150\% in the case of scale 15 with 16 nodes. What can be noticed in figure \ref{fig:nodes_val_noval} is that the same trends are followed as the number of nodes increases. Another thing, which can be seen in figure \ref{fig:scale_val_noval}, is that the ratio of TEPS increase as the scale increases.
+\begin{figure}[!h]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{images/nodes_scale_vs_noscale.png}
+  \caption{As a function of nodes}
+  \label{fig:nodes_val_noval}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{images/scale_val_vs_noval.png}
+  \caption{As a function of scale}
+  \label{fig:scale_val_noval}
+\end{subfigure}
+\caption{These figures show the effect of different of scale and the number of CPUs on the TEPS}
+\label{fig:val_vs_noval}
+\end{figure}
+
+
+
+\subsubsection{Nodes and Scale}
+\label{res:nodes_scale}
+In figure \ref{fig:das_no_val} shows the amount of TEPS increases as the number with the number of nodes. The larger the amount of nodes the more edges can be traversed, as seen in figure \ref{fig:scale_no_val}. This increase in TEPS can be seen up til a certain point. After this point the amount of TEPS decreases again. This tipping point can be seen in a any of the line except for the smaller scales in which the line is close to constant for any scale.
+Figure \ref{fig:nodes_no_val} shows the same data but then as a function of the number of nodes. What can be seen in these figures is that the amount TEPS increases as the nodes increases per scale. These are fairly straight lines. The thing to notice is that scale 21 is performs the best of each investigate number of nodes, although for 2 and 4 nodes the amount of TEPS always about the same, independent of the scale of the problem. 
+
+\begin{figure}[!h]
 \centering
 \begin{subfigure}{.5\textwidth}
   \centering
   \includegraphics[width=\linewidth]{images/nodes_no_val.png}
-  \caption{A subfigure}
-  \label{fig:sub1}
+  \caption{TEPS as a function of nodes for different scales.}
+  \label{fig:nodes_no_val}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{images/scales_no_val.png}
-  \caption{A subfigure}
-  \label{fig:sub2}
+  \includegraphics[width=\linewidth]{images/scale_no_val.png}
+  \caption{TEPS as a function of scale for different amount of nodes.}
+  \label{fig:scale_no_val}
 \end{subfigure}
-\caption{A figure with two subfigures}
+\caption{This figure shows the change in the amount of TEPS as a function of scale and nodes.}
 \label{fig:das_no_val}
 \end{figure}
+
+\subsubsection{No InfiniBand}
+The same experiments as before have also been run without InfiniBand. The results show similar results to what has been seen previously. As before figure \ref{fig:scale_no_infini} shows an increase in TEPS as the scale increases till a certain tipping point, but unlike what has been seen in figure \ref{fig:scale_no_val} the tipping point has not been yet been reached at scale 24. Figure \ref{fig:scale_no_infi} shows that slope between scale 21 and 24 is very small, but not yet reached. The difference between the maximum value for 16 nodes from the results of section \ref{res:nodes_scale} is 6 times as large as the maximum value for the same amount of nodes from the InfiniBand experiments.
+\begin{figure}[!h]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{images/nodes_no_infini.png}
+  \caption{TEPS as a function of nodes for different scales.}
+  \label{fig:nodes_no_infini}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{images/scale_no_infini.png}
+  \caption{TEPS as a function of scale for different amount of nodes.}
+  \label{fig:scale_no_infini}
+\end{subfigure}
+\caption{This figure shows the change in the amount of TEPS as a function of scale and nodes.}
+\label{fig:das_no_infini}
+\end{figure}
+
+\subsection{OpenNebula}
+
+Comparing the results from the DAS-4 with the results from OpenNebula the same trends can seen. In figure [opennebula function of scale] it is shown that the amount of TEPS increases as the scale gets larger, up to a certain point, similar to the experiments on the DAS. The difference between the experiments is that the amount of TEPS is much smaller than the amount of TEPS that can be achieved on the DAS. On reason is that InfiniBand was not enabled on the OpenNebula. Im Figure[das as function scale without infi] the same experiments are shown as in  figure [das as function scale], but without the scale. On the DAS turning of  InfiniBand also has an effect on the performance, but it does not account for the still difference in the amount of edges that can be processed.
 
 
 \subsection{Communication}

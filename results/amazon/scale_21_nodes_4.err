@@ -1,0 +1,17 @@
+Address 54.171.114.13 maps to ec2-54-171-114-13.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.171.152.237 maps to ec2-54-171-152-237.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 52.17.93.160 maps to ec2-52-17-93-160.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.154.44.97 maps to ec2-54-154-44-97.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+graph_generation:               46.857927 s
+[ip-172-31-21-101:3623] *** An error occurred in MPI_Alloc_mem
+[ip-172-31-21-101:3623] *** on communicator MPI_COMM_WORLD
+[ip-172-31-21-101:3623] *** MPI_ERR_NO_MEM: out of memory
+[ip-172-31-21-101:3623] *** MPI_ERRORS_ARE_FATAL (your MPI job will now abort)
+--------------------------------------------------------------------------
+mpirun has exited due to process rank 0 with PID 3623 on
+node 54.171.114.13 exiting without calling "finalize". This may
+have caused other processes in the application to be
+terminated by signals sent by mpirun (as reported here).
+--------------------------------------------------------------------------
+[ip-172-31-21-101:03436] 1 more process has sent help message help-mpi-errors.txt / mpi_errors_are_fatal
+[ip-172-31-21-101:03436] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages

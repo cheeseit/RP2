@@ -1,0 +1,30 @@
+Address 54.171.114.13 maps to ec2-54-171-114-13.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.171.152.237 maps to ec2-54-171-152-237.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 52.17.93.160 maps to ec2-52-17-93-160.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.154.44.97 maps to ec2-54-154-44-97.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Out of memory trying to allocate 1073741824 byte(s)
+[ip-172-31-22-49:04555] *** Process received signal ***
+[ip-172-31-22-49:04555] Signal: Aborted (6)
+[ip-172-31-22-49:04555] Signal code:  (-6)
+Out of memory trying to allocate 1073741824 byte(s)
+[ip-172-31-21-101:05240] *** Process received signal ***
+[ip-172-31-21-101:05240] Signal: Aborted (6)
+[ip-172-31-21-101:05240] Signal code:  (-6)
+[ip-172-31-22-49:04555] [ 0] /lib64/libpthread.so.0 [0x2af04a7c1ca0]
+[ip-172-31-22-49:04555] [ 1] /lib64/libc.so.6(gsignal+0x35) [0x2af04aa00265]
+[ip-172-31-22-49:04555] [ 2] /lib64/libc.so.6(abort+0x110) [0x2af04aa01d10]
+[ip-172-31-22-49:04555] [ 3] /root/project/code/graph500/mpi/graph500_mpi_simple [0x40b3e9]
+[ip-172-31-22-49:04555] [ 4] /root/project/code/graph500/mpi/graph500_mpi_simple(main+0x58f) [0x40438f]
+[ip-172-31-22-49:04555] [ 5] /lib64/libc.so.6(__libc_start_main+0xf4) [0x2af04a9ed9c4]
+[ip-172-31-22-49:04555] [ 6] /root/project/code/graph500/mpi/graph500_mpi_simple [0x402709]
+[ip-172-31-22-49:04555] *** End of error message ***
+[ip-172-31-21-101:05240] [ 0] /lib64/libpthread.so.0 [0x2ba20c3f3ca0]
+[ip-172-31-21-101:05240] [ 1] /lib64/libc.so.6(gsignal+0x35) [0x2ba20c632265]
+[ip-172-31-21-101:05240] [ 2] /lib64/libc.so.6(abort+0x110) [0x2ba20c633d10]
+[ip-172-31-21-101:05240] [ 3] /root/project/code/graph500/mpi/graph500_mpi_simple [0x40b3e9]
+[ip-172-31-21-101:05240] [ 4] /root/project/code/graph500/mpi/graph500_mpi_simple(main+0x58f) [0x40438f]
+[ip-172-31-21-101:05240] [ 5] /lib64/libc.so.6(__libc_start_main+0xf4) [0x2ba20c61f9c4]
+--------------------------------------------------------------------------
+mpirun noticed that process rank 2 with PID 4555 on node 54.154.44.97 exited on signal 6 (Aborted).
+--------------------------------------------------------------------------
+[ip-172-31-21-101:05240] [ 6] /root/project/code/graph500/mpi/graph500_mpi_simple [0x402709]

@@ -2,7 +2,7 @@ This section contains an explanation explains which experiments have done and wh
 
 \subsubsection{Problem scale}
 The Graph500 has defined a few different problem scales these can be seen below in table \ref{tab:problem_scales}. 
-\begin{table}[H]
+\begin{table}[!h]
 \begin{tabular}{|l|l|l|l|}
 \hline
 Problem class & Scale & Edge Factor & Approx. Storage size in TB\\ \hline
@@ -13,8 +13,8 @@ Medium (level 13)& 	36 &	16 &	17.5922\\ \hline
 Large (level 14) &	39 &	16 &	140.7375\\ \hline
 Huge (level 15) &	42 &	16 &	1125.8999\\ \hline
 \end{tabular}
-\label{tab:problem_scales}
 \caption{The lists of problem classes as defined by the graph500}
+\label{tab:problem_scales}
 \end{table}
 These problem classes give a sense of the size of the problem and the amount of storage which is needed to run the experiment. The scale is defined as a combination of the amount of vertices and the edges connected to each of these vertices($2^{scale} * edgefactor = number of edges$). The number of vertices is given by the variable scale. In the case of the Toy  problem it is $2^26$ vertices in the graph. The other parameter is the edge factor is the amount of edges which is connected the graph. In each of the problem classes used by the Graph500 an edge factor of 16 is used. In this project the same number will be used for each of the experiments and the scale will be variable. 
 
@@ -28,7 +28,7 @@ These problem classes give a sense of the size of the problem and the amount of 
 %The reference implementation comes with 4 reference implementations which all use the same level wise parallelization. The programs are  called simple, one sided, replicated and replicated csc. All graphs use some form of storing the sparse graph in a compressed form explained in the background[REF graph compression.]. The one sided algorithm will not be considered. This is because one sided communication expect high performance remote memory access. This is a technique which can not be relied on in the public cloud, because you have no control over the environment and no idea what actual hardware is used. This is why it is better to stick to the basics. Which will be the other 3 algorithms.
 %All these algorithms will be tested with the Toy and Mini scale with 16 cores. In the paper by Suzumura et al. \cite{suzumura2011performance} it was shown that after 32 cores the problem might become to small to properly divide the work. This is why the chosen amount of nodes used will be 16. No changes will be made to the algorithm and OpenMP can decide itself how many cores will be used. Toy and miniscale will be used because the working of the algorithm might change when the problem scale grows.
 
-From the reference implementation mentioned in the section \ref{backgro}
+From the reference implementation mentioned in the section \ref{}
 
 
 \subsection{Output}
@@ -52,7 +52,6 @@ $TEPS(n) = m / timeK2(n)$
 \item[mean nedge, stddev nedge] Mean and standard deviation of the number of input edges visited by kernel 2, see TEPS section above.
 \item[min TEPS, firstquartile TEPS, median TEPS, thirdquartile TEPS, max TEPS]  Quartiles for the kernel 2 TEPS
 \item[harmonic mean TEPS, harmonic stddev TEPS] Mean and standard deviation of the kernel 2 TEPS. Note: Because TEPS is a rate, the rates are compared using harmonic means.
-
 \end{description}
 
 
@@ -78,7 +77,15 @@ The experiments run are the scale 9 to 30 for 2 to 32 nodes for all three of the
 The reference  implementation has also implemented some loops using OpenMP. To find out what the effect is of OpenMP on the TEPS, only one node was used and assigning different amount of CPUs to be used. By default OpenMP will decide itself how many nodes will be the best to use for the problem at hand. By specifying the amount of CPUs the influence of OpenMP on the results can be measured.    
 
     
+\subsection{Communication}
+%Needs to be revised and more  precise.
+To confirm that the model used for the communication is sound messages have logged each time a MPI message is send. There are 3 types of messages sent in this program. The type of message is a message send when the buffer is full. When process buffer is full it will sent the message to the recipient. The buffer has was fixed (2 kB) in each of the experiments but it can be changed to get better performance. The second type of message flushing the buffer. If all nodes have been visited by the program and the buffer still has some nodes that need to be visited it will flush the buffer and share the remaining nodes that need to be visited. The last message is used to report that the program is completely done. The process sends an empty message to other programs stating it is done.
 
+\subsection{Memory consumption}
+%TODO needs to edited This needs to be paired with the 
+Since the Graph500 organization provides different reference implementations with different formats, the amount of data differs. However, with the sparse matrixformat called CSR (Compressed Sparse Row), the memory consumption is $E*2 + V (E = \# of edges, V = \# of vertices)$.
+$M(Scale) = (2^Scale *(2*edgefactor + 1))$. The E here is calculated as the product of V by the edgefactor, which is 16 in this benchmark. For
+example, $M(32) = 2^32 * (2*16+1) * 8 (bytes) = 1.03125 TB$.
     
 
     

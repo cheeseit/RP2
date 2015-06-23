@@ -13,7 +13,7 @@ The Distributed ASCI Supercomputer 4 (DAS) is a six-cluster wide-area distribute
 All computations have been done on the clusters from he VU and LU. These two clusters were chose because the cluster of LU is not actively in use and has the nodes with the most memory. The VU cluster was used, because it has the most machine available and has an OpenNebula cluster installed on it. The specifications of the clusters can be found in table \ref{tab:das-clusters}. 
 
 Each of the nodes in the clusters has a dual quad-core processor with a speed of 2.4 GHz. All the nodes all also connected with InfiniBand\cite{infiniband}.
-\begin{table}[H]
+\begin{table}[!h]
 \begin{tabular}{|l|l|l|}
 \hline
 Cluster & Number of nodes  & Memory(GB) \\ \hline
@@ -33,7 +33,3 @@ All nodes on the cluster have CentOS release 6.6 (Final) installed on them.
 For the experiments using 2 to 16 nodes each of the VMs got a 24 GB of memory. This amount has been chosen because this is the same amount as the nodes on the VU cluster. For the experiment with 32 VMs the nodes have only 10 GB. 10GB was chosen because the 8 nodes could not handle 32 nodes with the same specification as used for experiments before. With this setup the experiments could still be run, because the graph is distributed between the nodes. 
 
 The VMs used for the ON experiments have CentOS release 5.11 (Final) installed. The version of MPI was 1.4. On the VMs no InfiniBand has been installed. 
-
-
-\subsubsection{Commercial cloud}
-As commercial cloud the Amazon web services (AWS) were chosen.

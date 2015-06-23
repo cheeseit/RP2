@@ -3,3 +3,21 @@ Need to make a security group to allow port 22 spefically otherwise it does not 
 
 example of logging in
 ssh -i amazon_harm_dermois.pem ec2-user@54.154.219.176
+
+Workflow amazon measurements
+
+Create instances with install.py <nr  instance>
+Wait a little to create the instance and run install.py again to get the host file
+If the hosts file is filled move it to the code/shell
+Add the right key to the ssh agent to reduce the amount of passwords that need to be filled in.
+example
+hdermois@desktop-36:~/Documents/RP2/code/shell$ ssh-agent bash
+hdermois@desktop-36:~/Documents/RP2/code/shell$ ssh-add ~/.ssh/id_rsa
+
+Run prepare_amazon_vm.sh to get the latest code on the VMs and add the hostfile to the first node and get to know all the other servers.
+
+ssh <firstnodein the hostfile> "<mpi command>"
+example:
+ssh root@123.111.222.111 "mpirun -np 2 -hostfile /root/hosts /root/project/code/graph500/mpi/graph500_mpi_simple 9 16"
+Example with a loop
+for i in 9 12 15 18 21 24; do ssh root@54.171.114.13 "mpirun -np 4 -hostfile /root/hosts /root/project/code/graph500/mpi/graph500_mpi_simple $i 16" 2> scale_"$i"_nodes_4.err 1> scale_"$i"_nodes_4.txt; done

@@ -9,5 +9,5 @@ do
  # ssh $i "cd project; git pull"
  # ssh $i "cd project/code/graph500/mpi;make clean; make"
   ssh $FIRST "ssh-keyscan -t rsa,dsa $tmp 2>&1 >> ~/.ssh/known_hosts;"
-  scp hosts $FIRST:/root
 done
+scp hosts $FIRST:/root
