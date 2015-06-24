@@ -32,7 +32,7 @@ In figure \ref{fig:openmp_scale_cpu} the TEPS can be see as a function of the CP
 \label{fig:openmp_scale_cpu}
 \end{figure}
 
-\subsection{DAS}
+\subsection{DAS-4}
 In this section the results are shown of using the \texttt{graph500\_mpi\_simple} on the DAS-4. As mentioned in section[methodology], when the program is run for scales larger than 15 the program freezes. Only experiments done in next section and in section \ref{sec:openmp} have been done with validation, all other experiments have been done without.
 
 \subsubsection{Turning validation off}
@@ -61,7 +61,8 @@ In this section the results are shown of using the \texttt{graph500\_mpi\_simple
 \subsubsection{Nodes and Scale}
 \label{res:nodes_scale}
 In figure \ref{fig:das_no_val} shows the amount of TEPS increases as the number with the number of nodes. The larger the amount of nodes the more edges can be traversed, as seen in figure \ref{fig:scale_no_val}. This increase in TEPS can be seen up til a certain point. After this point the amount of TEPS decreases again. This tipping point can be seen in a any of the line except for the smaller scales in which the line is close to constant for any scale.
-Figure \ref{fig:nodes_no_val} shows the same data but then as a function of the number of nodes. What can be seen in these figures is that the amount TEPS increases as the nodes increases per scale. These are fairly straight lines. The thing to notice is that scale 21 is performs the best of each investigate number of nodes, although for 2 and 4 nodes the amount of TEPS always about the same, independent of the scale of the problem. 
+Figure \ref{fig:nodes_no_val} shows the same data but then as a function of the number of nodes. What can be seen in these figures is that the amount TEPS increases as the nodes increases per scale. These are fairly straight lines. The thing to notice is that scale 21 is performs the best of each investigate number of nodes, although for 2 and 4 nodes the amount of TEPS always about the same, independent of the scale of the problem.
+One interesting thing to note is that the measurements done on scale 30 have less TEPS than the TEPS for scale 15.
 
 \begin{figure}[!h]
 \centering
@@ -82,7 +83,7 @@ Figure \ref{fig:nodes_no_val} shows the same data but then as a function of the 
 \end{figure}
 
 \subsubsection{No InfiniBand}
-The same experiments as before have also been run without InfiniBand. The results show similar results to what has been seen previously. As before figure \ref{fig:scale_no_infini} shows an increase in TEPS as the scale increases till a certain tipping point, but unlike what has been seen in figure \ref{fig:scale_no_val} the tipping point has not been yet been reached at scale 24. Figure \ref{fig:scale_no_infi} shows that slope between scale 21 and 24 is very small, but not yet reached. The difference between the maximum value for 16 nodes from the results of section \ref{res:nodes_scale} is 6 times as large as the maximum value for the same amount of nodes from the InfiniBand experiments.
+The experiments on the DAS-4 have also been done run without InfiniBand. The results are similar to what has been seen previously. As before figure \ref{fig:scale_no_infini} shows an increase in TEPS as the scale increases till a certain tipping point, but unlike what has been seen in figure \ref{fig:scale_no_val} the tipping point has not been yet been reached at scale 24. Figure \ref{fig:scale_no_infini} shows that slope between scale 21 and 24 is very small, but not yet reached. The difference between the maximum value for 16 nodes from the results of section \ref{res:nodes_scale} is 6 times as large as the maximum value for the same amount of nodes from the InfiniBand experiments. 
 \begin{figure}[!h]
 \centering
 \begin{subfigure}{.5\textwidth}
@@ -105,8 +106,26 @@ The same experiments as before have also been run without InfiniBand. The result
 
 Comparing the results from the DAS-4 with the results from OpenNebula the same trends can seen. In figure [opennebula function of scale] it is shown that the amount of TEPS increases as the scale gets larger, up to a certain point, similar to the experiments on the DAS. The difference between the experiments is that the amount of TEPS is much smaller than the amount of TEPS that can be achieved on the DAS. On reason is that InfiniBand was not enabled on the OpenNebula. Im Figure[das as function scale without infi] the same experiments are shown as in  figure [das as function scale], but without the scale. On the DAS turning of  InfiniBand also has an effect on the performance, but it does not account for the still difference in the amount of edges that can be processed.
 
+\begin{figure}[!h]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{images/nodes_opennebula.png}
+  \caption{TEPS as a function of nodes for different scales.}
+  \label{fig:nodes_opennebula}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{images/scale_opennebula.png}
+  \caption{TEPS as a function of scale for different amount of nodes.}
+  \label{fig:scale_opennebula}
+\end{subfigure}
+\caption{This figure shows the TEPS vs the scale and nodes for the experiments done on OpenNebula}
+\label{fig:das_opennebula}
+\end{figure}
 
 \subsection{Communication}
 
-\subsubsection{MBI benchmark}
+\subsubsection{IMB benchmark}
+
 \subsubsection{Message count}
