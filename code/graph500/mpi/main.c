@@ -65,9 +65,9 @@ static void get_statistics(const double x[], int n, double r[s_LAST]) {
 }
 
 int main(int argc, char** argv) {
-  double start_program =  MPI_Wtime();
   MPI_Init(&argc, &argv);
 
+  double start_program =  MPI_Wtime();
   setup_globals();
 
   /* Parse arguments. */
