@@ -12,7 +12,9 @@ def create_instance(connection):
     #image = "ami-e4c18493"
     #own image HVM
     # image = "ami-62ade915"
-    image = "ami-d4afeba3"
+    # image = "ami-d4afeba3"
+    #with IMB on it
+    image = "ami-5ab4f02d"
 
 
     connection.run_instances(image, key_name='amazon_harm_dermois',security_group_ids=['sg-62e4da07',
