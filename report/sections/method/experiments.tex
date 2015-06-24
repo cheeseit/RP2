@@ -25,6 +25,7 @@ These problem classes give a sense of the size of the problem and the amount of 
 
 \subsubsection{Reference implementation}
 \label{med:ref}
+%TODO detailed explanation about the algorithm how the division is done between the node. Layers.
 %The reference implementation comes with 4 reference implementations which all use the same level wise parallelization. The programs are  called simple, one sided, replicated and replicated csc. All graphs use some form of storing the sparse graph in a compressed form explained in the background[REF graph compression.]. The one sided algorithm will not be considered. This is because one sided communication expect high performance remote memory access. This is a technique which can not be relied on in the public cloud, because you have no control over the environment and no idea what actual hardware is used. This is why it is better to stick to the basics. Which will be the other 3 algorithms.
 %All these algorithms will be tested with the Toy and Mini scale with 16 cores. In the paper by Suzumura et al. \cite{suzumura2011performance} it was shown that after 32 cores the problem might become to small to properly divide the work. This is why the chosen amount of nodes used will be 16. No changes will be made to the algorithm and OpenMP can decide itself how many cores will be used. Toy and miniscale will be used because the working of the algorithm might change when the problem scale grows.
 
@@ -70,9 +71,9 @@ The experiments will be done on the DAS-4 and OpenNebula as a reference for the 
     
 \subsection{Do not know where to put this}
 
-The experiments were tailored to the amount of hardware available. The Graph500 simple implementation can only run with a number of nodes which is a power of 2. This constraint limited the amount of experiments that could be done. the As seen in section \ref{hw:das4} and \ref{hw:opennebula} there can be experiments done with up to 16 nodes on the LU and up to 32 nodes on the VU. In principle experiments could be done with 62 nodes on the VU, but some of the nodes were out of service and there is always someone else using one of the nodes which makes it hard to run an experiment with 64 nodes.
+ The Graph500 simple implementation can only run with a number of nodes which is a power of 2. This constraint limited the amount of experiments that could be done. the As seen in section \ref{hw:das4} and \ref{hw:opennebula} there can be experiments done with up to 16 nodes on the LU and up to 32 nodes on the VU. In principle experiments could be done with 62 nodes on the VU, but some of the nodes were out of service and there is always someone else using one of the nodes which makes it hard to run an experiment with 64 nodes.
 
-The experiments run are the scale 9 to 30 for 2 to 32 nodes for all three of the platforms namely: DAS-4, OpenNebula and the commercial cloud. As mentioned before the OpenNebuala did not have InifiBand installed. This is why on top of the normal experiment on the DAS, the experiment were also run without InfiniBand to see how much of a difference this makes. This will also make it easier to compare the DAS results to the ON ones.  
+The experiments run are the scale 9 to 30 for 2 to 32 nodes for all three of the platforms namely: DAS-4, OpenNebula and Amazon Webservices. As mentioned before the OpenNebuala did not have InifiBand installed. This is why on top of the normal experiment on the DAS, the experiments were also done with InfiniBand off, to see how much of a difference this makes. These measurements will also make it easier to compare the DAS results to the ON ones.  
     
 The reference  implementation has also implemented some loops using OpenMP. To find out what the effect is of OpenMP on the TEPS, only one node was used and assigning different amount of CPUs to be used. By default OpenMP will decide itself how many nodes will be the best to use for the problem at hand. By specifying the amount of CPUs the influence of OpenMP on the results can be measured.    
 
@@ -81,15 +82,31 @@ The reference  implementation has also implemented some loops using OpenMP. To f
 %Needs to be revised and more  precise.
 To confirm that the model used for the communication is sound messages have logged each time a MPI message is send. There are 3 types of messages sent in this program. The type of message is a message send when the buffer is full. When process buffer is full it will sent the message to the recipient. The buffer has was fixed (2 kB) in each of the experiments but it can be changed to get better performance. The second type of message flushing the buffer. If all nodes have been visited by the program and the buffer still has some nodes that need to be visited it will flush the buffer and share the remaining nodes that need to be visited. The last message is used to report that the program is completely done. The process sends an empty message to other programs stating it is done.
 
+Also the IMB benchmark will be done for each of the environments to measure the time it takes to send messages. The benchmark consists of multiple modules. The modules that are interesting for the project is the PingPong. 
+
 \subsection{Memory consumption}
 %TODO needs to edited This needs to be paired with the 
-Since the Graph500 organization provides different reference implementations with different formats, the amount of data differs. However, with the sparse matrixformat called CSR (Compressed Sparse Row), the memory consumption is $E*2 + V (E = \# of edges, V = \# of vertices)$.
+Since the Graph500 organization provides different reference implementations with different formats, the amount of data differs. However, with the sparse matrix format called CSR (Compressed Sparse Row), the memory consumption is $E*2 + V (E = \# of edges, V = \# of vertices)$.
 $M(Scale) = (2^Scale *(2*edgefactor + 1))$. The E here is calculated as the product of V by the edgefactor, which is 16 in this benchmark. For
 example, $M(32) = 2^32 * (2*16+1) * 8 (bytes) = 1.03125 TB$.
+\begin{table} [!h]
+\begin{tabular}{|l|l|l|}
+\hline
+scale & 2 Nodes& 4 Nodes \\ \hline
+9 & 0.000067584	&	0.000033792 \\ \hline
+12 & 0.000540672	&	0.000270336\\ \hline
+15 & 0.004325376	&	0.002162688\\ \hline
+18 & 0.034603008	&	0.017301504\\ \hline
+21 & 0.276824064	&	0.138412032\\ \hline
+24 & 2.214592512	&	1.107296256\\ \hline
+27 & 17.716740096	&	8.858370048\\ \hline
+30 & 141.733920768	&	70.866960384\\ \hline
+
+
+\end{tabular}
+\caption{This table shows a few calculations for how much memory is consumed with 2 and 4 nodes. To continue the table for mode nodes the values need to be divided by 2. For higher scales the formula previously mentioned should be used.}
+\label{tab:calculation memory consumption}
+\end{table}
     
 \subsection{Amazon}
-For the images on Amazon a new HVM image was created. The base of this image is (ami-15011a61) a public images which also had 5.x version of CentOS. On this image keys were placed and MPI and the git repository was installed. One thing that is different from the experiments on the DAS and OpenNebula is that the mpirun command is started from one of the nodes. This is done by ssh to the server and then running the command. This might have some influence on the performance of that one node.
-
-   
-
-     
+For experiments on AWS a new HVM image was created, which is similar to the VM used on OpenNebula. The base of this image is (ami-15011a61) a public image which also has the 5.x version of CentOS. On this image keys were placed, MPI installed and the git repository downloaded. There is one thing changed in the way the experiment is performed on the DAS and OpenNebula. The \texttt{mpirun} command is started from one of the nodes instead of from a node which does not participate in the calculation. This is done setting up an \texttt{SSH} connection to the server and then running the command remotely, for the command see Appendix [REF to used commands]. Running MPI in this manner might have some influence on the performance of that one node.
