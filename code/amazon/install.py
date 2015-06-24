@@ -5,10 +5,13 @@ import boto.ec2.address
 import sys
 
 def create_instance(connection):
-    instance_t = "t1.micro"
+    instance_t = "t2.micro"
     # image = "ami-bf0897c8"
     # image = "ami-c5bdf8b2"
-    image = "ami-e4c18493"
+    #ownimage PV
+    #image = "ami-e4c18493"
+    #own image HVM
+    image = "ami-62ade915"
 
 
     connection.run_instances(image, key_name='amazon_harm_dermois',security_group_ids=['sg-62e4da07',

@@ -1,5 +1,5 @@
 This section contains an explanation explains which experiments have done and which parameters were used.
-
+%TODO Write something about using the Maximum value of the TEPS for each of the graphs.Results or in the Experiments.
 \subsubsection{Problem scale}
 The Graph500 has defined a few different problem scales these can be seen below in table \ref{tab:problem_scales}. 
 \begin{table}[!h]
@@ -87,8 +87,8 @@ Since the Graph500 organization provides different reference implementations wit
 $M(Scale) = (2^Scale *(2*edgefactor + 1))$. The E here is calculated as the product of V by the edgefactor, which is 16 in this benchmark. For
 example, $M(32) = 2^32 * (2*16+1) * 8 (bytes) = 1.03125 TB$.
     
-
-    
+\subsection{Amazon}
+For the images on Amazon a new HVM image was created. The base of this image is (ami-15011a61) a public images which also had 5.x version of CentOS. On this image keys were placed and MPI and the git repository was installed. One thing that is different from the experiments on the DAS and OpenNebula is that the mpirun command is started from one of the nodes. This is done by ssh to the server and then running the command. This might have some influence on the performance of that one node.
 
    
 

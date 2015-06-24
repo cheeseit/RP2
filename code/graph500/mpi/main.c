@@ -394,7 +394,6 @@ int main(int argc, char** argv) {
       fprintf(stdout, "thirdquartile_TEPS:             %g\n", 1. / stats[s_firstquartile]);
       fprintf(stdout, "max_TEPS:                       %g\n", 1. / stats[s_minimum]);
       fprintf(stdout, "harmonic_mean_TEPS:             %g\n", 1. / stats[s_mean]);
-      fprintf(stdout, "Program time                    %g\n", stop_program - start_program);
       /* Formula from:
        * Title: The Standard Errors of the Geometric and Harmonic Means and
        *        Their Application to Index Numbers
@@ -405,6 +404,7 @@ int main(int argc, char** argv) {
        * (same source as in specification). */
       fprintf(stdout, "harmonic_stddev_TEPS:           %g\n", stats[s_std] / (stats[s_mean] * stats[s_mean] * sqrt(num_bfs_roots - 1)));
       free(secs_per_edge); secs_per_edge = NULL;
+      fprintf(stdout, "Program time:                    %g\n", stop_program - start_program);
       //free(edge_counts); edge_counts = NULL;
       //get_statistics(validate_times, num_bfs_roots, stats);
       //fprintf(stdout, "min_validate:                   %g\n", stats[s_minimum]);
