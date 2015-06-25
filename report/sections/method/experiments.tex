@@ -79,6 +79,7 @@ The reference  implementation has also implemented some loops using OpenMP. To f
 
     
 \subsection{Communication}
+\label{med:comm}
 %Needs to be revised and more  precise.
 To confirm that the model used for the communication is sound messages have logged each time a MPI message is send. There are 3 types of messages sent in this program. The type of message is a message send when the buffer is full. When process buffer is full it will sent the message to the recipient. The buffer has was fixed (2 kB) in each of the experiments but it can be changed to get better performance. The second type of message flushing the buffer. If all nodes have been visited by the program and the buffer still has some nodes that need to be visited it will flush the buffer and share the remaining nodes that need to be visited. The last message is used to report that the program is completely done. The process sends an empty message to other programs stating it is done.
 
@@ -87,8 +88,8 @@ Also the IMB benchmark will be done for each of the environments to measure the 
 \subsection{Memory consumption}
 %TODO needs to edited This needs to be paired with the 
 Since the Graph500 organization provides different reference implementations with different formats, the amount of data differs. However, with the sparse matrix format called CSR (Compressed Sparse Row), the memory consumption is $E*2 + V (E = \# of edges, V = \# of vertices)$.
-$M(Scale) = (2^Scale *(2*edgefactor + 1))$. The E here is calculated as the product of V by the edgefactor, which is 16 in this benchmark. For
-example, $M(32) = 2^32 * (2*16+1) * 8 (bytes) = 1.03125 TB$.
+$M(Scale) = (2^{Scale} *(2*edgefactor + 1))$. The E here is calculated as the product of V by the edgefactor, which is 16 in this benchmark. For
+example, $M(32) = 2^{32} * (2*16+1) * 8 (bytes) = 1.03125 TB$.
 \begin{table} [!h]
 \begin{tabular}{|l|l|l|}
 \hline
@@ -104,7 +105,7 @@ scale & 2 Nodes& 4 Nodes \\ \hline
 
 
 \end{tabular}
-\caption{This table shows a few calculations for how much memory is consumed with 2 and 4 nodes. To continue the table for mode nodes the values need to be divided by 2. For higher scales the formula previously mentioned should be used.}
+\caption{This table shows a few calculations for how much memory is consumed with 2 and 4 nodes. To continue the table for mode nodes the values need to be divided by 2. For higher scales the formula previously mentioned should be used. Calculated memory consumption. This needs to be doubled because you also store the parent.}
 \label{tab:calculation memory consumption}
 \end{table}
     

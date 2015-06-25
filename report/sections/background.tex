@@ -22,10 +22,12 @@ The nodes are evenly distributed between the processes. This is done by looking 
 The graph is stored in a CSR way to minimize the amount of data that needs to be stored in the ram.
 
 The paper that was previously mentioned also gives an estimate of the amount of communication in the simple algorithm. The formula is:\\
-\begin{math}
-C(n, M) = A * B * C * D (bytes)  where A = M*2, B = (n-1)/n, C=2, and D=8.  
-\end{math}
+\begin{equation}
+\label{eq:communication_size}
+C(n, M) = A * B * C * D (bytes).
+\end{equation}
+Where $A = M*2, B = (n-1)/n, C=2, and D=8$ \\
 
-For example, if s \= 32 and n \= 128 (128 MPI processes), then the total communication 
-data volume C(128, M) is calculated as $2^{32}$ \* 16 \* 2 \* (127\/128) \* 2 \* 8 = 2032 GB (2 TB). As previously noted, the entire graph for M(32) was 
+For example, if s $=$ 32 and n $=$ 128 (128 MPI processes), then the total communication 
+data volume $C(128, M)$ is calculated as $2^{32}$ $*$ 16 $*$ 2 $*$ $(127/128)$ $*$ 2 $*$ 8 = 2032 GB (2 TB). As previously noted, the entire graph for M(32) was 
 1.03 TB, so the amount of data was doubled.

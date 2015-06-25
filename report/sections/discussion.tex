@@ -1,9 +1,18 @@
+\subsection{DAS}
+In the results seen in graphs \ref{fig:das_no_infini}, \ref{fig:das_no_val} following can be seen. There are 3 factors which contribute to the amount of edges that can be traversed, namely: the computation time, the communication time and the network. The maximum achievable TEPS the one that takes the maximum amount of time divided by the. The more nodes you have the more spread out the information will and the more often the information needs to be gotten from the another machine. At the start of the experiment all nodes will have a lot of nodes to process and the connection will be fine, but as the number of edges which needs to be the same nodes need to access to the same node which will clog the network.
+The scale 
+
+
+
+
 \subsection{OpenNebula}
-There were some problems with using OpenNebula. The cluster on which the latest version of OpenNebula was installed was shutdown in preparation of the new DAS-5. For this reason the older version 3.8 needed to be used. The OpenNebula marketplace does not have any images for version 3.8 anymore, which made the setup time a bit longer. Also public images available on the OpenNebula VU cluster seemed to be working out of the box. Also one thing to note is that when you are running MPI it is best not to have a firewall between the hosts. This.W
+There were some problems with using OpenNebula. The cluster on which the latest version of OpenNebula was installed was shutdown in preparation of the new DAS-5. For this reason the older version 3.8 needed to be used. The OpenNebula marketplace does not have any images for version 3.8 anymore, which made the setup time a bit longer. Also public images available on the OpenNebula VU cluster seemed to be working out of the box. Also one thing to note is that when you are running MPI it is best not to have a firewall between the hosts. 
+
+\subsection{Amazon}
 
 \subsection{Validation vs No Validation}
 %TODO validation no validation 32 nodes or not.
 AS shown in the figure \ref{fig:val_vs_noval} the ratio between TEPS as a function of nodes is a constant factor that does not exceed the 100 \% increase. This means that the estimation that is done using the no validation experiments are comparable to expected value which is given by the experiments with validation. The estimation to use the total number of edges compared to the visited actual number of edges is a good approximation and will give an answer in the right order of magnitude. 
 
-\subsection{Problems}
+\subsection{Reference implementation}
 \input{sections/problems.tex}

@@ -130,21 +130,37 @@ As a whole the trends can be seen only again a few factors smaller than the resu
 \subsection{Communication}
 In this section the results are shown with respect to the communication between the nodes.
 \subsubsection{IMB benchmark}
-On each of the systems the IMB benchmark has been done. To find the time it takes the 
-
-\subsubsection{Message count}
-In table
-
-\begin{table}
+On each of the systems the IMB benchmark has been done. To find the time it takes to send messages between to machines. The times which are relevant are 0, 1028 and 2048 bytes. The 0 bytes times shows the time it takes to send the finished message, 1028 bytes gives an indication of how much time it will take to send a message without a completely full buffer, and lastly the 2048 shows the time it takes to send a full buffer. The complete table is shown in Appendix [REF to appendix].
+\begin{table}[!h]
 \begin{tabular}{|l|l|l|l|}
 \hline
-Scale & Buffer $+$ Flush (# messages) & Finish & Calculated \hline
-9 &	 36.546875 & &&
-15 & 2054.984375 &&&
-18 & 16390.375 &&&
-21 & 131077.75 &&&
-
+Bytes & DAS-4 ($\mu sec$) & DAS-4 no InfiniBand($\mu sec$) & OpenNebula ($\mu sec$)\\ \hline
+0 & 3.81 &  46.55  & 112.75  \\ \hline
+1024 & 4.93 & 56.97  &  130.76 \\ \hline 
+2048 & 269.74 & 5.96 & 68.36 \\ \hline
 \end{tabular}
-
+\caption{This figure shows the IMB benchmarks on the different platforms used. All times are an average of a 1000 messages sent. Only the relevant sizes have been shown.}
+\label{tab:imb_bench}
 \end{table}
+
+\subsubsection{Message count}
+The message count is an important number for calculate the communication time. The amount of data which is sent per message is known, but the number of messages is not known. As mentioned before in the paper by Suzumaru\cite{suzumura2011performance} an estimation for the amount of bytes which is, see equation \ref{eq:communication_size}. In figure \ref{fig:das_scale_messages} two plot can be seen. The figure shows that the estimation of data send is correct and with this the number of messages can derived by using this estimation. There is one thing to notice is that there is a factor two difference between the number of messages. 
+\begin{figure}[!h]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{images/scale_vs_messages.png}
+  \caption{The number of messages as a function of scale for different number of nodes.}
+  \label{fig:scale_messages}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{images/scale_vs_messages_doubled.png}
+  \caption{The same graph as figure \ref{fig:scale_messages}, but with the observed number of messages doubled}
+  \label{fig:scale_messages_doubled}
+\end{subfigure}
+\caption{This figure shows how the number of messages grows for 4 different scales and 2 to 16 nodes. The observed number is the number of messages sent when the buffer is full + the messages send with left overs, see section \ref{med:comm}}
+\label{fig:das_scale_messages}
+\end{figure}
+
 \subsection{The model}

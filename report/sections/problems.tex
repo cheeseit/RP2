@@ -1,16 +1,5 @@
-With running the program there were some problems. The frist problem was
-that the mpi version on the DAS-4 is a very old version, mpi version 1.4. This
-was not compatible with the reference code. Because of this the workaround.h
-needed to be adjusted. This worked out the problems which were created during compile time.
-It was said that this would help out with the validation and would cause it not to hang. This
-was the case for a scale till 15. At a scale of 18 or higher the problem would get stuck while
-validating the first BFS. To remedy this the validation was left out, because this is the reference
-code the validation of the BFS is less of a concern and the program does not run with it. The method
-of removing the validation was taken from this technical paper written by Angel et al.\cite{angel2012graph}.
+There were some problems with running the \texttt{graph500\_mpi\_simple} on the DAS. The first problem was that the MPI version on the DAS-4. The version used is 1.4. This MPI 1.4 is not compatible with the reference code, which uses data types defined in later versions. Because of this the texttt{workaround.h} needed to be changed. Changing the file made it possible to compile this program on the DAS-4. In the commands of this file, it is stated that this would help out with the validation and will prevent the program from hanging. This was the case for a scale up to 15. At a scale higher than 15 program would get stuck while
+validating the first BFS. To make it possible to run the  \texttt{graph500\_mpi\_simple} for scales higher than 15, the validation was left out. The graph does not need to validated, because this is the reference implementaiton. The assumption is that the reference implementation will always generate a valid graph. To remove the validation a technical paper written by Angel et al.\cite{angel2012graph} was used.
 In this paper it is proposed that instead of dividing the time the BFS took to run by the actual visited edges,
-the total number of edges is taken. This is a good proximation of the problem because of the properties
-of the Kronecker graph and the edge factor which is 16(16 edges per node). This makes the graph fully connected
-and the assumption that all nodes have been visited true. In the graph [GRAPJH no validation] you can see that
-the graphs with and without validation differ slightly. The difference with larger scales also become smaller
-because of the property of the Kronecker graph that the larger the scale the more connected the graph becomes.
-%TODO need to write down the terms of kronecker and check everything.
+the total number of edges is taken. This is a valid proximation for a Kronecker graph with an edge factor of 16. This makes the graph fully connected and the assumption that all nodes have been visited true. In the graph \ref{fig:val_vs_noval} you can see that the graphs with and without validation differ, but they are at least in the same order of magnitude. 
+%TODO 
