@@ -1,0 +1,28 @@
+Address 54.171.247.223 maps to ec2-54-171-247-223.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.171.243.249 maps to ec2-54-171-243-249.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.171.243.250 maps to ec2-54-171-243-250.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.171.203.87 maps to ec2-54-171-203-87.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 52.16.55.242 maps to ec2-52-16-55-242.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.171.243.241 maps to ec2-54-171-243-241.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.171.243.248 maps to ec2-54-171-243-248.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 52.16.244.248 maps to ec2-52-16-244-248.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.171.213.136 maps to ec2-54-171-213-136.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.171.243.247 maps to ec2-54-171-243-247.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.171.213.149 maps to ec2-54-171-213-149.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.72.139.168 maps to ec2-54-72-139-168.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.77.199.159 maps to ec2-54-77-199-159.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.76.236.34 maps to ec2-54-76-236-34.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 52.16.59.136 maps to ec2-52-16-59-136.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.171.188.246 maps to ec2-54-171-188-246.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+graph_generation:               69.127045 s
+construction_time:              91.407663 s
+Running BFS 0
+Time for BFS 0 is 69.397272
+TEPS tranversed all edges BFS 0 is 3.09448e+07
+Running BFS 1
+Time for BFS 1 is 67.186996
+TEPS tranversed all edges BFS 1 is 3.19628e+07
+Running BFS 2
+Time for BFS 2 is 66.254535
+TEPS tranversed all edges BFS 2 is 3.24126e+07
+Running BFS 3

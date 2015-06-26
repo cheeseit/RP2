@@ -4,4 +4,18 @@ onevm saveas 110882 0 centos-5-mpi-noiptables
 
 http://opennebula.org/installation-of-ha-opennebula-on-centos-7-with-ceph-as-a-datastore-and-ipoib-as-backend-network/
 
-for i in 9 12 15 18 21 24 ; do  mpirun -np 4 --mca btl ^openib -hostfile hosts /root/project/code/graph500/mpi/graph500_mpi_simple $i 16 >> 8_nodes_9to24scale_opennebula_8vcpu.txt ; done
+for i in 9 12 15 18 21 24 ; do  mpirun -np 4 --mca btl ^openib -hostfile hosts /root/project/code/graph500/mpi/graph500_mpi_simple $i 16 >> /project/results/experiment/16_nodes_30scale_opennebula_8vcpu.txt ; done
+
+Step one create machines
+opennebula run m is number of nodes f is the template to be used
+./opennebula_run.sh -m 16 -f ~/OpenNebula/centos-normalnetwork-mpi.one
+
+Prepare the vms to have the latest repository and code.
+./prepare_vms.sh
+
+mpirun -np 16 --mca btl ^openib -hostfile hosts /root/project/code/graph500/mpi/graph500_mpi_simple 30 16 2> 16_nodes_30_scale.err  1> /project/results/experiment/16_nodes_30_scale_opennebula.txt
+
+
+for i in 9 12 15 18 21 24; do ssh root@52.16.59.136 "mpirun -np 4 --mca btl ^openib -hostfile /root/hosts /root/project/code/graph500/mpi/graph500_mpi_simple $i 16" 2> ../../results/experiment/c3_amazon_scale_"$i"_nodes_4.err 1> ../../results/experiment/c3_amazon_scale_"$i"_nodes_4.txt; done
+
+16 and 32 up to 27.

@@ -5,10 +5,44 @@ The graph that is used by the Graph500 is the Kronecker graph\cite{leskovec2010k
 %TODO list of properties which are important to the graph500.
 %TODO Say something about the properties of the graph. is a tree, so undirected.
 
+
+\subsection{BFS}
 \subsection{Graph compression}
-Something about Sparse matrixes, because it is kroneck graph and ways of reducing the amount data needs to be stored while using such a graph.
+Something about Sparse matrixes, because it is kronecker graph and ways of reducing the amount data needs to be stored while using such a graph.
+
+\subsection{Graph500}
+The output should at least contain these measurements. \\ 
+%TODO needs to be edited taken from graph500 Need to add the step in more detail.
+\textbf{Timing} \\
+Start the time for a search immediately prior to visiting the search root. Stop the time for that search when the output has been written to memory. Do not time any I/O outside of the search routine. If your algorithm relies on problem-specific data structures (by our definition, these are informed by vertex degree), you must include the setup time for such structures in each search. The spirit of the benchmark is to gauge the performance of a single search. We run many searches in order to compute means and variances, not to amortize data structure setup time.
+
+\textbf{Performance Metric} \\
+In order to compare the performance of Graph 500 "Search" implementations across a variety of architectures, programming models, and productivity languages and frameworks, we adopt a new performance metric described in this section. In the spirit of well-known computing rates floating-point operations per second (flops) measured by the LINPACK benchmark and global updates per second (GUPs) measured by the HPCC RandomAccess benchmark, we define a new rate called traversed edges per second (TEPS). We measure TEPS through the benchmarking of kernel 2 as follows. Let timeK2(n) be the measured execution time for kernel 2. Let m be the number of input edge tuples within the component traversed by the search, counting any multiple edges and self-loops. We define the normalized performance rate (number of edge traversals per second) as:
+\\
+$TEPS(n) = m / timeK2(n)$
+\begin{description}
+\item[SCALE] Graph generation parameter
+\item[edgefactor] Graph generation parameter
+\item[NBFS] Number of BFS searches run, 64 for non-trivial graphs
+\item[construction time] The single kernel 1 time
+\item[min time, firstquartile time, median time, thirdquartile time, max time] Quartiles for the kernel 2 times
+\item[mean time, stddev time] Mean and standard deviation of the kernel 2 times
+\item[min nedge, firstquartile nedge, median nedge, thirdquartile nedge, max nedge] Quartiles for the number of input edges visited by kernel 2, see TEPS section above.
+\item[mean nedge, stddev nedge] Mean and standard deviation of the number of input edges visited by kernel 2, see TEPS section above.
+\item[min TEPS, firstquartile TEPS, median TEPS, thirdquartile TEPS, max TEPS]  Quartiles for the kernel 2 TEPS
+\item[harmonic mean TEPS, harmonic stddev TEPS] Mean and standard deviation of the kernel 2 TEPS. Note: Because TEPS is a rate, the rates are compared using harmonic means.
+\end{description}
+
 
 \subsection{Reference Implementations}
+
+%TODO detailed explanation about the algorithm how the division is done between the node. Layers. Need to be edited alot Combined to different pieces
+The reference implementation comes with 4 reference implementations which all use the same level wise parallelization. The programs are  called simple, one sided, replicated and replicated csc. All graphs use some form of storing the sparse graph in a compressed form explained in the background[REF graph compression.]. The one sided algorithm will not be considered. This is because one sided communication expect high performance remote memory access. This is a technique which can not be relied on in the public cloud, because you have no control over the environment and no idea what actual hardware is used. This is why it is better to stick to the basics. Which will be the other 3 algorithms.
+
+The version which is used in this project is version 2.1.4\cite{graph500-code}.
+
+
+%TODO this is more detailed.
 As mentioned in the section \ref{related-work} the reference implementations have been studied in detail. The reference which will be used in this project is the  simple one. This has been chosen because it is the most simple to understand, has been thoroughly studied and requires the least amount of RAM on each of the nodes. The decision made to run everything on the RAM was done, because this is easier to implement no shared file system was needed. 
 
 Here a brief description of the algorithm will be given a more detailed explanation can be found in the by Suzumara et al.\cite{suzumura2011performance}.

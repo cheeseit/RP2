@@ -1,0 +1,226 @@
+Address 54.171.247.223 maps to ec2-54-171-247-223.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.72.139.168 maps to ec2-54-72-139-168.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.171.213.136 maps to ec2-54-171-213-136.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.171.203.87 maps to ec2-54-171-203-87.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.171.243.250 maps to ec2-54-171-243-250.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.171.243.249 maps to ec2-54-171-243-249.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.171.213.149 maps to ec2-54-171-213-149.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.171.243.247 maps to ec2-54-171-243-247.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.171.243.248 maps to ec2-54-171-243-248.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 52.16.55.242 maps to ec2-52-16-55-242.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.171.227.237 maps to ec2-54-171-227-237.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 52.16.244.248 maps to ec2-52-16-244-248.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.171.117.218 maps to ec2-54-171-117-218.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.171.191.75 maps to ec2-54-171-191-75.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.171.188.177 maps to ec2-54-171-188-177.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.171.183.22 maps to ec2-54-171-183-22.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.76.194.75 maps to ec2-54-76-194-75.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.77.199.159 maps to ec2-54-77-199-159.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.76.236.34 maps to ec2-54-76-236-34.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.154.174.173 maps to ec2-54-154-174-173.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.171.175.112 maps to ec2-54-171-175-112.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 52.16.59.136 maps to ec2-52-16-59-136.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.171.243.241 maps to ec2-54-171-243-241.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.171.188.246 maps to ec2-54-171-188-246.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.77.11.135 maps to ec2-54-77-11-135.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.76.101.189 maps to ec2-54-76-101-189.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.171.235.243 maps to ec2-54-171-235-243.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.171.48.199 maps to ec2-54-171-48-199.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.171.243.245 maps to ec2-54-171-243-245.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.171.247.14 maps to ec2-54-171-247-14.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.171.189.18 maps to ec2-54-171-189-18.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.72.72.49 maps to ec2-54-72-72-49.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+graph_generation:               3.669004 s
+construction_time:              2.542870 s
+Running BFS 0
+Time for BFS 0 is 0.482764
+TEPS tranversed all edges BFS 0 is 6.95048e+07
+Running BFS 1
+Time for BFS 1 is 0.549431
+TEPS tranversed all edges BFS 1 is 6.10713e+07
+Running BFS 2
+Time for BFS 2 is 0.545745
+TEPS tranversed all edges BFS 2 is 6.14837e+07
+Running BFS 3
+Time for BFS 3 is 0.473563
+TEPS tranversed all edges BFS 3 is 7.08553e+07
+Running BFS 4
+Time for BFS 4 is 0.560279
+TEPS tranversed all edges BFS 4 is 5.98888e+07
+Running BFS 5
+Time for BFS 5 is 0.604382
+TEPS tranversed all edges BFS 5 is 5.55186e+07
+Running BFS 6
+Time for BFS 6 is 0.323928
+TEPS tranversed all edges BFS 6 is 1.03586e+08
+Running BFS 7
+Time for BFS 7 is 0.577240
+TEPS tranversed all edges BFS 7 is 5.81291e+07
+Running BFS 8
+Time for BFS 8 is 0.554444
+TEPS tranversed all edges BFS 8 is 6.05191e+07
+Running BFS 9
+Time for BFS 9 is 0.579396
+TEPS tranversed all edges BFS 9 is 5.79128e+07
+Running BFS 10
+Time for BFS 10 is 0.516390
+TEPS tranversed all edges BFS 10 is 6.49789e+07
+Running BFS 11
+Time for BFS 11 is 0.498282
+TEPS tranversed all edges BFS 11 is 6.73402e+07
+Running BFS 12
+Time for BFS 12 is 0.566665
+TEPS tranversed all edges BFS 12 is 5.92139e+07
+Running BFS 13
+Time for BFS 13 is 0.466770
+TEPS tranversed all edges BFS 13 is 7.18864e+07
+Running BFS 14
+Time for BFS 14 is 0.540477
+TEPS tranversed all edges BFS 14 is 6.2083e+07
+Running BFS 15
+Time for BFS 15 is 0.689397
+TEPS tranversed all edges BFS 15 is 4.86721e+07
+Running BFS 16
+Time for BFS 16 is 0.468758
+TEPS tranversed all edges BFS 16 is 7.15816e+07
+Running BFS 17
+Time for BFS 17 is 0.471789
+TEPS tranversed all edges BFS 17 is 7.11217e+07
+Running BFS 18
+Time for BFS 18 is 0.605226
+TEPS tranversed all edges BFS 18 is 5.54412e+07
+Running BFS 19
+Time for BFS 19 is 0.444850
+TEPS tranversed all edges BFS 19 is 7.54286e+07
+Running BFS 20
+Time for BFS 20 is 0.724822
+TEPS tranversed all edges BFS 20 is 4.62933e+07
+Running BFS 21
+Time for BFS 21 is 0.316886
+TEPS tranversed all edges BFS 21 is 1.05888e+08
+Running BFS 22
+Time for BFS 22 is 0.726123
+TEPS tranversed all edges BFS 22 is 4.62104e+07
+Running BFS 23
+Time for BFS 23 is 0.335077
+TEPS tranversed all edges BFS 23 is 1.00139e+08
+Running BFS 24
+Time for BFS 24 is 0.539596
+TEPS tranversed all edges BFS 24 is 6.21844e+07
+Running BFS 25
+Time for BFS 25 is 0.612241
+TEPS tranversed all edges BFS 25 is 5.48059e+07
+Running BFS 26
+Time for BFS 26 is 0.547374
+TEPS tranversed all edges BFS 26 is 6.13007e+07
+Running BFS 27
+Time for BFS 27 is 0.547546
+TEPS tranversed all edges BFS 27 is 6.12815e+07
+Running BFS 28
+Time for BFS 28 is 0.511814
+TEPS tranversed all edges BFS 28 is 6.55598e+07
+Running BFS 29
+Time for BFS 29 is 0.461333
+TEPS tranversed all edges BFS 29 is 7.27336e+07
+Running BFS 30
+Time for BFS 30 is 0.566328
+TEPS tranversed all edges BFS 30 is 5.92491e+07
+Running BFS 31
+Time for BFS 31 is 0.512108
+TEPS tranversed all edges BFS 31 is 6.55222e+07
+Running BFS 32
+Time for BFS 32 is 0.547666
+TEPS tranversed all edges BFS 32 is 6.1268e+07
+Running BFS 33
+Time for BFS 33 is 0.554398
+TEPS tranversed all edges BFS 33 is 6.05241e+07
+Running BFS 34
+Time for BFS 34 is 0.673695
+TEPS tranversed all edges BFS 34 is 4.98066e+07
+Running BFS 35
+Time for BFS 35 is 0.306872
+TEPS tranversed all edges BFS 35 is 1.09343e+08
+Running BFS 36
+Time for BFS 36 is 0.552114
+TEPS tranversed all edges BFS 36 is 6.07745e+07
+Running BFS 37
+Time for BFS 37 is 0.682810
+TEPS tranversed all edges BFS 37 is 4.91417e+07
+Running BFS 38
+Time for BFS 38 is 0.471060
+TEPS tranversed all edges BFS 38 is 7.12318e+07
+Running BFS 39
+Time for BFS 39 is 0.521461
+TEPS tranversed all edges BFS 39 is 6.4347e+07
+Running BFS 40
+Time for BFS 40 is 0.511828
+TEPS tranversed all edges BFS 40 is 6.5558e+07
+Running BFS 41
+Time for BFS 41 is 0.656945
+TEPS tranversed all edges BFS 41 is 5.10765e+07
+Running BFS 42
+Time for BFS 42 is 0.542216
+TEPS tranversed all edges BFS 42 is 6.18839e+07
+Running BFS 43
+Time for BFS 43 is 0.462707
+TEPS tranversed all edges BFS 43 is 7.25177e+07
+Running BFS 44
+Time for BFS 44 is 0.475061
+TEPS tranversed all edges BFS 44 is 7.06318e+07
+Running BFS 45
+Time for BFS 45 is 0.571269
+TEPS tranversed all edges BFS 45 is 5.87367e+07
+Running BFS 46
+Time for BFS 46 is 0.626441
+TEPS tranversed all edges BFS 46 is 5.35636e+07
+Running BFS 47
+Time for BFS 47 is 0.529108
+TEPS tranversed all edges BFS 47 is 6.3417e+07
+Running BFS 48
+Time for BFS 48 is 0.587404
+TEPS tranversed all edges BFS 48 is 5.71233e+07
+Running BFS 49
+Time for BFS 49 is 0.302085
+TEPS tranversed all edges BFS 49 is 1.11076e+08
+Running BFS 50
+Time for BFS 50 is 0.526648
+TEPS tranversed all edges BFS 50 is 6.37132e+07
+Running BFS 51
+Time for BFS 51 is 0.539562
+TEPS tranversed all edges BFS 51 is 6.21883e+07
+Running BFS 52
+Time for BFS 52 is 0.784122
+TEPS tranversed all edges BFS 52 is 4.27924e+07
+Running BFS 53
+Time for BFS 53 is 0.453631
+TEPS tranversed all edges BFS 53 is 7.39686e+07
+Running BFS 54
+Time for BFS 54 is 0.559476
+TEPS tranversed all edges BFS 54 is 5.99748e+07
+Running BFS 55
+Time for BFS 55 is 0.503098
+TEPS tranversed all edges BFS 55 is 6.66956e+07
+Running BFS 56
+Time for BFS 56 is 0.568204
+TEPS tranversed all edges BFS 56 is 5.90535e+07
+Running BFS 57
+Time for BFS 57 is 0.541616
+TEPS tranversed all edges BFS 57 is 6.19524e+07
+Running BFS 58
+Time for BFS 58 is 0.688440
+TEPS tranversed all edges BFS 58 is 4.87398e+07
+Running BFS 59
+Time for BFS 59 is 0.557692
+TEPS tranversed all edges BFS 59 is 6.01666e+07
+Running BFS 60
+Time for BFS 60 is 0.542576
+TEPS tranversed all edges BFS 60 is 6.18428e+07
+Running BFS 61
+Time for BFS 61 is 0.675995
+TEPS tranversed all edges BFS 61 is 4.96371e+07
+Running BFS 62
+Time for BFS 62 is 0.531852
+TEPS tranversed all edges BFS 62 is 6.30898e+07
+Running BFS 63
+Time for BFS 63 is 0.578472
+TEPS tranversed all edges BFS 63 is 5.80053e+07

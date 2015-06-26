@@ -4,4 +4,4 @@ This paper, by Chaktranont et al.\cite{chakthranont2014exploring}, shows the dif
 
 Koji Ueno and Toyotaro Suzumura\cite{ueno2012highly} investigated the reference Graph500 implementation. They point out the flaws of the MPI-based implementations which all do 1D partitioning and propose a 2D solution. The paper shows the results of this implementation which performs better for larger scale problems.
 
-A technical paper by Angel et al.\cite{angel2012graph} runs the Graph500 simple implementation on UMBC High Performance Computing Facility. 
+A technical paper by Angel et al.\cite{angel2012graph} runs the Graph500 simple implementation on UMBC High Performance Computing Facility. In this paper the simple implementation runs on their cluster up to scale 32 and 64 nodes. They share a way of removing the validation from the program. The experiments are done by running multiple instances of the program on the same node for up to 64 nodes and explain the implication of running the program in such a way.

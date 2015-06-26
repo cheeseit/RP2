@@ -3,8 +3,6 @@ In the results seen in graphs \ref{fig:das_no_infini}, \ref{fig:das_no_val} foll
 The scale 
 
 
-
-
 \subsection{OpenNebula}
 There were some problems with using OpenNebula. The cluster on which the latest version of OpenNebula was installed was shutdown in preparation of the new DAS-5. For this reason the older version 3.8 needed to be used. The OpenNebula marketplace does not have any images for version 3.8 anymore, which made the setup time a bit longer. Also public images available on the OpenNebula VU cluster seemed to be working out of the box. Also one thing to note is that when you are running MPI it is best not to have a firewall between the hosts. 
 
@@ -16,3 +14,11 @@ AS shown in the figure \ref{fig:val_vs_noval} the ratio between TEPS as a functi
 
 \subsection{Reference implementation}
 \input{sections/problems.tex}
+
+\subsection{Model}
+When we first thought of the model, we thought there were two factors which contribute to calculating the TEPS, namely: the computational time and the communication time. The computation time is a constant is the amount of nodes that one node can compute. The communication time is the time it takes to send all the messages. Trying to make a model with these two parameter resulted in straight lines. The computation is a linear function of the number of nodes and the communication is a function of the scale and the number of nodes, because everything is parallel and the number of and the messages which are sent are non-blocking the calculations need to be done for one node. 
+The paper by Angel proposes that there is another factor which is contention on the network. What the paper suggest is that at some point the network is getting saturated. This is due to the shear amount of nodes that need to be transported over the network. This is also what can be seen in the results. As the nodes stay constant and the scale goes up there is a tipping point as mentioned in the results. After this tipping point the amount of TEPS keeps reducing. This can be explained, by looking at contention. If the scale goes up but the number of nodes stay the same the chance of contention keeps increasing. As the contention increases the network will reach is minimum value which is the maximum one link can handle. This means that it will return to a state between two nodes instead of having a parallel system of n nodes.
+%TODO think about this some more.
+With this new insight in mind there are multiple ways to test if this is true. One easy way to increase the buffer size. By increasing the buffer size the amount of messages that will not decrease but the timings of these messages will differ and there will not be a continues stream coming from one node only bursts.
+ 
+ 

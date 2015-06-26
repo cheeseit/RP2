@@ -5,7 +5,7 @@ import boto.ec2.address
 import sys
 
 def create_instance(connection):
-    instance_t = "t2.micro"
+    instance_t = "c3.large"
     # image = "ami-bf0897c8"
     # image = "ami-c5bdf8b2"
     #ownimage PV
@@ -16,9 +16,13 @@ def create_instance(connection):
     #with IMB on it
     image = "ami-5ab4f02d"
 
+    #
+    # connection.run_instances(image, key_name='amazon_harm_dermois',security_group_ids=['sg-62e4da07',
+    # 'sg-8ec1ffeb'], instance_type=instance_t)
 
-    connection.run_instances(image, key_name='amazon_harm_dermois',security_group_ids=['sg-62e4da07',
-    'sg-8ec1ffeb'], instance_type=instance_t)
+    connection.run_instances(image, key_name='amazon_harm_dermois',security_group_ids=['sg-ee16dc8b',
+    'sg-01c99764'], instance_type=instance_t)
+
 nr_instances = 0
 if len(sys.argv) > 1:
     nr_instances= int(sys.argv[1])
@@ -43,7 +47,7 @@ instances = connection.get_only_instances()
 #
 f = open('hosts', 'w+')
 for i in instances:
-    if i.ip_address:
+    if i.ip_address and i.key_name == "amazon_harm_dermois":
         f.writelines("root@%s\n"%i.ip_address)
 
 
