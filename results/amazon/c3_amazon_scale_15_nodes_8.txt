@@ -1,16 +1,16 @@
 SCALE:                          15
 edgefactor:                     16
 NBFS:                           64
-graph_generation:               0.679691
+graph_generation:               0.199276
 num_mpi_processes:              8
-construction_time:              1.61151
-min_time:                       0.0225229
-firstquartile_time:             0.0236944
-median_time:                    0.0246825
-thirdquartile_time:             0.0317781
-max_time:                       0.167171
-mean_time:                      0.0302292
-stddev_time:                    0.0193432
+construction_time:              0.04792
+min_time:                       0.015316
+firstquartile_time:             0.0183631
+median_time:                    0.0189334
+thirdquartile_time:             0.019667
+max_time:                       0.026654
+mean_time:                      0.0191701
+stddev_time:                    0.00157587
 min_nedge:                      524288
 firstquartile_nedge:            524288
 median_nedge:                   524288
@@ -18,11 +18,11 @@ thirdquartile_nedge:            524288
 max_nedge:                      524288
 mean_nedge:                     524288
 stddev_nedge:                   0
-min_TEPS:                       3.13624e+06
-firstquartile_TEPS:             1.64984e+07
-median_TEPS:                    2.12413e+07
-thirdquartile_TEPS:             2.21271e+07
-max_TEPS:                       2.3278e+07
-harmonic_mean_TEPS:             1.73438e+07
-harmonic_stddev_TEPS:           1.39822e+06
-Program time:                    4.23828
+min_TEPS:                       1.96701e+07
+firstquartile_TEPS:             2.66582e+07
+median_TEPS:                    2.76911e+07
+thirdquartile_TEPS:             2.85511e+07
+max_TEPS:                       3.42314e+07
+harmonic_mean_TEPS:             2.73492e+07
+harmonic_stddev_TEPS:           283250
+Program time:                    1.47756
