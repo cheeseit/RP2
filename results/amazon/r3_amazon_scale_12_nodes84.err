@@ -1,0 +1,202 @@
+Address 52.17.18.103 maps to ec2-52-17-18-103.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.171.118.246 maps to ec2-54-171-118-246.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 52.17.25.49 maps to ec2-52-17-25-49.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 52.17.14.125 maps to ec2-52-17-14-125.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.154.219.117 maps to ec2-54-154-219-117.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 52.17.124.214 maps to ec2-52-17-124-214.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 52.17.25.95 maps to ec2-52-17-25-95.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 52.17.91.181 maps to ec2-52-17-91-181.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+graph_generation:               0.055450 s
+construction_time:              0.008236 s
+Running BFS 0
+Time for BFS 0 is 0.006824
+TEPS tranversed all edges BFS 0 is 9.60373e+06
+Running BFS 1
+Time for BFS 1 is 0.005368
+TEPS tranversed all edges BFS 1 is 1.22087e+07
+Running BFS 2
+Time for BFS 2 is 0.005665
+TEPS tranversed all edges BFS 2 is 1.15684e+07
+Running BFS 3
+Time for BFS 3 is 0.007368
+TEPS tranversed all edges BFS 3 is 8.89486e+06
+Running BFS 4
+Time for BFS 4 is 0.005828
+TEPS tranversed all edges BFS 4 is 1.12447e+07
+Running BFS 5
+Time for BFS 5 is 0.005881
+TEPS tranversed all edges BFS 5 is 1.11435e+07
+Running BFS 6
+Time for BFS 6 is 0.005929
+TEPS tranversed all edges BFS 6 is 1.10535e+07
+Running BFS 7
+Time for BFS 7 is 0.005690
+TEPS tranversed all edges BFS 7 is 1.1518e+07
+Running BFS 8
+Time for BFS 8 is 0.017712
+TEPS tranversed all edges BFS 8 is 3.70007e+06
+Running BFS 9
+Time for BFS 9 is 0.006183
+TEPS tranversed all edges BFS 9 is 1.05991e+07
+Running BFS 10
+Time for BFS 10 is 0.006423
+TEPS tranversed all edges BFS 10 is 1.02033e+07
+Running BFS 11
+Time for BFS 11 is 0.006078
+TEPS tranversed all edges BFS 11 is 1.07825e+07
+Running BFS 12
+Time for BFS 12 is 0.006230
+TEPS tranversed all edges BFS 12 is 1.05196e+07
+Running BFS 13
+Time for BFS 13 is 0.004708
+TEPS tranversed all edges BFS 13 is 1.39207e+07
+Running BFS 14
+Time for BFS 14 is 0.005883
+TEPS tranversed all edges BFS 14 is 1.11399e+07
+Running BFS 15
+Time for BFS 15 is 0.008734
+TEPS tranversed all edges BFS 15 is 7.50356e+06
+Running BFS 16
+Time for BFS 16 is 0.007745
+TEPS tranversed all edges BFS 16 is 8.46169e+06
+Running BFS 17
+Time for BFS 17 is 0.005751
+TEPS tranversed all edges BFS 17 is 1.13958e+07
+Running BFS 18
+Time for BFS 18 is 0.005499
+TEPS tranversed all edges BFS 18 is 1.19181e+07
+Running BFS 19
+Time for BFS 19 is 0.006201
+TEPS tranversed all edges BFS 19 is 1.05686e+07
+Running BFS 20
+Time for BFS 20 is 0.005528
+TEPS tranversed all edges BFS 20 is 1.18553e+07
+Running BFS 21
+Time for BFS 21 is 0.005816
+TEPS tranversed all edges BFS 21 is 1.12683e+07
+Running BFS 22
+Time for BFS 22 is 0.005437
+TEPS tranversed all edges BFS 22 is 1.20534e+07
+Running BFS 23
+Time for BFS 23 is 0.006436
+TEPS tranversed all edges BFS 23 is 1.01825e+07
+Running BFS 24
+Time for BFS 24 is 0.005450
+TEPS tranversed all edges BFS 24 is 1.20249e+07
+Running BFS 25
+Time for BFS 25 is 0.005591
+TEPS tranversed all edges BFS 25 is 1.17214e+07
+Running BFS 26
+Time for BFS 26 is 0.005555
+TEPS tranversed all edges BFS 26 is 1.17973e+07
+Running BFS 27
+Time for BFS 27 is 0.006227
+TEPS tranversed all edges BFS 27 is 1.05245e+07
+Running BFS 28
+Time for BFS 28 is 0.006181
+TEPS tranversed all edges BFS 28 is 1.06028e+07
+Running BFS 29
+Time for BFS 29 is 0.005904
+TEPS tranversed all edges BFS 29 is 1.11003e+07
+Running BFS 30
+Time for BFS 30 is 0.006370
+TEPS tranversed all edges BFS 30 is 1.02881e+07
+Running BFS 31
+Time for BFS 31 is 0.007131
+TEPS tranversed all edges BFS 31 is 9.19017e+06
+Running BFS 32
+Time for BFS 32 is 0.006242
+TEPS tranversed all edges BFS 32 is 1.04991e+07
+Running BFS 33
+Time for BFS 33 is 0.006393
+TEPS tranversed all edges BFS 33 is 1.02509e+07
+Running BFS 34
+Time for BFS 34 is 0.006368
+TEPS tranversed all edges BFS 34 is 1.02916e+07
+Running BFS 35
+Time for BFS 35 is 0.005619
+TEPS tranversed all edges BFS 35 is 1.16637e+07
+Running BFS 36
+Time for BFS 36 is 0.006016
+TEPS tranversed all edges BFS 36 is 1.0894e+07
+Running BFS 37
+Time for BFS 37 is 0.005700
+TEPS tranversed all edges BFS 37 is 1.14973e+07
+Running BFS 38
+Time for BFS 38 is 0.008296
+TEPS tranversed all edges BFS 38 is 7.8997e+06
+Running BFS 39
+Time for BFS 39 is 0.005999
+TEPS tranversed all edges BFS 39 is 1.09243e+07
+Running BFS 40
+Time for BFS 40 is 0.006019
+TEPS tranversed all edges BFS 40 is 1.08884e+07
+Running BFS 41
+Time for BFS 41 is 0.005537
+TEPS tranversed all edges BFS 41 is 1.18359e+07
+Running BFS 42
+Time for BFS 42 is 0.006022
+TEPS tranversed all edges BFS 42 is 1.08828e+07
+Running BFS 43
+Time for BFS 43 is 0.006617
+TEPS tranversed all edges BFS 43 is 9.90408e+06
+Running BFS 44
+Time for BFS 44 is 0.006631
+TEPS tranversed all edges BFS 44 is 9.88343e+06
+Running BFS 45
+Time for BFS 45 is 0.005983
+TEPS tranversed all edges BFS 45 is 1.09535e+07
+Running BFS 46
+Time for BFS 46 is 0.005957
+TEPS tranversed all edges BFS 46 is 1.10017e+07
+Running BFS 47
+Time for BFS 47 is 0.006082
+TEPS tranversed all edges BFS 47 is 1.07757e+07
+Running BFS 48
+Time for BFS 48 is 0.005792
+TEPS tranversed all edges BFS 48 is 1.13151e+07
+Running BFS 49
+Time for BFS 49 is 0.005684
+TEPS tranversed all edges BFS 49 is 1.15296e+07
+Running BFS 50
+Time for BFS 50 is 0.005984
+TEPS tranversed all edges BFS 50 is 1.09517e+07
+Running BFS 51
+Time for BFS 51 is 0.006080
+TEPS tranversed all edges BFS 51 is 1.07787e+07
+Running BFS 52
+Time for BFS 52 is 0.005652
+TEPS tranversed all edges BFS 52 is 1.15953e+07
+Running BFS 53
+Time for BFS 53 is 0.006184
+TEPS tranversed all edges BFS 53 is 1.05975e+07
+Running BFS 54
+Time for BFS 54 is 0.006072
+TEPS tranversed all edges BFS 54 is 1.07931e+07
+Running BFS 55
+Time for BFS 55 is 0.008085
+TEPS tranversed all edges BFS 55 is 8.10586e+06
+Running BFS 56
+Time for BFS 56 is 0.005418
+TEPS tranversed all edges BFS 56 is 1.20958e+07
+Running BFS 57
+Time for BFS 57 is 0.006640
+TEPS tranversed all edges BFS 57 is 9.86994e+06
+Running BFS 58
+Time for BFS 58 is 0.007072
+TEPS tranversed all edges BFS 58 is 9.26701e+06
+Running BFS 59
+Time for BFS 59 is 0.006172
+TEPS tranversed all edges BFS 59 is 1.06184e+07
+Running BFS 60
+Time for BFS 60 is 0.005675
+TEPS tranversed all edges BFS 60 is 1.1548e+07
+Running BFS 61
+Time for BFS 61 is 0.005779
+TEPS tranversed all edges BFS 61 is 1.13403e+07
+Running BFS 62
+Time for BFS 62 is 0.005512
+TEPS tranversed all edges BFS 62 is 1.18897e+07
+Running BFS 63
+Time for BFS 63 is 0.005721
+TEPS tranversed all edges BFS 63 is 1.14556e+07

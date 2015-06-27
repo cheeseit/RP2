@@ -1,0 +1,22 @@
+Address 52.17.25.95 maps to ec2-52-17-25-95.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 54.171.118.246 maps to ec2-54-171-118-246.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 52.17.14.125 maps to ec2-52-17-14-125.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+Address 52.17.91.181 maps to ec2-52-17-91-181.eu-west-1.compute.amazonaws.com, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+graph_generation:               296.402718 s
+construction_time:              498.150629 s
+Running BFS 0
+Time for BFS 0 is 223.136690
+TEPS tranversed all edges BFS 0 is 9.62407e+06
+Running BFS 1
+Time for BFS 1 is 216.240376
+TEPS tranversed all edges BFS 1 is 9.931e+06
+Running BFS 2
+Time for BFS 2 is 216.612057
+TEPS tranversed all edges BFS 2 is 9.91396e+06
+Running BFS 3
+Time for BFS 3 is 217.024199
+TEPS tranversed all edges BFS 3 is 9.89513e+06
+Running BFS 4
+Time for BFS 4 is 214.944448
+TEPS tranversed all edges BFS 4 is 9.99088e+06
+Running BFS 5

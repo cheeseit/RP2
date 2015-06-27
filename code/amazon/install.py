@@ -5,7 +5,7 @@ import boto.ec2.address
 import sys
 
 def create_instance(connection):
-    instance_t = "c3.large"
+    instance_t = "r3.large"
     # image = "ami-bf0897c8"
     # image = "ami-c5bdf8b2"
     #ownimage PV
