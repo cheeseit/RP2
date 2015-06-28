@@ -1,4 +1,12 @@
-\subsubsection{MPI and OPENMP}
+\subsubsection{Message Passing Interface and OpenMP}
+``Message Passing Interface (MPI) is a standardized and portable message-passing system designed by a group of researchers from academia and industry to function on a wide variety of parallel computers.\cite{mpi}''
+
+
+``The OpenMP ARB mission is to standardize directive-based multi-language high-level parallelism that is performant, productive and portable''\cite{openmp}. In the Graph500 reference implementation OpenMP is often used to parallelize loops over multiple cores. 
+
+\subsubsection{\texttt{graph500\_mpi\_simple}}
+%TODO talk about buffer size, the way the graph is divided the compression used.
 
 \subsubsection{Intel MPI Benchmark}
 Intel MPI Benchmark(IMB) was used to get find out how well MPI performs in the setup. This is a free benchmark that can be used to measure the MPI functions on specific setups. The program was compiled using the OpenMPI compiler, details of the compilation can be found in Appendix [reference compilation benchmark].
+

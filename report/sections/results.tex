@@ -127,6 +127,48 @@ As a whole the trends can be seen only again a few factors smaller than the resu
 \label{fig:das_opennebula}
 \end{figure}
 
+\subsection{Amazon}
+\label{res:amazon}
+The figure \ref{fig:c3_amazon} and \ref{fig:r3_amazon} the results are shown for the experiments done on Amazon. The experiments have been done for two types of machines. Figure \ref{fig:c3_amazon} and \ref{fig:r3_amazon} are almost identical, but as expected the r3 can run experiments with a higher scale. The experiments done with the c3 does show a to be more consistent. All lines above scale 18 tightly packed on each other, as seen in figure \ref{fig:nodes_c3_amazon}. For the results of the r3 machines figure \ref{fig:nodes_r3_amazon} shows a bit more discrepancies between the scales 18 and higher. In both figures it is shown that for scales lower than 15 a different behavior is seen than for scales. At lower scales the TEPS that can be achieved is almost constant for each amount of nodes that has been tested. The larger number of nodes used for these scales the worst the performance is that is achieved. The scales above 15 all show a linear dependency on the number of nodes used. By increasing the amount of nodes the by two the number of TEPS also increases by almost two.
+
+Comparing these results with the results of the OpenNebula and the DAS-4 without InfiniBand, the AWS experiment can traverse about ten times as much edges comparing to OpenNebula. The AWS has about 50\% more TEPS than DAS-4 without Infiniband.
+\begin{figure}[!h]
+	\centering
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{images/nodes_c3_amazon.png}
+		\caption{TEPS as a function of nodes for different scales.}
+		\label{fig:nodes_c3_amazon}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{images/scale_c3_amazon.png}
+		\caption{TEPS as a function of scale for different amount of nodes.}
+		\label{fig:scale_c3_amazon}
+	\end{subfigure}
+	\caption{This figure shows the TEPS vs the scale and nodes for the experiments done on AWS c3.large machines}
+	\label{fig:c3_amazon}
+\end{figure}
+
+\begin{figure}[!h]
+	\centering
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{images/nodes_r3_amazon.png}
+		\caption{TEPS as a function of nodes for different scales.}
+		\label{fig:nodes_r3_amazon}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{images/scale_r3_amazon.png}
+		\caption{TEPS as a function of scale for different amount of nodes.}
+		\label{fig:scale_r3_amazon}
+	\end{subfigure}
+	\caption{This figure shows the TEPS vs the scale and nodes for the experiments done on AWS r3.large machines}
+	\label{fig:r3_amazon}
+\end{figure}
+
+
 \subsection{Communication}
 In this section the results are shown with respect to the communication between the nodes.
 \subsubsection{IMB benchmark}
@@ -162,5 +204,3 @@ The message count is an important number for calculate the communication time. T
 \caption{This figure shows how the number of messages grows for 4 different scales and 2 to 16 nodes. The observed number is the number of messages sent when the buffer is full + the messages send with left overs, see section \ref{med:comm}}
 \label{fig:das_scale_messages}
 \end{figure}
-
-\subsection{The model}

@@ -1,22 +1,94 @@
-An introduction to the background.
+This section contains some information needed to understand the project and the work related to this project.
 
-\subsection{Kronecker graph}
-The graph that is used by the Graph500 is the Kronecker graph\cite{leskovec2010kronecker}. This is because a Kronecker graph has some nice properties which are also seen in graph that can be seen in the real world.
+%\subsection{Kronecker graph}
+%The graph that is used by the Graph500 is the Kronecker graph\cite{leskovec2010kronecker}. This is because a Kronecker graph has some nice properties which are also seen in graph that can be seen in the real world.
 %TODO list of properties which are important to the graph500.
 %TODO Say something about the properties of the graph. is a tree, so undirected.
 
 
-\subsection{BFS}
-\subsection{Graph compression}
-Something about Sparse matrixes, because it is kronecker graph and ways of reducing the amount data needs to be stored while using such a graph.
 
-\subsection{Graph500}
+\subsection{Graph500 Benchmark 1 ("Search")}
+Benchmark 1 ("Search")\cite{graph500-specs} consists out of two kernels accessing a single data structure representing an undirected graph. These kernels are:  the construction of the graph from the a list of tuples and a search through the constructed graph. 
+
+The benchmark has defined a few different problem classes. These are shown in table \ref{tab:problem_scales}. 
+\begin{table}[!h]
+	\begin{center}
+	\begin{tabular}{|l|l|l|l|}
+		\hline
+		Problem class     & Scale & Edge Factor & Approx. Storage size in TB \\ \hline
+		Toy (level 10)    & 26    & 16          & 0.0172                     \\ \hline
+		Mini (level 11)   & 29    & 16          & 0.1374                     \\ \hline
+		Small (level 12)  & 32    & 16          & 1.0995                     \\ \hline
+		Medium (level 13) & 36    & 16          & 17.5922                    \\ \hline
+		Large (level 14)  & 39    & 16          & 140.7375                   \\ \hline
+		Huge (level 15)   & 42    & 16          & 1125.8999                  \\ \hline
+	\end{tabular}
+	\caption{The lists of problem classes as defined by the Graph 500, assuming the storage of the edge list is done n a 64-bit integer.}
+	\label{tab:problem_scales}
+	\end{center}
+\end{table}
+These problem classes give a sense of the size of the  and the amount of storage which is needed to run the experiment. The scale is defined as a combination of the amount of vertices and the edges connected to each of these vertices($2^{scale} * edgefactor = number of edges$). The number of vertices is given by the variable scale. In the case of the Toy  problem it is $2^26$ vertices in the graph. The other parameter is the edge factor is the amount of edges which is connected the graph. In each of the problem classes used by the Graph500 an edge factor of 16 is used. In this project the same number will be used for each of the experiments and the scale will be variable.
+%TODO still needs to be reread maybe add something about the number of entries in the edge list is doubled because it is an undirected graph.
+
+The whole benchmark consists of the following steps:
+\begin{enumerate}
+	\item Generate the edge list.
+	\item Construct a graph from the edge list.
+	\item Randomly sample 64 unique search keys.
+	\item For each search key:
+	\begin{enumerate}
+		\item Create an array with all nodes up till the key.
+		\item Validate that the parent array is a correct BFS search tree for the given search tree.
+	\end{enumerate}
+	\item Compute the performance
+\end{enumerate}
+
+
+In the following subsections the all the steps of the benchmark are explained in more detail.
+
+\subsubsection{Generating the edge list}
+First off the edge list needs to be generated. 
+%TODO needs to be edited
+The scalable data generator will construct a list of edge tuples containing vertex identifiers. Each edge is undirected with its endpoints given in the tuple as StartVertex and EndVertex.
+
+The intent of the first kernel below is to convert a list with no locality into a more optimized form. The generated list of input tuples must not exhibit any locality that can be exploited by the computational kernels. Thus, the vertex numbers must be randomized and a random ordering of tuples must be presented to kernel 1. The data generator may be parallelized, but the vertex names must be globally consistent and care must be taken to minimize effects of data locality at the processor level.
+
+The graph generated is a Kronecker graph which has many properties which are seen in graphs in the real world, see reference \cite{leskovec2010kronecker}.
+
+\subsubsection{Graph Construction}
+The graph construction is the first kernel and will be timed. This kernel takes the previously created edge list and may transform it in any desired of data structure, a few examples of such data structures are Compressed Row Storage(CRS) and Compressed Sparse Column. These two data structures will be explained in more detail in the next section. The kernel takes only two parameters, the edge list and the size of the edge list. The number of vertices and other information that might be inferred from the edge list must be done computed by the kernel. 
+
+One thing to note is that this will be the final data structure, subsequent kernels may not alter the created graph. 
+
+\subsubsection{Sampling 64 searches keys}
+After the graph is constructed a few searches need to be done. By performing these searches the speed of traversal can be measured. The search keys need to have at least one other vertex connected to them. The search is done in a Breadth First search way.   
+
+\subsubsection{Breadth First Search}
+Breadth First Search\cite{bfs} (BFS) is the way of traversing a graph chosen by the Graph 500. BFS visits all vertex each on the level(distance from the root) before moving on to the next level. It does this until all vertices have been visited in the graph. The BFS can be started at any node in the graph as the Graph 500 benchmark demands. An example of such a traversal can be seen in figure \ref{fig:bfs}. Using the BFS only specifies the end results, but does not specify how the program gets to this result.
+\begin{figure}[!h]
+	\includegraphics[width=\textwidth]{images/BFS-example1-with-levels}
+	\caption{This figure shows an example of a BFS traversal. The nodes are traversed are traversed in alphabetical order.}
+	\label{fig:bfs}
+\end{figure}
+
+\subsubsection{Validation}
+After the each of the searches a validation is done. The validation does a soft checking of the result of the search, because there is some randomness in the process, which makes validating it against a reference hard. This validation checks for the following things:
+\begin{enumerate}
+\item The BFS tree is a tree and does not contain cycles.
+\item Each tree edge connects vertices whose BFS levels differ by exactly one.
+\item Every edge in the input list has vertices with levels that differ by at most one or that both are not in the BFS tree.
+\item The BFS tree spans an entire connected component's vertices.
+\item A node and its parent are joined by an edge of the original graph.
+\end{enumerate}
+
+
+\subsubsection{Timing and Performance metrics}
 The output should at least contain these measurements. \\ 
 %TODO needs to be edited taken from graph500 Need to add the step in more detail.
 \textbf{Timing} \\
 Start the time for a search immediately prior to visiting the search root. Stop the time for that search when the output has been written to memory. Do not time any I/O outside of the search routine. If your algorithm relies on problem-specific data structures (by our definition, these are informed by vertex degree), you must include the setup time for such structures in each search. The spirit of the benchmark is to gauge the performance of a single search. We run many searches in order to compute means and variances, not to amortize data structure setup time.
 
-\textbf{Performance Metric} \\
+
 In order to compare the performance of Graph 500 "Search" implementations across a variety of architectures, programming models, and productivity languages and frameworks, we adopt a new performance metric described in this section. In the spirit of well-known computing rates floating-point operations per second (flops) measured by the LINPACK benchmark and global updates per second (GUPs) measured by the HPCC RandomAccess benchmark, we define a new rate called traversed edges per second (TEPS). We measure TEPS through the benchmarking of kernel 2 as follows. Let timeK2(n) be the measured execution time for kernel 2. Let m be the number of input edge tuples within the component traversed by the search, counting any multiple edges and self-loops. We define the normalized performance rate (number of edge traversals per second) as:
 \\
 $TEPS(n) = m / timeK2(n)$
@@ -34,12 +106,16 @@ $TEPS(n) = m / timeK2(n)$
 \end{description}
 
 
+
+\subsection{Graph compression}
+\label{back:compression}
+Something about Sparse matrixes, because it is kronecker graph and ways of reducing the amount data needs to be stored while using such a graph.
+
+
 \subsection{Reference Implementations}
 
 %TODO detailed explanation about the algorithm how the division is done between the node. Layers. Need to be edited alot Combined to different pieces
-The reference implementation comes with 4 reference implementations which all use the same level wise parallelization. The programs are  called simple, one sided, replicated and replicated csc. All graphs use some form of storing the sparse graph in a compressed form explained in the background[REF graph compression.]. The one sided algorithm will not be considered. This is because one sided communication expect high performance remote memory access. This is a technique which can not be relied on in the public cloud, because you have no control over the environment and no idea what actual hardware is used. This is why it is better to stick to the basics. Which will be the other 3 algorithms.
-
-The version which is used in this project is version 2.1.4\cite{graph500-code}.
+The version which is used in this project is version 2.1.4\cite{graph500-code}. In this version there are four different implementations MPI implementations which all parallelization in the same way. The names of these implementations are: simple, one sided, replicated and replicated csc. All graphs use some form of storing the sparse graph in a compressed form explained \ref. The one sided algorithm will not be considered. This is because one sided communication expect high performance remote memory access. This is a technique which can not be relied on in the public cloud, because you have no control over the environment and no idea what actual hardware is used. This is why it is better to stick to the basics. 
 
 
 %TODO this is more detailed.

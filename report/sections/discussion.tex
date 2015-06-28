@@ -1,12 +1,18 @@
+In this section the results, the model, other findings and problems encountered will be discussed.
+
 \subsection{DAS}
-In the results seen in graphs \ref{fig:das_no_infini}, \ref{fig:das_no_val} following can be seen. There are 3 factors which contribute to the amount of edges that can be traversed, namely: the computation time, the communication time and the network. The maximum achievable TEPS the one that takes the maximum amount of time divided by the. The more nodes you have the more spread out the information will and the more often the information needs to be gotten from the another machine. At the start of the experiment all nodes will have a lot of nodes to process and the connection will be fine, but as the number of edges which needs to be the same nodes need to access to the same node which will clog the network.
-The scale 
+In the results seen in graphs \ref{fig:das_no_infini}, \ref{fig:das_no_val} following can be seen. In this figure you can see that there is a tipping point at which the number of TEPS decreases. This is unlike what can be seen in the experiments without InfiniBand and on AWS. These show a tipping point a small dip and then a steady decline as the scale increases. But the DAS experiments show a much more drastic dip in the performance after the tipping point. This is most likely because of a the network being saturated which is mentioned in the paper by angel. This paper suggest that at a certain point point the . There are 3 factors which contribute to the amount of edges that can be traversed, namely: the computation time, the communication time and the network. The maximum achievable TEPS the one that takes the maximum amount of time divided by the. The more nodes you have the more spread out the information will and the more often the information needs to be gotten from the another machine. At the start of the experiment all nodes will have a lot of nodes to process and the connection will be fine, but as the number of edges which needs to be the same nodes need to access to the same node which will clog the network.
 
 
 \subsection{OpenNebula}
+The results of OpenNebula the order of magnitude is much lower than what can be seen in Amazon and the DAS-4 without InifiBand even thought it is running on the same hardware as.
+
 There were some problems with using OpenNebula. The cluster on which the latest version of OpenNebula was installed was shutdown in preparation of the new DAS-5. For this reason the older version 3.8 needed to be used. The OpenNebula marketplace does not have any images for version 3.8 anymore, which made the setup time a bit longer. Also public images available on the OpenNebula VU cluster seemed to be working out of the box. Also one thing to note is that when you are running MPI it is best not to have a firewall between the hosts. 
 
 \subsection{Amazon}
+The results seen in figure \ref{fig:c3_amazon} and \ref{fig:r3_amazon} look consistent to the thought that
+
+Creating on demand machine on Amazon is easy, but there are some limitation
 
 \subsection{Validation vs No Validation}
 %TODO validation no validation 32 nodes or not.
@@ -20,5 +26,7 @@ When we first thought of the model, we thought there were two factors which cont
 The paper by Angel proposes that there is another factor which is contention on the network. What the paper suggest is that at some point the network is getting saturated. This is due to the shear amount of nodes that need to be transported over the network. This is also what can be seen in the results. As the nodes stay constant and the scale goes up there is a tipping point as mentioned in the results. After this tipping point the amount of TEPS keeps reducing. This can be explained, by looking at contention. If the scale goes up but the number of nodes stay the same the chance of contention keeps increasing. As the contention increases the network will reach is minimum value which is the maximum one link can handle. This means that it will return to a state between two nodes instead of having a parallel system of n nodes.
 %TODO think about this some more.
 With this new insight in mind there are multiple ways to test if this is true. One easy way to increase the buffer size. By increasing the buffer size the amount of messages that will not decrease but the timings of these messages will differ and there will not be a continues stream coming from one node only bursts.
- 
+
+
+
  

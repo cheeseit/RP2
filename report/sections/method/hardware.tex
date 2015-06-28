@@ -14,12 +14,14 @@ All computations have been done on the clusters from he VU and LU. These two clu
 
 Each of the nodes in the clusters has a dual quad-core processor with a speed of 2.4 GHz. All the nodes all also connected with InfiniBand\cite{infiniband}.
 \begin{table}[!h]
+	\begin{center}
 \begin{tabular}{|l|l|l|}
 \hline
 Cluster & Number of nodes  & Memory(GB) \\ \hline
 VU 		& 74 (41) for all purposed	 & 24			\\ \hline
 LU		& 16 & 48 \\ \hline
 \end{tabular}
+\end{center}
 \caption{The specifications of the clusters used in this project.}
 \label{tab:das-clusters}
 \end{table}
@@ -28,23 +30,32 @@ All nodes on the cluster have CentOS release 6.6 (Final) installed on them.
 
 \subsubsection{OpenNebula}
 \label{hw:opennebula}
-``OpenNebula  provides the most simple but feature-rich and flexible solution for the comprehensive management of virtualized data centers to enable private, public and hybrid IaaS clouds. OpenNebula interoperability makes cloud an evolution by leveraging existing IT assets, protecting your investments, and avoiding vendor lock-in.''\cite{opennebula}. The version of OpenNebula(ON) installed on the VU cluster is version 3.8. The ON cluster used consisted of 8 nodes with the following specs: $400 / 2400 (16\%)  39.1G / 63G (61\%)$. For the experiments the following two templates were used seen in Appendix[Reference].
-
-For the experiments using 2 to 16 nodes each of the VMs got a 24 GB of memory. This amount has been chosen because this is the same amount as the nodes on the VU cluster. For the experiment with 32 VMs the nodes have only 10 GB. 10GB was chosen because the 8 nodes could not handle 32 nodes with the same specification as used for experiments before. With this setup the experiments could still be run, because the graph is distributed between the nodes. 
-
-The VMs used for the ON experiments have CentOS release 5.11 (Final) installed. The version of MPI was 1.4. On the VMs no InfiniBand has been installed.
+``OpenNebula  provides the most simple but feature-rich and flexible solution for the comprehensive management of virtualized data centers to enable private, public and hybrid IaaS clouds. OpenNebula interoperability makes cloud an evolution by leveraging existing IT assets, protecting your investments, and avoiding vendor lock-in.''\cite{opennebula}. The version of OpenNebula(ON) installed on the VU cluster is version 3.8. The ON cluster used consisted of 8 nodes, the specs of these nodes are different from the other nodes in the cluster. Table \ref{tab:specs-opennebula}. For the experiments the following two templates were used seen in Appendix[Reference].
+\begin{table} [!h]
+	\begin{center}
+	\begin{tabular}{|l|l|l|}
+		\hline
+		CPU & Number of cores & RAM  \\ \hline
+		Intel(R) Xeon(R) CPU E5-2620 0 2.00 GHz & 24 & 66 GB\\ \hline
+	\end{tabular}
+	\caption{This table shows the specs of the nodes used on the DAS-4 to host OpenNebula. There were 8 of these nodes available.}
+	\label{tab:specs-opennebula}
+	\end{center}
+\end{table}
 
 \subsubsection{Amazon instances}
 \label{hw:Amazon}
 The machine used for the experiments are the c3.large and r3.large machines. This is a machine which is optimized to do computation. The reason c3.large specifically was chose is because this has just enough RAM to be able to run all the experiments(scale 24). The r3.large is a machine which is optimized for task which are memory intensive. The goal of choosing these two machines is to show what difference the machine makes on the performance of the program.
 
-\begin{table}
+\begin{table}[!h]
+\begin{center}
 \begin{tabular}{|l|l|l|l|}
 \hline
 Type & vCPU & Mem GiB & Processor \\ \hline
 c3 & 2 & 3.75 & High Frequency Intel Xeon E5-2680 v2 (Ivy Bridge) Processors \\ \hline
 r3 & 2 & 15.25 & High Frequency Intel Xeon E5-2670 v2 (Ivy Bridge) Processors \\ \hline
 \end{tabular}
+\end{center}
 \caption{This table shows  the specifications for the machines used for the experiments on Amazon.}
 \label{tab:specs-amazong}
 \end{table}
