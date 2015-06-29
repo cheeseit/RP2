@@ -4,7 +4,7 @@ https://wiki.debian.org/Hugepages
 https://wiki.archlinux.org/index.php/KVM#Enabling_huge_pages
 http://mpitutorial.com/tutorials/mpi-reduce-and-allreduce/
 mpitutorial.com/beginner-mpi-tutorial/
-
+http://netlib.org/linalg/html_templates/node91.html#SECTION00931100000000000000
 OPENMP The programmer decides what part of the code should be done in paralel and openMP decides itself how this is implemented and how many cores will be used.
 
 
