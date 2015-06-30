@@ -1,0 +1,116 @@
+graph_generation:               352.219841 s
+[Centos5-disk:03906] *** Process received signal ***
+[Centos5-disk:03906] Signal: Segmentation fault (11)
+[Centos5-disk:03906] Signal code: Address not mapped (1)
+[Centos5-disk:03906] Failing at address: 0x40e8b2b88
+[Centos5-disk:03906] [ 0] /lib64/libpthread.so.0 [0x3d0b60eca0]
+[Centos5-disk:03906] [ 1] /usr/lib64/openmpi/1.4-gcc/lib/libopen-pal.so.0(opal_memory_ptmalloc2_int_malloc+0xb21) [0x3d0b236f61]
+[Centos5-disk:03906] [ 2] /usr/lib64/openmpi/1.4-gcc/lib/libopen-pal.so.0 [0x3d0b2384b3]
+[Centos5-disk:03906] [ 3] /usr/lib64/openmpi/1.4-gcc/lib/libopen-pal.so.0 [0x3d0b238fe1]
+[Centos5-disk:03906] [ 4] /lib64/libc.so.6(realloc+0x2b7) [0x3d0a675ba7]
+[Centos5-disk:03906] [ 5] /root/project/code/graph500/mpi/graph500_mpi_simple(xrealloc+0x9) [0x407a69]
+[Centos5-disk:03906] [ 6] /root/project/code/graph500/mpi/graph500_mpi_simple(convert_graph_to_oned_csr+0xc2a) [0x405cea]
+[Centos5-disk:03906] [ 7] /root/project/code/graph500/mpi/graph500_mpi_simple(make_graph_data_structure+0x10) [0x403ac0]
+[Centos5-disk:03906] [ 8] /root/project/code/graph500/mpi/graph500_mpi_simple(main+0x877) [0x404677]
+[Centos5-disk:03906] [ 9] /lib64/libc.so.6(__libc_start_main+0xf4) [0x3d0a61d9f4]
+[Centos5-disk:03906] [10] /root/project/code/graph500/mpi/graph500_mpi_simple [0x402709]
+[Centos5-disk:03906] *** End of error message ***
+[Centos5-disk:03877] *** Process received signal ***
+[Centos5-disk:03877] Signal: Segmentation fault (11)
+[Centos5-disk:03877] Signal code: Address not mapped (1)
+[Centos5-disk:03877] Failing at address: 0x40337c458
+[Centos5-disk:03877] [ 0] /lib64/libpthread.so.0 [0x3d0b60eca0]
+[Centos5-disk:03877] [ 1] /usr/lib64/openmpi/1.4-gcc/lib/libopen-pal.so.0(opal_memory_ptmalloc2_int_malloc+0xb21) [0x3d0b236f61]
+[Centos5-disk:03877] [ 2] /usr/lib64/openmpi/1.4-gcc/lib/libopen-pal.so.0 [0x3d0b2384b3]
+[Centos5-disk:03877] [ 3] /usr/lib64/openmpi/1.4-gcc/lib/libopen-pal.so.0 [0x3d0b238fe1]
+[Centos5-disk:03877] [ 4] /lib64/libc.so.6(realloc+0x2b7) [0x3d0a675ba7]
+[Centos5-disk:03877] [ 5] /root/project/code/graph500/mpi/graph500_mpi_simple(xrealloc+0x9) [0x407a69]
+[Centos5-disk:03877] [ 6] /root/project/code/graph500/mpi/graph500_mpi_simple(convert_graph_to_oned_csr+0xc2a) [0x405cea]
+[Centos5-disk:03877] [ 7] /root/project/code/graph500/mpi/graph500_mpi_simple(make_graph_data_structure+0x10) [0x403ac0]
+[Centos5-disk:03877] [ 8] /root/project/code/graph500/mpi/graph500_mpi_simple(main+0x877) [0x404677]
+[Centos5-disk:03877] [ 9] /lib64/libc.so.6(__libc_start_main+0xf4) [0x3d0a61d9f4]
+[Centos5-disk:03877] [10] /root/project/code/graph500/mpi/graph500_mpi_simple [0x402709]
+[Centos5-disk:03877] *** End of error message ***
+[Centos5-disk:03882] *** Process received signal ***
+[Centos5-disk:03882] Signal: Segmentation fault (11)
+[Centos5-disk:03882] Signal code: Address not mapped (1)
+[Centos5-disk:03882] Failing at address: 0x419133458
+[Centos5-disk:03882] [ 0] /lib64/libpthread.so.0 [0x3d0b60eca0]
+[Centos5-disk:03882] [ 1] /usr/lib64/openmpi/1.4-gcc/lib/libopen-pal.so.0(opal_memory_ptmalloc2_int_malloc+0xb21) [0x3d0b236f61]
+[Centos5-disk:03882] [ 2] /usr/lib64/openmpi/1.4-gcc/lib/libopen-pal.so.0 [0x3d0b2384b3]
+[Centos5-disk:03882] [ 3] /usr/lib64/openmpi/1.4-gcc/lib/libopen-pal.so.0 [0x3d0b238fe1]
+[Centos5-disk:03882] [ 4] /lib64/libc.so.6(realloc+0x2b7) [0x3d0a675ba7]
+[Centos5-disk:03882] [ 5] /root/project/code/graph500/mpi/graph500_mpi_simple(xrealloc+0x9) [0x407a69]
+[Centos5-disk:03882] [ 6] /root/project/code/graph500/mpi/graph500_mpi_simple(convert_graph_to_oned_csr+0xc2a) [0x405cea]
+[Centos5-disk:03882] [ 7] /root/project/code/graph500/mpi/graph500_mpi_simple(make_graph_data_structure+0x10) [0x403ac0]
+[Centos5-disk:03882] [ 8] /root/project/code/graph500/mpi/graph500_mpi_simple(main+0x877) [0x404677]
+[Centos5-disk:03882] [ 9] /lib64/libc.so.6(__libc_start_main+0xf4) [0x3d0a61d9f4]
+[Centos5-disk:03882] [10] /root/project/code/graph500/mpi/graph500_mpi_simple [0x402709]
+[Centos5-disk:03882] *** End of error message ***
+[Centos5-disk:03870] *** Process received signal ***
+[Centos5-disk:03870] Signal: Segmentation fault (11)
+[Centos5-disk:03870] Signal code: Address not mapped (1)
+[Centos5-disk:03870] Failing at address: 0x40cb97ba8
+[Centos5-disk:03870] [ 0] /lib64/libpthread.so.0 [0x3d0b60eca0]
+[Centos5-disk:03870] [ 1] /usr/lib64/openmpi/1.4-gcc/lib/libopen-pal.so.0(opal_memory_ptmalloc2_int_malloc+0xb21) [0x3d0b236f61]
+[Centos5-disk:03870] [ 2] /usr/lib64/openmpi/1.4-gcc/lib/libopen-pal.so.0 [0x3d0b2384b3]
+[Centos5-disk:03870] [ 3] /usr/lib64/openmpi/1.4-gcc/lib/libopen-pal.so.0 [0x3d0b238fe1]
+[Centos5-disk:03870] [ 4] /lib64/libc.so.6(realloc+0x2b7) [0x3d0a675ba7]
+[Centos5-disk:03870] [ 5] /root/project/code/graph500/mpi/graph500_mpi_simple(xrealloc+0x9) [0x407a69]
+[Centos5-disk:03870] [ 6] /root/project/code/graph500/mpi/graph500_mpi_simple(convert_graph_to_oned_csr+0xc2a) [0x405cea]
+[Centos5-disk:03870] [ 7] /root/project/code/graph500/mpi/graph500_mpi_simple(make_graph_data_structure+0x10) [0x403ac0]
+[Centos5-disk:03870] [ 8] /root/project/code/graph500/mpi/graph500_mpi_simple(main+0x877) [0x404677]
+[Centos5-disk:03870] [ 9] /lib64/libc.so.6(__libc_start_main+0xf4) [0x3d0a61d9f4]
+[Centos5-disk:03870] [10] /root/project/code/graph500/mpi/graph500_mpi_simple [0x402709]
+[Centos5-disk:03870] *** End of error message ***
+--------------------------------------------------------------------------
+mpirun noticed that process rank 0 with PID 3906 on node 10.100.0.126 exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------
+[Centos5-disk:03879] *** Process received signal ***
+[Centos5-disk:03879] Signal: Segmentation fault (11)
+[Centos5-disk:03879] Signal code: Address not mapped (1)
+[Centos5-disk:03879] Failing at address: 0x4105b0058
+[Centos5-disk:03879] [ 0] /lib64/libpthread.so.0 [0x3d0b60eca0]
+[Centos5-disk:03879] [ 1] /usr/lib64/openmpi/1.4-gcc/lib/libopen-pal.so.0(opal_memory_ptmalloc2_int_malloc+0xb21) [0x3d0b236f61]
+[Centos5-disk:03879] [ 2] /usr/lib64/openmpi/1.4-gcc/lib/libopen-pal.so.0 [0x3d0b2384b3]
+[Centos5-disk:03879] [ 3] /usr/lib64/openmpi/1.4-gcc/lib/libopen-pal.so.0 [0x3d0b238fe1]
+[Centos5-disk:03879] [ 4] /lib64/libc.so.6(realloc+0x2b7) [0x3d0a675ba7]
+[Centos5-disk:03879] [ 5] /root/project/code/graph500/mpi/graph500_mpi_simple(xrealloc+0x9) [0x407a69]
+[Centos5-disk:03879] [ 6] /root/project/code/graph500/mpi/graph500_mpi_simple(convert_graph_to_oned_csr+0xc2a) [0x405cea]
+[Centos5-disk:03879] [ 7] /root/project/code/graph500/mpi/graph500_mpi_simple(make_graph_data_structure+0x10) [0x403ac0]
+[Centos5-disk:03879] [ 8] /root/project/code/graph500/mpi/graph500_mpi_simple(main+0x877) [0x404677]
+[Centos5-disk:03879] [ 9] /lib64/libc.so.6(__libc_start_main+0xf4) [0x3d0a61d9f4]
+[Centos5-disk:03879] [10] /root/project/code/graph500/mpi/graph500_mpi_simple [0x402709]
+[Centos5-disk:03879] *** End of error message ***
+[Centos5-disk:03882] *** Process received signal ***
+[Centos5-disk:03882] Signal: Segmentation fault (11)
+[Centos5-disk:03882] Signal code: Address not mapped (1)
+[Centos5-disk:03882] Failing at address: 0x4044d7858
+[Centos5-disk:03882] [ 0] /lib64/libpthread.so.0 [0x3d0b60eca0]
+[Centos5-disk:03882] [ 1] /usr/lib64/openmpi/1.4-gcc/lib/libopen-pal.so.0(opal_memory_ptmalloc2_int_malloc+0xb21) [0x3d0b236f61]
+[Centos5-disk:03882] [ 2] /usr/lib64/openmpi/1.4-gcc/lib/libopen-pal.so.0 [0x3d0b2384b3]
+[Centos5-disk:03882] [ 3] /usr/lib64/openmpi/1.4-gcc/lib/libopen-pal.so.0 [0x3d0b238fe1]
+[Centos5-disk:03882] [ 4] /lib64/libc.so.6(realloc+0x2b7) [0x3d0a675ba7]
+[Centos5-disk:03882] [ 5] /root/project/code/graph500/mpi/graph500_mpi_simple(xrealloc+0x9) [0x407a69]
+[Centos5-disk:03882] [ 6] /root/project/code/graph500/mpi/graph500_mpi_simple(convert_graph_to_oned_csr+0xc2a) [0x405cea]
+[Centos5-disk:03882] [ 7] /root/project/code/graph500/mpi/graph500_mpi_simple(make_graph_data_structure+0x10) [0x403ac0]
+[Centos5-disk:03882] [ 8] /root/project/code/graph500/mpi/graph500_mpi_simple(main+0x877) [0x404677]
+[Centos5-disk:03882] [ 9] /lib64/libc.so.6(__libc_start_main+0xf4) [0x3d0a61d9f4]
+[Centos5-disk:03882] [10] /root/project/code/graph500/mpi/graph500_mpi_simple [0x402709]
+[Centos5-disk:03882] *** End of error message ***
+[Centos5-disk:03874] *** Process received signal ***
+[Centos5-disk:03874] Signal: Segmentation fault (11)
+[Centos5-disk:03874] Signal code: Address not mapped (1)
+[Centos5-disk:03874] Failing at address: 0x40a779c58
+[Centos5-disk:03874] [ 0] /lib64/libpthread.so.0 [0x3d0b60eca0]
+[Centos5-disk:03874] [ 1] /usr/lib64/openmpi/1.4-gcc/lib/libopen-pal.so.0(opal_memory_ptmalloc2_int_malloc+0xb21) [0x3d0b236f61]
+[Centos5-disk:03874] [ 2] /usr/lib64/openmpi/1.4-gcc/lib/libopen-pal.so.0 [0x3d0b2384b3]
+[Centos5-disk:03874] [ 3] /usr/lib64/openmpi/1.4-gcc/lib/libopen-pal.so.0 [0x3d0b238fe1]
+[Centos5-disk:03874] [ 4] /lib64/libc.so.6(realloc+0x2b7) [0x3d0a675ba7]
+[Centos5-disk:03874] [ 5] /root/project/code/graph500/mpi/graph500_mpi_simple(xrealloc+0x9) [0x407a69]
+[Centos5-disk:03874] [ 6] /root/project/code/graph500/mpi/graph500_mpi_simple(convert_graph_to_oned_csr+0xc2a) [0x405cea]
+[Centos5-disk:03874] [ 7] /root/project/code/graph500/mpi/graph500_mpi_simple(make_graph_data_structure+0x10) [0x403ac0]
+[Centos5-disk:03874] [ 8] /root/project/code/graph500/mpi/graph500_mpi_simple(main+0x877) [0x404677]
+[Centos5-disk:03874] [ 9] /lib64/libc.so.6(__libc_start_main+0xf4) [0x3d0a61d9f4]
+[Centos5-disk:03874] [10] /root/project/code/graph500/mpi/graph500_mpi_simple [0x402709]
+[Centos5-disk:03874] *** End of error message ***

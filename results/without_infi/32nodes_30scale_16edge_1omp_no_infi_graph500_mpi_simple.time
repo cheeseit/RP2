@@ -1,0 +1,250 @@
+Run on 32 hosts for 360000 seconds from Tue Jun 30 00:36:01 2015
+: node001/0 node003/0 node004/0 node005/0 node006/0 node007/0 node014/0 node015/0 node016/0 node017/0 node019/0 node021/0 node022/0 node028/0 node031/0 node032/0 node034/0 node035/0 node036/0 node038/0 node039/0 node040/0 node041/0 node042/0 node049/0 node050/0 node053/0 node055/0 node056/0 node059/0 node060/0 node070/0 
+graph_generation:               109.762117 s
+construction_time:              1723.278644 s
+Running BFS 0
+Time for BFS 0 is 370.336431
+TEPS tranversed all edges BFS 0 is 4.63899e+07
+Running BFS 1
+Time for BFS 1 is 360.820137
+TEPS tranversed all edges BFS 1 is 4.76134e+07
+Running BFS 2
+Time for BFS 2 is 361.407405
+TEPS tranversed all edges BFS 2 is 4.7536e+07
+Running BFS 3
+Time for BFS 3 is 363.048837
+TEPS tranversed all edges BFS 3 is 4.73211e+07
+Running BFS 4
+Time for BFS 4 is 363.914896
+TEPS tranversed all edges BFS 4 is 4.72085e+07
+Running BFS 5
+Time for BFS 5 is 362.937569
+TEPS tranversed all edges BFS 5 is 4.73356e+07
+Running BFS 6
+Time for BFS 6 is 360.331080
+TEPS tranversed all edges BFS 6 is 4.7678e+07
+Running BFS 7
+Time for BFS 7 is 361.009172
+TEPS tranversed all edges BFS 7 is 4.75885e+07
+Running BFS 8
+Time for BFS 8 is 361.309992
+TEPS tranversed all edges BFS 8 is 4.75488e+07
+Running BFS 9
+Time for BFS 9 is 360.244202
+TEPS tranversed all edges BFS 9 is 4.76895e+07
+Running BFS 10
+Time for BFS 10 is 360.967032
+TEPS tranversed all edges BFS 10 is 4.7594e+07
+Running BFS 11
+Time for BFS 11 is 363.230318
+TEPS tranversed all edges BFS 11 is 4.72975e+07
+Running BFS 12
+Time for BFS 12 is 360.948704
+TEPS tranversed all edges BFS 12 is 4.75964e+07
+Running BFS 13
+Time for BFS 13 is 359.792388
+TEPS tranversed all edges BFS 13 is 4.77494e+07
+Running BFS 14
+Time for BFS 14 is 359.885616
+TEPS tranversed all edges BFS 14 is 4.7737e+07
+Running BFS 15
+Time for BFS 15 is 361.071334
+TEPS tranversed all edges BFS 15 is 4.75803e+07
+Running BFS 16
+Time for BFS 16 is 358.987276
+TEPS tranversed all edges BFS 16 is 4.78565e+07
+Running BFS 17
+Time for BFS 17 is 359.608476
+TEPS tranversed all edges BFS 17 is 4.77738e+07
+Running BFS 18
+Time for BFS 18 is 359.126671
+TEPS tranversed all edges BFS 18 is 4.78379e+07
+Running BFS 19
+Time for BFS 19 is 360.448940
+TEPS tranversed all edges BFS 19 is 4.76624e+07
+Running BFS 20
+Time for BFS 20 is 359.868713
+TEPS tranversed all edges BFS 20 is 4.77393e+07
+Running BFS 21
+Time for BFS 21 is 360.199876
+TEPS tranversed all edges BFS 21 is 4.76954e+07
+Running BFS 22
+Time for BFS 22 is 358.282526
+TEPS tranversed all edges BFS 22 is 4.79506e+07
+Running BFS 23
+Time for BFS 23 is 357.999453
+TEPS tranversed all edges BFS 23 is 4.79885e+07
+Running BFS 24
+Time for BFS 24 is 358.185264
+TEPS tranversed all edges BFS 24 is 4.79636e+07
+Running BFS 25
+Time for BFS 25 is 358.650642
+TEPS tranversed all edges BFS 25 is 4.79014e+07
+Running BFS 26
+Time for BFS 26 is 357.587455
+TEPS tranversed all edges BFS 26 is 4.80438e+07
+Running BFS 27
+Time for BFS 27 is 360.445114
+TEPS tranversed all edges BFS 27 is 4.76629e+07
+Running BFS 28
+Time for BFS 28 is 358.590974
+TEPS tranversed all edges BFS 28 is 4.79094e+07
+Running BFS 29
+Time for BFS 29 is 358.541884
+TEPS tranversed all edges BFS 29 is 4.79159e+07
+Running BFS 30
+Time for BFS 30 is 357.463831
+TEPS tranversed all edges BFS 30 is 4.80604e+07
+Running BFS 31
+Time for BFS 31 is 361.474769
+TEPS tranversed all edges BFS 31 is 4.75272e+07
+Running BFS 32
+Time for BFS 32 is 358.022234
+TEPS tranversed all edges BFS 32 is 4.79855e+07
+Running BFS 33
+Time for BFS 33 is 358.422883
+TEPS tranversed all edges BFS 33 is 4.79318e+07
+Running BFS 34
+Time for BFS 34 is 358.267576
+TEPS tranversed all edges BFS 34 is 4.79526e+07
+Running BFS 35
+Time for BFS 35 is 361.048852
+TEPS tranversed all edges BFS 35 is 4.75832e+07
+Running BFS 36
+Time for BFS 36 is 361.196366
+TEPS tranversed all edges BFS 36 is 4.75638e+07
+Running BFS 37
+Time for BFS 37 is 358.163877
+TEPS tranversed all edges BFS 37 is 4.79665e+07
+Running BFS 38
+Time for BFS 38 is 357.997390
+TEPS tranversed all edges BFS 38 is 4.79888e+07
+Running BFS 39
+Time for BFS 39 is 360.392798
+TEPS tranversed all edges BFS 39 is 4.76698e+07
+Running BFS 40
+Time for BFS 40 is 358.090728
+TEPS tranversed all edges BFS 40 is 4.79763e+07
+Running BFS 41
+Time for BFS 41 is 360.383820
+TEPS tranversed all edges BFS 41 is 4.7671e+07
+Running BFS 42
+Time for BFS 42 is 359.093000
+TEPS tranversed all edges BFS 42 is 4.78424e+07
+Running BFS 43
+Time for BFS 43 is 360.068642
+TEPS tranversed all edges BFS 43 is 4.77128e+07
+Running BFS 44
+Time for BFS 44 is 359.490470
+TEPS tranversed all edges BFS 44 is 4.77895e+07
+Running BFS 45
+Time for BFS 45 is 360.524237
+TEPS tranversed all edges BFS 45 is 4.76525e+07
+Running BFS 46
+Time for BFS 46 is 359.904233
+TEPS tranversed all edges BFS 46 is 4.77346e+07
+Running BFS 47
+Time for BFS 47 is 359.036985
+TEPS tranversed all edges BFS 47 is 4.78499e+07
+Running BFS 48
+Time for BFS 48 is 358.005081
+TEPS tranversed all edges BFS 48 is 4.79878e+07
+Running BFS 49
+Time for BFS 49 is 360.508321
+TEPS tranversed all edges BFS 49 is 4.76546e+07
+Running BFS 50
+Time for BFS 50 is 360.562218
+TEPS tranversed all edges BFS 50 is 4.76474e+07
+Running BFS 51
+Time for BFS 51 is 357.755554
+TEPS tranversed all edges BFS 51 is 4.80213e+07
+Running BFS 52
+Time for BFS 52 is 357.351780
+TEPS tranversed all edges BFS 52 is 4.80755e+07
+Running BFS 53
+[node001][[10243,1],0][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node001][[10243,1],0][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node017][[10243,1],9][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node017][[10243,1],9][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node006][[10243,1],4][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node015][[10243,1],7][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node014][[10243,1],6][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node014][[10243,1],6][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node034][[10243,1],16][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node042][[10243,1],23][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node015][[10243,1],7][btl_tcp_endpoint.c:638:mca_btl_tcp_endpoint_complete_connect] connect() to 10.149.0.16 failed: Connection refused (111)
+[node007][[10243,1],5][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node036][[10243,1],18][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node036][[10243,1],18][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node035][[10243,1],17][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node028][[10243,1],13][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node039][[10243,1],20][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node038][[10243,1],19][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node042][[10243,1],23][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node041][[10243,1],22][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node053][[10243,1],26][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node055][[10243,1],27][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node050][[10243,1],25][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node053][[10243,1],26][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node070][[10243,1],31][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node059][[10243,1],29][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node060][[10243,1],30][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node003][[10243,1],1][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node004][[10243,1],2][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node004][[10243,1],2][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node007][[10243,1],5][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node035][[10243,1],17][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node039][[10243,1],20][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node034][[10243,1],16][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node015][[10243,1],7][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node028][[10243,1],13][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node038][[10243,1],19][btl_tcp_endpoint.c:638:mca_btl_tcp_endpoint_complete_connect] connect() to 10.149.0.16 failed: Connection refused (111)
+[node070][[10243,1],31][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node059][[10243,1],29][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node038][[10243,1],19][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node003][[10243,1],1][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node041][[10243,1],22][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node050][[10243,1],25][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node060][[10243,1],30][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node055][[10243,1],27][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node006][[10243,1],4][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node059][[10243,1],29][btl_tcp_endpoint.c:638:mca_btl_tcp_endpoint_complete_connect] connect() to 10.141.0.16 failed: Connection refused (111)
+[node041][[10243,1],22][btl_tcp_endpoint.c:638:mca_btl_tcp_endpoint_complete_connect] connect() to 10.149.0.16 failed: Connection refused (111)
+[node050][[10243,1],25][btl_tcp_endpoint.c:638:mca_btl_tcp_endpoint_complete_connect] connect() to 10.149.0.16 failed: Connection refused (111)
+[node055][[10243,1],27][btl_tcp_endpoint.c:638:mca_btl_tcp_endpoint_complete_connect] connect() to 10.141.0.16 failed: Connection refused (111)
+[node001][[10243,1],0][btl_tcp_endpoint.c:638:mca_btl_tcp_endpoint_complete_connect] connect() to 10.141.0.16 failed: Connection refused (111)
+[node028][[10243,1],13][btl_tcp_endpoint.c:638:mca_btl_tcp_endpoint_complete_connect] connect() to 10.149.0.16 failed: Connection refused (111)
+[node042][[10243,1],23][btl_tcp_endpoint.c:638:mca_btl_tcp_endpoint_complete_connect] connect() to 10.141.0.16 failed: Connection refused (111)
+[node007][[10243,1],5][btl_tcp_endpoint.c:638:mca_btl_tcp_endpoint_complete_connect] connect() to 10.141.0.16 failed: Connection refused (111)
+[node036][[10243,1],18][btl_tcp_endpoint.c:638:mca_btl_tcp_endpoint_complete_connect] connect() to 10.141.0.16 failed: Connection refused (111)
+[node039][[10243,1],20][btl_tcp_endpoint.c:638:mca_btl_tcp_endpoint_complete_connect] connect() to 10.149.0.16 failed: Connection refused (111)
+[node070][[10243,1],31][btl_tcp_endpoint.c:638:mca_btl_tcp_endpoint_complete_connect] connect() to 10.149.0.16 failed: Connection refused (111)
+[node004][[10243,1],2][btl_tcp_endpoint.c:638:mca_btl_tcp_endpoint_complete_connect] connect() to 10.141.0.16 failed: Connection refused (111)
+[node060][[10243,1],30][btl_tcp_endpoint.c:638:mca_btl_tcp_endpoint_complete_connect] connect() to 10.141.0.16 failed: Connection refused (111)
+[node032][[10243,1],15][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node032][[10243,1],15][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node003][[10243,1],1][btl_tcp_endpoint.c:638:mca_btl_tcp_endpoint_complete_connect] connect() to 10.149.0.16 failed: Connection refused (111)
+[node014][[10243,1],6][btl_tcp_endpoint.c:638:mca_btl_tcp_endpoint_complete_connect] connect() to 10.141.0.16 failed: Connection refused (111)
+[node035][[10243,1],17][btl_tcp_endpoint.c:638:mca_btl_tcp_endpoint_complete_connect] connect() to 10.141.0.16 failed: Connection refused (111)
+[node006][[10243,1],4][btl_tcp_endpoint.c:638:mca_btl_tcp_endpoint_complete_connect] connect() to 10.149.0.16 failed: Connection refused (111)
+[node019][[10243,1],10][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node019][[10243,1],10][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node032][[10243,1],15][btl_tcp_endpoint.c:638:mca_btl_tcp_endpoint_complete_connect] connect() to 10.149.0.16 failed: Connection refused (111)
+[node056][[10243,1],28][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node056][[10243,1],28][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node056][[10243,1],28][btl_tcp_endpoint.c:638:mca_btl_tcp_endpoint_complete_connect] connect() to 10.149.0.16 failed: Connection refused (111)
+[node034][[10243,1],16][btl_tcp_endpoint.c:638:mca_btl_tcp_endpoint_complete_connect] connect() to 10.149.0.16 failed: Connection refused (111)
+[node019][[10243,1],10][btl_tcp_endpoint.c:638:mca_btl_tcp_endpoint_complete_connect] connect() to 10.149.0.16 failed: Connection refused (111)
+[node017][[10243,1],9][btl_tcp_endpoint.c:638:mca_btl_tcp_endpoint_complete_connect] connect() to 10.141.0.16 failed: Connection refused (111)
+[node053][[10243,1],26][btl_tcp_endpoint.c:638:mca_btl_tcp_endpoint_complete_connect] connect() to 10.141.0.16 failed: Connection refused (111)
+[node049][[10243,1],24][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node049][[10243,1],24][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node005][[10243,1],3][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node005][[10243,1],3][btl_tcp_frag.c:216:mca_btl_tcp_frag_recv] mca_btl_tcp_frag_recv: readv failed: Connection reset by peer (104)
+[node005][[10243,1],3][btl_tcp_endpoint.c:638:mca_btl_tcp_endpoint_complete_connect] connect() to 10.149.0.16 failed: Connection refused (111)
+[node049][[10243,1],24][btl_tcp_endpoint.c:638:mca_btl_tcp_endpoint_complete_connect] connect() to 10.141.0.16 failed: Connection refused (111)
+bash: line 1:  1919 Killed                  /cm/shared/package/reserve.sge-6.2u5p2/bin/watchit -f .PRUN_ENVIRONMENT.950.fs0 -start /cm/shared/package/reserve.sge-6.2u5p2/bin/kill_not_owned 359940 1 -cpu 0 mpi_host_script
+
+real	353m19.069s
+user	0m1.420s
+sys	0m0.859s
