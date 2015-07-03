@@ -2,38 +2,31 @@ In this section the results will be shown for this project.
 
 \subsection{OpenMP}
 \label{sec:openmp}
-As mentioned in [ref to tools] OpenMP can be used to parallelize loops and other easy functions that can be easy to make parallel. Figure \ref{fig:graph_generation} shows a graph of the amount of time spent generating the graph as a function of the amount of cores that were assigned to the program. The figure shows that the time spent is  dependent on the amount of CPUs. Each time the amount of CPUs doubles the time spent is halved. 
+As mentioned in \ref{mpiopenmp} OpenMP can be used to parallelize loops.
  % These experiments have been on the DAS with validation on.
 
-\begin{figure}[!h]
-\includegraphics[width=\textwidth]{images/openmp_graphgeneration.png}
-\caption{This graphs shows the graph generation time as a function of the number of CPUs used by the program}
-\label{fig:graph_generation}
-\end{figure}
-
-
-In figure \ref{fig:openmp_scale_cpu} the TEPS can be see as a function of the CPUs used on the left and the scale on the right. Both graphs show that the amount of lines that can be traversed is almost constant.
+In figure \ref{fig:openmp_scale_cpu} the TEPS. Both graphs show that the amount of lines that can be traversed is almost constant.
 
 \begin{figure}[!h]
 \centering
 \begin{subfigure}{.5\textwidth}
   \centering
   \includegraphics[width=\linewidth]{images/openmp_cpus.png}
-  %\caption{A subfigure}
-  %\label{fig:sub1}
+  \caption{Edges traversed.}
+  \label{fig:sub1}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
   \includegraphics[width=\linewidth]{images/openmp_scale.png}
-  %\caption{}
-  %\label{fig:sub2}
+  \caption{}
+  \label{fig:sub2}
 \end{subfigure}
-\caption{These figures show the effect of different of scale and the number of CPUs on the TEPS}
+\caption{The effect of different of scale and the number of CPUs on the TEPS}
 \label{fig:openmp_scale_cpu}
 \end{figure}
 
 \subsection{DAS-4}
-In this section the results are shown of using the \texttt{graph500\_mpi\_simple} on the DAS-4. As mentioned in section[methodology], when the program is run for scales larger than 15 the program freezes. Only experiments done in next section and in section \ref{sec:openmp} have been done with validation, all other experiments have been done without.
+In this section the results are shown of using the \texttt{graph500\_mpi\_simple} on the DAS-4. As mentioned in section, when the program is run for scales larger than 15 the program freezes. Only experiments done in next section and in section \ref{sec:openmp} have been done with validation, all other experiments have been done without.
 
 \subsubsection{Turning validation off}
 \label{sec:noval}

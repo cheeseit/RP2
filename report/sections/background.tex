@@ -49,22 +49,23 @@ In the following subsections the all the steps of the benchmark are explained in
 \subsubsection{Generating the edge list}
 First off the edge list needs to be generated. 
 %TODO needs to be edited
-The scalable data generator will construct a list of edge tuples containing vertex identifiers. Each edge is undirected with its endpoints given in the tuple as StartVertex and EndVertex.
+The data generator constructs a list of edge tuples containing vertex identifiers, but also contains the start and end vertex. Each edge in the list is undirected.
 
-The intent of the first kernel below is to convert a list with no locality into a more optimized form. The generated list of input tuples must not exhibit any locality that can be exploited by the computational kernels. Thus, the vertex numbers must be randomized and a random ordering of tuples must be presented to kernel 1. The data generator may be parallelized, but the vertex names must be globally consistent and care must be taken to minimize effects of data locality at the processor level.
+The intent of the graph generation is to convert a the edge list, which has no locality, into a data structure which can more easily be used. The list of generated tuples could have some locality because of the way the edges are generated. To lose this possible locality the generated edges are randomized before inserted in to the graph generation kernel. 
 
 The graph generated is a Kronecker graph which has many properties which are seen in graphs in the real world, see reference \cite{leskovec2010kronecker}.
 
 \subsubsection{Graph Construction}
-The graph construction is the first kernel and will be timed. This kernel takes the previously created edge list and may transform it in any desired of data structure, a few examples of such data structures are Compressed Row Storage(CRS) and Compressed Sparse Column. These two data structures will be explained in more detail in the next section. The kernel takes only two parameters, the edge list and the size of the edge list. The number of vertices and other information that might be inferred from the edge list must be done computed by the kernel. 
+The graph construction is the first kernel. This kernel is timed for the benchmark. The kernel takes the previously created edge list and may transform it in any desired of data structure, a few examples of such data structures are Compressed Row Storage(CRS) and Compressed Sparse Column. These two data structures will be explained in more detail in the next section. The kernel takes only two parameters, the edge list and the size of the edge list. The number of vertices and other information that might be inferred from the edge list must be done computed by the kernel. 
 
-One thing to note is that this will be the final data structure, subsequent kernels may not alter the created graph. 
+One thing to note is the final data structure, subsequent kernels may not alter the created graph. 
 
-\subsubsection{Sampling 64 searches keys}
-After the graph is constructed a few searches need to be done. By performing these searches the speed of traversal can be measured. The search keys need to have at least one other vertex connected to them. The search is done in a Breadth First search way.   
+\subsubsection{Sampling 64 search keys}
+After the graph is constructed a few searches need to be done. By performing these searches the speed of traversal can be measured. The search keys needs to have at least one other vertex connected to them. The search is done in a Breadth First Search way.
 
 \subsubsection{Breadth First Search}
-Breadth First Search\cite{bfs} (BFS) is the way of traversing a graph chosen by the Graph 500. BFS visits all vertex each on the level(distance from the root) before moving on to the next level. It does this until all vertices have been visited in the graph. The BFS can be started at any node in the graph as the Graph 500 benchmark demands. An example of such a traversal can be seen in figure \ref{fig:bfs}. Using the BFS only specifies the end results, but does not specify how the program gets to this result.
+Breadth First Search\cite{bfs} (BFS) is the way of traversing a graph chosen by the Graph 500. BFS visits all vertices each on the level(distance from the root) before moving on to the next level. It keeps traversing it until all vertices in the graph have been visited. An example of the traversal can be seen in figure \ref{fig:bfs}. 
+Note that the benchmark  BFS  specifies the end results, but does not specify how the program gets to this result.
 \begin{figure}[!h]
 	\includegraphics[width=\textwidth]{images/BFS-example1-with-levels}
 	\caption{This figure shows an example of a BFS traversal. The nodes are traversed are traversed in alphabetical order.}
@@ -105,17 +106,47 @@ $TEPS(n) = m / timeK2(n)$
 \item[harmonic mean TEPS, harmonic stddev TEPS] Mean and standard deviation of the kernel 2 TEPS. Note: Because TEPS is a rate, the rates are compared using harmonic means.
 \end{description}
 
+\begin{lstlisting}
+SCALE:                          24
+edgefactor:                     16
+NBFS:                           64
+graph_generation:               16.2365
+num_mpi_processes:              8
+construction_time:              15.4957
+min_time:                       13.9349
+firstquartile_time:             15.6177
+median_time:                    15.7516
+thirdquartile_time:             15.8136
+max_time:                       16.1873
+mean_time:                      15.6812
+stddev_time:                    0.318657
+min_nedge:                      268435456
+firstquartile_nedge:            268435456
+median_nedge:                   268435456
+thirdquartile_nedge:            268435456
+max_nedge:                      268435456
+mean_nedge:                     268435456
+stddev_nedge:                   0
+min_TEPS:                       1.65831e+07
+firstquartile_TEPS:             1.6975e+07
+median_TEPS:                    1.70418e+07
+thirdquartile_TEPS:             1.71879e+07
+max_TEPS:                       1.92635e+07
+harmonic_mean_TEPS:             1.71183e+07
+harmonic_stddev_TEPS:           43826.4
+Program time:                    1035.57
+\end{lstlisting}
 
 
 \subsection{Graph compression}
 \label{back:compression}
-Something about Sparse matrixes, because it is kronecker graph and ways of reducing the amount data needs to be stored while using such a graph.
+The graphs used in the benchmark are 
 
 
 \subsection{Reference Implementations}
 
 %TODO detailed explanation about the algorithm how the division is done between the node. Layers. Need to be edited alot Combined to different pieces
-The version which is used in this project is version 2.1.4\cite{graph500-code}. In this version there are four different implementations MPI implementations which all parallelization in the same way. The names of these implementations are: simple, one sided, replicated and replicated csc. All graphs use some form of storing the sparse graph in a compressed form explained \ref. The one sided algorithm will not be considered. This is because one sided communication expect high performance remote memory access. This is a technique which can not be relied on in the public cloud, because you have no control over the environment and no idea what actual hardware is used. This is why it is better to stick to the basics. 
+The version used in this project is version 2.1.4\cite{graph500-code}. In this version there are four different implementations MPI implementations which all parallelization in the same way. The names of these implementations are: simple, one sided, replicated and replicated csc. All graphs use some form of storing the sparse graph in a compressed form explained as mentioned in the previous section. The one sided implementation is not be considered, because the one sided implementation expects high performance remote memory access to work properly. This is a technique which can not be relied on in the public cloud, because you have no control over the environment. This is why it is better to stick to the basics. 
 
 
 %TODO this is more detailed.
