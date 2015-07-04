@@ -1,3 +1,13 @@
-Optimization running multiple processes on one node. The program does not make use of multiple processes during the BFS. This means that if there is enough memory on the computer it would be possible to run multiple processes per node. This has already been shown in the paper by angel, but it is something that has not been looked at yet.
+There are still experiments to be done on this subject.
+
+A model has been made to predict the performance of the  \texttt{graph500\_mpi\_simple} on Amazon EC2 . Larger amount of nodes and higher scales should be tested. Behaviors can differ for larger scales. It has only been shown that the behavior is different for smaller scales. The same behavior as seen for scales 15 and lower might also occur for larger scales and more nodes. This needs to be investigated to refine/confirm the model largest problem scales.  
+
+The \texttt{graph500\_mpi\_simple} could run multiple processes on one node. The program does not make use of multiple processes during the BFS. This means that if there is enough memory on the computer it would be possible to run multiple processes per node. This has already been shown in the paper by Angel et al.\cite{angel2012graph}, but it is something that has not been looked at yet.
+
+Other implementations could be used to run on the cloud. The \texttt{graph500\_mpi\_simple} is a hardly optimized implementation. The performance can be improved by having a more optimized implementation on each node. The implementation should be hardware agnostic, if it is to run on cloud. The implementation by \cite{ueno2012highly} which do a two dimensional version of the BFS algorithm might be a good first step.
+ 
+Also other types of cloud instances and public cloud services should be tested. Only Amazon EC2 has been during this project and only two different instance. Although these instances seemed the most relevant for this project larger instances should be tested to find out if the model still holds. Also the using the m3.large might be a good comparison to the other results. The Google cloud might also be interesting option to run the application on.
+
+On the DAS-4 with InfiniBand showed a different behavior than all the other experiments done. This a phenomena unrelated to the Graph 500 in the cloud, but it is interesting to investigate further.
 
 Amazon enhanced networking might be an optimization. This needs to be confirmed.

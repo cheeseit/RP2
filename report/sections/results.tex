@@ -5,32 +5,35 @@ In this section the results will be shown for this project.
 As mentioned in \ref{mpiopenmp} OpenMP can be used to parallelize loops.
  % These experiments have been on the DAS with validation on.
 
-In figure \ref{fig:openmp_scale_cpu} the TEPS. Both graphs show that the amount of lines that can be traversed is almost constant.
+In figure \ref{fig:openmp_scale_cpu} the results are shown from the OpenMP experiments. 
+Figure \ref{fig:openmp_scale_cpu} shows that the performance of the \texttt{graph500\_mpi\_simple} does not depend on the number of nodes used. This does not change as the scale of the problem increases as figure \ref{fig:openmp_scale}. The performance is not dependent on the number of CPUs.    
 
 \begin{figure}[!h]
 \centering
 \begin{subfigure}{.5\textwidth}
   \centering
   \includegraphics[width=\linewidth]{images/openmp_cpus.png}
-  \caption{Edges traversed.}
-  \label{fig:sub1}
+  \caption{Against CPU}
+  \label{fig:openmp_cpu}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
   \includegraphics[width=\linewidth]{images/openmp_scale.png}
-  \caption{}
-  \label{fig:sub2}
+  \caption{Against scale}
+  \label{fig:openmp_scale}
 \end{subfigure}
 \caption{The effect of different of scale and the number of CPUs on the TEPS}
 \label{fig:openmp_scale_cpu}
 \end{figure}
 
 \subsection{DAS-4}
-In this section the results are shown of using the \texttt{graph500\_mpi\_simple} on the DAS-4. As mentioned in section, when the program is run for scales larger than 15 the program freezes. Only experiments done in next section and in section \ref{sec:openmp} have been done with validation, all other experiments have been done without.
+In this section the results are shown for the experiments on DAS-4. Only experiments done in next section and in section \ref{sec:openmp} have been done with validation, all other experiments have been done without validation.
 
 \subsubsection{Turning validation off}
 \label{sec:noval}
- Figure \ref{fig:val_vs_noval} shows the results of the amount of TEPS against the scale and the number of nodes. The figures shows that there is a difference in the number of TEPS with and without the validation. The difference can be up to 150\% in the case of scale 15 with 16 nodes. What can be noticed in figure \ref{fig:nodes_val_noval} is that the same trends are followed as the number of nodes increases. Another thing, which can be seen in figure \ref{fig:scale_val_noval}, is that the ratio of TEPS increase as the scale increases.
+ Figure \ref{fig:val_vs_noval} shows the results of TEPS the scale and the number of nodes. The figures shows that there is a difference in the number of TEPS with and without the validation. The difference can be up to 150\% in the case of scale 15 with 16 nodes. What can be noticed in figure \ref{fig:nodes_val_noval} is that the same trends are followed as the number of nodes increases.
+ Figure \ref{fig:scale_no_val} shows that for larger scales the difference between the validation and non validation becomes larger.
+ %TODO differences bereken tussen val en no validation.
 \begin{figure}[!h]
 \centering
 \begin{subfigure}{.5\textwidth}
@@ -49,13 +52,11 @@ In this section the results are shown of using the \texttt{graph500\_mpi\_simple
 \label{fig:val_vs_noval}
 \end{figure}
 
-
-
 \subsubsection{Nodes and Scale}
 \label{res:nodes_scale}
-In figure \ref{fig:das_no_val} shows the amount of TEPS increases as the number with the number of nodes. The larger the amount of nodes the more edges can be traversed, as seen in figure \ref{fig:scale_no_val}. This increase in TEPS can be seen up til a certain point. After this point the amount of TEPS decreases again. This tipping point can be seen in a any of the line except for the smaller scales in which the line is close to constant for any scale.
-Figure \ref{fig:nodes_no_val} shows the same data but then as a function of the number of nodes. What can be seen in these figures is that the amount TEPS increases as the nodes increases per scale. These are fairly straight lines. The thing to notice is that scale 21 is performs the best of each investigate number of nodes, although for 2 and 4 nodes the amount of TEPS always about the same, independent of the scale of the problem.
-One interesting thing to note is that the measurements done on scale 30 have less TEPS than the TEPS for scale 15.
+Figure \ref{fig:das_no_val} shows the amount of TEPS increases as the number of nodes increases. The larger the amount of nodes the more edges can be traversed, as seen in figure \ref{fig:scale_no_val}. This increase in TEPS can be seen up till a certain point. After this tipping point the amount of TEPS decreases again. The tipping point can be found for any of the number of nodes, although it the performance is almost constant for 2 and 4 nodes for each scale.
+Figure \ref{fig:nodes_no_val} shows the same data but then as a function of the number of nodes. What can be seen in this figure is that the amount TEPS increases as the nodes increases for each scale. The is an almost linear correlation between the number of nodes and the TEPS for higher scales except for scale 30. The thing to notice is that scale 21 is performs the best of each investigate number of nodes.
+One interesting behavior which can be observed in figure \ref{fig:scale_no_val} the decline of after the tipping point. The performance decline is much larger for the 32 nodes than the for the smaller amount of nodes.   
 
 \begin{figure}[!h]
 \centering
@@ -76,7 +77,8 @@ One interesting thing to note is that the measurements done on scale 30 have les
 \end{figure}
 
 \subsubsection{No InfiniBand}
-The experiments on the DAS-4 have also been done run without InfiniBand. The results are similar to what has been seen previously. As before figure \ref{fig:scale_no_infini} shows an increase in TEPS as the scale increases till a certain tipping point, but unlike what has been seen in figure \ref{fig:scale_no_val} the tipping point has not been yet been reached at scale 24. Figure \ref{fig:scale_no_infini} shows that slope between scale 21 and 24 is very small, but not yet reached. The difference between the maximum value for 16 nodes from the results of section \ref{res:nodes_scale} is 6 times as large as the maximum value for the same amount of nodes from the InfiniBand experiments.
+The experiments on the DAS-4 have also been done run without InfiniBand. The results are similar to what has been seen previously. As before figure \ref{fig:scale_no_infini} shows an increase in TEPS as the scale increases till a certain tipping point, but unlike what has been seen in figure \ref{fig:scale_no_val} the tipping point has not been yet been reached at scale 24.
+ Figure \ref{fig:node_no_infini} also show similar results to figure \ref{fig:nodes_no_val}. The difference between the maximum TEPS for 16 nodes from the results of section \ref{res:nodes_scale} is 6 times as large as the maximum value for the same amount of nodes from the InfiniBand experiments.
 Figure \ref{fig:scale_no_infini} also shows the same trends as figure \ref{fig:scale_no_val}. 
  
 \begin{figure}[!h]
@@ -99,8 +101,8 @@ Figure \ref{fig:scale_no_infini} also shows the same trends as figure \ref{fig:s
 
 \subsection{OpenNebula}
 The OpenNebula results can best be compared the results on the DAS-4 without InfiniBand, because the VMs on the OpenNebula also do not use Infiniband.
-Looking at figure \ref{fig:das_opennebula} it is clear to see that graph is far less clear. IN both graphs you can see far more intersections and results are far less smooth than the other than the previous two graphs(figure \ref{fig:das_no_val} and \ref{fig:das_no_infini}). The difference between using 4 and 8 nodes is much less clear on the OpenNebula, four nodes sometimes has an even better performance than eight nodes.
-As a whole the trends can be seen only again a few factors smaller than the results of the DAS with infiniband turned off.
+Looking at figure \ref{fig:das_opennebula} it is clear to see that graph is far less clear. The number of TEPS which can be achieved on OpenNebula is much lower than what can be seen without validation. In both graphs you can see far more intersections and results are far less smooth than the other than the previous two graphs(figure \ref{fig:das_no_val} and \ref{fig:das_no_infini}). Also the results look far less consistent. The difference in performance between using 4 and 8 nodes is much less clear on the OpenNebula, four nodes sometimes has an even better performance than eight nodes as seen in figure \ref{fig:nodes_opennebula}.
+Despite slightly less clear results for the smaller scales, for the larger scales 21 and 24 the same linear correlation can be seen between the number of nodes and the performance.
 %TODO how much less.
 
 \begin{figure}[!h]
@@ -117,15 +119,18 @@ As a whole the trends can be seen only again a few factors smaller than the resu
   \caption{TEPS as a function of scale for different amount of nodes.}
   \label{fig:scale_opennebula}
 \end{subfigure}
-\caption{This figure shows the TEPS vs the scale and nodes for the experiments done on OpenNebula of the DAS-4.}
+\caption{TEPS vs the scale and nodes for the experiments done on OpenNebula of the DAS-4. }
 \label{fig:das_opennebula}
 \end{figure}
 
 \subsection{Amazon}
 \label{res:amazon}
-The figure \ref{fig:c3_amazon} and \ref{fig:r3_amazon} the results are shown for the experiments done on Amazon. The experiments have been done for two types of machines. Figure \ref{fig:c3_amazon} and \ref{fig:r3_amazon} are almost identical, but as expected the r3 can run experiments with a higher scale. The experiments done with the c3 does show a to be more consistent. All lines above scale 18 tightly packed on each other, as seen in figure \ref{fig:nodes_c3_amazon}. For the results of the r3 machines figure \ref{fig:nodes_r3_amazon} shows a bit more discrepancies between the scales 18 and higher. In both figures it is shown that for scales lower than 15 a different behavior is seen than for scales. At lower scales the TEPS that can be achieved is almost constant for each amount of nodes that has been tested. The larger number of nodes used for these scales the worst the performance is that is achieved. The scales above 15 all show a linear dependency on the number of nodes used. By increasing the amount of nodes the by two the number of TEPS also increases by almost two.
+The figure \ref{fig:c3_amazon} and \ref{fig:r3_amazon} the results are shown for the experiments done on Amazon. The experiments have been done for two types of machines. Figure \ref{fig:c3_amazon} and \ref{fig:r3_amazon} are almost identical, but the r3.large can run experiments with a higher scale. The experiments done with the c3.large does show that it reaches linear behavior faster than the r3.large which can be seen in figure \ref{fig:nodes_c3_amazon} and \ref{fig:nodes_r3_amazon}. For the c3.large scale 18 already shows linear behavior where as r3.large this start at scale 21. All lines above scale 18 tightly packed on each other, as seen in figure \ref{fig:nodes_c3_amazon}.
+ For the results of the r3 machines figure \ref{fig:nodes_r3_amazon} shows a bit more discrepancies between the scales 18 and higher. The thing to notice is that by doubling the amount of nodes used the performance also doubles.
+ 
+ Both figures show that for scales lower than 15 a different behavior is seen than for scales. At the lower scales the performance is almost constant for each number of nodes that have been tested. These scale have a tipping point at which adding more nodes only decreases the performance. 
 
-Comparing these results with the results of the OpenNebula and the DAS-4 without InfiniBand, the AWS experiment can traverse about ten times as much edges comparing to OpenNebula. The AWS has about 50\% more TEPS than DAS-4 without Infiniband.
+Comparing these results with the results of the OpenNebula and the DAS-4 without InfiniBand, the AWS experiment can traverse about ten times as much edges comparing to OpenNebula. The AWS has about 50\% less TEPS than DAS-4 without Infiniband.
 \begin{figure}[!h]
 	\centering
 	\begin{subfigure}{.5\textwidth}
@@ -168,19 +173,20 @@ In this section the results are shown with respect to the communication between 
 \subsubsection{IMB benchmark}
 On each of the systems the IMB benchmark has been done. To find the time it takes to send messages between to machines. The times which are relevant are 0, 1028 and 2048 bytes. The 0 bytes times shows the time it takes to send the finished message, 1028 bytes gives an indication of how much time it will take to send a message without a completely full buffer, and lastly the 2048 shows the time it takes to send a full buffer. The complete table is shown in Appendix [REF to appendix].
 \begin{table}[!h]
-\begin{tabular}{|l|l|l|l|}
+\begin{tabular}{|l|l|l|l|l|}
 \hline
-Bytes & DAS-4 ($\mu sec$) & DAS-4 no InfiniBand($\mu sec$) & OpenNebula ($\mu sec$)\\ \hline
-0 & 3.81 &  46.55  & 112.75  \\ \hline
-1024 & 4.93 & 56.97  &  130.76 \\ \hline 
-2048 & 269.74 & 5.96 & 68.36 \\ \hline
+Bytes & DAS-4 ($\mu sec$) & DAS-4 no InfiniBand($\mu sec$) & OpenNebula ($\mu sec$) & AWS EC2 ($\mu sec$)\\ \hline
+0 & 3.81 &  46.55  & 112.75 &   81.82 \\ \hline
+1024 & 4.93 & 56.97  &  130.76 &  91.40  \\ \hline 
+2048 & 5.96 4 & 68.36 & 269.74 &  102.96 \\ \hline
+4096 & 7.36 & 79.08  & 344.64 &  125.58  \\ \hline 
 \end{tabular}
 \caption{This figure shows the IMB benchmarks on the different platforms used. All times are an average of a 1000 messages sent. Only the relevant sizes have been shown.}
 \label{tab:imb_bench}
 \end{table}
 
 \subsubsection{Message count}
-The message count is an important number for calculate the communication time. The amount of data which is sent per message is known, but the number of messages is not known. As mentioned before in the paper by Suzumaru\cite{suzumura2011performance} an estimation for the amount of bytes which is, see equation \ref{eq:communication_size}. In figure \ref{fig:das_scale_messages} two plot can be seen. The figure shows that the estimation of data send is correct and with this the number of messages can derived by using this estimation. There is one thing to notice is that there is a factor two difference between the number of messages. 
+The message count is an important number to calculate the communication time. The amount of data which is sent per message is can be estimated. By using this estimation the number of messages can be calculated. As mentioned before in the paper by Suzumaru\cite{suzumura2011performance} an estimation for the amount of bytes which is, see equation \ref{eq:communication_size}. In figure \ref{fig:das_scale_messages} two plots can be seen. The figure shows that the estimation of data send is correct and with this the number of messages can derived by using this estimation. There is one thing to notice is that there is a factor two difference between the number of messages.
 \begin{figure}[!h]
 \centering
 \begin{subfigure}{.5\textwidth}

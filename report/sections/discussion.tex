@@ -1,22 +1,31 @@
 In this section the results, the model, other findings and problems encountered will be discussed.
 
-\subsection{DAS}
-In the results seen in graphs \ref{fig:das_no_infini}, \ref{fig:das_no_val} following can be seen. In this figure you can see that there is a tipping point at which the number of TEPS decreases. This is unlike what can be seen in the experiments without InfiniBand and on AWS. These show a tipping point a small dip and then a steady decline as the scale increases. But the DAS experiments show a much more drastic dip in the performance after the tipping point. This is most likely because of a the network being saturated which is mentioned in the paper by angel. This paper suggest that at a certain point point the . There are 3 factors which contribute to the amount of edges that can be traversed, namely: the computation time, the communication time and the network. The maximum achievable TEPS the one that takes the maximum amount of time divided by the. The more nodes you have the more spread out the information will and the more often the information needs to be gotten from the another machine. At the start of the experiment all nodes will have a lot of nodes to process and the connection will be fine, but as the number of edges which needs to be the same nodes need to access to the same node which will clog the network.
-
-
-\subsection{OpenNebula}
-The results of OpenNebula the order of magnitude is much lower than what can be seen in Amazon and the DAS-4 without InifiBand even thought it is running on the same hardware as.
-
-There were some problems with using OpenNebula. The cluster on which the latest version of OpenNebula was installed was shutdown in preparation of the new DAS-5. For this reason the older version 3.8 needed to be used. The OpenNebula marketplace does not have any images for version 3.8 anymore, which made the setup time a bit longer. Also public images available on the OpenNebula VU cluster seemed to be working out of the box. Also one thing to note is that when you are running MPI it is best not to have a firewall between the hosts. 
-
-\subsection{Amazon}
-The results seen in figure \ref{fig:c3_amazon} and \ref{fig:r3_amazon} look consistent with the thought that the number of TEPS is a function of the time of computation and the time to pass messages. 
-
-Creating on demand machine on Amazon is easy, but there are some limitation
-
 \subsection{Validation vs No Validation}
 %TODO validation no validation 32 nodes or not.
-AS shown in the figure \ref{fig:val_vs_noval} the ratio between TEPS as a function of nodes is a constant factor that does not exceed the 100 \% increase. This means that the estimation that is done using the no validation experiments are comparable to expected value which is given by the experiments with validation. The estimation to use the total number of edges compared to the visited actual number of edges is a good approximation and will give an answer in the right order of magnitude. 
+AS shown in the figure \ref{fig:val_vs_noval} the ratio between TEPS as a function of nodes is a constant factor that does not exceed the 100 \% increase. This means that the estimation that is done using the no validation experiments are comparable to expected value which is given by the experiments with validation. The estimation to use the total number of edges compared to the visited actual number of edges is rough estimation. To find out how rough this estimation is experiments need to be done on a system with a newer version of MPI installed. Although this is a rough estimation the behavior is the same in both the experiments with and without validation.
+The scales that were used to make the comparison are very small. In the Amazon EC2 these are the scales that show a different behavior, but for the DAS-4 with and without InifiBand it did not. 
+
+\subsection{DAS}
+In the results seen in figure \ref{fig:das_no_infini}, \ref{fig:das_no_val} following can be seen. In this figure you can see that there is a tipping point at which the number of TEPS decreases. This is unlike what can be seen in the experiments without InfiniBand and on AWS. There are two kinds of tipping points in these graphs. For example figure\ref{fig:nodes_no_val}, in which the TEPS as a function of nodes is shown. In this figure a tipping point can be seen at 8 nodes with scale 12. All larger number of nodes decreases the amount of performance that can be achieved. The tipping point, in this case shows the optimal number of nodes for a certain scale. In the case of the DAS-4 results in figure \ref{fig:das_no_val} it is for 8 nodes and scale 12.
+
+The other tipping that can be found in it's counter part. Figure \ref{fig:scale_no_val} shows a tipping point at scale 21 for 32 nodes. This tipping point shows the point where paralellization has reached it peak. Adding more data to the application will not improve the performance anymore. 
+
+There is a big difference between the experiments with and without InfiniBand. The performance for the DAS experiments show a much more drastic dip in the performance after the tipping point, whereas the experiments without infiniband it stays constant. This is most likely because of a the network being saturated which is mentioned in the paper by Angel et al.\cite{angel2012graph}. This paper suggest that at a certain point the network starts to play a role.  After the maximum achievable performance has been reached the performance goes down because the InfiniBand links will become saturated. They explain it as following: the final part of the program the chance that multiple processes need to write to the same process becomes higher, thus saturating the network. When this happens the multiple InfiniBand links turn into fewer ones because some of them are clogged. This has not been investigated further, but is something to look into. 
+%TODO need to think about this some more.
+
+\subsection{OpenNebula}
+The results of OpenNebula the order of magnitude is much lower than what can be seen in Amazon and the DAS-4 without InifiBand even though it is running on the same hardware as. One of the reasons for this is the hardware it is running on. When looking at table \ref{tab:specs-opennebula} it is clear that the clock speed of this machine is much lower than the other machines. Also the communication time in the OpenNebula cluster \ref{tab:imb_bench} is more than twice as long as the communication time within Amazon EC2 and about four times as long as for the DAS-4 without InfiniBand. Also the fact that there are only 8 physical machines hosting all the nodes may play a part in the performance. By looking at \ref{fig:scale_opennebula} the tipping points are harder to distinguish but for 4 and 8 nodes it can be found at scale 18. For the experiments on the DAS-4 can be found a bit later around the 18-21 point.
+
+There were some problems with getting the program to work on OpenNebula. The cluster on which the latest version of OpenNebula was installed was shutdown in preparation of the new DAS-5. For this reason the older version 3.8 needed to be used. The OpenNebula marketplace does not store any images for version 3.8 anymore, which made the setup time longer. Also public images available on the OpenNebula VU cluster did not work out of the box.
+One thing to note is that when you are running MPI it is best not to have a firewall between the hosts. The MPI nodes need to be able to open ports to each other for the messages.  
+
+\subsection{Amazon}
+The results seen in figure \ref{fig:c3_amazon} and \ref{fig:r3_amazon} look consistent with the thought that the number of TEPS is a function of the time of computation and the time to pass messages.  
+
+
+Using Amazon EC2 does have some limitations. With a new account you can only make a limited amount of machines. To raise this limit you need to present a business case. This might not be a problem in most cases, but for huge experiments might not be possible. Also there is 
+
+
 
 \subsection{Reference implementation}
 \input{sections/problems.tex}
