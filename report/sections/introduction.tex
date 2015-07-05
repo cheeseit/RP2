@@ -1,8 +1,11 @@
 %TODO ADD some more to this
-Modern HPC applications are optimized to process 3D physics simulation, but are not well suited for analyzing graphs. As of late the need for network analysis is skyrocketing. Network analysis includes social networks, road direction and even text analysis. % The Graph500 \cite{murphy2010introducing} is an initiative to improve the state of algorithms, hardware architectures and software systems to better suit graph analysis/processing. Graph500 does this by having a top 500 list where different institutes can compete and find out who has the best graph processor.
+Modern HPC applications are optimized to process 3D physics simulation, but are not well suited for data intensive problems. The Graph 500 \cite{murphy2010introducing} is a list of top 500 graph processing machines. As of late the need for network analysis is skyrocketing. Network analysis includes social networks, road direction and even text analysis. The Graph 500 specifies a new benchmark with other metrics which better suit data intensive problems. The benchmark was made with the following ideas in mind: the kernel should generic and apply to many applications, the results should map to real world problems and the data set should be comparable to real-world problems. The benchmark is meant to push the industry to invest into building specific hardware to more efficiently tackle these types of problems.
 
 To get on the list, a benchmark should be run. This benchmark needs to comply to some specifications which can be found on the Graph500 website\cite{graph500-specs}, but beyond these specifications anything goes. This means that the benchmark can be optimized for the hardware it runs on. 
 
-The benchmark consists of two kernels: the graph construction and the Breadth-First Search(BFS). Both these kernels will be timed. The kernels are preceded by the creation of an edge-list using a Kronecker graph Generator\cite{leskovec2010kronecker}. The results of both kernels are validated and the performance information is output.
+The benchmark consists of two kernels: the graph construction and the Breadth-First Search(BFS). Both these kernels will be timed. The kernels are preceded by the creation of an edge-list using a Kronecker Generator\cite{leskovec2010kronecker}. The results of both kernels are validated and the performance information is output.
 \\
-The Graph500 list, at the moment, consists mostly of super computers. The aim of this project is to get an entry on the Graph500 list using the public cloud. The research  focuses on defining a model to make a predict how many machines will be needed to get a certain performance.
+The Graph500 list, at the moment, consists mostly of super computers. The aim of this project is to get an entry on the Graph500 list using the public cloud. The research focuses on defining a model to make a predict how many machines will be needed to get a certain performance.
+
+
+

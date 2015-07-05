@@ -1,4 +1,4 @@
-This section contains some information needed to understand the project and the work related to this project.
+This section contains information needed to understand the project and the work related to this project.
 
 %\subsection{Kronecker graph}
 %The graph that is used by the Graph500 is the Kronecker graph\cite{leskovec2010kronecker}. This is because a Kronecker graph has some nice properties which are also seen in graph that can be seen in the real world.
@@ -8,7 +8,7 @@ This section contains some information needed to understand the project and the 
 
 
 \subsection{Graph500 Benchmark 1 ("Search")}
-Benchmark 1 ("Search")\cite{graph500-specs} consists out of two kernels accessing a single data structure representing an undirected graph. These kernels are:  the construction of the graph from the a list of tuples and a search through the constructed graph. 
+Benchmark 1 ("Search")\cite{graph500-specs} consists out of two kernels accessing a single data structure representing an undirected graph. These kernels are: the construction of the graph from the a list of tuples and a search through the constructed graph. 
 
 The benchmark has defined a few different problem classes. These are shown in table \ref{tab:problem_scales}. 
 \begin{table}[!h]
@@ -28,9 +28,8 @@ The benchmark has defined a few different problem classes. These are shown in ta
 	\end{center}
 \end{table}
 These problem classes give a sense of the size of the  and the amount of storage which is needed to run the experiment. The scale is defined as a combination of the amount of vertices and the edges connected to each of these vertices($2^{scale} * edgefactor = number of edges$). The number of vertices is given by the variable scale. In the case of the Toy  problem it is $2^26$ vertices in the graph. The other parameter is the edge factor is the amount of edges which is connected the graph. In each of the problem classes used by the Graph500 an edge factor of 16 is used. In this project the same number will be used for each of the experiments and the scale will be variable.
-%TODO still needs to be reread maybe add something about the number of entries in the edge list is doubled because it is an undirected graph.
 
-The whole benchmark consists of the following steps:
+The benchmark consists of the following steps:
 \begin{enumerate}
 	\item Generate the edge list.
 	\item Construct a graph from the edge list.
@@ -42,8 +41,6 @@ The whole benchmark consists of the following steps:
 	\end{enumerate}
 	\item Compute the performance
 \end{enumerate}
-
-
 In the following subsections the all the steps of the benchmark are explained in more detail.
 
 \subsubsection{Generating the edge list}
@@ -58,22 +55,22 @@ The graph generated is a Kronecker graph which has many properties which are see
 \subsubsection{Graph Construction}
 The graph construction is the first kernel. This kernel is timed for the benchmark. The kernel takes the previously created edge list and may transform it in any desired of data structure, a few examples of such data structures are Compressed Row Storage(CRS) and Compressed Sparse Column. These two data structures will be explained in more detail in the next section. The kernel takes only two parameters, the edge list and the size of the edge list. The number of vertices and other information that might be inferred from the edge list must be done computed by the kernel. 
 
-One thing to note is the final data structure, subsequent kernels may not alter the created graph. 
+One thing to note is that the data structure created in this kernel cannot be altered by subsequent kernels. 
 
 \subsubsection{Sampling 64 search keys}
 After the graph is constructed a few searches need to be done. By performing these searches the speed of traversal can be measured. The search keys needs to have at least one other vertex connected to them. The search is done in a Breadth First Search way.
 
 \subsubsection{Breadth First Search}
-Breadth First Search\cite{bfs} (BFS) is the way of traversing a graph chosen by the Graph 500. BFS visits all vertices each on the level(distance from the root) before moving on to the next level. It keeps traversing it until all vertices in the graph have been visited. An example of the traversal can be seen in figure \ref{fig:bfs}. 
+Breadth First Search\cite{bfs} (BFS) is the way of traversing a graph chosen by the Graph 500. BFS visits all vertices each on the level before moving on to the next level. The level of a vertex is defined as the minimum number of edges that need to traversed to get ot the root. It keeps traversing the Graph 500 until all vertices in the graph have been visited. An example of the traversal can be seen in figure \ref{fig:bfs}. If the search key is H then the output of the BFS will be A-H in alphabetical order.
 Note that the benchmark  BFS  specifies the end results, but does not specify how the program gets to this result.
 \begin{figure}[!h]
 	\includegraphics[width=\textwidth]{images/BFS-example1-with-levels}
-	\caption{This figure shows an example of a BFS traversal. The nodes are traversed are traversed in alphabetical order.}
+	\caption{An example of BFS traversal is shown here. The nodes are traversed in alphabetical order.}
 	\label{fig:bfs}
 \end{figure}
 
 \subsubsection{Validation}
-After the each of the searches a validation is done. The validation does a soft checking of the result of the search, because there is some randomness in the process, which makes validating it against a reference hard. This validation checks for the following things:
+After the each of the searches a validation is done. The validation does soft checking of the result, because there is some randomness in the process, which makes validating it against a reference hard. This validation checks for the following things:
 \begin{enumerate}
 \item The BFS tree is a tree and does not contain cycles.
 \item Each tree edge connects vertices whose BFS levels differ by exactly one.

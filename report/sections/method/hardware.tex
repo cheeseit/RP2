@@ -1,5 +1,5 @@
 
-The goal of the project is to run the a Graph 500 benchmark on the cloud to find a model to predict the performance of the benchmark for the chosen scale and number of nodes. To create a baseline, experiments were done on the DAS-4 and OpenNebula, before running the benchmark on the cloud. In the following sections the hardware used will be shown.
+The goal of the project is to benchmark the Graph 500 kernels on the cloud to find a model to predict the performance of the benchmark for the chosen scale and number of nodes. To create a baseline, experiments were done on the DAS-4 and OpenNebula, before running the benchmark on the cloud. In the following sections the hardware used will be shown.
 \subsubsection{Das-4}
 \label{hw:das4}
 The Distributed ASCI Supercomputer 4 (DAS-4) is a six-cluster wide-area distributed system designed by the Advanced School for Computing and Imagining (ASCI)\cite{das-4}. The six-clusters are the following:
@@ -58,6 +58,8 @@ The Amazon Elastic Compute Cloud(Amazon EC2) has many different types of instanc
 \end{description}
 From these types there are a few types which are interesting for this project, namely: M,C and R. We have chosen to use the C and R to find out if the using a computation or memory optimized instances will make a difference for \texttt{graph500\_mpi\_simple}.
 These types have also different sizes and generations. The R and C type both have 5 different sizes, but the R type has only one(3) generation while the C has two. To be able to compare them the same size and generation has been chosen which is generation 3 and size large. Size ``large'' is the smallest size which can be used for this type. We chose this size, because these are the cheapest instances of these types. Also the number of CPUs is not important(see \ref{sec:openmp}), which makes using larger instances a waste of money. The specification can seen in table \ref{tab:specs-amazon} each larger size doubles the amount of resource available to the machine.
+
+The experiments will be run in the Ireland region.
 
 \begin{table}[!h]
 \begin{center}
