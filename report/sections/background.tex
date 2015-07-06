@@ -145,9 +145,7 @@ This leaves us with the last application, which is the \texttt{graph500\_mpi\_si
 
 A detailed explanation can be found in.\cite{suzumura2011performance}.
  
-The implementation uses 2 queues for the BFS. The first queue is used to store all nodes that should still be visited in this iteration. The second queue is used to store all the nodes that should be visited in the next iteration. When the first queue is empty the roles will be swapped of the queues and the next iteration will start. This is done until there are no more nodes that should be visited.
-
-The vertices are evenly distributed between the processes.
+The implementation uses 2 queues for the BFS. The first queue is used to store all nodes that should still be visited in this iteration. The second queue is used to store all the nodes that should be visited in the next iteration. When the first queue is empty the roles will be swapped of the queues and the next iteration will start. This is done until there are no more nodes that should be visited. The vertices are evenly distributed between the processes.
 The graph is stored in a CSR way to minimize the amount of data that needs to be stored in the ram.
 
 %The synchronization is needed because otherwise nodes from the wrong level can be put in the wrong queue.
