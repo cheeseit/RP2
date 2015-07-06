@@ -1,4 +1,4 @@
-This section contains information needed to understand the project and the work related to this project.
+This section contains information needed to understand the project and the related work.
 
 %\subsection{Kronecker graph}
 %The graph that is used by the Graph500 is the Kronecker graph\cite{leskovec2010kronecker}. This is because a Kronecker graph has some nice properties which are also seen in graph that can be seen in the real world.
@@ -8,7 +8,7 @@ This section contains information needed to understand the project and the work 
 
 
 \subsection{Graph500 Benchmark 1 ("Search")}
-Benchmark 1 ("Search")\cite{graph500-specs} consists out of two kernels accessing a single data structure representing an undirected graph. These kernels are: the construction of the graph from the a list of tuples and a search through the constructed graph. 
+Benchmark 1 ("Search")\cite{graph500-specs} consists of two kernels accessing a single data structure representing an undirected graph. These kernels are: the construction of the graph from an edge list and a search through the constructed graph. 
 
 The benchmark has defined a few different problem classes. These are shown in table \ref{tab:problem_scales}. 
 \begin{table}[!h]
@@ -27,7 +27,7 @@ The benchmark has defined a few different problem classes. These are shown in ta
 	\label{tab:problem_scales}
 	\end{center}
 \end{table}
-These problem classes give a sense of the size of the  and the amount of storage which is needed to run the experiment. The scale is defined as a combination of the amount of vertices and the edges connected to each of these vertices($2^{scale} * edgefactor = number of edges$). The number of vertices is given by the variable scale. In the case of the Toy  problem it is $2^26$ vertices in the graph. The other parameter is the edge factor is the amount of edges which is connected the graph. In each of the problem classes used by the Graph500 an edge factor of 16 is used. In this project the same number will be used for each of the experiments and the scale will be variable.
+These problem classes give a sense of the size of the  and the amount of storage which is needed to run the experiment. The scale is defined as a combination of the amount of vertices and the edges connected to each of these vertices($2^{scale} * edge factor = number of edges$). The number of vertices is given by the scale. The Toy problem is a graph of  $2^26$ vertices. The other parameter is the edge factor. The edge factor is the amount of edges which are connected the graph. For each of the problem classes the edge factor is 16. 
 
 The benchmark consists of the following steps:
 \begin{enumerate}
@@ -36,24 +36,23 @@ The benchmark consists of the following steps:
 	\item Randomly sample 64 unique search keys.
 	\item For each search key:
 	\begin{enumerate}
-		\item Create an array with all nodes up till the key.
-		\item Validate that the parent array is a correct BFS search tree for the given search tree.
+		\item Do the Breadth First Search and store all all visited vertices in an array.
+		\item Validate that the array is a correct BFS search tree for the given search tree.
 	\end{enumerate}
 	\item Compute the performance
 \end{enumerate}
+
 In the following subsections the all the steps of the benchmark are explained in more detail.
 
 \subsubsection{Generating the edge list}
-First off the edge list needs to be generated. 
-%TODO needs to be edited
-The data generator constructs a list of edge tuples containing vertex identifiers, but also contains the start and end vertex. Each edge in the list is undirected.
+The first step of the benchmark is generating the edge list. For this a data generator is used. The data generator constructs a list of edge tuples containing vertex identifiers, but also contains the start and end vertex, thereby creating a list of undirected edges.
 
-The intent of the graph generation is to convert a the edge list, which has no locality, into a data structure which can more easily be used. The list of generated tuples could have some locality because of the way the edges are generated. To lose this possible locality the generated edges are randomized before inserted in to the graph generation kernel. 
+The intent of the graph generation is to convert a the edge list, which has no locality, into a data structure which can more easily be used. The list of generated tuples could have some locality because of the way the edges are generated. To lose this locality the edge list is randomized before inserted into the graph generation kernel. 
 
-The graph generated is a Kronecker graph which has many properties which are seen in graphs in the real world, see reference \cite{leskovec2010kronecker}.
+The graph generator is a Kronecker generator, which has many properties which are seen in graphs in the real world\cite{leskovec2010kronecker}.
 
 \subsubsection{Graph Construction}
-The graph construction is the first kernel. This kernel is timed for the benchmark. The kernel takes the previously created edge list and may transform it in any desired of data structure, a few examples of such data structures are Compressed Row Storage(CRS) and Compressed Sparse Column. These two data structures will be explained in more detail in the next section. The kernel takes only two parameters, the edge list and the size of the edge list. The number of vertices and other information that might be inferred from the edge list must be done computed by the kernel. 
+The graph construction is the first timed kernel. The kernel takes the previously created edge list and transforms it in any desired of data structure. Examples of such data structures are Compressed Row Storage(CRS) and Compressed Sparse Column(CSC)\cite{ccs,crs}. The kernel takes only two parameters, the edge list and the size of the edge list. The number of vertices and other information that might be inferred from the edge list must be done computed by the kernel. 
 
 One thing to note is that the data structure created in this kernel cannot be altered by subsequent kernels. 
 
@@ -62,7 +61,7 @@ After the graph is constructed a few searches need to be done. By performing the
 
 \subsubsection{Breadth First Search}
 Breadth First Search\cite{bfs} (BFS) is the way of traversing a graph chosen by the Graph 500. BFS visits all vertices each on the level before moving on to the next level. The level of a vertex is defined as the minimum number of edges that need to traversed to get ot the root. It keeps traversing the Graph 500 until all vertices in the graph have been visited. An example of the traversal can be seen in figure \ref{fig:bfs}. If the search key is H then the output of the BFS will be A-H in alphabetical order.
-Note that the benchmark  BFS  specifies the end results, but does not specify how the program gets to this result.
+Note that the Graph 500 benchmark only specifies the end results is a BFS, but does not specify how the program gets to this result.
 \begin{figure}[!h]
 	\includegraphics[width=\textwidth]{images/BFS-example1-with-levels}
 	\caption{An example of BFS traversal is shown here. The nodes are traversed in alphabetical order.}
@@ -81,29 +80,8 @@ After the each of the searches a validation is done. The validation does soft ch
 
 
 \subsubsection{Timing and Performance metrics}
-The output should at least contain these measurements. \\ 
-%TODO needs to be edited taken from graph500 Need to add the step in more detail.
-\textbf{Timing} \\
-Start the time for a search immediately prior to visiting the search root. Stop the time for that search when the output has been written to memory. Do not time any I/O outside of the search routine. If your algorithm relies on problem-specific data structures (by our definition, these are informed by vertex degree), you must include the setup time for such structures in each search. The spirit of the benchmark is to gauge the performance of a single search. We run many searches in order to compute means and variances, not to amortize data structure setup time.
-
-
-In order to compare the performance of Graph 500 "Search" implementations across a variety of architectures, programming models, and productivity languages and frameworks, we adopt a new performance metric described in this section. In the spirit of well-known computing rates floating-point operations per second (flops) measured by the LINPACK benchmark and global updates per second (GUPs) measured by the HPCC RandomAccess benchmark, we define a new rate called traversed edges per second (TEPS). We measure TEPS through the benchmarking of kernel 2 as follows. Let timeK2(n) be the measured execution time for kernel 2. Let m be the number of input edge tuples within the component traversed by the search, counting any multiple edges and self-loops. We define the normalized performance rate (number of edge traversals per second) as:
-\\
-$TEPS(n) = m / timeK2(n)$
-\begin{description}
-\item[SCALE] Graph generation parameter
-\item[edgefactor] Graph generation parameter
-\item[NBFS] Number of BFS searches run, 64 for non-trivial graphs
-\item[construction time] The single kernel 1 time
-\item[min time, firstquartile time, median time, thirdquartile time, max time] Quartiles for the kernel 2 times
-\item[mean time, stddev time] Mean and standard deviation of the kernel 2 times
-\item[min nedge, firstquartile nedge, median nedge, thirdquartile nedge, max nedge] Quartiles for the number of input edges visited by kernel 2, see TEPS section above.
-\item[mean nedge, stddev nedge] Mean and standard deviation of the number of input edges visited by kernel 2, see TEPS section above.
-\item[min TEPS, firstquartile TEPS, median TEPS, thirdquartile TEPS, max TEPS]  Quartiles for the kernel 2 TEPS
-\item[harmonic mean TEPS, harmonic stddev TEPS] Mean and standard deviation of the kernel 2 TEPS. Note: Because TEPS is a rate, the rates are compared using harmonic means.
-\end{description}
-
-\begin{lstlisting}
+In code snippet \ref{lst:output} the output of the \texttt{graph500\_mpi\_simple}.
+\begin{lstlisting}[label={lst:output}, caption= {Output of the benchmark.}]
 SCALE:                          24
 edgefactor:                     16
 NBFS:                           64
@@ -131,41 +109,61 @@ thirdquartile_TEPS:             1.71879e+07
 max_TEPS:                       1.92635e+07
 harmonic_mean_TEPS:             1.71183e+07
 harmonic_stddev_TEPS:           43826.4
-Program time:                    1035.57
 \end{lstlisting}
 
+The most important values from this output are:
+\begin{description}
+\item[SCALE] Is the size of the graph used in the benchmark.
+\item[edgefactor] The edgefactor used in the graph.
+\item[NBFS] Number of BFS searches run.
+\item[graph\_generation] Time for the edge list generation.
+\item[construction\_time] Time for first kernel.
+\item[num\_mpi\_processes] The number of processes used for this benchmark. It does not specify how many nodes were used.
+\item[harmonic mean TEPS] Mean  of the kernel 2 TEPS. Note: Because TEPS is a rate, the rates are compared using harmonic means\cite{harmonic_mean}.
+\end{description}
 
-\subsection{Graph compression}
-\label{back:compression}
-The graphs used in the benchmark are 
+The timing of the BFS starts right before visiting the root and ends when search has written the last value to the memory. The metric used to define the performance is called traversed edges per second (TEPS). The TEPS are measured through the benchmarking of kernel 2. The equations is.
+\begin{equation}
+TEPS(n) = total number of edges / time of second kernel
+\end{equation}
+%\\
+
+
+%\subsection{Graph compression}
+%\label{back:compression}
+%Sparse matrices are easy to compress because they consist of mostly zeros. 
 
 
 \subsection{Reference Implementations}
 
 %TODO detailed explanation about the algorithm how the division is done between the node. Layers. Need to be edited alot Combined to different pieces
-The version used in this project is version 2.1.4\cite{graph500-code}. In this version there are four different implementations MPI implementations which all parallelization in the same way. The names of these implementations are: simple, one sided, replicated and replicated csc. All graphs use some form of storing the sparse graph in a compressed form explained as mentioned in the previous section. The one sided implementation is not be considered, because the one sided implementation expects high performance remote memory access to work properly. This is a technique which can not be relied on in the public cloud, because you have no control over the environment. This is why it is better to stick to the basics. 
+The version used in this project is version 2.1.4\cite{graph500-code}. In this version there are four different implementations MPI provided which all perform the BFS in the same way. The differences between the implementations are the data structure used. The names of the applications are: \texttt{graph500\_mpi\_simple}, \texttt{graph500\_mpi\_one\_sided}, \texttt{graph500\_mpi\_replicated} and \texttt{graph500\_mpi\_replicated\_csc}.
+\\ 
+The one sided implementation is not be considered, because the one sided implementation expects high performance remote memory access to work properly. This is a technique which can not be relied on in the public cloud, because you have no control over the environment. This is why it is better to stick to the basics. The applications with replicated in the name store the complete graph in each of the nodes. This will take a lot of RAM per node. We would like to use as little hardware as possible on the public cloud. This is why these applications were not considered.
 
+This leaves us with the last application, which is the \texttt{graph500\_mpi\_simple}. Other reason to choose this application are: it is the most simple to understand, it has been thoroughly studied and it requires the least amount of RAM on each of the nodes. 
 
-%TODO this is more detailed.
-As mentioned in the section \ref{related-work} the reference implementations have been studied in detail. The reference which will be used in this project is the  simple one. This has been chosen because it is the most simple to understand, has been thoroughly studied and requires the least amount of RAM on each of the nodes. The decision made to run everything on the RAM was done, because this is easier to implement no shared file system was needed. 
-
-Here a brief description of the algorithm will be given a more detailed explanation can be found in the by Suzumara et al.\cite{suzumura2011performance}.
+A detailed explanation can be found in.\cite{suzumura2011performance}.
  
 The implementation uses 2 queues for the BFS. The first queue is used to store all nodes that should still be visited in this iteration. The second queue is used to store all the nodes that should be visited in the next iteration. When the first queue is empty the roles will be swapped of the queues and the next iteration will start. This is done until there are no more nodes that should be visited.
-After each level a synchronization is done before the next level can begin. 
-%The synchronization is needed because otherwise nodes from the wrong level can be put in the wrong queue.
 
-The nodes are evenly distributed between the processes. This is done by looking at the rank of the process and the modulo of the number of processes to divide them.
-
+The vertices are evenly distributed between the processes.
 The graph is stored in a CSR way to minimize the amount of data that needs to be stored in the ram.
 
-The paper that was previously mentioned also gives an estimate of the amount of communication in the simple algorithm. The formula is:\\
+%The synchronization is needed because otherwise nodes from the wrong level can be put in the wrong queue.
+The graph is stored in the RAM instead of on disk for increased performance and to have one less factor which can influence the performance.
+
+
+\subsection{Initial modeling}
+The paper by Suzumura \cite also gives an estimate of the amount of communication in the \texttt{graph500\_mpi\_simple} . The formula is:
 \begin{equation}
 \label{eq:communication_size}
 C(n, M) = A * B * C * D (bytes).
 \end{equation}
-Where $A = M*2, B = (n-1)/n, C=2, and D=8$ \\
+Where $A = M*2, B = (n-1)/n, C=2, and D=8$ and $M$ = total number of edges $n$ = the number of MPI processes. 
 
-For example, if s $=$ 32 and n $=$ 128 (128 MPI processes), then the total communication 
-data volume $C(128, M)$ is calculated as $2^{32}$ $*$ 16 $*$ 2 $*$ $(127/128)$ $*$ 2 $*$ 8 = 2032 GB (2 TB). As previously noted, the entire graph for M(32) was 
-1.03 TB, so the amount of data was doubled.
+%For example, if s $=$ 32 and n $=$ 128 (128 MPI processes), then the total communication 
+%data volume $C(128, M)$ is calculated as $2^{32}$ $*$ 16 $*$ 2 $*$ $(127/128)$ $*$ 2 $*$ 8 = 2032 GB (2 TB). As previously noted, the entire graph for M(32) was 
+%1.03 TB, so the amount of data was doubled.
+
+

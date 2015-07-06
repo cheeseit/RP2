@@ -15,6 +15,7 @@ Prepare the vms to have the latest repository and code.
 
 mpirun -np 16 --mca btl ^openib -hostfile hosts /root/project/code/graph500/mpi/graph500_mpi_simple 30 16 2> 16_nodes_30_scale.err  1> /project/results/experiment/16_nodes_30_scale_opennebula.txt
 
+for i in 9 12 15 18 21 24; do mpirun -np 2 --mca btl ^openib -hostfile hosts /root/project/code/graph500/mpi/graph500_mpi_simple $i 16 2> ~/project/results/experiment/2_nodes_"$i"_scale.err 1> ~/project/results/experiment/2_nodes_"$i"_scale_opennebula.txt; done
 
 for i in 9 12 15 18 21 24; do ssh root@52.16.59.136 "mpirun -np 4 --mca btl ^openib -hostfile /root/hosts /root/project/code/graph500/mpi/graph500_mpi_simple $i 16" 2> ../../results/experiment/c3_amazon_scale_"$i"_nodes_4.err 1> ../../results/experiment/c3_amazon_scale_"$i"_nodes_4.txt; done
 
