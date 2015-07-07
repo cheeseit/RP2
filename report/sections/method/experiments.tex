@@ -27,37 +27,11 @@ M(Scale) = (2^{Scale} *(2*edgefactor + 1)) * 8
 	\label{tab:calculation memory consumption}
 \end{table}
 
-\subsubsection{OpenMP}
-The \texttt{simple\_mpi\_simple} implements OpenMP for some of the loops in the program. To find out what the performance effect of OpenMP is, one node was tested with different amount of CPUs assigned the program. By default, OpenMP will decide how many nodes will be used for the problem at hand by checking the amount of available cores. By forcing OpenMP to use a specific amount of CPUs, the influence of the number of CPUs on the performance can be measured. For the OpenMP experiments a small change needed to be made in the code to turn off the dynamic assignment, such that the number of CPUs to be used can be specified. The experiments were done on one node of the LU cluster. The experiments were only done for a limited number of scales, because only one node is used. Validation was still turned on for these experiments. We think that using more nodes for the program will improve the performance.
-
-\subsubsection{MPI}
-
-As seen in section \ref{hw:das4} and \ref{hw:opennebula} there can be experiments done with up to 16 nodes on the LU cluster and up to 32 nodes on the VU. \footnote{Technically experiments could be done with 64 nodes on the VU cluster, but some of the nodes were out of service and there is always someone else using one of the nodes which made it impossible to run an experiment with 64 nodes.}
-The experiments are done on the DAS-4 and OpenNebula as a reference for the experiments on the commercial cloud. 
-Note that the simple algorithm only allows for node amounts which are a power of 2. Different experiments were done for the MPI. The following types experiments were done:
-\begin{itemize}
-	\item With validation
-	\item Without validation
-	\item Without Infiniband
-	\item On the OpenNebula
-	\item On Amazon EC2 c3.large and Amazon EC2 r3.large 
-\end{itemize}
-
-
-\subsubsection*{DAS-4}
-To run program on the DAS-4 \texttt{prun} needs to be used. This program reserves nodes and places all the required files on the node for the \texttt{mpirun} command. For \texttt{prun} to run the specified program it needs to run a script to find out all environment variables and what flags should be used for \texttt{mpirun}. There was one small adjustment made to the default script to get \texttt{prun} working for \texttt{graph500\_mpi\_simple}. The file can be found in Appendix[DAS command].
-
-\subsubsection*{OpenNebula}
-Running experiments on OpenNebula was done by using \texttt{mpirun} with the fitting parameters. The experiments done with 2 4,8 and 16 nodes each of the VMs got a 24 GB of memory. This amount has been chosen because this is the same amount as the nodes on the VU cluster. For the experiment with 32 VMs the nodes have only 10 GB. 10GB was chosen because the 8 nodes could not handle 32 nodes with the same specification as used for experiments before. With this setup the experiments could still be run. The VMs used for the OpenNebula experiments have CentOS release 5.11 (Final) installed. The version of MPI was 1.4. On the VMs no InfiniBand has been installed. The commands used for the installation can be found in Appendix [REf appendix installation]
-
-\subsubsection*{Amazon EC2}
-For the experiments on Amazon EC2 a new HVM image was created similar to the VM used on OpenNebula. The base of this image is  a public image(ami-15011a61) which also has the 5.x version of CentOS. On this image keys were placed, MPI installed and the git repository downloaded. There is one difference between the experiments done on OpenNebula and the Amazon EC2. The \texttt{mpirun} command is started from one of the nodes instead of from a node which does not participate in the calculation. This is done setting up an \texttt{SSH} connection to the server and then running the command remotely, for the command see Appendix [REF to used commands]. Running MPI in this manner might have some influence on the performance of that one node. The installation of the software was done in exactly the same way as for OpenNebula see Appendix[Ref appendix installation].
-
 
 \subsubsection{Communication}
 \label{med:comm}
 %Needs to be revised and more  precise.
-To confirm that the model used for the communication is sound, messages have logged each time a MPI message is send. By doing this the amount of messages can be found.
+The MPI Graph 500 benchmark is a communication heavy application. Time it takes to send messages might have a huge impact on the performance. To figure out how much time is spent on sending messages the total amount of messages send needs to be approximated. The model shown in equation \ref{eq:communication_size} approximates inter-node communication size. This can be used to calculate the total number of messages that needs to be sent. To confirm that the approximation fits,the messages have logged each time a MPI message is send. By doing this total number messages send can be found.
 
 There are 3 types of messages sent in this program. The first type is sent when the message buffer is full. The buffer has a fixed size (2 kB) in each of the experiments but it can be changed to get better performance. 
 
@@ -67,6 +41,31 @@ The last message is used to report that the program is done. The node sends an e
 
 Also the IMB benchmark will be done for each of the environments to measure the time it takes to send messages \ref{tools:imb}.
 
+\subsubsection{OpenMP}
+The \texttt{simple\_mpi\_simple} implements OpenMP for some of the loops in the program. To find out what the performance effect of OpenMP is, one node was tested with different amount of CPUs assigned the program. By default, OpenMP will decide how many nodes will be used for the problem at hand by checking the amount of available cores. By forcing OpenMP to use a specific amount of CPUs, the influence of the number of CPUs on the performance can be measured. For the OpenMP experiments a small change needed to be made in the code to turn off the dynamic assignment, such that the number of CPUs to be used can be specified. The experiments were done on one node of the LU cluster. The experiments were only done for a limited number of scales, because only one node is used. Validation was still turned on for these experiments. We think that using more nodes for the program will improve the performance.
 
-    
+\subsubsection{MPI}
+The MPI measurements have been conducted to find out the effect of the number of nodes and scale on the performance\footnote{Technically experiments could be done with 64 nodes, but some of the nodes were out of service and even if all nodes were available there is always someone else using one of other nodes which made it impossible to run an experiment with 64 nodes.}.
+The experiments are done on the DAS-4, OpenNebula and the Amazon EC2. The DAS-4 and OpenNebula experiments serve as a baseline for the Amazon EC2 results. DAS-4 is a super computer and will serve as the comparison of the cloud results to a super computer. The OpenNebula will serve as comparison for another cloud platform. The following experiments sets were done:
+\begin{enumerate}
+	\item With validation
+	\item Without validation
+	\item Without Infiniband
+	\item On the OpenNebula
+	\item On Amazon EC2 c3.large and Amazon EC2 r3.large 
+\end{enumerate}
 
+The first two sets, \texttt{graph500\_mpi\_simple} with and without validation, are done to decide if turning of the validation has an impact on the results and how much large this impact is. We expect the results to be similar in behavior but give a higher performance, because the time is divided by the total number of edges instead of the number of visited edges.
+
+The third set, running the bechmark without InfiniBand will provide a better comparison between the DAS-4 and Amazon EC2. The cloud does not have InfiniBand, turning will bring the results closer together with this the locality of the environment can be measured. An Amazon data center is larger than the DAS-4 and the machines will most likely be further apart, this means that the results will most likely be comparable, but the Amazon EC2 would perform worse.
+
+The results of the OpenNebula experiments are expected to be comparable to the results of the Amazon EC2 and the DAS-4.  
+
+\subsubsection*{DAS-4}
+To run programs on the DAS-4, \texttt{prun} needs to be used. This program reserves nodes and places all the required files on the node for the \texttt{mpirun} command. For \texttt{prun} to run the specified program, it needs to run a script to find out all environment variables and what flags should be used for \texttt{mpirun}. One adjustment needed to be made to the default script to get \texttt{prun} working for \texttt{graph500\_mpi\_simple}. The file can be found in Appendix[DAS command].
+
+\subsubsection*{OpenNebula}
+Running experiments on OpenNebula was done by using \texttt{mpirun}. The experiments done with 2, 4, 8 and 16 nodes each of the VMs got a 24 GB of memory. This amount has been chosen because this is the same amount as the nodes on the VU cluster. For the experiment with 32 VMs, the nodes have only 10 GB. 10GB was chosen because the eight physical nodes could not handle 32 nodes with the same specification. With this setup, the experiments could still be run. The VMs used for the OpenNebula experiments have CentOS release 5.11 (Final) installed. The version of MPI was 1.4. On the VMs no InfiniBand has been installed.
+
+\subsubsection*{Amazon EC2}
+For the experiments on Amazon EC2 a new image was created similar to the image used on OpenNebula. To create this image a publicly available image was used with 5.x version of CentOS. There is one difference between the experiments done on OpenNebula and the Amazon EC2. The \texttt{mpirun} command is started from one of the participating nodes instead of from a node which is not participating. Running MPI in this manner might have some influence on the performance.
