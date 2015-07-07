@@ -3,7 +3,7 @@ We discus our results, the model, other findings and problems encountered in the
 \subsection{Validation vs No Validation}
 \label{dis:val}
 %TODO validation no validation 32 nodes or not.
-AS shown in the figure \ref{fig:val_vs_noval} the ratio between TEPS as a function of nodes is a constant factor that does not exceed the 100 \% increase. This means that the estimation that is done using the no validation experiments are comparable to expected value which is given by the experiments with validation. The estimation to use the total number of edges compared to the visited actual number of edges is rough estimation. To find out how rough this estimation is experiments need to be done on a system with a newer version of MPI installed. Although this is a rough estimation the behavior is the same in both the experiments with and without validation.
+The estimation to use the total number of edges compared to the visited actual number of edges is rough estimation. To find out how rough this estimation is experiments need to be done on a system with a newer version of MPI installed. Although this is a rough estimation the behavior is the same in both the experiments with and without validation.
 The scales that were used to make the comparison are very small. In the Amazon EC2 these are the scales that show a different behavior, but for the DAS-4 with and without InifiBand it did not. 
 
 \subsection{DAS}
@@ -15,14 +15,11 @@ There is a big difference between the experiments with and without InfiniBand. T
 %TODO need to think about this some more.
 
 \subsection{OpenNebula}
-The results of OpenNebula the order of magnitude is much lower than what can be seen in Amazon and the DAS-4 without InifiBand even though it is running on the same hardware as. One of the reasons for this is the hardware it is running on. When looking at table \ref{tab:specs-opennebula} it is clear that the clock speed of this machine is much lower than the other machines. Also the communication time in the OpenNebula cluster \ref{tab:imb_bench} is more than twice as long as the communication time within Amazon EC2 and about four times as long as for the DAS-4 without InfiniBand. Also the fact that there are only 8 physical machines hosting all the nodes may play a part in the performance. By looking at \ref{fig:scale_opennebula} the tipping points are harder to distinguish but for 4 and 8 nodes it can be found at scale 18. For the experiments on the DAS-4 can be found a bit later around the 18-21 point.
 
 There were some problems with getting the program to work on OpenNebula. The cluster on which the latest version of OpenNebula was installed was shutdown in preparation of the new DAS-5. For this reason the older version 3.8 needed to be used. The OpenNebula marketplace does not store any images for version 3.8 anymore, which made the setup time longer. Also public images available on the OpenNebula VU cluster did not work out of the box.
 One thing to note is that when you are running MPI it is best not to have a firewall between the hosts. The MPI nodes need to be able to open ports to each other for the messages.  
 
 \subsection{Amazon}
-The results in figure \ref{fig:c3_amazon} and \ref{fig:r3_amazon} show the same behavior seen  with the DAS-4 without InifiniBand. Both figures show a slow decline in performance after the tipping point in figure \ref{fig:scale_c3_amazon} and \ref{fig:scale_r3_amazon}. The parallelism becomes saturated at an earlier point. With the amazon instances it happens at about scale 18 and for the DAS-4 18 and higher scales. Also when looking at the figures \ref{fig:nodes_c3_amazon} and \ref{fig:nodes_r3_amazon} the tipping point has not been reached for scales above 15. The behavior for smaller scales is most likely due to the communication time. As shown in table \ref{tab:imb_bench} the time taken to send messages on Amazon EC2 is twice as long compared to the DAS-4 no InfiniBand. While looking at the OpenNebula results where the communication is even longer than for EC2 the constant performance for each number of nodes is still seen up to scale 18.
-
 Experiments on the Amazon EC2 were only done once and on one region. The results did not show much variance, the standard deviation is about one percent of the mean value.
 
 The experiments were run on friday and over the weekend. During the day or peak hours the performance might be change. More experiments should have been done to confirm that the cloud is this stable. The performance might also change per region. 
