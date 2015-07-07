@@ -10,7 +10,7 @@ The Distributed ASCI Supercomputer 4 (DAS-4) is a six-cluster wide-area distribu
 \item Univeristeit van Amsterdam - The MultimediaN (UVA-MN) 
 \item Astronomy institute Netherlands Institute for Radio Astronomy (ASTRON)
 \end{itemize}
-All computations have been done on the clusters from the VU and LU. These two clusters are chosen because the cluster of LU is not actively used. The VU cluster was used, because it has the most machine available and has an OpenNebula cluster installed on it. The specifications of the clusters can be found in table \ref{tab:das-clusters}. 
+All computations have been done on the clusters from the VU and LU. These two clusters are chosen because the LU cluster is not actively used. The VU cluster has the most machine available and has an OpenNebula cluster installed. The specifications of the clusters can be found in table \ref{tab:das-clusters}. 
 
 Each of the nodes in the clusters has a dual quad-core processor with a speed of 2.4 GHz. All the nodes are also connected with InfiniBand\cite{infiniband}. All nodes on the cluster have CentOS release 6.6 (Final) installed.
 \begin{table}[!h]
@@ -30,6 +30,7 @@ LU		& 16 & 48 \\ \hline
 
 \subsubsection{OpenNebula}
 \label{hw:opennebula}
+To be able to compare the results from the public cloud to another cloud solution OpenNebula was used. 
 ``OpenNebula  provides the most simple but feature-rich and flexible solution for the comprehensive management of virtualized data centers to enable private, public and hybrid IaaS clouds. OpenNebula interoperability makes cloud an evolution by leveraging existing IT assets, protecting your investments, and avoiding vendor lock-in.'' \cite{opennebula}. The OpenNebula(ON) installed on the VU cluster is version 3.8. The ON cluster on the DAS-4 consists of eight nodes. Table \ref{tab:specs-opennebula} shows the specifications of the ON nodes. ON uses templates to define resources to give virtual machines. This is needed to know how to instantiate virtual machines using a given image. The VMs created used the following two templates seen in Appendix[Reference].
 %TODO think of what to more to write about the templates.
 \begin{table} [!h]

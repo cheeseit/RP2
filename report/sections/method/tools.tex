@@ -1,7 +1,7 @@
 \subsubsection{Reference Implementations}
 
 %TODO detailed explanation about the algorithm how the division is done between the node. Layers. Need to be edited alot Combined to different pieces
-The reference implementation\cite{graph500-code} used in this project is version 2.1.4. In this version there are four different implementations MPI provided which all perform the BFS in the same way. The differences between the implementations are the data structure used. The names of the applications are: \texttt{graph500\_mpi\_simple}, \texttt{graph500\_mpi\_one\_sided}, \texttt{graph500\_mpi\_replicated} and \texttt{graph500\_mpi\_replicated\_csc}.
+The Graph 500 reference code\cite{graph500-code} used is version 2.1.4. This version has four different MPI implementations which all perform the BFS in the same way. The differences between the implementations are the data structure used to store the graph and the replication of the graph. The names of the applications are: \texttt{graph500\_mpi\_simple}, \texttt{graph500\_mpi\_one\_sided}, \texttt{graph500\_mpi\_replicated} and \texttt{graph500\_mpi\_replicated\_csc}.
 \\ 
 The one sided implementation is not be considered, because the one sided implementation expects high performance remote memory access to work properly. This is a technique which can not be relied on in the public cloud, because you have no control over the environment. This is why it is better to stick to the basics. The applications with replicated in the name store the complete graph in each of the nodes. This will take a lot of RAM per node. We would like to use as little hardware as possible on the public cloud. This is why these applications were not considered.
 
@@ -47,21 +47,19 @@ swap(CQ, NQ);
 
 The graph is stored by using Compressed Row Storage\cite{crs} to minimize the amount of data that needs to be stored in the RAM. 
 
-
-
 \subsection*{Initial modeling}
 The paper by Suzumura \cite{suzumura2011performance} also proposes an estimate of the amount of communication in the \texttt{graph500\_mpi\_simple} . The formula is:
 \begin{equation}
 \label{eq:communication_size}
 C(n, M) = A * B * C * D (bytes).
 \end{equation}
-Where $A = M*2, B = (n-1)/n, C=2, and D=8$ and $M$ = total number of edges $n$ = the number of MPI processes. 
+Where $A = M*2, B = (n-1)/n, C=2, and D=8$ and $M$ = total number of edges $n$ = the number of MPI processes.
+Knowing the amount of data is useful to calculate the amount of messages that need be sent and could also be used to calculate the network load.
 
 \subsubsection{Message Passing Interface and OpenMP}
 \label{mpiopenmp}
-The reference code of the Graph 500 is created in C and uses MPI and OpenMP to parallelize the program.
+The Graph 500 reference code is created in C and uses MPI and OpenMP to parallelize the program.
 ``Message Passing Interface (MPI) is a standardized and portable message-passing system designed by a group of researchers from academia and industry to function on a wide variety of parallel computers.\cite{mpi}''
-
 
 ``The OpenMP ARB mission is to standardize directive-based multi-language high-level parallelism that is performant, productive and portable''\cite{openmp}. In the Graph500 reference implementation OpenMP is often used to parallelize loops over multiple cores. 
 

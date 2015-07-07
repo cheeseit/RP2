@@ -4,7 +4,7 @@ In this section the results of this project are shown.
 In this section the results are shown with respect to the inter-node communication. As mentioned in section \ref{med:comm} the benchmark is communication heavy and this might influence the performance. With the following results we would like to get feel for the amount of time is spent sending messages.
 
 \subsubsection{IMB benchmark}
-On each of the systems, we have used the IMB benchmark has been done. To find the time it takes to send messages between two machines. The communications which are relevant are 0, 1028 and 2048 bytes. The 0-bytes times shows the time it takes to send the FINISH message as mentioned in section \ref{med:comm}, 1028 bytes gives an indication of how much time it will take to send a message without a completely full buffer, and lastly the 2048 shows the time it takes to send a full buffer. The complete table is shown in Appendix [REF to appendix].
+On each of the platforms the IMB benchmark has been done to figure out how time it takes to send messages between two machines. The communications which are relevant are 0, 1028 and 2048 bytes. The 0-bytes result shows the time it takes to send the final message of the MPI program, 1028 bytes gives an indication of how much time it will take to send a message a not completely filled buffer, and lastly the 2048 shows the time it takes to send a full buffer. The complete table is shown in Appendix [REF to appendix].
 \begin{table}[!h]
 \begin{tabular}{|l|l|l|l|l|}
 \hline
@@ -19,7 +19,7 @@ Bytes & DAS-4 ($\mu sec$) & DAS-4 no InfiniBand($\mu sec$) & OpenNebula ($\mu se
 \end{table}
 
 \subsubsection{Message count}
-The message count is an important number to calculate the communication time. The amount of data which is sent per message can be estimated. By using this estimation the number of messages can be calculated. As mentioned before in \cite{suzumura2011performance}, an estimation of the amount of bytes is computed using \ref{eq:communication_size}. The figure \ref{fig:das_scale_messages} shows the computed and the observed amount of messages sent per node ,as a function of the scale. The bars named comp show the computed number of messages and obs show the observed number of messages. Figure \ref{fig:scale_messages} shows that the observed number of messages is much lower than the calculated number. By multiplying the number of observed messages by 2 figure \ref{fig:scale_messages_doubled} is created. The figure shows that is a factor two difference between the number of messages. 
+The message count is an important number to calculate the communication time. The amount of data which is sent per message can be estimated. By using this estimation the number of messages can be calculated. As mentioned before in \cite{suzumura2011performance}, an estimation of the amount of bytes is computed using \ref{eq:communication_size}. The figure \ref{fig:das_scale_messages} shows the computed and the observed amount of messages sent per node, as a function of the scale. The bars named comp show the computed number of messages and obs show the observed number of messages. Figure \ref{fig:scale_messages} shows that the observed number of messages is much lower than the calculated number. By multiplying the number of observed messages by 2 figure \ref{fig:scale_messages_doubled} is created. The figure shows that is a factor two difference between the number of messages. It is most likely cause of the fact they take into account that the graph is undirected and multiply by two.Will look into this tomorrow. 
 \begin{figure}[!h]
 \centering
 \begin{subfigure}{.5\textwidth}
@@ -69,7 +69,7 @@ In this section the results are shown for the experiments on DAS-4. Only experim
 \label{sec:noval}
  Figure \ref{fig:val_vs_noval} TEPS as a function of the scale (figure \ref{fig:scale_val_noval}) and the number of nodes (figure \ref{fig:nodes_val_noval}). The results show that there is a difference in the number of TEPS with and without the validation. The difference in performance can be up to 50\% in the case of scale 15 with 16 nodes. What can be noticed in figure \ref{fig:nodes_val_noval} is that the same trends are followed as the number of nodes increases.
  Figure \ref{fig:scale_no_val} shows that for larger scales the difference between the validation and non validation becomes larger.
-The difference in performance does not differ too much and they show the behavior. This means that the estimation that is done using the no validation experiments are comparable to with validation. This is the expected result. 
+The difference in performance does up to 50\% and the results show the behavior for both experiments. This means that the estimation that is done using the no validation experiments are comparable to with validation. This is the expected result. 
  %TODO differences bereken tussen val en no validation.
 \begin{figure}[!h]
 \centering
@@ -93,7 +93,6 @@ The difference in performance does not differ too much and they show the behavio
 \label{res:nodes_scale}
 Figure \ref{fig:das_no_val} shows the amount of TEPS increases as the number of nodes increases. The larger the amount of nodes the more edges can be traversed, as seen in figure \ref{fig:scale_no_val}. This increase in TEPS can be seen up till a certain point. After this tipping point the amount of TEPS decreases again. The tipping point can be found for any number of nodes, although it the performance is almost constant for 2 and 4 nodes for each scale.
 Figure \ref{fig:nodes_no_val} shows the same data, but then as a function of the number of nodes. What can be seen in this figure is that the amount TEPS increases as the nodes increase for each scale. There is an almost linear correlation between the number of nodes and the TEPS for higher scales except for scale 30. One interesting behavior which can be observed in figure \ref{fig:scale_no_val} the decline after the tipping point. The performance decline is much larger for the 32 nodes than the for the smaller amount of nodes.
-
 
 \begin{figure}[!h]
 \centering
