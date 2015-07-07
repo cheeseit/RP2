@@ -1,4 +1,61 @@
-\subsubsection{\texttt{graph500\_mpi\_simple}}
+\subsubsection{Reference Implementations}
+
+%TODO detailed explanation about the algorithm how the division is done between the node. Layers. Need to be edited alot Combined to different pieces
+The reference implementation\cite{graph500-code} used in this project is version 2.1.4. In this version there are four different implementations MPI provided which all perform the BFS in the same way. The differences between the implementations are the data structure used. The names of the applications are: \texttt{graph500\_mpi\_simple}, \texttt{graph500\_mpi\_one\_sided}, \texttt{graph500\_mpi\_replicated} and \texttt{graph500\_mpi\_replicated\_csc}.
+\\ 
+The one sided implementation is not be considered, because the one sided implementation expects high performance remote memory access to work properly. This is a technique which can not be relied on in the public cloud, because you have no control over the environment. This is why it is better to stick to the basics. The applications with replicated in the name store the complete graph in each of the nodes. This will take a lot of RAM per node. We would like to use as little hardware as possible on the public cloud. This is why these applications were not considered.
+
+This leaves us with the last application, which is the \texttt{graph500\_mpi\_simple}. Other reason to choose this application are: it is the most simple to understand, it has been thoroughly studied and it requires the least amount of RAM on each of the nodes. 
+
+A detailed explanation can be found in.\cite{suzumura2011performance}.
+
+The implementation uses 2 queues for the BFS. The first queue is used to store all nodes that should still be visited in this iteration. The second queue is used to store all the nodes that should be visited in the next iteration. When the first queue is empty the roles will be swapped of the queues and the next iteration will start. This is done until there are no more nodes that should be visited. The vertices are evenly distributed between all participating processes.
+
+\begin{lstlisting}[label={code:pseudo-simple},caption={Pseudo code taken from paper \cite{suzumura2011performance}}]
+for all vertex v do 
+   |  pred[v] ← -1; 
+   |  visited[v] ← 0; 
+   CQ  ← Empty; 
+   NQ ← Empty; 
+   CQ[root] ← 1; 
+   
+fork;
+   this ← GetMyRank(); 
+   loop 
+ |  while CQ != Empty do 
+ |  |  for each received vertex v and its predecessor u do 
+ |  |  |  if visited[v] = 0 then 
+ |  |  |  |  visited[v] ← 1; 
+ |  |  |  |  pred[v] ← u; 
+ |  |  |  |  Enqueue(NQ, v); 
+ |  |  u ← Dequeue(CQ); 
+ |  |  for each vertex v adjacent to u do 
+ |  |  |  r ← GetOwner(v); 
+ |  |  |  if r = this then 
+ |  |  |  |  if visited[v] = 0 then 
+ |  |  |  |  |  visited[v] ← 1; 
+ |  |  |  |  |  pred[v] ← u; 
+ |  |  |  |  |  Enqueue(NQ, v); 
+ |  |  |  else 
+ |  |  |  |  send (v, u) to r; 
+ |  if new queue of all the processes is empty then 
+ |  |  break; 
+ |  
+swap(CQ, NQ); 
+  join;
+\end{lstlisting}
+
+The graph is stored by using Compressed Row Storage\cite{crs} to minimize the amount of data that needs to be stored in the RAM. 
+
+
+
+\subsection*{Initial modeling}
+The paper by Suzumura \cite{suzumura2011performance} also proposes an estimate of the amount of communication in the \texttt{graph500\_mpi\_simple} . The formula is:
+\begin{equation}
+\label{eq:communication_size}
+C(n, M) = A * B * C * D (bytes).
+\end{equation}
+Where $A = M*2, B = (n-1)/n, C=2, and D=8$ and $M$ = total number of edges $n$ = the number of MPI processes. 
 
 \subsubsection{Message Passing Interface and OpenMP}
 \label{mpiopenmp}

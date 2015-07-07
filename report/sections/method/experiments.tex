@@ -13,7 +13,7 @@ The last message is used to report that the program is done. The node sends an e
 
 Because the communication is asynchronous all nodes can send messages at the same time. All messages can be send in parallel this means that time it takes for one node to send all it's messages is the communication time of the whole program. We assume that on average all nodes need to send the same amount of messages. With this assumption in mind the total number of messages needs to be divided by the number of nodes to get the number of messages per node. This can then be multiplied by the time it takes to send a message and you will have the theoretical communication time.  
 
-Also the IMB benchmark will be done for each of the environments to measure the time it takes to send messages \ref{tools:imb}.
+Also the IMB benchmark will be done for each of the environments to measure the time it takes to send messages \ref{tools-imb}.
 
 
 \subsubsection{Measurements}

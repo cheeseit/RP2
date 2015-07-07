@@ -1,8 +1,8 @@
-The research question for this project is as follows: \\
-Is it possible to make a model that can predict the performance depending on the amount of resources? \\
-To answer our main question, the following sub-questions have been formulated: 
-\begin{itemize}
-\item What size of graph is reasonable to benchmark while working on the cloud?
-\item How well does the reference implementation\cite{graph500-code} run on the public cloud?
-\item What model fits the results acquired from running the benchmark on the cloud?
-\end{itemize}
+The project focused on finding a model to predict the performance of the a Graph 500 benchmark depending on the amount of resources.
+
+A model has been created, given the scale of the problem is larger than a scale of 18. This model is a linear function on the number of nodes, which currently fits the scales 18 up to scale 30. The coefficient and constant term of this linear function are a dependent on the architecture on which the benchmark is running.
+
+A problem of scale of 30 has been run in the public cloud. This was done by using 32 r3.large instance and had to run for five hours. This amount of nodes is easy to obtain on the Amazon EC2.  
+
+The performance of the Graph 500 benchmark on the DAS-4 has been compared to the performance of the Amazon EC2. From the results we can conclude that the public cloud can be competitive with a super computer. Although there is no InfiniBand in the cloud, the latency and compute power of the machines is competitive with the DAS-4 in terms of performance.
+ 

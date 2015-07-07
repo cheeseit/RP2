@@ -8,15 +8,19 @@ The results in section \ref{res:amazon} show that there is a linear correlation 
 
 Two examples of these equations can be made from figure \ref{fig:model_first}.
 First the equation for the DAS-4:
+%\begin{equation}
+%f(x) = 2034724.34782609 * X + 7702517.39130435
+%\end{equation}
+
 \begin{equation}
-f(x) = 2034724.34782609 * X + 7702517.39130435
+TEPS(x) = 2.03 * X + 7.70
 \end{equation}
 
 Second the equation for Amazon EC2:
 \begin{equation}
-f(x) = 1763988.65217391 * X + 3445382.60869565
+f(x) = 1.76 * X + 3.45
 \end{equation}
-Where X is the number of nodes used for the application.
+Where X is the number of nodes used for the application. Both equations return a value in $10^6$ TEPS (MTEPS).
 
 As can be seen from these two equations the slope and the starting value depend on the architecture on which it runs. To discover these values empirically a few experiments need to be done with the hardware of choice. When these numbers have been found they can be inserted in the formula and.
 
