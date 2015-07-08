@@ -1,4 +1,4 @@
-The goal of the project is to benchmark the Graph 500 kernels on the cloud to find a model to predict the performance of the benchmark for the chosen scale and number of nodes. To create a baseline, experiments were done on the DAS-4 and OpenNebula, before running the benchmark on the cloud.
+To create a baseline, experiments were also done on the DAS-4 and OpenNebula.
 \subsubsection{Das-4}
 \label{hw:das4}
 The Distributed ASCI Supercomputer 4 (DAS-4) is a six-cluster wide-area distributed system designed by the Advanced School for Computing and Imagining (ASCI)\cite{das-4}. The six-clusters are the following:
@@ -55,14 +55,14 @@ The Amazon Elastic Compute Cloud(Amazon EC2) has many different types of instanc
 \item[I - High I/O] Has large SSDs for fast I/O.
 \item[D - Dense Storage] Has large HDD for storing a lot data.
 \end{description}
-From these types, two types are interesting for this project, namely: C and R. We have chosen to use the C and R to determine if using a computation or memory optimized instance will make a difference for the performance of the benchmark.
-The R and C type both have five different sizes of instances and different generations of hardware. Generation three has been chosen for both the R and C type. Size ``large'' is the smallest size which can be used for this type. We chose this size and generation, because these are the cheapest instances that fit the project\footnote{ All experiments have been run on the Ireland region}. The specifications c3.large and r3.large can be seen in table \ref{tab:specs-amazon}.
+From these types, two types are interesting for this project, namely: C and R. They were selected because we want to determine whether using a compute- or memory-optimized instance will make a difference for the performance of the benchmark.
+The R and C types both have five different sizes of instances and different generations of hardware. Generation three has been chosen for both the R and C type. Size ``large'' is the smallest size which can be used for this type. We chose this size and generation because these are the cheapest instances that fit the project\footnote{ All experiments have been run on the Ireland region}. The specifications c3.large and r3.large can be seen in table \ref{tab:specs-amazon}.
 
 \begin{table}[!h]
 \begin{center}
-\begin{tabular}{|l|l|l|l|}
+\begin{tabular}{|l|p{1.8cm}|p{1.5cm}|l|}
 \hline
-Type & number of vCPUs & Memory (GB) & Processor \\ \hline
+Type & Number of vCPUs & Memory (GB) & Processor \\ \hline
 c3.large & 2 & 4 & Intel Xeon E5-2680 v2 (Ivy Bridge) Processors 2.80 GHz \\ \hline
 r3.large & 2 & 16 & Intel Xeon E5-2670 v2 (Ivy Bridge) Processors 2.50 GHz \\ \hline
 \end{tabular}

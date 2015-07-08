@@ -1,11 +1,11 @@
 \subsubsection{Reference Implementations}
 
 %TODO detailed explanation about the algorithm how the division is done between the node. Layers. Need to be edited alot Combined to different pieces
-The Graph 500 reference code\cite{graph500-code} used is version 2.1.4. This version has four different MPI implementations which all perform the BFS in the same way. The differences between the implementations are the data structures used to store the graph and the way  graph is distributed replication. The names of the applications are: \texttt{graph500\_mpi\_simple}, \texttt{graph500\_mpi\_one\_sided}, \texttt{graph500\_mpi\_replicated} and \texttt{graph500\_mpi\_replicated\_csc}.
+The Graph 500 reference code\cite{graph500-code} used is version 2.1.4. This version has four different MPI implementations which all perform the BFS in the same way. The differences between the implementations are the data structures used to store the graph and the way the graph is distributed. The names of the applications are: \texttt{graph500\_mpi\_simple}, \texttt{graph500\_mpi\_one\_sided}, \texttt{graph500\_mpi\_replicated} and \texttt{graph500\_mpi\_replicated\_csc}.
 \\ 
-The \texttt{graph500\_mpi\_one\_sided} is not be considered, because the one sided implementation expects high performance remote memory access to work properly. This is a technique which can not be relied on in the public cloud, because you have no control over the environment. This is why it is better to stick to the basics. The \texttt{graph500\_mpi\_replicated} and \texttt{graph500\_mpi\_replicated\_csc} store the complete graph in each of the nodes. This will take a lot of RAM per node. We would like to use as little hardware as possible on the public cloud. This is why these applications were not considered.
+The \texttt{graph500\_mpi\_one\_sided} is not be considered, because the one sided implementation expects high performance remote memory access to work properly. This is a technique which can not be relied on in the public cloud, because you have no control over the environment. The \texttt{graph500\_mpi\_replicated} and \texttt{graph500\_mpi\_replicated\_csc} store the complete graph in each of the nodes. This will take a lot of RAM per node. We would like to use as little hardware as possible on the public cloud, so we avoided these applications.
 
-This leaves us with the last application, which is the \texttt{graph500\_mpi\_simple}. Other reason to choose this application are: it is the most simple to understand, it has been thoroughly studied and it requires the least amount of RAM on each of the nodes. 
+Thus, we are using \texttt{graph500\_mpi\_simple}. Other reasons to choose this application are: it is the most simple to understand, it has been thoroughly studied and it requires the least amount of RAM on each of the nodes. 
 
 A detailed description of the \texttt{graph500\_mpi\_simple} application can be found in.\cite{suzumura2011performance}.
 
@@ -47,26 +47,28 @@ swap(CQ, NQ);
  
 
 \subsection*{Initial modeling}
-The paper by Suzumura \cite{suzumura2011performance} also proposes an estimate of the amount of communication in the \texttt{graph500\_mpi\_simple} . The formula is:
+Graph traversal is a traditional memory-intensive application. When running on a distributed system, the inter-node communication can also become a bottleneck, depending on the speed of the nodes and the communication links. 
+The paper by Suzumura \cite{suzumura2011performance} proposes an estimate of the amount of communication in the \texttt{graph500\_mpi\_simple} . The formula is:
 \begin{equation}
 \label{eq:communication_size}
 C(n, M) = A * B * C * D (bytes).
 \end{equation}
-Where $A = M*2, B = (n-1)/n, C=2, and D=8$ and $M$ = total number of edges $n$ = the number of MPI processes.
+Where $A = M*2, B = (n-1)/n, C=2$, $D=8$, $M$ = total number of edges, and $n$ = the number of MPI processes.
 Knowing the amount of data is useful to calculate the amount of messages that need be sent and could also be used to calculate the network load.
 
 \subsubsection{Message Passing Interface and OpenMP}
 \label{mpiopenmp}
 The Graph 500 reference code is created in C and uses MPI and OpenMP to parallelize the program.
+
 ``Message Passing Interface (MPI) is a standardized and portable message-passing system designed by a group of researchers from academia and industry to function on a wide variety of parallel computers.\cite{mpi}''
 
-``The OpenMP ARB mission is to standardize directive-based multi-language high-level parallelism that is performant, productive and portable''\cite{openmp}.
+``OpenMP is an implementation of multithreading, a method of parallelizing whereby a master thread (a series of instructions executed consecutively) forks a specified number of slave threads and the system divides a task among them. The threads then run concurrently, with the runtime environment allocating threads to different processors.''\cite{openmp}.
 
 
 \subsubsection{Intel MPI Benchmark}
 \label{tools-imb}
-The Graph 500 is a communication intensive benchmark, because of this we need to understand the inter-node communication performance. For this we use the Intel MPI benchmark(IMB).  
-The IMB is used to determine how well MPI performs on a certain platform. This is a free benchmark that can be used to measure  the performance of the MPI functions. The benchmark consists of a few different tests which all test a different aspect of MPI. Of these tests ``PingPong'' is the one important to us. The ``PingPong'' is used to measure the start up and throughput of a single message sent between two processes\cite{img-userguide}.
+Because Graph 500 is a communication intensive benchmark, we need to understand the inter-node communication performance. For this we use the Intel MPI benchmark(IMB).  
+The IMB is a free benchmark used to determine how well MPI performs on a certain platform. The benchmark consists of a few different tests, each measuring a different aspect of MPI. Of these tests ``PingPong'' is the one important to us. ``PingPong'' is used to measure the start up and throughput of a single message sent between two processes\cite{img-userguide}.
 
- The program is compiled using the OpenMPI compiler, details of the compilation can be found in Appendix [reference compilation benchmark].
+For our purposes, IMB's ``PingPong'' is compiled using the OpenMPI compiler; details of the compilation can be found in Appendix [reference compilation benchmark].
 
