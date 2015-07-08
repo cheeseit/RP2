@@ -27,7 +27,7 @@ The benchmark has defined a few different problem classes. These are shown in ta
 	\label{tab:problem_scales}
 	\end{center}
 \end{table}
-These problem classes give a sense of the size of the  and the amount of storage which is needed to run the experiment. The scale is defined as a combination of the amount of vertices and the edges connected to each of these vertices($2^{scale} * edge factor = number of edges$). The number of vertices is given by the scale. The Toy problem is a graph of  $2^26$ vertices. The other parameter is the edge factor. The edge factor is the amount of edges which are connected the graph. For each of the problem classes the edge factor is 16. 
+These problem classes give a sense of the size of the graph and the amount of storage needed to run the benchmark. The scale is defined as a combination of the amount of vertices and the edges connected to each of these vertices($2^{scale} * edge factor = number of edges$). The number of vertices is given by the scale. For example, the Toy problem is a graph of  $2^26$ vertices. The other parameter is the edge factor. The edge factor is the amount of edges which are connected the graph. For each of the problem classes the edge factor has been set to 16. 
 
 The benchmark consists of the following steps:
 \begin{enumerate}
@@ -42,25 +42,25 @@ The benchmark consists of the following steps:
 	\item Compute the performance
 \end{enumerate}
 
-In the following subsections the all the steps of the benchmark are explained in more detail.
+In the following subsections all steps of the benchmark are explained in more detail.
 
 \subsubsection{Generating the edge list}
-The first step of the benchmark is generating the edge list. For this a data generator is used. The data generator constructs a list of edge tuples containing vertex identifiers, but also contains the start and end vertex, thereby creating a list of undirected edges.
+The first step of the benchmark is generating the edge list. For this a data generator is used. The data generator constructs a list of edge tuples containing the start and end vertex , but also contains a vertex identifiers, thereby creating a list of undirected edges.
 
 The intent of the graph generation is to convert a the edge list, which has no locality, into a data structure which can more easily be used. The list of generated tuples could have some locality because of the way the edges are generated. To lose this locality the edge list is randomized before inserted into the graph generation kernel. 
 
-The graph generator is a Kronecker generator, which has many properties which are seen in graphs in the real world\cite{leskovec2010kronecker}.
+The data generator is a Kronecker generator, which has many properties which are seen in graphs in the real world\cite{leskovec2010kronecker}.
 
 \subsubsection{Graph Construction}
-The graph construction is the first timed kernel. The kernel takes the previously created edge list and transforms it in any desired of data structure. Examples of such data structures are Compressed Row Storage(CRS) and Compressed Sparse Column(CSC)\cite{ccs,crs}. The kernel takes only two parameters, the edge list and the size of the edge list. The number of vertices and other information that might be inferred from the edge list must be done computed by the kernel. 
+The graph construction is the first timed kernel. The kernel takes the previously created edge list and transforms it into a data structure of choice. Examples of data structures to store graphs are Compressed Row Storage(CRS) and Compressed Sparse Column(CSC)\cite{ccs,crs}. The kernel takes only two parameters, the edge list and the size of the edge list. The number of vertices and other information that might be inferred from the edge list must computed by the kernel. 
 
 One thing to note is that the data structure created in this kernel cannot be altered by subsequent kernels. 
 
 \subsubsection{Sampling 64 search keys}
-After the graph is constructed a few searches need to be done. By performing these searches the speed of traversal can be measured. The search keys needs to have at least one other vertex connected to them. The search is done in a Breadth First Search way.
+After the graph is constructed a 64 searches need to be done. By performing these searches the speed of traversal can be measured. The search keys need to have at least one other vertex connected to them, to prevent trivial searches. The search is done in a Breadth First Search way.
 
 \subsubsection{Breadth First Search}
-Breadth First Search\cite{bfs} (BFS) is the way of traversing a graph chosen by the Graph 500. BFS visits all vertices each on the level before moving on to the next level. The level of a vertex is defined as the minimum number of edges that need to traversed to get ot the root. It keeps traversing the Graph 500 until all vertices in the graph have been visited. An example of the traversal can be seen in figure \ref{fig:bfs}. If the search key is H then the output of the BFS will be A-H in alphabetical order.
+Breadth First Search\cite{bfs} (BFS) is the way of traversing a graph chosen by the Graph 500. BFS visits all vertices each on the level before moving on to the next level. The level of a vertex is defined as the minimum number of edges that need to traversed to get to the root. It keeps traversing the Graph 500 until all vertices in the graph have been visited. An example of the traversal can be seen in figure \ref{fig:bfs}. For example, if the search key is H in this figure, then the output of the BFS will be A-H in alphabetical order.
 Note that the Graph 500 benchmark only specifies the end results is a BFS, but does not specify how the program gets to this result.
 \begin{figure}[!h]
 	\includegraphics[width=\textwidth]{images/BFS-example1-with-levels}
@@ -69,7 +69,7 @@ Note that the Graph 500 benchmark only specifies the end results is a BFS, but d
 \end{figure}
 
 \subsubsection{Validation}
-After the each of the searches a validation is done. The validation does soft checking of the result, because there is some randomness in the process, which makes validating it against a reference hard. This validation checks for the following things:
+After the each of the searches a validation is done. The validation does soft checking of the result, because there is some randomness in the process, validation against a reference is not possible. The validation checks for the following things:
 \begin{enumerate}
 \item The BFS tree is a tree and does not contain cycles.
 \item Each tree edge connects vertices whose BFS levels differ by exactly one.

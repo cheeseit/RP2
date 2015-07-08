@@ -10,9 +10,9 @@ The Distributed ASCI Supercomputer 4 (DAS-4) is a six-cluster wide-area distribu
 \item Univeristeit van Amsterdam - The MultimediaN (UVA-MN) 
 \item Astronomy institute Netherlands Institute for Radio Astronomy (ASTRON)
 \end{itemize}
-All computations have been done on the clusters from the VU and LU. These two clusters are chosen because the LU cluster is not actively used. The VU cluster has the most machine available and has an OpenNebula cluster installed. The specifications of the clusters can be found in table \ref{tab:das-clusters}. 
+All computations have been done on the clusters from the VU and LU. The LU cluster was not actively used at that time. The VU cluster has the most nodes available of the all the clusters and has an OpenNebula cluster installed. The specifications of the clusters can be found in table \ref{tab:das-clusters}. 
 
-Each of the nodes in the clusters has a dual quad-core processor with a speed of 2.4 GHz. All the nodes are also connected with InfiniBand\cite{infiniband}. All nodes on the cluster have CentOS release 6.6 (Final) installed.
+Each of the nodes in the clusters has a dual quad-core processor with a speed of 2.4 GHz. All the nodes are also connected with InfiniBand\cite{infiniband} to improve the inter-node communication. The nodes on the cluster have CentOS release 6.6 (Final) installed.
 \begin{table}[!h]
 	\begin{center}
 \begin{tabular}{|l|l|l|}
@@ -26,12 +26,10 @@ LU		& 16 & 48 \\ \hline
 \label{tab:das-clusters}
 \end{table}
 
-
-
 \subsubsection{OpenNebula}
 \label{hw:opennebula}
-To be able to compare the results from the public cloud to another cloud solution OpenNebula was used. 
-``OpenNebula  provides the most simple but feature-rich and flexible solution for the comprehensive management of virtualized data centers to enable private, public and hybrid IaaS clouds. OpenNebula interoperability makes cloud an evolution by leveraging existing IT assets, protecting your investments, and avoiding vendor lock-in.'' \cite{opennebula}. The OpenNebula(ON) installed on the VU cluster is version 3.8. The ON cluster on the DAS-4 consists of eight nodes. Table \ref{tab:specs-opennebula} shows the specifications of the ON nodes. ON uses templates to define resources to give virtual machines. This is needed to know how to instantiate virtual machines using a given image. The VMs created used the following two templates seen in Appendix[Reference].
+To be able to compare the results from the public cloud to another cloud solution, OpenNebula was used. 
+``OpenNebula  provides the most simple but feature-rich and flexible solution for the comprehensive management of virtualized data centers to enable private, public and hybrid IaaS clouds. OpenNebula interoperability makes cloud an evolution by leveraging existing IT assets, protecting your investments, and avoiding vendor lock-in.'' \cite{opennebula}. The OpenNebula(ON) software installed on the VU cluster is version 3.8. The ON cluster on the DAS-4 consists of eight nodes. Table \ref{tab:specs-opennebula} shows the specifications of the ON nodes. ON uses templates to define resources to give virtual machines.  The template needed to know how to instantiate virtual machines using a given image and makes the resource provisioning flexible. The created virtual machines used the following two templates seen in Appendix[Reference].
 %TODO think of what to more to write about the templates.
 \begin{table} [!h]
 	\begin{center}
@@ -47,7 +45,7 @@ To be able to compare the results from the public cloud to another cloud solutio
 
 \subsubsection{Amazon EC2 instance types}
 \label{hw:Amazon}
-The Amazon Elastic Compute Cloud(Amazon EC2) has many different types of instances, optimized for specific purposes\cite{amazon-instances}. The following types have been defined:
+The Amazon Elastic Compute Cloud(Amazon EC2) has many different types of instances, each optimized for specific purposes\cite{amazon-instances}. The following types are available:
 \begin{description}
 \item[T - Burstable Performance Instances] provide burst of CPU with a low baseline. This means that it cannot maintain a constant high CPU load.
 \item[M - Balanced] Well balanced in terms of memory, CPU and network resources.
@@ -57,14 +55,14 @@ The Amazon Elastic Compute Cloud(Amazon EC2) has many different types of instanc
 \item[I - High I/O] Has large SSDs for fast I/O.
 \item[D - Dense Storage] Has large HDD for storing a lot data.
 \end{description}
-From these types there, the types which are interesting for this project, namely: C and R. We have chosen to use the C and R to find out if using a computation or memory optimized instance will make a difference for \texttt{graph500\_mpi\_simple}.
-The R and C type both have five different sizes, but the R type instances of generation three while the C has instances for generation three and four. Generation three has been chosen to keep the results comparable between the R and C type. Size ``large'' is the smallest size which can be used for this type. We chose this size, because these are the cheapest instances. The specifications c3.large and r3.large can be seen in table \ref{tab:specs-amazon}. All experiments have been run on the Ireland region.
+From these types, two types are interesting for this project, namely: C and R. We have chosen to use the C and R to determine if using a computation or memory optimized instance will make a difference for the performance of the benchmark.
+The R and C type both have five different sizes of instances and different generations of hardware. Generation three has been chosen for both the R and C type. Size ``large'' is the smallest size which can be used for this type. We chose this size and generation, because these are the cheapest instances that fit the project\footnote{ All experiments have been run on the Ireland region}. The specifications c3.large and r3.large can be seen in table \ref{tab:specs-amazon}.
 
 \begin{table}[!h]
 \begin{center}
 \begin{tabular}{|l|l|l|l|}
 \hline
-Type & vCPU & Mem GB & Processor \\ \hline
+Type & number of vCPUs & Memory (GB) & Processor \\ \hline
 c3.large & 2 & 4 & Intel Xeon E5-2680 v2 (Ivy Bridge) Processors 2.80 GHz \\ \hline
 r3.large & 2 & 16 & Intel Xeon E5-2670 v2 (Ivy Bridge) Processors 2.50 GHz \\ \hline
 \end{tabular}

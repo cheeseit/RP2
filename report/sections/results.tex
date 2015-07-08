@@ -19,7 +19,7 @@ Bytes & DAS-4 ($\mu sec$) & DAS-4 no InfiniBand($\mu sec$) & OpenNebula ($\mu se
 \end{table}
 
 \subsubsection{Message count}
-The message count is an important number to calculate the communication time. The amount of data which is sent per message can be estimated. By using this estimation the number of messages can be calculated. As mentioned before in \cite{suzumura2011performance}, an estimation of the amount of bytes is computed using \ref{eq:communication_size}. The figure \ref{fig:das_scale_messages} shows the computed and the observed amount of messages sent per node, as a function of the scale. The bars named comp show the computed number of messages and obs show the observed number of messages. Figure \ref{fig:scale_messages} shows that the observed number of messages is much lower than the calculated number. By multiplying the number of observed messages by 2 figure \ref{fig:scale_messages_doubled} is created. The figure shows that is a factor two difference between the number of messages. It is most likely cause of the fact they take into account that the graph is undirected and multiply by two.Will look into this tomorrow. 
+The message count is an metric to calculate the communication time. The amount of data which is sent per message can be estimated. By using this estimation the number of messages can be calculated. As mentioned before in \cite{suzumura2011performance}, an estimation of the amount of bytes is computed using \ref{eq:communication_size}. The figure \ref{fig:das_scale_messages} shows the computed and the observed amount of messages sent per node, as a function of the scale. The bars named comp show the computed number of messages and obs show the observed number of messages. Figure \ref{fig:scale_messages} shows that the observed number of messages is lower than the calculated number. By multiplying the number of observed messages by 2 figure \ref{fig:scale_messages_doubled} is created. The figure shows that is a factor two difference between the number of messages. It is most likely cause of the fact they take into account that the graph is undirected and multiply by two.Will look into this tomorrow. 
 \begin{figure}[!h]
 \centering
 \begin{subfigure}{.5\textwidth}
@@ -91,7 +91,7 @@ The difference in performance does up to 50\% and the results show the behavior 
 
 \subsubsection{Nodes and Scale}
 \label{res:nodes_scale}
-Figure \ref{fig:das_no_val} shows the amount of TEPS increases as the number of nodes increases. The larger the amount of nodes the more edges can be traversed, as seen in figure \ref{fig:scale_no_val}. This increase in TEPS can be seen up till a certain point. After this tipping point the amount of TEPS decreases again. The tipping point can be found for any number of nodes, although it the performance is almost constant for 2 and 4 nodes for each scale.
+Figure \ref{fig:das_no_val} shows that the performance increases as the number of nodes increases. The more nodes participatin, the more edges can be traversed, as seen in figure \ref{fig:scale_no_val}. This increase in performance can be seen up till a certain point. After this tipping point the amount of TEPS decreases again. The tipping point can be found for any number of nodes, although the performance is almost constant for 2 and 4 nodes for each scale.
 Figure \ref{fig:nodes_no_val} shows the same data, but then as a function of the number of nodes. What can be seen in this figure is that the amount TEPS increases as the nodes increase for each scale. There is an almost linear correlation between the number of nodes and the TEPS for higher scales except for scale 30. One interesting behavior which can be observed in figure \ref{fig:scale_no_val} the decline after the tipping point. The performance decline is much larger for the 32 nodes than the for the smaller amount of nodes.
 
 \begin{figure}[!h]
@@ -113,8 +113,8 @@ Figure \ref{fig:nodes_no_val} shows the same data, but then as a function of the
 \end{figure}
 
 \subsubsection{No InfiniBand}
-The experiments on the DAS-4 have also been run without InfiniBand. The results show some similarities what has been seen previously. As before figure \ref{fig:scale_no_infini} shows an increase in TEPS as the scale increases till a certain tipping point, but unlike what has been seen in figure \ref{fig:scale_no_val} the tipping point has not been yet been reached at scale 24.
- Figure \ref{fig:nodes_no_infini} show similar results to figure \ref{fig:nodes_no_val}. The difference between the maximum TEPS for 16 nodes from the results of section \ref{res:nodes_scale} is six times as large as the maximum value for the same amount of nodes from the InfiniBand experiments.
+The experiments on the DAS-4 have also been run without InfiniBand. The results show similarities with the DAS-4 results with InfiniBand. Figure \ref{fig:scale_no_infini} shows an increase in performance as the scale increases till a certain tipping point, but unlike what has been seen in figure \ref{fig:scale_no_val} the tipping point has not been yet been reached at scale 24.
+ Figure \ref{fig:nodes_no_infini} shows similar results to figure \ref{fig:nodes_no_val}. The difference between the maximum TEPS for 16 nodes from the results of section \ref{res:nodes_scale} is six times as large as the maximum value for the same amount of nodes from the InfiniBand experiments.
 Figure \ref{fig:scale_no_infini} also shows the same trends as figure \ref{fig:scale_no_val}. 
  
 \begin{figure}[!h]
@@ -137,13 +137,12 @@ Figure \ref{fig:scale_no_infini} also shows the same trends as figure \ref{fig:s
 
 \subsection{OpenNebula}
 The OpenNebula results can best be compared the results on the DAS-4 without InfiniBand, because the VMs on the OpenNebula do not use InfiniBand.
-Looking at figure \ref{fig:das_opennebula}, the performance seems to vary significantly. The number of TEPS which can be achieved on OpenNebula is much lower than what can be seen without InfiniBand. 
+Looking at figure \ref{fig:das_opennebula}, the performance seems to vary significantly. The number of performance that can be achieved on OpenNebula is much lower than can be achieved on the DAS-4 even  without InfiniBand. 
 
-The difference in performance between using four and eight nodes is much less clear on the OpenNebula, four nodes sometimes have better performance than eight nodes as seen in figure \ref{fig:nodes_opennebula}.
-For the larger scales 21 and 24, the same linear correlation can be seen between the number of nodes and the performance.
+The difference in performance between using four and eight nodes is much less clear on the OpenNebula, a higher performance can sometimes be achieved with four nodes compared to eight nodes as seen in figure \ref{fig:nodes_opennebula}. Which not the case on the DAS-4.
+For the larger scales 21 and 24, a linear correlation can be seen between the number of nodes and the performance.
 
-The performance order of magnitude is much lower than what can be seen in Amazon and the DAS-4 without InifiBand. One of the reasons for this is the hardware it is running on. When looking at table \ref{tab:specs-opennebula} it is clear that the clock speed is lower than the other machines. Also the communication time in the OpenNebula cluster \ref{tab:imb_bench} is more than twice as long as the communication time within Amazon EC2 and about four times as long as for the DAS-4 without InfiniBand. Furthermore, the fact that there are only eight physical machines hosting all the nodes may play a part in the performance. By looking at \ref{fig:scale_opennebula} the tipping points are harder to distinguish but for four and eight nodes it can be found at scale 18. For the experiments on the DAS-4 can be found a bit later around the 18-21 point.
-
+The performance is an order of magnitude lower than what can be seen in Amazon and the DAS-4 without InifiBand. One of the possible reasons for this is the hardware it is running on. By looking at table \ref{tab:specs-opennebula} we see that the clock speed is lower than the other machines. Also the communication time in the OpenNebula cluster \ref{tab:imb_bench} is more than twice as long as the communication time within Amazon EC2 and about four times as long as for the DAS-4 without InfiniBand. Furthermore, the fact that there are only eight physical machines hosting all the nodes may play a part in the performance. By looking at \ref{fig:scale_opennebula} the tipping points are harder to distinguish but for four and eight nodes it can be found at scale 18. For the experiments on the DAS-4 can be found a bit later around the 18-21 point.
 
 \begin{figure}[!h]
 \centering
@@ -165,14 +164,16 @@ The performance order of magnitude is much lower than what can be seen in Amazon
 
 \subsection{Amazon}
 \label{res:amazon}
-The figure \ref{fig:c3_amazon} and \ref{fig:r3_amazon} the results are shown for the experiments done on Amazon. The experiments have been done for two types of machines. Figure \ref{fig:c3_amazon} and \ref{fig:r3_amazon} are almost identical in terms of performance and behavior, but the r3.large can run experiments with a higher scale. The experiments done with the c3.large show that the c3.large reaches linear behavior faster than the r3.large which can be seen in figure \ref{fig:nodes_c3_amazon} and \ref{fig:nodes_r3_amazon}. For the c3.large scale 18 already shows linear behavior where as r3.large this starts at scale 21. All lines above scale 18 tightly packed on each other, as seen in figure \ref{fig:nodes_c3_amazon}.
+In figures \ref{fig:c3_amazon} and \ref{fig:r3_amazon} the results are shown for the experiments done on Amazon. The figures show almost identical in terms of performance and behavior, but the r3.large can run experiments of a higher scale. The experiments done with the c3.large show that the c3.large reaches linear behavior faster than the r3.large which can be seen in figure \ref{fig:nodes_c3_amazon} and \ref{fig:nodes_r3_amazon}. For the c3.large scale 18 already shows linear behavior where as r3.large this starts at scale 21. All lines above scale 18 tightly packed on each other, as seen in figure \ref{fig:nodes_c3_amazon}.
  For the results of the r3 machines figure \ref{fig:nodes_r3_amazon} shows a more discrepancies between the scales 18 and higher. The thing to notice is that by doubling the amount of nodes used the performance also doubles.
  
 Both figures show that for scales lower than 15 a different behavior is seen than for scales. At the lower scales the performance is almost constant for each number of nodes that have been tested. These scale have a tipping point at which adding more nodes only decreases the performance. 
 
 Comparing these results with the results of the OpenNebula and the DAS-4 without InfiniBand, the AWS experiment can traverse about ten times as much edges comparing to OpenNebula. The AWS has about 50\% less TEPS than DAS-4 without Infiniband, but the behavior seen for larger scales.
 
- Both figures show a slow decline in performance after the tipping point in figure \ref{fig:scale_c3_amazon} and \ref{fig:scale_r3_amazon}. The parallelism becomes saturated at an earlier point for the Amazon EC2 instances than for the DAS-4. With the Amazon instances it happens at about scale 18 and for the DAS-4 18 and higher scales. Also when looking at the figures \ref{fig:nodes_c3_amazon} and \ref{fig:nodes_r3_amazon} the tipping point has not been reached for scales above 15. The behavior for smaller scales is most likely due to the communication time. As shown in table \ref{tab:imb_bench} the time taken to send messages on Amazon EC2 is twice as long compared to the DAS-4 no InfiniBand. While looking at the OpenNebula results where the communication is even longer than for EC2 the constant performance for each number of nodes is still seen up to scale 18.
+ Both figures show a slow decline in performance after the tipping point in figure \ref{fig:scale_c3_amazon} and \ref{fig:scale_r3_amazon}. The parallelism becomes saturated at an earlier point for the Amazon EC2 instances than for the DAS-4. With the Amazon instances it happens at about scale 18 and for the DAS-4 18 and higher scales. Furthermore, when looking at the figures \ref{fig:nodes_c3_amazon} and \ref{fig:nodes_r3_amazon} the tipping point has not been reached for scales above 15. 
+ 
+ The behavior for the scales up to scale 15 is most likely due to the communication time. As shown in table \ref{tab:imb_bench} the time taken to send messages on Amazon EC2 is twice as long compared to the DAS-4 no InfiniBand. While looking at the OpenNebula results where the communication is even longer than for EC2 the constant performance for each number of nodes is still seen up to scale 18. This makes us believe that this constant behavior for lower scales is the communication time.
 
 \begin{figure}[!h]
 	\centering
@@ -209,5 +210,3 @@ Comparing these results with the results of the OpenNebula and the DAS-4 without
 	\caption{This figure shows the TEPS vs the scale and nodes for the experiments done on AWS r3.large machines}
 	\label{fig:r3_amazon}
 \end{figure}
-
-
