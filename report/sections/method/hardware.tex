@@ -1,4 +1,4 @@
-To create a baseline, experiments were also done on the DAS-4 and OpenNebula.
+The goal of the project is to design a model to predict the performance of Graph 500 on the cloud. To do so, we use an empirical approach: we benchmark the Graph 500 kernels on the cloud and build a numerical model from the observed performance. To create a baseline, experiments were also done on the DAS-4 and OpenNebula.
 \subsubsection{Das-4}
 \label{hw:das4}
 The Distributed ASCI Supercomputer 4 (DAS-4) is a six-cluster wide-area distributed system designed by the Advanced School for Computing and Imagining (ASCI)\cite{das-4}. The six-clusters are the following:
@@ -29,8 +29,7 @@ LU		& 16 & 48 \\ \hline
 \subsubsection{OpenNebula}
 \label{hw:opennebula}
 To be able to compare the results from the public cloud to another cloud solution, OpenNebula was used. 
-``OpenNebula  provides the most simple but feature-rich and flexible solution for the comprehensive management of virtualized data centers to enable private, public and hybrid IaaS clouds. OpenNebula interoperability makes cloud an evolution by leveraging existing IT assets, protecting your investments, and avoiding vendor lock-in.'' \cite{opennebula}. The OpenNebula(ON) software installed on the VU cluster is version 3.8. The ON cluster on the DAS-4 consists of eight nodes. Table \ref{tab:specs-opennebula} shows the specifications of the ON nodes. ON uses templates to define resources to give virtual machines.  The template needed to know how to instantiate virtual machines using a given image and makes the resource provisioning flexible. The created virtual machines used the following two templates seen in Appendix[Reference].
-%TODO think of what to more to write about the templates.
+``OpenNebula  provides the most simple but feature-rich and flexible solution for the comprehensive management of virtualized data centers to enable private, public and hybrid IaaS clouds. OpenNebula interoperability makes cloud an evolution by leveraging existing IT assets, protecting your investments, and avoiding vendor lock-in.'' \cite{opennebula}. The OpenNebula software installed on the VU cluster is version 3.8. The OpenNebula cluster on the DAS-4 consists of eight nodes. Table \ref{tab:specs-opennebula} shows the specifications of the OpenNebula nodes. OpenNebula uses templates to define resources to give virtual machines. The template needed to know how to instantiate virtual machines using a given image and makes the resource provisioning flexible. The created virtual machines used the following two templates seen in Appendix \ref{app:on-templates}.
 \begin{table} [!h]
 	\begin{center}
 	\begin{tabular}{|l|l|l|}
